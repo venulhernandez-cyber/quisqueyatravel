@@ -1,27 +1,21 @@
-# Cómo desplegar Quisqueya Travel sin que "se pierda" otra vez
+# Cómo se despliega Quisqueya Travel (actualizado)
 
-## Qué pasó
+## Estado actual: deploy automático activado ✅
 
-El sitio real es **https://quisqueyatravel.netlify.app** (proyecto Netlify "quisqueyatravel", Project ID `2f529032-f47f-4317-8019-445ab2b841cb`, creado el 10 de junio).
+El sitio **https://quisqueyatravel.netlify.app** ya no depende de subir archivos a mano. Está conectado a:
 
-Existe también un sitio viejo y abandonado en `golden-heliotrope-c5c46d.netlify.app` — es un deploy suelto de una sesión anterior que quedó huérfano. La documentación de la tarea programada (`config.md` / SKILL de Quisqueya Travel) todavía apunta a esa URL vieja, por eso pareció que "el sitio se había caído": no se cayó, simplemente se estaba buscando en la dirección equivocada.
+- **Repositorio:** https://github.com/venulhernandez-cyber/quisqueyatravel (rama `main`)
+- **Netlify:** auto-publish activado — cualquier cambio en `main` se despliega solo, normalmente en 2-7 segundos.
 
-## La causa raíz
+## Qué significa esto en la práctica
 
-Netlify Drop (arrastrar una carpeta a app.netlify.com) crea un **sitio nuevo con nombre aleatorio cada vez que lo subes desde la página genérica `/drop`**. Si en vez de eso subes los archivos siempre dentro del proyecto correcto (`/projects/quisqueyatravel/deploys`), se actualiza el mismo sitio de siempre — eso es lo que hemos estado haciendo en esta sesión.
+Para actualizar el sitio, ya no hace falta entrar a Netlify ni arrastrar carpetas. Basta con subir los archivos nuevos o editados al repositorio de GitHub (rama `main`), por ejemplo desde la página web de GitHub: `github.com/venulhernandez-cyber/quisqueyatravel` → "Add file" → "Upload files". Netlify detecta el cambio y publica automáticamente.
 
-## Regla de oro para no repetir el problema
+## Por qué se hizo este cambio
 
-1. **Nunca** uses `app.netlify.com/drop` a secas — siempre entra primero a `https://app.netlify.com/projects/quisqueyatravel/deploys` y sube los archivos ahí.
-2. El nombre del proyecto ("quisqueyatravel") es fijo — no cambia aunque subas archivos nuevos, mientras lo hagas en esa misma pantalla.
-3. Antes de dar por "caído" el sitio, verifica primero en el dashboard de Netlify (`app.netlify.com/teams/venulhernandez/projects`) si existe un proyecto con un nombre distinto al que tenías anotado — pudo haber cambiado de nombre en otra sesión.
-4. Corrige (o pide que se corrija) la URL vieja `golden-heliotrope-c5c46d` en la configuración de la tarea programada `quisqueya-travel-diario`, para que no vuelva a generar confusión.
+Antes, cada actualización requería subir manualmente la carpeta completa a Netlify Drop. Eso generó el problema original: un deploy suelto del pasado (`golden-heliotrope-c5c46d.netlify.app`) quedó huérfano y su URL siguió apareciendo en documentación vieja, lo que pareció un "sitio caído" cuando en realidad el sitio real (`quisqueyatravel`) seguía funcionando bien. Con GitHub conectado, ya no existe ese riesgo: solo hay un origen de verdad (el repositorio) y Netlify siempre construye desde ahí.
 
-## Recomendación para eliminar el riesgo de raíz (opcional, requiere tu decisión)
-
-La forma más sólida de que esto no vuelva a pasar es dejar de depender de subir archivos a mano y conectar el sitio a un repositorio de GitHub (Netlify hace el deploy automático en cada cambio, con historial completo). Esto requiere crear un repo y conectar tu cuenta de GitHub a Netlify — es un cambio de una sola vez. También puedes comprar un dominio propio (ej. quisqueyatravel.com) para no depender del subdominio de Netlify. Avísame si quieres que te ayude a configurar cualquiera de las dos cosas.
-
-## Archivos del sitio (carpeta local)
+## Archivos del sitio
 
 - `index.html` — homepage
 - `guia-requisitos-viaje-rd-2026.html`
@@ -29,4 +23,8 @@ La forma más sólida de que esto no vuelva a pasar es dejar de depender de subi
 - `guia-vuelos-nyc-rd.html`
 - `robots.txt`, `sitemap.xml`
 
-Cada vez que se edite cualquiera de estos archivos, hay que volver a subir **todos** a la vez en `/projects/quisqueyatravel/deploys` (el deploy reemplaza el sitio completo).
+Estos mismos archivos viven en dos lugares ahora: esta carpeta local (`Desktop\Quisqueya`) y el repositorio de GitHub. Si se edita uno, hay que subir la versión actualizada a GitHub para que se refleje en vivo — la carpeta local por sí sola ya no actualiza el sitio.
+
+## Pendiente opcional
+
+Dominio propio (ej. `quisqueyatravel.com`) en vez de depender del subdominio `.netlify.app` — requiere compra y configuración de DNS, decisión de Venul.
