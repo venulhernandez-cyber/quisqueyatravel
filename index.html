@@ -160,16 +160,25 @@
     .destino-card:hover { transform: translateY(-6px); box-shadow: 0 10px 35px rgba(0,0,0,0.12); }
     .destino-img {
       height: 200px; display: flex; align-items: center; justify-content: center;
-      font-size: 5rem; position: relative;
+      font-size: 3rem; position: relative;
+      background-size: cover; background-position: center; background-repeat: no-repeat;
     }
-    .destino-img.punta-cana  { background: linear-gradient(135deg, #006994, #00b4d8); }
-    .destino-img.santo-domingo { background: linear-gradient(135deg, #8b0000, #c1121f); }
-    .destino-img.puerto-plata { background: linear-gradient(135deg, #1a6b3a, #2d9b5a); }
-    .destino-img.la-romana   { background: linear-gradient(135deg, #b5450b, #f4a261); }
-    .destino-img.samana      { background: linear-gradient(135deg, #023e8a, #0077b6); }
+    .destino-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 100%);
+    }
+    .destino-img span.destino-emoji {
+      position: relative; z-index: 1; font-size: 2.8rem;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+    }
+    .destino-img.punta-cana   { background-image: url('https://images.unsplash.com/photo-1551126892-7cf2e2d9a4d9?w=600&q=80&fit=crop&auto=format'); }
+    .destino-img.santo-domingo { background-image: url('https://images.unsplash.com/photo-1615305211793-2b62059b8f27?w=600&q=80&fit=crop&auto=format'); }
+    .destino-img.puerto-plata  { background-image: url('https://images.unsplash.com/photo-1611877794310-d8d6f97401fc?w=600&q=80&fit=crop&auto=format'); }
+    .destino-img.la-romana     { background-image: url('https://images.unsplash.com/photo-1645408728506-b94d088f10f0?w=600&q=80&fit=crop&auto=format'); }
+    .destino-img.samana        { background-image: url('https://images.unsplash.com/photo-1586748541308-9e0ae6982dc7?w=600&q=80&fit=crop&auto=format'); }
     .destino-tag {
-      position: absolute; top: 12px; right: 12px;
-      background: rgba(255,255,255,0.9); color: var(--verde);
+      position: absolute; top: 12px; right: 12px; z-index: 1;
+      background: rgba(255,255,255,0.92); color: var(--verde);
       padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 700;
     }
     .destino-body { padding: 22px; }
@@ -341,7 +350,7 @@
     <div class="destinos-grid">
 
       <div class="destino-card" role="button" tabindex="0" onclick="filtrarHoteles('punta-cana')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filtrarHoteles('punta-cana')}">
-        <div class="destino-img punta-cana">🌴<span class="destino-tag">⭐ Más popular</span></div>
+        <div class="destino-img punta-cana"><span class="destino-emoji">🌴</span><span class="destino-tag">⭐ Más popular</span></div>
         <div class="destino-body">
           <h3>Punta Cana</h3>
           <p>Playas de arena blanca, resorts todo incluido y la mejor vida nocturna del Caribe.</p>
@@ -354,7 +363,7 @@
       </div>
 
       <div class="destino-card" role="button" tabindex="0" onclick="filtrarHoteles('santo-domingo')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filtrarHoteles('santo-domingo')}">
-        <div class="destino-img santo-domingo">🏛️</div>
+        <div class="destino-img santo-domingo"><span class="destino-emoji">🏛️</span></div>
         <div class="destino-body">
           <h3>Santo Domingo</h3>
           <p>La primera ciudad del Nuevo Mundo. Historia, cultura y gastronomía dominicana auténtica.</p>
@@ -367,7 +376,7 @@
       </div>
 
       <div class="destino-card" role="button" tabindex="0" onclick="filtrarHoteles('puerto-plata')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filtrarHoteles('puerto-plata')}">
-        <div class="destino-img puerto-plata">⛰️</div>
+        <div class="destino-img puerto-plata"><span class="destino-emoji">⛰️</span></div>
         <div class="destino-body">
           <h3>Puerto Plata</h3>
           <p>Montañas, playas y el teleférico más famoso del Caribe. Naturaleza en estado puro.</p>
@@ -380,7 +389,7 @@
       </div>
 
       <div class="destino-card" role="button" tabindex="0" onclick="filtrarHoteles('la-romana')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filtrarHoteles('la-romana')}">
-        <div class="destino-img la-romana">🎨</div>
+        <div class="destino-img la-romana"><span class="destino-emoji">🎨</span></div>
         <div class="destino-body">
           <h3>La Romana</h3>
           <p>Casa de Campo, Altos de Chavón y una costa espectacular para escapar del bullicio.</p>
@@ -393,7 +402,7 @@
       </div>
 
       <div class="destino-card" role="button" tabindex="0" onclick="filtrarHoteles('samana')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filtrarHoteles('samana')}">
-        <div class="destino-img samana">🐋</div>
+        <div class="destino-img samana"><span class="destino-emoji">🐋</span></div>
         <div class="destino-body">
           <h3>Samaná</h3>
           <p>Ballenas jorobadas, cascada El Limón y naturaleza que te deja sin palabras.</p>
