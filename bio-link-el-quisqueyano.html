@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">(function(){var script=document.createElement("script");script.async=1;script.src="https://emrldtp.com/NTQzMzQ5.js?t=543349";document.head.appendChild(script);})()</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#06182e" />
+<meta name="color-scheme" content="dark" />
+<title>El Quisqueyano en NYC — Enlaces</title>
+<meta name="description" content="Cultura, comunidad y motivación dominicana en Nueva York. Síguenos y descubre Quisqueya Travel." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #06182e;
+    --navy2: #0d2a4a;
+    --azul: #002d62;
+    --rojo: #ce1126;
+    --rojo2: #e8313f;
+    --dorado: #f4c542;
+    --crema: #fdf6e8;
+    --blanco: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    min-height: 100%;
+    font-family: 'Manrope', sans-serif;
+    color: var(--crema);
+    background: radial-gradient(circle at 50% -10%, var(--navy2) 0%, var(--navy) 55%, #030c18 100%);
+    background-attachment: fixed;
+    color-scheme: dark;
+  }
+  body {
+    display: flex; justify-content: center;
+    padding: max(48px, env(safe-area-inset-top)) 18px max(60px, env(safe-area-inset-bottom));
+    position: relative; overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+  a { -webkit-tap-highlight-color: transparent; }
+  /* Textura sutil de bandera en el fondo */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(206,17,38,0.18), transparent 38%),
+      radial-gradient(circle at 88% 78%, rgba(244,197,66,0.14), transparent 42%);
+    pointer-events: none; z-index: 0;
+  }
+  .page { position: relative; z-index: 1; width: 100%; max-width: 420px; }
+
+  /* ── HERO ── */
+  .hero { text-align: center; margin-bottom: 34px; opacity: 0; animation: rise .6s ease-out .05s forwards; }
+  .avatar {
+    width: 92px; height: 92px; margin: 0 auto 18px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, var(--rojo) 0%, var(--azul) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.4rem;
+    border: 3px solid var(--dorado);
+    box-shadow: 0 0 0 6px rgba(244,197,66,0.12), 0 12px 30px rgba(0,0,0,0.45);
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(244,197,66,0.12); border: 1px solid rgba(244,197,66,0.35);
+    color: var(--dorado); font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 20px; margin-bottom: 14px;
+  }
+  .nombre {
+    font-family: 'Bebas Neue', sans-serif; letter-spacing: 1.5px;
+    font-size: 2.4rem; line-height: 1; color: var(--blanco);
+    text-shadow: 0 2px 18px rgba(0,0,0,0.4);
+    text-wrap: balance;
+  }
+  .nombre em { color: var(--dorado); font-style: normal; }
+  .tagline {
+    margin-top: 10px; font-size: 0.96rem; color: rgba(253,246,232,0.78);
+    line-height: 1.5; max-width: 300px; margin-inline: auto;
+    text-wrap: pretty;
+  }
+
+  /* ── LINKS ── */
+  .links { display: flex; flex-direction: column; gap: 14px; }
+  .link-card {
+    opacity: 0; animation: rise .55s ease-out forwards;
+    position: relative; display: flex; align-items: center; gap: 14px;
+    min-height: 44px;
+    padding: 17px 18px; border-radius: 16px; text-decoration: none;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(6px);
+    transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    overflow: hidden;
+    touch-action: manipulation;
+  }
+  .link-card::after {
+    content: '→'; margin-left: auto; font-size: 1.1rem; color: var(--dorado);
+    opacity: 0.7; transition: transform .18s ease;
+  }
+  .link-card:hover, .link-card:active {
+    transform: translateY(-3px) scale(1.012);
+    border-color: rgba(244,197,66,0.55);
+    background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04));
+  }
+  .link-card:hover::after { transform: translateX(3px); }
+  .link-card:focus-visible {
+    outline: 2px solid var(--dorado);
+    outline-offset: 3px;
+    border-color: var(--dorado);
+  }
+  .link-icon {
+    flex: 0 0 46px; height: 46px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+  }
+  .link-text { display: flex; flex-direction: column; gap: 2px; }
+  .link-title { font-weight: 800; font-size: 1rem; color: var(--blanco); letter-spacing: 0.2px; }
+  .link-sub { font-size: 0.78rem; color: rgba(253,246,232,0.62); }
+
+  .ic-fb { background: linear-gradient(145deg,#1877f2,#0f5fd1); }
+  .ic-ig { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+  .ic-travel { background: linear-gradient(145deg, var(--dorado), #c98a1f); }
+  .ic-wa { background: linear-gradient(145deg,#25d366,#128c4a); }
+  .ic-mail { background: linear-gradient(145deg,#5b6577,#33384a); }
+
+  .featured {
+    border: 1.5px solid rgba(244,197,66,0.55);
+    background: linear-gradient(180deg, rgba(244,197,66,0.14), rgba(244,197,66,0.04));
+  }
+  .featured .link-title { color: var(--dorado); }
+  .pill {
+    position: absolute; top: 10px; right: 14px;
+    font-size: 0.62rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--navy); background: var(--dorado);
+    padding: 3px 9px; border-radius: 10px;
+  }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+  .links .link-card:nth-child(1) { animation-delay: .12s; }
+  .links .link-card:nth-child(2) { animation-delay: .19s; }
+  .links .link-card:nth-child(3) { animation-delay: .26s; }
+  .links .link-card:nth-child(4) { animation-delay: .33s; }
+  .links .link-card:nth-child(5) { animation-delay: .40s; }
+
+  /* ── FOOTER ── */
+  .pie {
+    margin-top: 40px; text-align: center;
+    font-size: 0.78rem; color: rgba(253,246,232,0.45); line-height: 1.7;
+  }
+  .pie .flags { font-size: 1rem; letter-spacing: 4px; margin-bottom: 6px; opacity: 0.8; }
+
+  @media (max-width: 380px) {
+    .nombre { font-size: 2.05rem; }
+    .link-card { padding: 14px 14px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero, .link-card { animation: none !important; opacity: 1 !important; }
+    .link-card, .link-card::after { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="hero">
+    <div class="avatar" role="img" aria-label="Bandera de República Dominicana">🇩🇴</div>
+    <span class="badge">El Quisqueyano en NYC</span>
+    <h1 class="nombre">Venul <em>Hernández</em></h1>
+    <p class="tagline">Cultura, comunidad y motivación dominicana en Nueva York. Conductor, creador de contenido y orgulloso de mi isla. 🌴</p>
+  </div>
+
+  <nav class="links">
+
+    <a class="link-card" href="https://www.facebook.com/profile.php?id=2061443547418301" target="_blank" rel="noopener">
+      <div class="link-icon ic-fb" aria-hidden="true">📘</div>
+      <div class="link-text">
+        <span class="link-title">Sígueme en Facebook</span>
+        <span class="link-sub">El Quisqueyano en nyc — comunidad y motivación</span>
+      </div>
+    </a>
+
+    <a class="link-card" href="https://instagram.com/venulh" target="_blank" rel="noopener">
+      <div class="link-icon ic-ig" aria-hidden="true">📸</div>
+      <div class="link-text">
+        <span class="link-title">Sígueme en Instagram</span>
+        <span class="link-sub">@venulh — el día a día de El Quisqueyano</span>
+      </div>
+    </a>
+
+    <a class="link-card featured" href="https://quisqueyatravel.netlify.app" target="_blank" rel="noopener">
+      <span class="pill" aria-hidden="true">Nuevo</span>
+      <div class="link-icon ic-travel" aria-hidden="true">✈️</div>
+      <div class="link-text">
+        <span class="link-title">Quisqueya Travel</span>
+        <span class="link-sub">🔥 Especial de verano a RD — vuelos y hoteles</span>
+      </div>
+    </a>
+
+    <a class="link-card" href="https://wa.me/13477205769" target="_blank" rel="noopener">
+      <div class="link-icon ic-wa" aria-hidden="true">💬</div>
+      <div class="link-text">
+        <span class="link-title">Escríbeme por WhatsApp</span>
+        <span class="link-sub">Preguntas sobre tu viaje o colaboraciones</span>
+      </div>
+    </a>
+
+    <a class="link-card" href="mailto:venulhernandez@gmail.com">
+      <div class="link-icon ic-mail" aria-hidden="true">✉️</div>
+      <div class="link-text">
+        <span class="link-title">Escríbeme por correo</span>
+        <span class="link-sub">venulhernandez@gmail.com</span>
+      </div>
+    </a>
+
+  </nav>
+
+  <div class="pie">
+    <div class="flags">🇩🇴 · 🇺🇸 · 🗽</div>
+    <p>El Quisqueyano en NYC — Cultura, comunidad y motivación dominicana.</p>
+  </div>
+
+</div>
+
+</body>
+</html>
