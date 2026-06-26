@@ -51,6 +51,26 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://quisqueyatravel.org/en/guide-santo-domingo.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quisqueyatravel.org/en/guide-entry-requirements-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quisqueyatravel.org/en/guide-flights-nyc-dr.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quisqueyatravel.org/en/guide-family-budget-dr.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- French pages -->
   <url>
     <loc>https://quisqueyatravel.org/fr/</loc>
