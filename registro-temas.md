@@ -13,3 +13,5 @@
 - Deploy via GitHub → Netlify auto-deploy (repo: venulhernandez-cyber/quisqueyatravel, rama main)
 - Instagram requiere media (story/reel) — cuando haya créditos en Higgsfield, generar imagen de Bahia de las Aguilas y publicar como story (@venulh, accountId 44084)
 - Afiliado activo: Stay22 (quisqueyatravel). Booking.com pendiente aprobación CJ Affiliate CID 7985681
+
+| 2026-06-26 | Jarabacoa: la montana dominicana, saltos de agua y clima fresco | guia-jarabacoa | ✅ publicado | ⏳ pendiente | — |
