@@ -181,6 +181,7 @@
     .destino-img.puerto-plata  { background-image: url('https://images.unsplash.com/photo-1611877794310-d8d6f97401fc?w=600&q=80&fit=crop&auto=format'); }
     .destino-img.la-romana     { background-image: url('https://images.unsplash.com/photo-1645408728506-b94d088f10f0?w=600&q=80&fit=crop&auto=format'); }
     .destino-img.samana        { background-image: url('https://images.unsplash.com/photo-1586748541308-9e0ae6982dc7?w=600&q=80&fit=crop&auto=format'); }
+    .destino-img.santiago      { background-image: url('https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?w=600&q=80&fit=crop&auto=format'); }
     .destino-tag {
       position: absolute; top: 12px; right: 12px; z-index: 1;
       background: rgba(255,255,255,0.92); color: var(--verde);
@@ -307,6 +308,7 @@
     <li><a href="guia-costo-viaje-familia-rd.html">💵 Costo del viaje</a></li>
     <li><a href="guia-vuelos-nyc-rd.html">✈️ Vuelos NYC-RD</a></li>
     <li><a href="guia-barahona.html">🏔️ Barahona</a></li>
+    <li><a href="guia-santiago.html">🏙️ Santiago</a></li>
     <li><a href="guia-santo-domingo.html">🏛️ Santo Domingo</a></li>
     <li><a href="guia-punta-cana.html">🌴 Punta Cana</a></li>
   </ul>
@@ -419,6 +421,19 @@
         </div>
       </div>
 
+      <div class="destino-card" role="button" tabindex="0" onclick="filtrarHoteles('santiago')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filtrarHoteles('santiago')}">
+        <div class="destino-img santiago"><span class="destino-emoji">🏙️</span><span class="destino-tag">🇩🇴 Ciudad Corazón</span></div>
+        <div class="destino-body">
+          <h3>Santiago de los Caballeros</h3>
+          <p>La segunda ciudad de RD — el Cibao, el beisbol, la comida real dominicana y el Monumento a los Heroes.</p>
+          <div class="destino-meta">
+            <span>📅 Todo el año</span>
+            <span>💰 $45–90/noche</span>
+          </div>
+          <a href="guia-santiago.html" class="btn-destino">Guia de Santiago →</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -518,6 +533,7 @@
     <a href="guia-costo-viaje-familia-rd.html">Costo del viaje en familia</a> ·
     <a href="guia-vuelos-nyc-rd.html">Vuelos NYC-RD</a> ·
     <a href="guia-barahona.html">Barahona</a> ·
+    <a href="guia-santiago.html">Santiago</a> ·
     <a href="guia-santo-domingo.html">Santo Domingo</a> ·
     <a href="guia-punta-cana.html">Punta Cana</a>
   </p>
@@ -533,37 +549,37 @@
     'punta-cana': {
       destino: 'Punta Cana',
       hoteles: [
-        { nombre: 'Barceló Bávaro Palace', precio: 'Desde $120/noche', puntuacion: '8.6 Excelente', imagen: '', emoji: '🌴', link: STAY22 + 'punta-cana' },
-        { nombre: 'Hard Rock Hotel & Casino Punta Cana', precio: 'Desde $145/noche', puntuacion: '8.4 Muy bueno', imagen: '', emoji: '🎸', link: STAY22 + 'punta-cana' },
-        { nombre: 'Riu Palace Macao', precio: 'Desde $95/noche', puntuacion: '8.8 Excelente', imagen: '', emoji: '🏖️', link: STAY22 + 'punta-cana' }
+        { nombre: 'Barceló Bávaro Palace', precio: 'Desde $120/noche', puntuacion: '8.6 Excelente', imagen: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&q=80', emoji: '🌴', link: STAY22 + 'punta-cana' },
+        { nombre: 'Hard Rock Hotel & Casino Punta Cana', precio: 'Desde $145/noche', puntuacion: '8.4 Muy bueno', imagen: 'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=500&q=80', emoji: '🎸', link: STAY22 + 'punta-cana' },
+        { nombre: 'Riu Palace Macao', precio: 'Desde $95/noche', puntuacion: '8.8 Excelente', imagen: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&q=80', emoji: '🏖️', link: STAY22 + 'punta-cana' }
       ]
     },
     'santo-domingo': {
       destino: 'Santo Domingo',
       hoteles: [
-        { nombre: 'Hotel Hodelpa Caribe Colonial', precio: 'Desde $55/noche', puntuacion: '8.2 Muy bueno', imagen: '', emoji: '🏛️', link: STAY22 + 'santo-domingo' },
-        { nombre: 'Radisson Blu Hotel Santo Domingo', precio: 'Desde $80/noche', puntuacion: '8.5 Muy bueno', imagen: '', emoji: '🌆', link: STAY22 + 'santo-domingo' }
+        { nombre: 'Hotel Hodelpa Caribe Colonial', precio: 'Desde $55/noche', puntuacion: '8.2 Muy bueno', imagen: 'https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=500&q=80', emoji: '🏛️', link: STAY22 + 'santo-domingo' },
+        { nombre: 'Radisson Blu Hotel Santo Domingo', precio: 'Desde $80/noche', puntuacion: '8.5 Muy bueno', imagen: 'https://images.unsplash.com/photo-1551882547-ff40c4c79d4d?w=500&q=80', emoji: '🌆', link: STAY22 + 'santo-domingo' }
       ]
     },
     'puerto-plata': {
       destino: 'Puerto Plata',
       hoteles: [
-        { nombre: 'Cofresi Palm Beach & Spa Resort', precio: 'Desde $65/noche', puntuacion: '7.9 Bueno', imagen: '', emoji: '⛰️', link: STAY22 + 'puerto-plata' },
-        { nombre: 'Viva Wyndham V Heavens', precio: 'Desde $70/noche', puntuacion: '7.6 Bueno', imagen: '', emoji: '🌊', link: STAY22 + 'puerto-plata' }
+        { nombre: 'Cofresi Palm Beach & Spa Resort', precio: 'Desde $65/noche', puntuacion: '7.9 Bueno', imagen: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=500&q=80', emoji: '⛰️', link: STAY22 + 'puerto-plata' },
+        { nombre: 'Viva Wyndham V Heavens', precio: 'Desde $70/noche', puntuacion: '7.6 Bueno', imagen: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&q=80', emoji: '🌊', link: STAY22 + 'puerto-plata' }
       ]
     },
     'la-romana': {
       destino: 'La Romana',
       hoteles: [
-        { nombre: 'Casa de Campo Resort & Villas', precio: 'Desde $130/noche', puntuacion: '9.1 Excepcional', imagen: '', emoji: '🎨', link: STAY22 + 'la-romana' },
-        { nombre: 'Sunscape Casa del Mar', precio: 'Desde $85/noche', puntuacion: '8.3 Muy bueno', imagen: '', emoji: '🌅', link: STAY22 + 'la-romana' }
+        { nombre: 'Casa de Campo Resort & Villas', precio: 'Desde $130/noche', puntuacion: '9.1 Excepcional', imagen: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=500&q=80', emoji: '🎨', link: STAY22 + 'la-romana' },
+        { nombre: 'Sunscape Casa del Mar', precio: 'Desde $85/noche', puntuacion: '8.3 Muy bueno', imagen: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&q=80', emoji: '🌅', link: STAY22 + 'la-romana' }
       ]
     },
     'samana': {
       destino: 'Samaná',
       hoteles: [
-        { nombre: 'Grand Bahia Principe Cayacoa', precio: 'Desde $90/noche', puntuacion: '8.7 Excelente', imagen: '', emoji: '🐋', link: STAY22 + 'samana' },
-        { nombre: 'Hotel Bahia Principe Grand Samana', precio: 'Desde $75/noche', puntuacion: '8.5 Muy bueno', imagen: '', emoji: '🌴', link: STAY22 + 'samana' }
+        { nombre: 'Grand Bahia Principe Cayacoa', precio: 'Desde $90/noche', puntuacion: '8.7 Excelente', imagen: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=500&q=80', emoji: '🐋', link: STAY22 + 'samana' },
+        { nombre: 'Hotel Bahia Principe Grand Samana', precio: 'Desde $75/noche', puntuacion: '8.5 Muy bueno', imagen: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=500&q=80', emoji: '🌴', link: STAY22 + 'samana' }
       ]
     }
   };
@@ -651,23 +667,4 @@
   function filtrarHoteles(destino) {
     renderHoteles(destino);
     // Solo hacer scroll si ya estamos más abajo que la sección hoteles
-    const seccion = document.getElementById('hoteles');
-    if (seccion && window.scrollY > seccion.offsetTop - 100) return;
-    seccion?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  function extraerPrecio(precio) {
-    if (!precio) return '$??';
-    const match = precio.match(/\$[\d,.]+/);
-    return match ? match[0] : precio.split(' ')[0];
-  }
-
-  function extraerPuntuacion(puntuacion) {
-    if (!puntuacion) return '';
-    const match = puntuacion.match(/\d+\.\d+|\d+/);
-    return match ? match[0] : '';
-  }
-
-  // Footer — fecha de actualización
-  const d = new Date();
-  document.getElementById('foote
+    const seccion = 
