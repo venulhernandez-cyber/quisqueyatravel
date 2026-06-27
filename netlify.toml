@@ -1,3 +1,53 @@
+# ── Redirects: forzar URLs limpias sin .html (301 permanente) ──
+[[redirects]]
+  from = "/guia-punta-cana.html"
+  to = "/guia-punta-cana"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guia-santo-domingo.html"
+  to = "/guia-santo-domingo"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guia-barahona.html"
+  to = "/guia-barahona"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guia-santiago.html"
+  to = "/guia-santiago"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guia-vuelos-nyc-rd.html"
+  to = "/guia-vuelos-nyc-rd"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guia-costo-viaje-familia-rd.html"
+  to = "/guia-costo-viaje-familia-rd"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guia-requisitos-viaje-rd-2026.html"
+  to = "/guia-requisitos-viaje-rd-2026"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guia-jarabacoa.html"
+  to = "/guia-jarabacoa"
+  status = 301
+  force = true
+
+# ── Headers de cache ──
 [[headers]]
   for = "/*.html"
   [headers.values]
