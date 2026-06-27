@@ -663,8 +663,7 @@
     `).join('');
   }
 
-  // ── Filtrar por destino (llamado desde botones y tarjetas de destino) ────────
-  function filtrarHoteles(destino) {
-    renderHoteles(destino);
-    // Solo hacer scroll si ya estamos más abajo que la sección hoteles
-    const seccion
+  // ── Helpers de formato ───────────────────────────────────────────────────────
+  function extraerPuntuacion(str) {
+    if (!str) return '';
+ 
