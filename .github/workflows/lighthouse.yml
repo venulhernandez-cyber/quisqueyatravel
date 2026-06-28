@@ -20,10 +20,10 @@ jobs:
       - name: Clonar repositorio
         uses: actions/checkout@v4
 
-      - name: Instalar Node.js
+      - name: Instalar Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Instalar @lhci/cli (Lighthouse CI)
         run: npm install -g @lhci/cli@0.14.x
@@ -31,58 +31,39 @@ jobs:
       - name: Instalar serve (servidor local para HTML estatico)
         run: npm install -g serve
 
-      - name: Iniciar servidor local en puerto 3000
-        run: serve . -p 3000 &
-        # Sirve los archivos HTML del repositorio localmente
-
-      - name: Esperar que el servidor este listo
-        run: sleep 3
-
-      - name: Correr Lighthouse CI en paginas principales
-        run: |
-          lhci autorun \
-            --collect.url=http://localhost:3000/index.html \
-            --collect.url=http://localhost:3000/hoteles.html \
-            --collect.url=http://localhost:3000/vuelos.html \
-            --collect.url=http://localhost:3000/guia-punta-cana.html \
-            --collect.url=http://localhost:3000/guia-santo-domingo.html \
-            --collect.url=http://localhost:3000/guia-barahona.html \
-            --collect.url=http://localhost:3000/guia-vuelos-nyc-rd.html \
-            --collect.numberOfRuns=1 \
-            --upload.target=temporary-public-storage \
-            --assert.preset=lighthouse:recommended \
-            --assert.assertions.categories:performance=warn \
-            --assert.assertions.categories:accessibility=warn \
-            --assert.assertions.categories:best-practices=warn \
-            --assert.assertions.categories:seo=error \
-            --assert.assertions.first-contentful-paint=warn \
-            --assert.assertions.largest-contentful-paint=warn \
-            --assert.assertions.total-blocking-time=warn \
-            --assert.assertions.cumulative-layout-shift=warn
+      - name: Correr Lighthouse CI (lee configuracion de lighthouserc.js)
+        run: lhci autorun
+        env:
+          LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ github.sha }}
+          LHCI_BUILD_CONTEXT__COMMIT_TIME: ${{ github.event.head_commit.timestamp }}
+          LHCI_BUILD_CONTEXT__CURRENT_BRANCH: ${{ github.ref_name }}
+          LHCI_BUILD_CONTEXT__COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+          LHCI_BUILD_CONTEXT__AUTHOR: ${{ github.event.head_commit.author.name }}
+        # lhci autorun lee automaticamente lighthouserc.js en la raiz del repo
         continue-on-error: true
-        # continue-on-error: true = el workflow reporta pero NO bloquea el deploy
 
-      - name: Subir reporte de Lighthouse como artefacto
+      - name: Subir reportes de Lighthouse como artefacto
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: lighthouse-reports
+          name: lighthouse-reports-${{ github.run_number }}
           path: .lighthouseci/
+          if-no-files-found: warn
           retention-days: 30
 
-      - name: Mostrar resumen en el log
+      - name: Mostrar resumen
         if: always()
         run: |
           echo "===== RESUMEN LIGHTHOUSE CI ====="
-          echo "Paginas auditadas:"
-          echo "  - index.html (Inicio)"
-          echo "  - hoteles.html (Hoteles)"
-          echo "  - vuelos.html (Vuelos)"
-          echo "  - guia-punta-cana.html"
-          echo "  - guia-santo-domingo.html"
-          echo "  - guia-barahona.html"
-          echo "  - guia-vuelos-nyc-rd.html"
+          echo "Commit: ${{ github.sha }}"
+          echo "Rama: ${{ github.ref_name }}"
           echo ""
-          echo "Categorias auditadas: Performance, SEO, Accesibilidad, Best Practices"
-          echo "Reportes disponibles en la pestana Artifacts de esta ejecucion."
+          echo "Paginas auditadas (ver lighthouserc.js):"
+          echo "  index.html, hoteles.html, vuelos.html"
+          echo "  guia-punta-cana.html, guia-santo-domingo.html"
+          echo "  guia-barahona.html, guia-vuelos-nyc-rd.html"
+          echo "  guia-jarabacoa.html, guia-santiago.html"
+          echo ""
+          echo "Los reportes HTML estan disponibles en la"
+          echo "pestana Artifacts de esta ejecucion (30 dias)."
           echo "================================="
