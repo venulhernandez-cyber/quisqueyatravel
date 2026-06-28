@@ -47,6 +47,18 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/hoteles.html"
+  to = "/hoteles"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/vuelos.html"
+  to = "/vuelos"
+  status = 301
+  force = true
+
 # ── Headers de cache ──
 [[headers]]
   for = "/*.html"
