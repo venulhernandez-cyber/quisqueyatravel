@@ -1,0 +1,43 @@
+# Dependabot — Actualizaciones automaticas de dependencias y seguridad
+# Documentacion: https://docs.github.com/code-security/dependabot
+
+version: 2
+
+updates:
+  # ── GitHub Actions ─────────────────────────────────────────────
+  # Mantiene actualizadas las versiones de los actions que usamos
+  # (actions/checkout, actions/setup-node, etc.)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "America/New_York"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "chore(actions)"
+    reviewers: []
+    open-pull-requests-limit: 5
+
+  # ── npm (si en el futuro agregas package.json) ──────────────────
+  # Revisa dependencias npm en la raiz del proyecto
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/New_York"
+    labels:
+      - "dependencies"
+      - "npm"
+    commit-message:
+      prefix: "chore(deps)"
+    open-pull-requests-limit: 5
+    ignore:
+      # Ignora actualizaciones mayores automaticamente (requieren revision manual)
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
