@@ -24,12 +24,14 @@ REPORT_DIR = LOCAL_DIR  # guarda el reporte en la misma carpeta
 
 PAGES = [
     ("index.html",                         "/"),
-    ("guia-punta-cana.html",               "/guia-punta-cana.html"),
-    ("guia-santo-domingo.html",            "/guia-santo-domingo.html"),
-    ("guia-barahona.html",                 "/guia-barahona.html"),
-    ("guia-vuelos-nyc-rd.html",            "/guia-vuelos-nyc-rd.html"),
-    ("guia-requisitos-viaje-rd-2026.html", "/guia-requisitos-viaje-rd-2026.html"),
-    ("guia-costo-viaje-familia-rd.html",   "/guia-costo-viaje-familia-rd.html"),
+    ("guia-punta-cana.html",               "/guia-punta-cana"),
+    ("guia-santo-domingo.html",            "/guia-santo-domingo"),
+    ("guia-barahona.html",                 "/guia-barahona"),
+    ("guia-santiago.html",                 "/guia-santiago"),
+    ("guia-jarabacoa.html",               "/guia-jarabacoa"),
+    ("guia-vuelos-nyc-rd.html",            "/guia-vuelos-nyc-rd"),
+    ("guia-requisitos-viaje-rd-2026.html", "/guia-requisitos-viaje-rd-2026"),
+    ("guia-costo-viaje-familia-rd.html",   "/guia-costo-viaje-familia-rd"),
 ]
 
 ERRORES_CONTENIDO = [
