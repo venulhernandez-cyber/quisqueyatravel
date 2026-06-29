@@ -1,30 +1,33 @@
-# Cómo se despliega Quisqueya Travel (actualizado)
+# Cómo se despliega Quisqueya Travel
 
-## Estado actual: deploy automático activado ✅
+## Estado actual: Cloudflare Pages ✅ (actualizado 2026-06-29)
 
-El sitio **https://quisqueyatravel.netlify.app** ya no depende de subir archivos a mano. Está conectado a:
+El sitio **https://quisqueyatravel.org** está conectado a:
 
 - **Repositorio:** https://github.com/venulhernandez-cyber/quisqueyatravel (rama `main`)
-- **Netlify:** auto-publish activado — cualquier cambio en `main` se despliega solo, normalmente en 2-7 segundos.
+- **Hosting:** Cloudflare Pages — cualquier push a `main` despliega en 1-2 minutos
+- **Dominio propio:** quisqueyatravel.org (migrado desde Netlify el 2026-06-28)
 
 ## Qué significa esto en la práctica
 
-Para actualizar el sitio, ya no hace falta entrar a Netlify ni arrastrar carpetas. Basta con subir los archivos nuevos o editados al repositorio de GitHub (rama `main`), por ejemplo desde la página web de GitHub: `github.com/venulhernandez-cyber/quisqueyatravel` → "Add file" → "Upload files". Netlify detecta el cambio y publica automáticamente.
+Para actualizar el sitio, sube los archivos al repositorio de GitHub (rama `main`) directamente desde la web: `github.com/venulhernandez-cyber/quisqueyatravel` → "Add file" → "Upload files". Cloudflare Pages detecta el cambio y publica automáticamente.
 
-## Por qué se hizo este cambio
+**Ya NO se usa Netlify.** No subir archivos a Netlify Drop.
 
-Antes, cada actualización requería subir manualmente la carpeta completa a Netlify Drop. Eso generó el problema original: un deploy suelto del pasado (`golden-heliotrope-c5c46d.netlify.app`) quedó huérfano y su URL siguió apareciendo en documentación vieja, lo que pareció un "sitio caído" cuando en realidad el sitio real (`quisqueyatravel`) seguía funcionando bien. Con GitHub conectado, ya no existe ese riesgo: solo hay un origen de verdad (el repositorio) y Netlify siempre construye desde ahí.
+## Redirecciones (URLs limpias)
 
-## Archivos del sitio
+Cloudflare Pages usa `_redirects` (en la raíz del repo) para redirigir `/guia-punta-cana.html` hacia `/guia-punta-cana`, etc. El `netlify.toml` puede quedar en el repo — Cloudflare lo ignora.
 
-- `index.html` — homepage
-- `guia-requisitos-viaje-rd-2026.html`
-- `guia-costo-viaje-familia-rd.html`
-- `guia-vuelos-nyc-rd.html`
-- `robots.txt`, `sitemap.xml`
+## Workflow de deploy
 
-Estos mismos archivos viven en dos lugares ahora: esta carpeta local (`Desktop\Quisqueya`) y el repositorio de GitHub. Si se edita uno, hay que subir la versión actualizada a GitHub para que se refleje en vivo — la carpeta local por sí sola ya no actualiza el sitio.
+1. Editar archivos HTML
+2. Commit + push a `main`
+3. GitHub Actions dispara `.github/workflows/deploy-cloudflare.yml`
+4. Cloudflare Pages despliega en ~1-2 minutos
+5. Verificar en https://quisqueyatravel.org
 
-## Pendiente opcional
+## Afiliación Stay22 (activa)
 
-Dominio propio (ej. `quisqueyatravel.com`) en vez de depender del subdominio `.netlify.app` — requiere compra y configuración de DNS, decisión de Venul.
+- AID: quisqueyatravel
+- Enlace general: https://booking.stay22.com/quisqueyatravel/Hx6xlzKc4K
+- Ver config.md para enlaces por destino
