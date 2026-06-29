@@ -57,10 +57,10 @@ function extraerPuntuacion(puntuacion) {
 
 function renderHoteles(filtro) {
   filtroActual = filtro;
-  var grid = document.getElementById('hoteles-grid');
+  var grid = document.getElementById('hotels-grid');
   if (!grid) return;
 
-  document.querySelectorAll('.filtro-btn').forEach(function(btn) {
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
     var v = btn.getAttribute('onclick') || '';
     var activo = filtro === 'todos' ? v.indexOf("'todos'") > -1 : v.indexOf("'" + filtro + "'") > -1;
     btn.classList.toggle('activo', activo);
