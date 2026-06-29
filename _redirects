@@ -1,0 +1,14 @@
+# Redirects para Cloudflare Pages
+# Formato: /origen  /destino  codigo
+
+# URLs limpias sin .html (301 permanente)
+/guia-punta-cana.html           /guia-punta-cana                301
+/guia-santo-domingo.html        /guia-santo-domingo             301
+/guia-barahona.html             /guia-barahona                  301
+/guia-santiago.html             /guia-santiago                  301
+/guia-vuelos-nyc-rd.html        /guia-vuelos-nyc-rd             301
+/guia-costo-viaje-familia-rd.html /guia-costo-viaje-familia-rd  301
+/guia-requisitos-viaje-rd-2026.html /guia-requisitos-viaje-rd-2026 301
+/guia-jarabacoa.html            /guia-jarabacoa                 301
+/hoteles.html                   /hoteles                        301
+/vuelos.html                    /vuelos                         301
