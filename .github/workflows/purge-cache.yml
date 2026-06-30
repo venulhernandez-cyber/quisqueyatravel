@@ -1,36 +1,23 @@
-name: Purge Cloudflare Zone Cache
+name: Fix DNS and Purge Cache
 
 on:
   workflow_dispatch:
 
 jobs:
-  purge:
+  fix:
     runs-on: ubuntu-latest
     steps:
-      - name: Diagnose and Purge Cloudflare Cache
+      - name: List DNS records and fix CNAME
         run: |
           TOKEN="${{ secrets.CLOUDFLARE_API_TOKEN }}"
-          ACCOUNT="${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"
+          ZONE_ID="059078dc193c7878004408a8d0265927"
           
-          echo "=== CF Pages Projects ==="
-          curl -s "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT/pages/projects" \
-            -H "Authorization: Bearer $TOKEN" | python3 -c "import sys,json; data=json.load(sys.stdin); [print(p['name']) for p in data.get('result',[])]"
+          echo "=== Current DNS Records ==="
+          DNS=$(curl -s "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
+            -H "Authorization: Bearer $TOKEN")
+          echo "$DNS" | python3 -c "import sys,json; data=json.load(sys.stdin); [print(r['id'], r['type'], r['name'], r.get('content','')) for r in data.get('result',[])]"
           
-          echo "=== Custom Domains for quisqueyatravel ==="
-          curl -s "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT/pages/projects/quisqueyatravel/domains" \
-            -H "Authorization: Bearer $TOKEN" | python3 -c "import sys,json; data=json.load(sys.stdin); print(json.dumps(data.get('result',[]), indent=2))"
-          
-          echo "=== Zones for quisqueyatravel.org ==="
-          ZONE_ID=$(curl -s "https://api.cloudflare.com/client/v4/zones?name=quisqueyatravel.org" \
-            -H "Authorization: Bearer $TOKEN" \
-            | python3 -c "import sys,json; r=json.load(sys.stdin)['result']; print(r[0]['id'] if r else 'NOT FOUND')")
-          echo "Zone ID: $ZONE_ID"
-          
-          echo "=== DNS Records ==="
-          curl -s "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
-            -H "Authorization: Bearer $TOKEN" | python3 -c "import sys,json; data=json.load(sys.stdin); [print(r['type'],r['name'],r.get('content','')) for r in data.get('result',[])]"
-          
-          echo "=== Purging Zone Cache ==="
+          echo "=== Purge Zone Cache ==="
           curl -s -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/purge_cache" \
             -H "Authorization: Bearer $TOKEN" \
             -H "Content-Type: application/json" \
