@@ -1,4 +1,4 @@
-// ── Hoteles base — links de afiliado Stay22 (quisqueyatravel) ───────────────
+// -- Hoteles base -- links de afiliado Stay22 (quisqueyatravel) ----
 var STAY22 = 'https://www.stay22.com/allez/quisqueyatravel?destination=';
 
 var HOTELES_BASE = {
@@ -6,7 +6,7 @@ var HOTELES_BASE = {
     destino: 'Punta Cana',
     hoteles: [
       { nombre: 'Barcelo Bavaro Palace', precio: 'Desde $120/noche', puntuacion: '8.6 Excelente', imagen: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&q=80', emoji: '🌴', link: STAY22 + 'punta-cana' },
-      { nombre: 'Hard Rock Hotel & Casino Punta Cana', precio: 'Desde $145/noche', puntuacion: '8.4 Muy bueno', imagen: 'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=500&q=80', emoji: '🎸', link: STAY22 + 'punta-cana' },
+      { nombre: 'Hard Rock Hotel Casino Punta Cana', precio: 'Desde $145/noche', puntuacion: '8.4 Muy bueno', imagen: 'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=500&q=80', emoji: '🎸', link: STAY22 + 'punta-cana' },
       { nombre: 'Riu Palace Macao', precio: 'Desde $95/noche', puntuacion: '8.8 Excelente', imagen: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&q=80', emoji: '🏖️', link: STAY22 + 'punta-cana' }
     ]
   },
@@ -20,14 +20,14 @@ var HOTELES_BASE = {
   'puerto-plata': {
     destino: 'Puerto Plata',
     hoteles: [
-      { nombre: 'Cofresi Palm Beach & Spa Resort', precio: 'Desde $65/noche', puntuacion: '7.9 Bueno', imagen: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=500&q=80', emoji: '⛰️', link: STAY22 + 'puerto-plata' },
+      { nombre: 'Cofresi Palm Beach Spa Resort', precio: 'Desde $65/noche', puntuacion: '7.9 Bueno', imagen: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=500&q=80', emoji: '⛰️', link: STAY22 + 'puerto-plata' },
       { nombre: 'Viva Wyndham V Heavens', precio: 'Desde $70/noche', puntuacion: '7.6 Bueno', imagen: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&q=80', emoji: '🌊', link: STAY22 + 'puerto-plata' }
     ]
   },
   'la-romana': {
     destino: 'La Romana',
     hoteles: [
-      { nombre: 'Casa de Campo Resort & Villas', precio: 'Desde $130/noche', puntuacion: '9.1 Excepcional', imagen: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=500&q=80', emoji: '🎨', link: STAY22 + 'la-romana' },
+      { nombre: 'Casa de Campo Resort Villas', precio: 'Desde $130/noche', puntuacion: '9.1 Excepcional', imagen: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=500&q=80', emoji: '🎨', link: STAY22 + 'la-romana' },
       { nombre: 'Sunscape Casa del Mar', precio: 'Desde $85/noche', puntuacion: '8.3 Muy bueno', imagen: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&q=80', emoji: '🌅', link: STAY22 + 'la-romana' }
     ]
   },
@@ -110,7 +110,6 @@ function filtrarHoteles(destino) {
   if (seccion) seccion.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// Inicializar al cargar
 document.addEventListener('DOMContentLoaded', function() {
   renderHoteles('todos');
   fetch('data/hoteles.json')
