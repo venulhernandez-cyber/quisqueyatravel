@@ -1,4 +1,4 @@
-// -- Hoteles base -- links de afiliado Stay22 (quisqueyatravel) ----
+// -- Hoteles base -- links de afiliado Stay22 (quisqueyatravel)  v4 --
 var STAY22 = 'https://www.stay22.com/allez/quisqueyatravel?destination=';
 
 var HOTELES_BASE = {
