@@ -7,40 +7,49 @@ jobs:
   fix-dns:
     runs-on: ubuntu-latest
     steps:
-      - name: Fix DNS records
+      - name: Fix DNS with Python
         env:
           CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           ZONE_ID: 059078dc193c7878004408a8d0265927
         run: |
-          set +e
-          
-          echo "--- Fetching DNS records ---"
-          RECORDS=$(curl -s "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records?per_page=100" \
-            -H "Authorization: Bearer $CF_TOKEN")
-          echo "$RECORDS"
-          
-          echo "--- Deleting existing A/CNAME for quisqueyatravel.org ---"
-          echo "$RECORDS" | grep -o '"id":"[^"]*","type":"[AC]' | grep -o '"id":"[^"]*"' | grep -o '[a-f0-9-]*"' | tr -d '"' | while read ID; do
-            echo "Deleting $ID"
-            curl -s -X DELETE "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records/$ID" \
-              -H "Authorization: Bearer $CF_TOKEN"
-          done
+          python3 << 'PYEOF'
+          import urllib.request, urllib.parse, json, os
 
-          echo "--- Adding CNAME quisqueyatravel.org -> quisqueyatravel.pages.dev ---"
-          curl -s -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
-            -H "Authorization: Bearer $CF_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"type":"CNAME","name":"quisqueyatravel.org","content":"quisqueyatravel.pages.dev","proxied":true,"ttl":1}'
-          
-          echo "--- Purge cache ---"
-          curl -s -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/purge_cache" \
-            -H "Authorization: Bearer $CF_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"purge_everything":true}'
-          echo "DONE"
-      - name: Upload DNS output
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: dns-records
-          path: /tmp/dns.json
+          TOKEN = os.environ["CF_TOKEN"]
+          ZONE  = os.environ["ZONE_ID"]
+          BASE  = f"https://api.cloudflare.com/client/v4/zones/{ZONE}"
+          HDR   = {"Authorization": f"Bearer {TOKEN}", "Content-Type": "application/json"}
+
+          def cf(method, path, data=None):
+              url = BASE + path
+              body = json.dumps(data).encode() if data else None
+              req = urllib.request.Request(url, data=body, headers=HDR, method=method)
+              with urllib.request.urlopen(req) as r:
+                  return json.loads(r.read())
+
+          # 1. List all DNS records
+          recs = cf("GET", "/dns_records?per_page=100")["result"]
+          print("Current records:")
+          for r in recs:
+              print(f"  {r['type']:6} {r['name']:40} {r.get('content','')}")
+
+          # 2. Delete any A/AAAA/CNAME for quisqueyatravel.org
+          for r in recs:
+              if r["name"] == "quisqueyatravel.org" and r["type"] in ("A","AAAA","CNAME"):
+                  print(f"Deleting {r['type']} {r['id']}")
+                  cf("DELETE", f"/dns_records/{r['id']}")
+
+          # 3. Add correct CNAME
+          result = cf("POST", "/dns_records", {
+              "type": "CNAME",
+              "name": "quisqueyatravel.org",
+              "content": "quisqueyatravel.pages.dev",
+              "proxied": True,
+              "ttl": 1
+          })
+          print("CNAME created:", result.get("success"), result.get("errors"))
+
+          # 4. Purge cache
+          result = cf("POST", "/purge_cache", {"purge_everything": True})
+          print("Cache purged:", result.get("success"))
+          PYEOF
