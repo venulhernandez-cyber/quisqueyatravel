@@ -7,27 +7,40 @@ jobs:
   fix-dns:
     runs-on: ubuntu-latest
     steps:
-      - name: Show DNS and add CNAME
+      - name: Fix DNS records
         env:
           CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           ZONE_ID: 059078dc193c7878004408a8d0265927
         run: |
           set +e
-          echo "=== DNS Records (raw) ==="
-          curl -sf "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
-            -H "Authorization: Bearer $CF_TOKEN"
+          
+          echo "--- Fetching DNS records ---"
+          RECORDS=$(curl -s "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records?per_page=100" \
+            -H "Authorization: Bearer $CF_TOKEN")
+          echo "$RECORDS"
+          
+          echo "--- Deleting existing A/CNAME for quisqueyatravel.org ---"
+          echo "$RECORDS" | grep -o '"id":"[^"]*","type":"[AC]' | grep -o '"id":"[^"]*"' | grep -o '[a-f0-9-]*"' | tr -d '"' | while read ID; do
+            echo "Deleting $ID"
+            curl -s -X DELETE "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records/$ID" \
+              -H "Authorization: Bearer $CF_TOKEN"
+          done
 
-          echo ""
-          echo "=== Adding CNAME ==="
-          curl -sf -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
+          echo "--- Adding CNAME quisqueyatravel.org -> quisqueyatravel.pages.dev ---"
+          curl -s -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
             -H "Authorization: Bearer $CF_TOKEN" \
             -H "Content-Type: application/json" \
-            -d '{"type":"CNAME","name":"quisqueyatravel.org","content":"quisqueyatravel.pages.dev","proxied":true}'
-
-          echo ""
-          echo "=== Purge cache ==="
-          curl -sf -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/purge_cache" \
+            -d '{"type":"CNAME","name":"quisqueyatravel.org","content":"quisqueyatravel.pages.dev","proxied":true,"ttl":1}'
+          
+          echo "--- Purge cache ---"
+          curl -s -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/purge_cache" \
             -H "Authorization: Bearer $CF_TOKEN" \
             -H "Content-Type: application/json" \
             -d '{"purge_everything":true}'
           echo "DONE"
+      - name: Upload DNS output
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dns-records
+          path: /tmp/dns.json
