@@ -1,27 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LJWN28FFQE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-LJWN28FFQE');
-</script>
 <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">(function(){var script=document.createElement("script");script.async=1;script.src="https://emrldtp.com/NTQzMzQ5.js?t=543349";document.head.appendChild(script);})()</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quisqueya Travel — Guías de Viaje y Hoteles en República Dominicana | El Quisqueyano</title>
-  <meta name="description" content="Guías de viaje, hoteles y tips para visitar República Dominicana. Para dominicanos de la diáspora y viajeros de todo el mundo que quieren descubrir la isla de verdad." />
+  <title>Quisqueya Travel — Vuelos y Hoteles a RD desde Nueva York | El Quisqueyano en NYC</title>
+  <meta name="description" content="Viaja a Republica Dominicana desde Nueva York con El Quisqueyano. Vuelos directos JFK-RD, hoteles con mejor precio garantizado y guias para dominicanos en NYC." />
   <link rel="canonical" href="https://quisqueyatravel.org/" />
-  <link rel="alternate" hreflang="es" href="https://quisqueyatravel.org/" />
-  <link rel="alternate" hreflang="en" href="https://quisqueyatravel.org/en/" />
-  <link rel="alternate" hreflang="fr" href="https://quisqueyatravel.org/fr/" />
-  <link rel="alternate" hreflang="x-default" href="https://quisqueyatravel.org/en/" />
   <meta name="google-site-verification" content="mdPqqtii0hp-UXNgsl15ohIIpIIEHYlF-KPJvjFBvjI" />
-  <meta property="og:title" content="Quisqueya Travel — Guías y Hoteles en República Dominicana" />
-  <meta property="og:description" content="Los mejores destinos y hoteles de República Dominicana. Guías honestas para dominicanos de la diáspora y viajeros de todo el mundo." />
+  <meta property="og:title" content="Quisqueya Travel — Vuelos y Hoteles a RD desde Nueva York" />
+  <meta property="og:description" content="Los mejores hoteles y destinos de República Dominicana, para la diáspora dominicana en NYC." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://quisqueyatravel.org/" />
   <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BIr3rEkWzimSr0jX6Jzj2wEBZ8/hf_20260621_001007_b673c298-8907-4508-ab28-085c96bd72f3.png" />
@@ -29,8 +17,8 @@
   {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
-    "name": "Quisqueya Travel - El Quisqueyano",
-    "description": "Guias de viaje y reservas de hoteles para Republica Dominicana. Para dominicanos de la diaspora y viajeros de todo el mundo.",
+    "name": "Quisqueya Travel - El Quisqueyano en NYC",
+    "description": "Guias de viaje y reservas de hoteles para Republica Dominicana, enfocado en la diaspora dominicana de Nueva York.",
     "url": "https://quisqueyatravel.org/",
     "areaServed": "Republica Dominicana"
   }
@@ -189,7 +177,6 @@
     .destino-img.puerto-plata  { background-image: url('https://images.unsplash.com/photo-1611877794310-d8d6f97401fc?w=600&q=80&fit=crop&auto=format'); }
     .destino-img.la-romana     { background-image: url('https://images.unsplash.com/photo-1645408728506-b94d088f10f0?w=600&q=80&fit=crop&auto=format'); }
     .destino-img.samana        { background-image: url('https://images.unsplash.com/photo-1586748541308-9e0ae6982dc7?w=600&q=80&fit=crop&auto=format'); }
-    .destino-img.santiago      { background-image: url('/img/santiago.jpg'); }
     .destino-tag {
       position: absolute; top: 12px; right: 12px; z-index: 1;
       background: rgba(255,255,255,0.92); color: var(--verde);
@@ -255,10 +242,23 @@
     .spinner { display: inline-block; width: 24px; height: 24px; border: 3px solid #eee; border-top-color: var(--verde); border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 10px; vertical-align: middle; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
+    /* ── SERVICIOS DE VIAJE ── */
+    #servicios { background: var(--gris); }
+    .servicios-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 18px; }
+    .servicio-card {
+      background: var(--blanco); border-radius: 14px; padding: 26px 18px; text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06); text-decoration: none; color: inherit;
+      display: block; transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .servicio-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    .servicio-icon { font-size: 2.2rem; margin-bottom: 10px; }
+    .servicio-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--oscuro); margin-bottom: 4px; }
+    .servicio-card span { color: var(--verde); font-size: 0.8rem; font-weight: 700; }
+
     /* ── POR QUÉ RD ── */
-    #porque { background: var(--gris); }
+    #porque { background: var(--blanco); }
     .porque-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 25px; }
-    .porque-card { background: var(--blanco); border-radius: 14px; padding: 28px 22px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .porque-card { background: var(--gris); border-radius: 14px; padding: 28px 22px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
     .porque-icon { font-size: 2.5rem; margin-bottom: 14px; }
     .porque-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 8px; font-size: 1rem; }
     .porque-card p { color: #666; font-size: 0.88rem; line-height: 1.6; }
@@ -310,26 +310,24 @@
     <li><a href="#especial">🔥 Especial verano</a></li>
     <li><a href="#destinos">Destinos</a></li>
     <li><a href="#hoteles">Hoteles</a></li>
+    <li><a href="#servicios">Servicios</a></li>
     <li><a href="#porque">¿Por qué RD?</a></li>
     <li><a href="#sobre">Sobre mí</a></li>
     <li><a href="guia-requisitos-viaje-rd-2026.html">📋 Guía 2026</a></li>
     <li><a href="guia-costo-viaje-familia-rd.html">💵 Costo del viaje</a></li>
     <li><a href="guia-vuelos-nyc-rd.html">✈️ Vuelos NYC-RD</a></li>
     <li><a href="guia-barahona.html">🏔️ Barahona</a></li>
-    <li><a href="guia-santiago.html">🏙️ Santiago</a></li>
     <li><a href="guia-santo-domingo.html">🏛️ Santo Domingo</a></li>
     <li><a href="guia-punta-cana.html">🌴 Punta Cana</a></li>
-    <li><a href="guia-puerto-plata.html">⛰️ Puerto Plata</a></li>
-    <li><a href="guia-jarabacoa.html">🏔️ Jarabacoa</a></li>
   </ul>
   <a href="#hoteles" class="nav-cta">Ver hoteles →</a>
 </nav>
 
 <!-- ── HERO ── -->
 <header class="hero">
-  <div class="hero-badge">🇩🇴 El Quisqueyano</div>
-  <h1>Viajes a <span>República Dominicana</span><br>como los que saben</h1>
-  <p>Playas de arena blanca, montañas verdes y una cultura que te roba el corazón. Te muestro los mejores rincones de la isla donde nací — con guías honestas para dominicanos de la diáspora y viajeros de todo el mundo.</p>
+  <div class="hero-badge">🇩🇴 El Quisqueyano en NYC</div>
+  <h1>Viajes a República Dominicana<br>desde <span>Nueva York</span></h1>
+  <p>Playas de arena blanca, montañas verdes y una cultura que te roba el corazón. Te muestro los mejores rincones de la isla donde nací, con vuelos directos desde JFK, EWR y LGA.</p>
   <div class="hero-btns">
     <a href="#hoteles" class="btn-primary">🏨 Ver hoteles disponibles</a>
     <a href="#destinos" class="btn-outline">🗺️ Explorar destinos</a>
@@ -337,7 +335,7 @@
   <div class="hero-stats">
     <div class="hero-stat"><div class="num">6+</div><div class="lbl">Destinos</div></div>
     <div class="hero-stat"><div class="num">100%</div><div class="lbl">Dominicano</div></div>
-    <div class="hero-stat"><div class="num">🌍</div><div class="lbl">Para todos</div></div>
+    <div class="hero-stat"><div class="num">NYC</div><div class="lbl">Base</div></div>
   </div>
 </header>
 
@@ -348,11 +346,11 @@
     <h2>¿Cuánto hace que no te comes un mangú frente al mar?</h2>
     <p>
       Arma tu viaje a República Dominicana este verano y vuelve a sentir lo que es estar en casa.
-      Vuelos disponibles desde Estados Unidos, Europa, Latinoamérica y el Caribe. Los mejores hoteles de Punta
+      Vuelos directos desde JFK, EWR o LGA en menos de 4 horas, y los mejores hoteles de Punta
       Cana, Santo Domingo, Puerto Plata, La Romana y Samaná con tarifa de temporada.
     </p>
     <a href="#hoteles" class="btn-primary">🏖️ Ver hoteles del especial de verano</a>
-    <span class="especial-nota">Precios y disponibilidad sujetos a cambio · Vuelos desde EE.UU. a RD desde aprox. $373 ida y vuelta, según fecha y aerolínea.</span>
+    <span class="especial-nota">Precios y disponibilidad sujetos a cambio · Vuelos JFK–RD desde aprox. $373 ida y vuelta, según fecha y aerolínea.</span>
   </div>
 </section>
 
@@ -401,7 +399,7 @@
             <span>📅 Nov–Abr</span>
             <span>💰 $50–110/noche</span>
           </div>
-          <a href="guia-puerto-plata.html" class="btn-destino">Guia de Puerto Plata →</a>
+          <a href="#hoteles" class="btn-destino">Ver hoteles en Puerto Plata</a>
         </div>
       </div>
 
@@ -431,19 +429,6 @@
         </div>
       </div>
 
-      <div class="destino-card" role="button" tabindex="0" onclick="filtrarHoteles('santiago')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filtrarHoteles('santiago')}">
-        <div class="destino-img santiago"><span class="destino-emoji">🏙️</span><span class="destino-tag">🇩🇴 Ciudad Corazón</span></div>
-        <div class="destino-body">
-          <h3>Santiago de los Caballeros</h3>
-          <p>La segunda ciudad de RD — el Cibao, el beisbol, la comida real dominicana y el Monumento a los Heroes.</p>
-          <div class="destino-meta">
-            <span>📅 Todo el año</span>
-            <span>💰 $45–90/noche</span>
-          </div>
-          <a href="guia-santiago.html" class="btn-destino">Guia de Santiago →</a>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -464,7 +449,6 @@
       <button class="filtro-btn" onclick="filtrarHoteles('puerto-plata')">⛰️ Puerto Plata</button>
       <button class="filtro-btn" onclick="filtrarHoteles('la-romana')">🎨 La Romana</button>
       <button class="filtro-btn" onclick="filtrarHoteles('samana')">🐋 Samaná</button>
-      <button class="filtro-btn" onclick="filtrarHoteles('santiago')">🏙️ Santiago</button>
     </div>
 
     <div class="hoteles-grid" id="hoteles-grid">
@@ -475,11 +459,42 @@
   </div>
 </section>
 
+<!-- ── SERVICIOS DE VIAJE ── -->
+<section id="servicios">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">🧳 Resuelve todo desde aquí</span>
+      <h2>Servicios para tu viaje a RD</h2>
+      <p>Vuelos, carro, traslados, tours, datos móviles y seguro — todo lo que necesitas antes de viajar.</p>
+    </div>
+    <div class="servicios-grid">
+      <a href="https://aviasales.tpo.li/AIrUfvdu" target="_blank" rel="noopener sponsored" class="servicio-card">
+        <div class="servicio-icon">✈️</div><h3>Vuelos</h3><span>Comparar precios →</span>
+      </a>
+      <a href="https://getrentacar.tpo.li/gFUlN3Yl" target="_blank" rel="noopener sponsored" class="servicio-card">
+        <div class="servicio-icon">🚗</div><h3>Alquiler de carro</h3><span>Ver opciones →</span>
+      </a>
+      <a href="https://kiwitaxi.tpo.li/wOqfFo9t" target="_blank" rel="noopener sponsored" class="servicio-card">
+        <div class="servicio-icon">🚐</div><h3>Traslado aeropuerto</h3><span>Reservar →</span>
+      </a>
+      <a href="https://klook.tpo.li/yEpeRgNT" target="_blank" rel="noopener sponsored" class="servicio-card">
+        <div class="servicio-icon">🎟️</div><h3>Tours y excursiones</h3><span>Explorar →</span>
+      </a>
+      <a href="https://yesim.tpo.li/weRmytbR" target="_blank" rel="noopener sponsored" class="servicio-card">
+        <div class="servicio-icon">📶</div><h3>eSIM de datos</h3><span>Comprar →</span>
+      </a>
+      <a href="https://ektatraveling.tpo.li/Oiq1T6km" target="_blank" rel="noopener sponsored" class="servicio-card">
+        <div class="servicio-icon">🛡️</div><h3>Seguro de viaje</h3><span>Cotizar →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ── POR QUÉ RD ── -->
 <section id="porque">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">🇩🇴 El corazón del Caribe</span>
+      <span class="section-label">🇩🇴 La isla del encanto</span>
       <h2>¿Por qué República Dominicana?</h2>
       <p>Porque no hay otro lugar en el mundo que tenga todo esto junto.</p>
     </div>
@@ -491,8 +506,8 @@
       </div>
       <div class="porque-card">
         <div class="porque-icon">✈️</div>
-        <h3>Vuelos directos desde todo el mundo</h3>
-        <p>Desde EE.UU., Europa y Latinoamérica hay vuelos directos a RD. En menos de un día estás en la isla.</p>
+        <h3>Vuelos directos desde NYC</h3>
+        <p>4 horas de vuelo desde JFK, EWR o LGA. Sin escalas, sin complicaciones.</p>
       </div>
       <div class="porque-card">
         <div class="porque-icon">💵</div>
@@ -522,9 +537,9 @@
 <section id="sobre">
   <div class="container">
     <div class="sobre-avatar">🇩🇴</div>
-    <div class="sobre-nombre">El Quisqueyano en NYC</div>
+    <div class="sobre-nombre">Venul Hernández — El Quisqueyano en NYC</div>
     <p class="sobre-bio">
-      Soy dominicano de corazón. Creé Quisqueya Travel para ayudar a dominicanos de la diáspora — en EE.UU., España, Italia, Puerto Rico y donde sea que estés — y a cualquier viajero del mundo que quiera descubrir la magia de República Dominicana con recomendaciones honestas de alguien que nació allá.
+      Soy dominicano viviendo en Nueva York. Conductor profesional y creador de contenido apasionado por mi cultura y mi isla. Creé Quisqueya Travel para ayudar a los dominicanos de la diáspora y a cualquier persona que quiera descubrir la magia de República Dominicana con recomendaciones honestas y auténticas.
     </p>
     <div class="sobre-social">
       <a href="https://www.facebook.com/profile.php?id=2061443547418301" target="_blank" rel="noopener" class="social-btn social-fb">📘 Facebook</a>
@@ -538,22 +553,167 @@
 <footer>
   <p>🇩🇴 <strong style="color:#ccc">Quisqueya Travel</strong> — El Quisqueyano en NYC</p>
   <p style="margin-top:6px">
-    Sitio afiliado de Stay22 · Los precios pueden variar ·
+    Sitio afiliado de Stay22 y Travelpayouts · Los precios pueden variar ·
     <a href="mailto:venulhernandez@gmail.com">Contacto</a> ·
     <a href="guia-requisitos-viaje-rd-2026.html">Requisitos para viajar 2026</a> ·
     <a href="guia-costo-viaje-familia-rd.html">Costo del viaje en familia</a> ·
     <a href="guia-vuelos-nyc-rd.html">Vuelos NYC-RD</a> ·
     <a href="guia-barahona.html">Barahona</a> ·
-    <a href="guia-santiago.html">Santiago</a> ·
     <a href="guia-santo-domingo.html">Santo Domingo</a> ·
-    <a href="guia-punta-cana.html">Punta Cana</a> ·
-    <a href="guia-puerto-plata.html">Puerto Plata</a> ·
-    <a href="guia-jarabacoa.html">Jarabacoa</a>
+    <a href="guia-punta-cana.html">Punta Cana</a>
   </p>
   <p style="margin-top:6px;font-size:0.78rem" id="footer-update"></p>
 </footer>
 
 <!-- ── JAVASCRIPT ── -->
-<script src="js/hoteles2.js"></script>
+<script>
+  // ── Hoteles base — links de afiliado Stay22 (quisqueyatravel) ───────────────
+  const STAY22 = 'https://www.stay22.com/allez/quisqueyatravel?destination=';
+
+  const HOTELES_BASE = {
+    'punta-cana': {
+      destino: 'Punta Cana',
+      hoteles: [
+        { nombre: 'Barceló Bávaro Palace', precio: 'Desde $120/noche', puntuacion: '8.6 Excelente', imagen: '', emoji: '🌴', link: STAY22 + 'punta-cana' },
+        { nombre: 'Hard Rock Hotel & Casino Punta Cana', precio: 'Desde $145/noche', puntuacion: '8.4 Muy bueno', imagen: '', emoji: '🎸', link: STAY22 + 'punta-cana' },
+        { nombre: 'Riu Palace Macao', precio: 'Desde $95/noche', puntuacion: '8.8 Excelente', imagen: '', emoji: '🏖️', link: STAY22 + 'punta-cana' }
+      ]
+    },
+    'santo-domingo': {
+      destino: 'Santo Domingo',
+      hoteles: [
+        { nombre: 'Hotel Hodelpa Caribe Colonial', precio: 'Desde $55/noche', puntuacion: '8.2 Muy bueno', imagen: '', emoji: '🏛️', link: STAY22 + 'santo-domingo' },
+        { nombre: 'Radisson Blu Hotel Santo Domingo', precio: 'Desde $80/noche', puntuacion: '8.5 Muy bueno', imagen: '', emoji: '🌆', link: STAY22 + 'santo-domingo' }
+      ]
+    },
+    'puerto-plata': {
+      destino: 'Puerto Plata',
+      hoteles: [
+        { nombre: 'Cofresi Palm Beach & Spa Resort', precio: 'Desde $65/noche', puntuacion: '7.9 Bueno', imagen: '', emoji: '⛰️', link: STAY22 + 'puerto-plata' },
+        { nombre: 'Viva Wyndham V Heavens', precio: 'Desde $70/noche', puntuacion: '7.6 Bueno', imagen: '', emoji: '🌊', link: STAY22 + 'puerto-plata' }
+      ]
+    },
+    'la-romana': {
+      destino: 'La Romana',
+      hoteles: [
+        { nombre: 'Casa de Campo Resort & Villas', precio: 'Desde $130/noche', puntuacion: '9.1 Excepcional', imagen: '', emoji: '🎨', link: STAY22 + 'la-romana' },
+        { nombre: 'Sunscape Casa del Mar', precio: 'Desde $85/noche', puntuacion: '8.3 Muy bueno', imagen: '', emoji: '🌅', link: STAY22 + 'la-romana' }
+      ]
+    },
+    'samana': {
+      destino: 'Samaná',
+      hoteles: [
+        { nombre: 'Grand Bahia Principe Cayacoa', precio: 'Desde $90/noche', puntuacion: '8.7 Excelente', imagen: '', emoji: '🐋', link: STAY22 + 'samana' },
+        { nombre: 'Hotel Bahia Principe Grand Samana', precio: 'Desde $75/noche', puntuacion: '8.5 Muy bueno', imagen: '', emoji: '🌴', link: STAY22 + 'samana' }
+      ]
+    }
+  };
+
+  let hotelesData = JSON.parse(JSON.stringify(HOTELES_BASE)); // copia profunda
+  let filtroActual = 'todos';
+
+  // ── Render inmediato con datos base ─────────────────────────────────────────
+  renderHoteles('todos');
+
+  // ── Intentar actualizar con hoteles.json del scraper ────────────────────────
+  fetch('data/hoteles.json')
+    .then(r => { if (!r.ok) throw new Error('sin json'); return r.json(); })
+    .then(data => {
+      Object.keys(data).forEach(key => {
+        if (data[key]?.hoteles?.length > 0) hotelesData[key] = data[key];
+      });
+      renderHoteles(filtroActual);
+      console.log('✅ Hoteles actualizados desde hoteles.json');
+    })
+    .catch(() => console.log('ℹ️ Usando hoteles base (hoteles.json no encontrado)'));
+
+  // ── Renderizar grilla de hoteles ─────────────────────────────────────────────
+  function renderHoteles(filtro) {
+    filtroActual = filtro;
+    const grid = document.getElementById('hoteles-grid');
+
+    // Actualizar estado de botones de filtro
+    document.querySelectorAll('.filtro-btn').forEach(btn => {
+      const onclickVal = btn.getAttribute('onclick') || '';
+      const esActivo = filtro === 'todos'
+        ? onclickVal.includes("'todos'")
+        : onclickVal.includes(`'${filtro}'`);
+      btn.classList.toggle('activo', esActivo);
+    });
+
+    // Reunir hoteles según el filtro
+    let lista = [];
+    if (filtro === 'todos') {
+      Object.values(hotelesData).forEach(d =>
+        d.hoteles.forEach(h => lista.push({ ...h, destino: d.destino }))
+      );
+    } else {
+      const dest = hotelesData[filtro];
+      if (dest) lista = dest.hoteles.map(h => ({ ...h, destino: dest.destino }));
+    }
+
+    if (lista.length === 0) {
+      grid.innerHTML = `<div class="loading-msg">No hay hoteles para este destino todavía.
+        <a href="${STAY22}republica-dominicana" target="_blank" rel="noopener sponsored">
+        Ver en Stay22 →</a></div>`;
+      return;
+    }
+
+    grid.innerHTML = lista.map(hotel => `
+      <div class="hotel-card">
+        <div class="hotel-img-wrap">
+          ${hotel.imagen
+            ? `<img src="${hotel.imagen}" alt="${hotel.nombre}" loading="lazy">`
+            : `<div class="hotel-img-placeholder">${hotel.emoji || '🏨'}</div>`
+          }
+          <span class="hotel-badge">📍 ${hotel.destino || ''}</span>
+        </div>
+        <div class="hotel-body">
+          <h3>${hotel.nombre}</h3>
+          <div class="hotel-rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-num">${extraerPuntuacion(hotel.puntuacion)}</span>
+            <span style="color:#888;font-size:0.8rem"> ${hotel.puntuacion}</span>
+          </div>
+          <div class="hotel-precio">
+            <span class="precio-desde">Desde </span>
+            <span class="precio-num">${extraerPrecio(hotel.precio)}</span>
+            <span class="precio-noche"> / noche</span>
+          </div>
+          <a href="${hotel.link}" target="_blank" rel="noopener sponsored" class="btn-hotel">
+            Ver disponibilidad →
+          </a>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // ── Filtrar por destino (llamado desde botones y tarjetas de destino) ────────
+  function filtrarHoteles(destino) {
+    renderHoteles(destino);
+    // Solo hacer scroll si ya estamos más abajo que la sección hoteles
+    const seccion = document.getElementById('hoteles');
+    if (seccion && window.scrollY > seccion.offsetTop - 100) return;
+    seccion?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function extraerPrecio(precio) {
+    if (!precio) return '$??';
+    const match = precio.match(/\$[\d,.]+/);
+    return match ? match[0] : precio.split(' ')[0];
+  }
+
+  function extraerPuntuacion(puntuacion) {
+    if (!puntuacion) return '';
+    const match = puntuacion.match(/\d+\.\d+|\d+/);
+    return match ? match[0] : '';
+  }
+
+  // Footer — fecha de actualización
+  const d = new Date();
+  document.getElementById('footer-update').textContent =
+    `Hoteles actualizados: ${d.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}`;
+</script>
+
 </body>
 </html>
