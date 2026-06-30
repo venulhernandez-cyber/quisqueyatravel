@@ -7,14 +7,31 @@ jobs:
   purge:
     runs-on: ubuntu-latest
     steps:
-      - name: Get Zone ID and Purge Cache
+      - name: Diagnose and Purge Cloudflare Cache
         run: |
+          TOKEN="${{ secrets.CLOUDFLARE_API_TOKEN }}"
+          ACCOUNT="${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"
+          
+          echo "=== CF Pages Projects ==="
+          curl -s "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT/pages/projects" \
+            -H "Authorization: Bearer $TOKEN" | python3 -c "import sys,json; data=json.load(sys.stdin); [print(p['name']) for p in data.get('result',[])]"
+          
+          echo "=== Custom Domains for quisqueyatravel ==="
+          curl -s "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT/pages/projects/quisqueyatravel/domains" \
+            -H "Authorization: Bearer $TOKEN" | python3 -c "import sys,json; data=json.load(sys.stdin); print(json.dumps(data.get('result',[]), indent=2))"
+          
+          echo "=== Zones for quisqueyatravel.org ==="
           ZONE_ID=$(curl -s "https://api.cloudflare.com/client/v4/zones?name=quisqueyatravel.org" \
-            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
-            | python3 -c "import sys,json; print(json.load(sys.stdin)['result'][0]['id'])")
+            -H "Authorization: Bearer $TOKEN" \
+            | python3 -c "import sys,json; r=json.load(sys.stdin)['result']; print(r[0]['id'] if r else 'NOT FOUND')")
           echo "Zone ID: $ZONE_ID"
-          RESULT=$(curl -s -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/purge_cache" \
-            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+          
+          echo "=== DNS Records ==="
+          curl -s "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
+            -H "Authorization: Bearer $TOKEN" | python3 -c "import sys,json; data=json.load(sys.stdin); [print(r['type'],r['name'],r.get('content','')) for r in data.get('result',[])]"
+          
+          echo "=== Purging Zone Cache ==="
+          curl -s -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/purge_cache" \
+            -H "Authorization: Bearer $TOKEN" \
             -H "Content-Type: application/json" \
-            --data '{"purge_everything":true}')
-          echo "Purge result: $RESULT"
+            --data '{"purge_everything":true}'
