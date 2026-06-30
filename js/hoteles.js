@@ -34,8 +34,15 @@ var HOTELES_BASE = {
   'samana': {
     destino: 'Samana',
     hoteles: [
-      { nombre: 'Grand Bahia Principe Cayacoa', precio: 'Desde $90/noche', puntuacion: '8.7 Excelente', imagen: 'https://images.unsplash.com/photo-1573843981267-be1480e65a3b?w=500&q=80', emoji: '🐋', link: STAY22 + 'samana' },
-      { nombre: 'Hotel Bahia Principe Grand Samana', precio: 'Desde $75/noche', puntuacion: '8.5 Muy bueno', imagen: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=500&q=80', emoji: '🌴', link: STAY22 + 'samana' }
+      { nombre: 'Grand Bahia Principe Cayacoa', precio: 'Desde $90/noche', puntuacion: '8.7 Excelente', imagen: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=500&q=80', emoji: '🐋', link: STAY22 + 'samana' },
+      { nombre: 'Hotel Bahia Principe Grand Samana', precio: 'Desde $75/noche', puntuacion: '8.5 Muy bueno', imagen: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=500&q=80', emoji: '🌴', link: STAY22 + 'samana' }
+    ]
+  },
+  'santiago': {
+    destino: 'Santiago de los Caballeros',
+    hoteles: [
+      { nombre: 'Hodelpa Gran Almirante', precio: 'Desde $60/noche', puntuacion: '8.3 Muy bueno', imagen: 'https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=500&q=80', emoji: '🌆', link: STAY22 + 'santiago-de-los-caballeros' },
+      { nombre: 'Hodelpa Centro Plaza', precio: 'Desde $45/noche', puntuacion: '7.8 Bueno', imagen: 'https://images.unsplash.com/photo-1551882547-ff40c4c79d4d?w=500&q=80', emoji: '🏙️', link: STAY22 + 'santiago-de-los-caballeros' }
     ]
   }
 };
@@ -57,10 +64,10 @@ function extraerPuntuacion(puntuacion) {
 
 function renderHoteles(filtro) {
   filtroActual = filtro;
-  var grid = document.getElementById('hotels-grid');
+  var grid = document.getElementById('hoteles-grid');
   if (!grid) return;
 
-  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+  document.querySelectorAll('.filtro-btn').forEach(function(btn) {
     var v = btn.getAttribute('onclick') || '';
     var activo = filtro === 'todos' ? v.indexOf("'todos'") > -1 : v.indexOf("'" + filtro + "'") > -1;
     btn.classList.toggle('activo', activo);
