@@ -7,23 +7,27 @@ jobs:
   fix-dns:
     runs-on: ubuntu-latest
     steps:
-      - name: Show DNS records and add CNAME
+      - name: Show DNS and add CNAME
         env:
           CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          ZONE_ID: "059078dc193c7878004408a8d0265927"
+          ZONE_ID: 059078dc193c7878004408a8d0265927
         run: |
-          echo "=== Current DNS records ==="
-          curl -s "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
-            -H "Authorization: Bearer $CF_TOKEN" | jq -r '.result[] | [.id, .type, .name, .content] | @tsv'
+          set +e
+          echo "=== DNS Records (raw) ==="
+          curl -sf "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
+            -H "Authorization: Bearer $CF_TOKEN"
 
-          echo "=== Adding CNAME quisqueyatravel.org -> quisqueyatravel.pages.dev ==="
-          curl -s -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
+          echo ""
+          echo "=== Adding CNAME ==="
+          curl -sf -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
             -H "Authorization: Bearer $CF_TOKEN" \
             -H "Content-Type: application/json" \
-            --data '{"type":"CNAME","name":"quisqueyatravel.org","content":"quisqueyatravel.pages.dev","proxied":true}' | jq '{success,errors}'
+            -d '{"type":"CNAME","name":"quisqueyatravel.org","content":"quisqueyatravel.pages.dev","proxied":true}'
 
-          echo "=== Purging Zone cache ==="
-          curl -s -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/purge_cache" \
+          echo ""
+          echo "=== Purge cache ==="
+          curl -sf -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/purge_cache" \
             -H "Authorization: Bearer $CF_TOKEN" \
             -H "Content-Type: application/json" \
-            --data '{"purge_everything":true}' | jq '{success}'
+            -d '{"purge_everything":true}'
+          echo "DONE"
