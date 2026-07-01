@@ -63,7 +63,7 @@
     .nav-cta { background: var(--verde); color: #fff; padding: 9px 20px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.85rem; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
     .nav-cta:hover { background: var(--verde2); }
     article { max-width: 740px; margin: 0 auto; padding: 60px 20px 80px; }
-    .breadcrumb { font-size: 0.85rem; color: #888; margin-bottom: 18px; }
+    .breadcrumb { font-size: 0.85rem; color: #595959; margin-bottom: 18px; }
     .breadcrumb a { color: var(--verde); text-decoration: none; }
     .article-badge {
       display: inline-block; background: rgba(26,107,58,0.1); color: var(--verde);
@@ -94,8 +94,8 @@
       font-size: 0.95rem; line-height: 1.7;
     }
     .tip-box strong { color: var(--verde); }
-    .disclaimer { font-size: 0.85rem; color: #888; border-top: 1px solid #eee; padding-top: 16px; margin-top: 30px; }
-    footer { background: #111120; color: #666; text-align: center; padding: 30px 20px; font-size: 0.85rem; line-height: 1.8; }
+    .disclaimer { font-size: 0.85rem; color: #595959; border-top: 1px solid #eee; padding-top: 16px; margin-top: 30px; }
+    footer { background: #111120; color: #999999; text-align: center; padding: 30px 20px; font-size: 0.85rem; line-height: 1.8; }
     footer a { color: var(--naranja); text-decoration: none; }
     .whatsapp-float {
       position: fixed; bottom: 24px; right: 24px; z-index: 999;
@@ -109,7 +109,10 @@
       table { font-size: 0.82rem; }
       th, td { padding: 8px 5px; }
     }
-  </style>
+  
+    /* Foco visible (accesibilidad) */
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--naranja); outline-offset: 2px; border-radius: 4px; }
+</style>
 </head>
 <body>
 
@@ -132,7 +135,7 @@
   <p>The east coast of the Dominican Republic has some of the calmest, clearest water in the entire Caribbean. Bávaro Beach regularly appears on lists of the world's best beaches — and when you're standing there with your feet in the sand, you understand why.</p>
 
   <div class="tip-box">
-    <strong>Getting there:</strong> Punta Cana International Airport (PUJ) is the busiest airport in the Dominican Republic. Direct flights operate from New York (JFK, EWR, LGA), Miami, Toronto, London, Madrid, Paris and dozens of other cities. From New York, the flight is about 3.5 hours.
+    <strong>Getting there:</strong> Punta Cana International Airport (PUJ) is the busiest airport in the Dominican Republic. Direct flights operate from dozens of cities across the US, Canada, Europe and Latin America — most East Coast routes are 3–4 hours.
   </div>
 
   <h2>The Beaches — What's Actually Worth Your Time</h2>
@@ -162,7 +165,7 @@
       <tr><th>Expense</th><th>Estimated Cost (per person)</th></tr>
     </thead>
     <tbody>
-      <tr><td>Round-trip flight (NYC/Miami/Toronto)</td><td>$180–450 USD</td></tr>
+      <tr><td>Round-trip international flight</td><td>$180–450 USD</td></tr>
       <tr><td>All-inclusive resort (per night)</td><td>$120–280 per person</td></tr>
       <tr><td>Hotel without meals (per night)</td><td>$80–180 per room</td></tr>
       <tr><td>Saona Island excursion</td><td>$60–80 per person</td></tr>

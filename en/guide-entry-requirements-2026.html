@@ -50,7 +50,7 @@
     .nav-logo span em { color: var(--naranja); font-style: normal; }
     .nav-cta { background: var(--verde); color: #fff; padding: 9px 20px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.85rem; min-height: 44px; display: inline-flex; align-items: center; }
     .nav-cta:hover { background: var(--verde2); }
-    .breadcrumb { padding: 14px 30px; font-size: 0.85rem; color: #888; max-width: 860px; margin: 0 auto; }
+    .breadcrumb { padding: 14px 30px; font-size: 0.85rem; color: #595959; max-width: 860px; margin: 0 auto; }
     .breadcrumb a { color: var(--verde); text-decoration: none; }
     .article-hero { background: linear-gradient(145deg, #0d3b24 0%, #1a6b3a 100%); color: #fff; padding: 60px 20px 50px; text-align: center; }
     .article-hero .label { display: inline-block; background: rgba(244,162,97,0.2); border: 1px solid var(--naranja); color: var(--naranja); padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 18px; }
@@ -73,12 +73,15 @@
     .tip-box { background: #e8f5e9; border-radius: 10px; padding: 16px 20px; margin: 20px 0; font-size: 0.9rem; border-left: 4px solid var(--verde2); }
     .tip-box strong { color: var(--verde); }
     .warning-box { background: #fff8e1; border-radius: 10px; padding: 16px 20px; margin: 20px 0; font-size: 0.9rem; border-left: 4px solid #f4a261; }
-    .lang-switcher { text-align: center; padding: 22px 0 10px; font-size: 0.9rem; color: #888; }
+    .lang-switcher { text-align: center; padding: 22px 0 10px; font-size: 0.9rem; color: #595959; }
     .lang-switcher a { color: var(--verde); text-decoration: none; font-weight: 600; margin: 0 8px; }
-    footer { background: #111120; color: #666; text-align: center; padding: 30px 20px; font-size: 0.85rem; line-height: 1.8; }
+    footer { background: #111120; color: #999999; text-align: center; padding: 30px 20px; font-size: 0.85rem; line-height: 1.8; }
     footer a { color: var(--naranja); text-decoration: none; }
     @media (max-width: 640px) { nav { padding: 0 15px; } .article-body { padding: 30px 15px 50px; } }
-  </style>
+  
+    /* Foco visible (accesibilidad) */
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--naranja); outline-offset: 2px; border-radius: 4px; }
+</style>
 </head>
 <body>
 
@@ -106,7 +109,7 @@
 
   <h2>The Non-Negotiables</h2>
   <ul class="checklist">
-    <li><strong>Valid passport</strong> with at least 6 months remaining before it expires. If yours is close to expiring, renew it now — processing in NYC can take several weeks.</li>
+    <li><strong>Valid passport</strong> with at least 6 months remaining before it expires. If yours is close to expiring, renew it now — processing times vary by country and can take several weeks.</li>
     <li><strong>E-Ticket (online entry form)</strong> — the Dominican Republic requires all travelers to complete this form before arrival. It's free, takes 5 minutes, and is done online at the official government site.</li>
     <li><strong>Return or onward ticket</strong> — airlines and immigration require proof that you're leaving. Have it printed or on your phone.</li>
   </ul>
