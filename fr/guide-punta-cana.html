@@ -52,7 +52,7 @@
     .nav-cta { background: var(--verde); color: #fff; padding: 9px 20px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.85rem; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
     .nav-cta:hover { background: var(--verde2); }
     article { max-width: 740px; margin: 0 auto; padding: 60px 20px 80px; }
-    .breadcrumb { font-size: 0.85rem; color: #888; margin-bottom: 18px; }
+    .breadcrumb { font-size: 0.85rem; color: #595959; margin-bottom: 18px; }
     .breadcrumb a { color: var(--verde); text-decoration: none; }
     .article-badge { display: inline-block; background: rgba(26,107,58,0.1); color: var(--verde); padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
     h1 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.2; color: var(--oscuro); margin-bottom: 18px; }
@@ -68,13 +68,16 @@
     .btn-primary:hover { opacity: 0.9; }
     .tip-box { background: rgba(26,107,58,0.07); border-left: 3px solid var(--verde); border-radius: 8px; padding: 16px 20px; margin: 20px 0; font-size: 0.95rem; line-height: 1.7; }
     .tip-box strong { color: var(--verde); }
-    .disclaimer { font-size: 0.85rem; color: #888; border-top: 1px solid #eee; padding-top: 16px; margin-top: 30px; }
-    footer { background: #111120; color: #666; text-align: center; padding: 30px 20px; font-size: 0.85rem; line-height: 1.8; }
+    .disclaimer { font-size: 0.85rem; color: #595959; border-top: 1px solid #eee; padding-top: 16px; margin-top: 30px; }
+    footer { background: #111120; color: #999999; text-align: center; padding: 30px 20px; font-size: 0.85rem; line-height: 1.8; }
     footer a { color: var(--naranja); text-decoration: none; }
     .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 999; background: #25d366; color: #fff; border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; text-decoration: none; box-shadow: 0 4px 16px rgba(37,211,102,0.4); transition: transform 0.2s; }
     .whatsapp-float:hover { transform: scale(1.1); }
     @media (max-width: 480px) { table { font-size: 0.82rem; } th, td { padding: 8px 5px; } }
-  </style>
+  
+    /* Foco visible (accesibilidad) */
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--naranja); outline-offset: 2px; border-radius: 4px; }
+</style>
 </head>
 <body>
 

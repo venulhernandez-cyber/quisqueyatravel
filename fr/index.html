@@ -132,7 +132,7 @@
     .destino-body { padding: 22px; }
     .destino-body h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 8px; }
     .destino-body p { color: #666; font-size: 0.9rem; line-height: 1.6; margin-bottom: 15px; }
-    .destino-meta { display: flex; gap: 15px; font-size: 0.8rem; color: #888; margin-bottom: 16px; flex-wrap: wrap; }
+    .destino-meta { display: flex; gap: 15px; font-size: 0.8rem; color: #595959; margin-bottom: 16px; flex-wrap: wrap; }
     .btn-destino { display: flex; align-items: center; justify-content: center; background: var(--verde); color: var(--blanco); padding: 10px; border-radius: 8px; min-height: 44px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: background 0.2s; }
     .btn-destino:hover { background: var(--verde2); }
     #why-dr { background: var(--blanco); }
@@ -164,7 +164,7 @@
     .trust-inner h2 { font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--blanco); font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 16px; }
     .trust-inner p { color: #aaa; font-size: 1rem; line-height: 1.7; margin-bottom: 10px; }
     .trust-inner strong { color: var(--naranja); }
-    footer { background: #111120; color: #666; text-align: center; padding: 36px 20px; font-size: 0.85rem; line-height: 1.9; }
+    footer { background: #111120; color: #999999; text-align: center; padding: 36px 20px; font-size: 0.85rem; line-height: 1.9; }
     footer a { color: var(--naranja); text-decoration: none; }
     .lang-switcher { margin-bottom: 10px; }
     .lang-switcher a { color: #aaa; text-decoration: none; margin: 0 6px; font-weight: 600; font-size: 0.82rem; }
@@ -172,7 +172,10 @@
     .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 999; background: #25d366; color: #fff; border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; text-decoration: none; box-shadow: 0 4px 16px rgba(37,211,102,0.4); transition: transform 0.2s; }
     .whatsapp-float:hover { transform: scale(1.1); }
     @media (max-width: 600px) { nav { padding: 0 16px; } .nav-links { display: none; } }
-  </style>
+  
+    /* Foco visible (accesibilidad) */
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--naranja); outline-offset: 2px; border-radius: 4px; }
+</style>
 </head>
 <body>
 
@@ -348,7 +351,7 @@
 <section id="trust">
   <div class="trust-inner">
     <h2>À propos de <strong>Quisqueya Travel</strong></h2>
-    <p>Je suis Venul — chauffeur professionnel et créateur de contenu basé à New York, né en République Dominicaine. J'ai créé ce site parce que la plupart des contenus voyage sur la RD sont écrits par des gens qui y ont séjourné une semaine dans une bulle de resort.</p>
+    <p>Je suis Venul — chauffeur professionnel et créateur de contenu, né en République Dominicaine. J'ai créé ce site parce que la plupart des contenus voyage sur la RD sont écrits par des gens qui y ont séjourné une semaine dans une bulle de resort.</p>
     <p>Je connais l'île en tant que Dominicain — les vraies plages, la nourriture qui vaut le détour, ce qui compte vraiment quand on voyage en famille. Tout sur ce site vient de cette perspective.</p>
     <p style="margin-top:16px; color: #777; font-size: 0.85rem;">Quisqueya Travel utilise des liens d'affiliation. Lorsque vous réservez via nos liens, nous percevons une petite commission — sans coût supplémentaire pour vous.</p>
   </div>
