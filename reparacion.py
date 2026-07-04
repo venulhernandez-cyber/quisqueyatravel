@@ -37,14 +37,20 @@ DRIVE_SCRIPT = (
 )
 
 # Canónicos correctos por página
+# NOTA (2026-07): cambiado a URLs limpias (sin .html) para que coincidan con el
+# destino final de los 301 en _redirects. Antes apuntaban a la URL .html, que
+# es justo la que el redirect abandona — eso confundía a Google sobre cuál era
+# la version canonica real.
 CANONICALS = {
     "index.html":                         "https://quisqueyatravel.org/",
-    "guia-punta-cana.html":               "https://quisqueyatravel.org/guia-punta-cana.html",
-    "guia-santo-domingo.html":            "https://quisqueyatravel.org/guia-santo-domingo.html",
-    "guia-barahona.html":                 "https://quisqueyatravel.org/guia-barahona.html",
-    "guia-vuelos-nyc-rd.html":            "https://quisqueyatravel.org/guia-vuelos-nyc-rd.html",
-    "guia-requisitos-viaje-rd-2026.html": "https://quisqueyatravel.org/guia-requisitos-viaje-rd-2026.html",
-    "guia-costo-viaje-familia-rd.html":   "https://quisqueyatravel.org/guia-costo-viaje-familia-rd.html",
+    "guia-punta-cana.html":               "https://quisqueyatravel.org/guia-punta-cana",
+    "guia-santo-domingo.html":            "https://quisqueyatravel.org/guia-santo-domingo",
+    "guia-barahona.html":                 "https://quisqueyatravel.org/guia-barahona",
+    "guia-vuelos-nyc-rd.html":            "https://quisqueyatravel.org/guia-vuelos-nyc-rd",
+    "guia-requisitos-viaje-rd-2026.html": "https://quisqueyatravel.org/guia-requisitos-viaje-rd-2026",
+    "guia-costo-viaje-familia-rd.html":   "https://quisqueyatravel.org/guia-costo-viaje-familia-rd",
+    "guia-la-romana.html":                "https://quisqueyatravel.org/guia-la-romana",
+    "guia-samana.html":                   "https://quisqueyatravel.org/guia-samana",
 }
 
 
