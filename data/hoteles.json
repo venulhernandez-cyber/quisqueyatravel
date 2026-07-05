@@ -39,9 +39,9 @@
     "destino": "Samaná",
     "hoteles": [
       { "nombre": "Grand Bahia Principe Cayacoa", "precio": "Desde $90/noche", "puntuacion": "8.7 Excelente", "imagen": "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=500&q=80", "emoji": "🐋", "link": "https://www.stay22.com/allez/quisqueyatravel?address=Samana%2C%20Dominican%20Republic" },
-      { "nombre": "Hotel Bahia Principe Grand Samana", "precio": "Desde $75/noche", "puntuacion": "8.5 Muy bueno", "imagen": "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=500&q=80", "emoji": "🌴", "link": "https://www.stay22.com/allez/quisqueyatravel?address=Samana%2C%20Dominican%20Republic" },
+      { "nombre": "Hotel Bahia Principe Grand Samana", "precio": "Desde $75/noche", "puntuacion": "8.5 Muy bueno", "imagen": "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=500&q=80", "emoji": "🌴", "link": "https://www.stay22.com/allez/quisqueyatravel?address=Samana%2C%20Dominican%20Republic" },
       { "nombre": "Bahia Principe Grand El Portillo", "precio": "Desde $95/noche", "puntuacion": "8.4 Muy bueno", "imagen": "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=500&q=80", "emoji": "🌴", "link": "https://www.stay22.com/allez/quisqueyatravel?address=Samana%2C%20Dominican%20Republic" },
-      { "nombre": "Casa Marina Bay", "precio": "Desde $70/noche", "puntuacion": "7.9 Bueno", "imagen": "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=500&q=80", "emoji": "🐚", "link": "https://www.stay22.com/allez/quisqueyatravel?address=Samana%2C%20Dominican%20Republic" }
+      { "nombre": "Casa Marina Bay", "precio": "Desde $70/noche", "puntuacion": "7.9 Bueno", "imagen": "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=500&q=80", "emoji": "🐚", "link": "https://www.stay22.com/allez/quisqueyatravel?address=Samana%2C%20Dominican%20Republic" }
     ]
   },
   "santiago": {
