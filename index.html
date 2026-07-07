@@ -103,6 +103,14 @@
       font-size: clamp(2rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 20px;
     }
     .hero h1 span { color: var(--naranja); }
+    .hero h1.hero-stagger { margin-bottom: 22px; }
+    .hero h1.hero-stagger span.stagger-line {
+      display: block; font-family: 'Montserrat', sans-serif; font-weight: 900; line-height: 1.08;
+    }
+    .stagger-1 { font-size: clamp(1.1rem, 3vw, 1.7rem); opacity: 0.7; }
+    .stagger-2 { font-size: clamp(1.4rem, 3.8vw, 2.3rem); opacity: 0.85; }
+    .stagger-3 { font-size: clamp(1.7rem, 4.6vw, 2.9rem); opacity: 1; }
+    .stagger-4 { font-size: clamp(2.1rem, 6vw, 4rem); color: var(--naranja); margin-top: 4px; }
     .hero p { font-size: 1.15rem; opacity: 0.85; max-width: 560px; margin: 0 auto 35px; line-height: 1.7; }
     .hero-btns { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
     .btn-primary {
@@ -281,6 +289,17 @@
     .porque-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 8px; font-size: 1rem; }
     .porque-card p { color: #666; font-size: 0.88rem; line-height: 1.6; }
 
+    /* ── RESEÑAS / PRUEBA SOCIAL ── */
+    #resenas { background: var(--gris); }
+    .resenas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+    .resena-card { background: var(--blanco); border-radius: 14px; padding: 26px 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); position: relative; }
+    .resena-quote { font-size: 2.2rem; color: var(--naranja); line-height: 1; margin-bottom: 8px; font-family: Georgia, serif; }
+    .resena-texto { color: #444; font-size: 0.92rem; line-height: 1.6; margin-bottom: 16px; }
+    .resena-autor { display: flex; align-items: center; gap: 10px; }
+    .resena-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--verde); color: var(--blanco); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+    .resena-nombre { font-weight: 700; font-size: 0.88rem; color: var(--oscuro); }
+    .resena-fuente { font-size: 0.75rem; color: #888; }
+
     /* ── SOBRE ── */
     #sobre { background: var(--oscuro); color: var(--blanco); text-align: center; }
     #sobre .section-header h2 { color: var(--blanco); }
@@ -362,7 +381,12 @@
 <!-- ── HERO ── -->
 <header class="hero">
   <div class="hero-badge">🇩🇴 El Quisqueyano</div>
-  <h1>Viajes a <span>República Dominicana</span><br>como los que saben</h1>
+  <h1 class="hero-stagger">
+    <span class="stagger-line stagger-1">Siente.</span>
+    <span class="stagger-line stagger-2">Vive.</span>
+    <span class="stagger-line stagger-3">Explora.</span>
+    <span class="stagger-line stagger-4">República Dominicana.</span>
+  </h1>
   <p>Playas de arena blanca, montañas verdes y una cultura que te roba el corazón. Te muestro los mejores rincones de la isla donde nací — con guías honestas para dominicanos de la diáspora y viajeros de todo el mundo.</p>
   <div class="hero-btns">
     <a href="#hoteles" class="btn-primary">🏨 Ver hoteles disponibles</a>
@@ -578,6 +602,63 @@
         <div class="porque-icon">🏨</div>
         <h3>Resorts de lujo</h3>
         <p>Los mejores resorts todo incluido del planeta están en suelo dominicano.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+  ── RESEÑAS / PRUEBA SOCIAL ──
+  Preparada a pedido de Venul (7 jul 2026) — pendiente detectado el 6 jul comparando vs. la competencia
+  (quisqueyatravel.com.do sí muestra reseñas de Google en su home, Quisqueya Travel no tenía ninguna).
+
+  OCULTA con display:none hasta tener contenido REAL. No inventar comentarios: rompe la política de
+  afiliados y no es honesto con la audiencia. Cuando Venul tenga 3 comentarios reales de Facebook/Instagram
+  (con el nombre de pila de quien comentó, autorización si hace falta, y el texto exacto):
+    1. Quitar style="display:none" de la etiqueta <section> de abajo
+    2. Reemplazar cada "[TEXTO DEL COMENTARIO REAL]" y "[Nombre]" por el contenido real
+    3. Commitear a main y avisar a Cloudflare que despliegue
+-->
+<section id="resenas" style="display:none">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">💬 Lo que dice la gente</span>
+      <h2>Comentarios reales de la comunidad</h2>
+      <p>Esto es lo que dicen dominicanos de la diáspora y viajeros que ya usaron nuestras guías.</p>
+    </div>
+    <div class="resenas-grid">
+      <div class="resena-card">
+        <div class="resena-quote">&ldquo;</div>
+        <p class="resena-texto">[TEXTO DEL COMENTARIO REAL 1 — copiar tal cual de Facebook/Instagram]</p>
+        <div class="resena-autor">
+          <div class="resena-avatar">?</div>
+          <div>
+            <div class="resena-nombre">[Nombre]</div>
+            <div class="resena-fuente">Comentario en Facebook</div>
+          </div>
+        </div>
+      </div>
+      <div class="resena-card">
+        <div class="resena-quote">&ldquo;</div>
+        <p class="resena-texto">[TEXTO DEL COMENTARIO REAL 2 — copiar tal cual de Facebook/Instagram]</p>
+        <div class="resena-autor">
+          <div class="resena-avatar">?</div>
+          <div>
+            <div class="resena-nombre">[Nombre]</div>
+            <div class="resena-fuente">Comentario en Facebook</div>
+          </div>
+        </div>
+      </div>
+      <div class="resena-card">
+        <div class="resena-quote">&ldquo;</div>
+        <p class="resena-texto">[TEXTO DEL COMENTARIO REAL 3 — copiar tal cual de Facebook/Instagram]</p>
+        <div class="resena-autor">
+          <div class="resena-avatar">?</div>
+          <div>
+            <div class="resena-nombre">[Nombre]</div>
+            <div class="resena-fuente">Comentario en Facebook</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
