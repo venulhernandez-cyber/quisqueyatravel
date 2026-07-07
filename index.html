@@ -212,6 +212,7 @@
     .destinos-grid > .reveal:nth-child(4) { transition-delay: 0.24s; }
     .destinos-grid > .reveal:nth-child(5) { transition-delay: 0.32s; }
     .destinos-grid > .reveal:nth-child(6) { transition-delay: 0.4s; }
+    .destinos-grid > .reveal:nth-child(7) { transition-delay: 0.48s; }
     .porque-grid > .reveal:nth-child(2) { transition-delay: 0.08s; }
     .porque-grid > .reveal:nth-child(3) { transition-delay: 0.16s; }
     .porque-grid > .reveal:nth-child(4) { transition-delay: 0.24s; }
@@ -240,6 +241,7 @@
     .destino-card.accent-la-romana { border-top-color: #9b5de5; }
     .destino-card.accent-samana { border-top-color: #2d9b5a; }
     .destino-card.accent-santiago { border-top-color: #f4a261; }
+    .destino-card.accent-sosua { border-top-color: #00b4a6; }
     .destino-img {
       height: 200px; display: flex; align-items: center; justify-content: center;
       font-size: 3rem; position: relative;
@@ -249,16 +251,13 @@
       content: ''; position: absolute; inset: 0;
       background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 100%);
     }
-    .destino-img span.destino-emoji {
-      position: relative; z-index: 1; font-size: 2.8rem;
-      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
-    }
     .destino-img.punta-cana   { background-image: url('https://images.unsplash.com/photo-1551126892-7cf2e2d9a4d9?w=600&q=80&fit=crop&auto=format'); }
     .destino-img.santo-domingo { background-image: url('https://images.unsplash.com/photo-1615305211793-2b62059b8f27?w=600&q=80&fit=crop&auto=format'); }
-    .destino-img.puerto-plata  { background-image: url('https://images.unsplash.com/photo-1611877794310-d8d6f97401fc?w=600&q=80&fit=crop&auto=format'); }
+    .destino-img.puerto-plata  { background-image: url('https://images.pexels.com/photos/29266595/pexels-photo-29266595.jpeg?auto=compress&cs=tinysrgb&w=900'); }
     .destino-img.la-romana     { background-image: url('https://images.unsplash.com/photo-1645408728506-b94d088f10f0?w=600&q=80&fit=crop&auto=format'); }
-    .destino-img.samana        { background-image: url('https://images.unsplash.com/photo-1586748541308-9e0ae6982dc7?w=600&q=80&fit=crop&auto=format'); }
+    .destino-img.samana        { background-image: url('https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=900'); }
     .destino-img.santiago      { background-image: url('/img/santiago.jpg'); }
+    .destino-img.sosua         { background-image: url('https://images.pexels.com/photos/29221468/pexels-photo-29221468.jpeg?auto=compress&cs=tinysrgb&w=900'); }
     .destino-tag {
       position: absolute; top: 12px; right: 12px; z-index: 1;
       background: rgba(255,255,255,0.92); color: var(--verde);
@@ -463,7 +462,7 @@
     <a href="#destinos" class="btn-outline">🗺️ Explorar destinos</a>
   </div>
   <div class="hero-stats">
-    <div class="hero-stat"><div class="num">6+</div><div class="lbl">Destinos</div></div>
+    <div class="hero-stat"><div class="num">7+</div><div class="lbl">Destinos</div></div>
     <div class="hero-stat"><div class="num">100%</div><div class="lbl">Dominicano</div></div>
     <div class="hero-stat"><div class="num">🌍</div><div class="lbl">Para todos</div></div>
   </div>
@@ -500,7 +499,7 @@
     <div class="destinos-grid">
 
       <div class="destino-card reveal accent-punta-cana" role="button" tabindex="0" onclick="filtrarHoteles('punta-cana')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filtrarHoteles('punta-cana')}">
-        <div class="destino-img punta-cana"><span class="destino-emoji">🌴</span><span class="destino-tag">⭐ Más popular</span></div>
+        <div class="destino-img punta-cana"><span class="destino-tag">⭐ Más popular</span></div>
         <div class="destino-body">
           <h3>Punta Cana</h3>
           <p>¿Cuántos años llevas soñando con esa playa de las fotos? Aquí la tienes de verdad: arena blanca, todo incluido y noches que no se olvidan.</p>
@@ -513,7 +512,7 @@
       </div>
 
       <div class="destino-card reveal accent-santo-domingo" role="button" tabindex="0" onclick="filtrarHoteles('santo-domingo')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filtrarHoteles('santo-domingo')}">
-        <div class="destino-img santo-domingo"><span class="destino-emoji">🏛️</span></div>
+        <div class="destino-img santo-domingo"></div>
         <div class="destino-body">
           <h3>Santo Domingo</h3>
           <p>Camina las mismas calles donde empezó el Nuevo Mundo. Zona Colonial, comida real y la ciudad que te cuenta de dónde venimos.</p>
@@ -526,7 +525,7 @@
       </div>
 
       <div class="destino-card reveal accent-puerto-plata" role="button" tabindex="0" onclick="filtrarHoteles('puerto-plata')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filtrarHoteles('puerto-plata')}">
-        <div class="destino-img puerto-plata"><span class="destino-emoji">⛰️</span></div>
+        <div class="destino-img puerto-plata"></div>
         <div class="destino-body">
           <h3>Puerto Plata</h3>
           <p>Sube al único teleférico del Caribe y mira toda la isla desde arriba. Montaña y playa el mismo día, así de completo es Puerto Plata.</p>
@@ -539,7 +538,7 @@
       </div>
 
       <div class="destino-card reveal accent-la-romana" role="button" tabindex="0" onclick="filtrarHoteles('la-romana')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filtrarHoteles('la-romana')}">
-        <div class="destino-img la-romana"><span class="destino-emoji">🎨</span></div>
+        <div class="destino-img la-romana"></div>
         <div class="destino-body">
           <h3>La Romana</h3>
           <p>Altos de Chavón te hace sentir en otro país sin salir del tuyo. Lujo, arte y una costa que te deja sin palabras.</p>
@@ -552,7 +551,7 @@
       </div>
 
       <div class="destino-card reveal accent-samana" role="button" tabindex="0" onclick="filtrarHoteles('samana')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filtrarHoteles('samana')}">
-        <div class="destino-img samana"><span class="destino-emoji">🐋</span></div>
+        <div class="destino-img samana"></div>
         <div class="destino-body">
           <h3>Samaná</h3>
           <p>Entre enero y marzo las ballenas llegan a parir frente a tus ojos. Si no has visto esto, todavía no conoces RD completa.</p>
@@ -565,7 +564,7 @@
       </div>
 
       <div class="destino-card reveal accent-santiago" role="button" tabindex="0" onclick="filtrarHoteles('santiago')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filtrarHoteles('santiago')}">
-        <div class="destino-img santiago"><span class="destino-emoji">🏙️</span><span class="destino-tag">🇩🇴 Ciudad Corazón</span></div>
+        <div class="destino-img santiago"><span class="destino-tag">🇩🇴 Ciudad Corazón</span></div>
         <div class="destino-body">
           <h3>Santiago de los Caballeros</h3>
           <p>Aquí no hay resort ni playa de postal — hay Cibao de verdad. Beisbol, sancocho y la dominicanidad sin actuar para nadie.</p>
@@ -574,6 +573,19 @@
             <span>💰 $45–90/noche</span>
           </div>
           <a href="guia-santiago.html" class="btn-destino">Guia de Santiago →</a>
+        </div>
+      </div>
+
+      <div class="destino-card reveal accent-sosua">
+        <div class="destino-img sosua"><span class="destino-tag">🏖️ Mejor playa del norte</span></div>
+        <div class="destino-body">
+          <h3>Sosúa — Playa Alicia</h3>
+          <p>Una cala en forma de media luna con agua turquesa transparente y la arena más fina del norte. Snorkel, sombrillas y ese ambiente relajado que solo tiene Sosúa.</p>
+          <div class="destino-meta">
+            <span>📅 Todo el año</span>
+            <span>💰 $45–100/noche</span>
+          </div>
+          <a href="https://www.stay22.com/allez/quisqueyatravel?address=Sos%C3%BAa%2C%20Dominican%20Republic" target="_blank" rel="noopener sponsored" class="btn-destino">Ver hoteles en Sosúa →</a>
         </div>
       </div>
 
