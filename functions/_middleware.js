@@ -16,6 +16,10 @@ export async function onRequest(context) {
   const response = await context.next();
   const headers = new Headers(response.headers);
 
+  // Marcador de diagnóstico temporal — confirma si esta Function se está ejecutando.
+  // Quitar esta línea una vez confirmado que CSP funciona.
+  headers.set('X-Csp-Test', 'middleware-ran');
+
   headers.set(
     'Content-Security-Policy',
     "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://emrldtp.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://*.google-analytics.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'"
