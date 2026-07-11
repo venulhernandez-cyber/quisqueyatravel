@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2054264274867364');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LJWN28FFQE"></script>
 <script>
@@ -83,6 +101,14 @@
     .disclaimer { font-size: 0.85rem; color: #595959; border-top: 1px solid #eee; padding-top: 16px; margin-top: 30px; }
     footer { background: #111120; color: #999999; text-align: center; padding: 30px 20px; font-size: 0.85rem; line-height: 1.8; }
     footer a { color: var(--naranja); text-decoration: none; }
+    .whatsapp-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      background: #25d366; color: #fff; border-radius: 50%;
+      width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem; text-decoration: none; box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+      transition: transform 0.2s;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); }
   
     /* Foco visible (accesibilidad) */
     a:focus-visible, button:focus-visible { outline: 3px solid var(--naranja); outline-offset: 2px; border-radius: 4px; }
@@ -125,7 +151,7 @@
 
   <div class="cta-box">
     <p>¿Ya tienes el pasaje? Encuentra tu hotel con el mejor precio garantizado.</p>
-    <a href="https://www.stay22.com/allez/quisqueyatravel?address=Dominican%20Republic" target="_blank" rel="noopener sponsored" class="btn-primary">🏨 Buscar hoteles en RD</a>
+    <a href="https://www.stay22.com/allez/quisqueyatravel?address=Dominican%20Republic&campaign=guia_requisitos" target="_blank" rel="noopener sponsored" class="btn-primary">🏨 Buscar hoteles en RD</a>
   </div>
 
   <div class="cta-box">
@@ -158,6 +184,8 @@
     <a href="/guia-santo-domingo">Santo Domingo</a>
   </p>
 </footer>
+
+<a href="https://wa.me/13477205769" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">💬</a>
 
 </body>
 </html>
