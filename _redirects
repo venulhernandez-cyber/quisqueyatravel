@@ -16,3 +16,13 @@
 /guia-itinerario-republica-dominicana.html /guia-itinerario-republica-dominicana 301
 /hoteles.html                   /hoteles                        301
 /vuelos.html                    /vuelos                         301
+
+# EN / FR (faltaban, causaban contenido duplicado sin indexar en GSC)
+/en/guide-dominican-republic.html    /en/guide-dominican-republic    301
+/en/guide-entry-requirements-2026.html /en/guide-entry-requirements-2026 301
+/en/guide-family-budget-dr.html      /en/guide-family-budget-dr      301
+/en/guide-flights-nyc-dr.html        /en/guide-flights-nyc-dr        301
+/en/guide-punta-cana.html            /en/guide-punta-cana            301
+/en/guide-santo-domingo.html         /en/guide-santo-domingo         301
+/fr/guide-punta-cana.html            /fr/guide-punta-cana            301
+/fr/guide-republique-dominicaine.html /fr/guide-republique-dominicaine 301
