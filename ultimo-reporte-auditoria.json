@@ -1,0 +1,79 @@
+{
+  "timestamp": "2026-07-13 11:26",
+  "total_errores": 9,
+  "paginas": 9,
+  "resultados": [
+    {
+      "pagina": "index.html",
+      "url": "https://quisqueyatravel.org/",
+      "ok": [],
+      "errores": [
+        "❌ No se pudo acceder al live: HTTPSConnectionPool(host='quisqueyatravel.org', port=443): Max retries exceeded with url: / (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+      ]
+    },
+    {
+      "pagina": "guia-punta-cana.html",
+      "url": "https://quisqueyatravel.org/guia-punta-cana",
+      "ok": [],
+      "errores": [
+        "❌ No se pudo acceder al live: HTTPSConnectionPool(host='quisqueyatravel.org', port=443): Max retries exceeded with url: /guia-punta-cana (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+      ]
+    },
+    {
+      "pagina": "guia-santo-domingo.html",
+      "url": "https://quisqueyatravel.org/guia-santo-domingo",
+      "ok": [],
+      "errores": [
+        "❌ No se pudo acceder al live: HTTPSConnectionPool(host='quisqueyatravel.org', port=443): Max retries exceeded with url: /guia-santo-domingo (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+      ]
+    },
+    {
+      "pagina": "guia-barahona.html",
+      "url": "https://quisqueyatravel.org/guia-barahona",
+      "ok": [],
+      "errores": [
+        "❌ No se pudo acceder al live: HTTPSConnectionPool(host='quisqueyatravel.org', port=443): Max retries exceeded with url: /guia-barahona (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+      ]
+    },
+    {
+      "pagina": "guia-santiago.html",
+      "url": "https://quisqueyatravel.org/guia-santiago",
+      "ok": [],
+      "errores": [
+        "❌ No se pudo acceder al live: HTTPSConnectionPool(host='quisqueyatravel.org', port=443): Max retries exceeded with url: /guia-santiago (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+      ]
+    },
+    {
+      "pagina": "guia-jarabacoa.html",
+      "url": "https://quisqueyatravel.org/guia-jarabacoa",
+      "ok": [],
+      "errores": [
+        "❌ No se pudo acceder al live: HTTPSConnectionPool(host='quisqueyatravel.org', port=443): Max retries exceeded with url: /guia-jarabacoa (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+      ]
+    },
+    {
+      "pagina": "guia-vuelos-nyc-rd.html",
+      "url": "https://quisqueyatravel.org/guia-vuelos-nyc-rd",
+      "ok": [],
+      "errores": [
+        "❌ No se pudo acceder al live: HTTPSConnectionPool(host='quisqueyatravel.org', port=443): Max retries exceeded with url: /guia-vuelos-nyc-rd (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+      ]
+    },
+    {
+      "pagina": "guia-requisitos-viaje-rd-2026.html",
+      "url": "https://quisqueyatravel.org/guia-requisitos-viaje-rd-2026",
+      "ok": [],
+      "errores": [
+        "❌ No se pudo acceder al live: HTTPSConnectionPool(host='quisqueyatravel.org', port=443): Max retries exceeded with url: /guia-requisitos-viaje-rd-2026 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+      ]
+    },
+    {
+      "pagina": "guia-costo-viaje-familia-rd.html",
+      "url": "https://quisqueyatravel.org/guia-costo-viaje-familia-rd",
+      "ok": [],
+      "errores": [
+        "❌ No se pudo acceder al live: HTTPSConnectionPool(host='quisqueyatravel.org', port=443): Max retries exceeded with url: /guia-costo-viaje-familia-rd (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+      ]
+    }
+  ]
+}

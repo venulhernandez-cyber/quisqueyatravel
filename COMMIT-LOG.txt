@@ -1,0 +1,115 @@
+Subiendo cambios a GitHub... 
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    .github/dependabot.yml
+	deleted:    .github/workflows/add-domain.yml
+	modified:   .github/workflows/deploy-cloudflare.yml
+	deleted:    .github/workflows/lighthouse.yml
+	deleted:    .github/workflows/purge-cache.yml
+	deleted:    DEPLOY-LEEME.md
+	modified:   _headers
+	modified:   auditoria.py
+	modified:   data/hoteles.json
+	modified:   functions/_middleware.js
+	modified:   guia-itinerario-republica-dominicana.html
+	deleted:    guide-dominican-republic.html
+	deleted:    guide-entry-requirements-2026.html
+	deleted:    guide-family-budget-dr.html
+	deleted:    guide-flights-nyc-dr.html
+	deleted:    guide-punta-cana.html
+	deleted:    guide-republique-dominicaine.html
+	deleted:    guide-santo-domingo.html
+	deleted:    hoteles.html
+	deleted:    hoteles.js
+	modified:   js/hoteles.js
+	deleted:    js/hoteles2.js
+	deleted:    lighthouserc.js
+	deleted:    netlify.toml
+	deleted:    registro-temas.md
+	modified:   robots.txt
+	deleted:    vuelos.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	465844268_10233458072818118_5383426069008612888_n.jpg
+	COMMIT-LOG.txt
+	COMMIT-PIXEL.bat
+	COMMIT.bat
+	REPARAR-GIT.bat
+	SETUP-GIT-IDENTIDAD.bat
+	SSH-LOG.txt
+	SSH-SETUP.bat
+	VID20260709WA0010.mp4
+	grupos-fb-promo.md
+	marketing.plugin
+	memoria-proyecto.md
+	quisqueya-travel-memoria.md
+	quisqueya-travel-promo-facebook.png
+	sesion-2026-07-05.md
+	ultimo-reporte-auditoria.json
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
+Everything up-to-date
+ 
+ESTADO FINAL: 
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    .github/dependabot.yml
+	deleted:    .github/workflows/add-domain.yml
+	modified:   .github/workflows/deploy-cloudflare.yml
+	deleted:    .github/workflows/lighthouse.yml
+	deleted:    .github/workflows/purge-cache.yml
+	deleted:    DEPLOY-LEEME.md
+	modified:   _headers
+	modified:   auditoria.py
+	modified:   data/hoteles.json
+	modified:   functions/_middleware.js
+	modified:   guia-itinerario-republica-dominicana.html
+	deleted:    guide-dominican-republic.html
+	deleted:    guide-entry-requirements-2026.html
+	deleted:    guide-family-budget-dr.html
+	deleted:    guide-flights-nyc-dr.html
+	deleted:    guide-punta-cana.html
+	deleted:    guide-republique-dominicaine.html
+	deleted:    guide-santo-domingo.html
+	deleted:    hoteles.html
+	deleted:    hoteles.js
+	modified:   js/hoteles.js
+	deleted:    js/hoteles2.js
+	deleted:    lighthouserc.js
+	deleted:    netlify.toml
+	deleted:    registro-temas.md
+	modified:   robots.txt
+	deleted:    vuelos.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	465844268_10233458072818118_5383426069008612888_n.jpg
+	COMMIT-LOG.txt
+	COMMIT-PIXEL.bat
+	COMMIT.bat
+	REPARAR-GIT.bat
+	SETUP-GIT-IDENTIDAD.bat
+	SSH-LOG.txt
+	SSH-SETUP.bat
+	VID20260709WA0010.mp4
+	grupos-fb-promo.md
+	marketing.plugin
+	memoria-proyecto.md
+	quisqueya-travel-memoria.md
+	quisqueya-travel-promo-facebook.png
+	sesion-2026-07-05.md
+	ultimo-reporte-auditoria.json
+
+no changes added to commit (use "git add" and/or "git commit -a")
+ 
+Listo! Cloudflare Pages desplegara automaticamente en 1-2 minutos. 

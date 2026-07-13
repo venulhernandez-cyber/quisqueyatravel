@@ -1,0 +1,34 @@
+Configurando acceso SSH para Quisqueya Travel... 
+ 
+Generando llave SSH nueva... 
+Generating public/private ed25519 key pair.
+Your identification has been saved in C:\Users\venul\.ssh\id_ed25519_quisqueya
+Your public key has been saved in C:\Users\venul\.ssh\id_ed25519_quisqueya.pub
+The key fingerprint is:
+SHA256:5vfKS+0t9+HiTnFnSVkuz7wUVWriAGvReYv+2JFQgpE venulhernandez@gmail.com
+The key's randomart image is:
++--[ED25519 256]--+
+|        += .    =|
+|        E++ o  o+|
+|        o .=..++.|
+|       .  oo.o.=o|
+|        S. ..o +*|
+|       o  ..o +.o|
+|        . o+.o o |
+|         +.o=oo .|
+|          +o==oo.|
++----[SHA256]-----+
+ 
+================================ 
+LLAVE PUBLICA (copiar esto a GitHub): 
+================================ 
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBmglAYaX9T2QhMk8FgIMuq4BVKHWGCsG+b9BKEBwwK venulhernandez@gmail.com
+ 
+Config SSH creada. 
+ 
+Cambiando el remoto de git a SSH... 
+origin	git@github.com:venulhernandez-cyber/quisqueyatravel.git (fetch)
+origin	git@github.com:venulhernandez-cyber/quisqueyatravel.git (push)
+ 
+Listo. Revisa SSH-LOG.txt: copia la llave publica de arriba 
+y agregala en https://github.com/settings/ssh/new 
