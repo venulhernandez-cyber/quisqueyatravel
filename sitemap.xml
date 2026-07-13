@@ -2,118 +2,141 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://quisqueyatravel.org/</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/guia-requisitos-viaje-rd-2026</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/guia-costo-viaje-familia-rd</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/guia-vuelos-nyc-rd</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/guia-barahona</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/guia-santo-domingo</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/guia-punta-cana</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/guia-santiago</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/guia-jarabacoa</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/guia-puerto-plata</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/guia-samana</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/guia-la-romana</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/guia-itinerario-republica-dominicana</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <!-- English pages -->
   <url>
     <loc>https://quisqueyatravel.org/en/</loc>
+    <lastmod>2026-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/en/guide-punta-cana</loc>
+    <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/en/guide-dominican-republic</loc>
+    <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/en/guide-santo-domingo</loc>
+    <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/en/guide-entry-requirements-2026</loc>
+    <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/en/guide-flights-nyc-dr</loc>
+    <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/en/guide-family-budget-dr</loc>
+    <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- French pages -->
   <url>
     <loc>https://quisqueyatravel.org/fr/</loc>
+    <lastmod>2026-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/fr/guide-punta-cana</loc>
+    <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://quisqueyatravel.org/fr/guide-republique-dominicaine</loc>
+    <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
