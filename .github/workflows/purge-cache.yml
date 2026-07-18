@@ -1,0 +1,15 @@
+name: Purge Cloudflare Cache
+
+on:
+  workflow_dispatch:
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Purge stale guide URLs from Cloudflare zone cache
+        run: |
+          curl -s -X POST "https://api.cloudflare.com/client/v4/zones/059078dc193c7878004408a8d0265927/purge_cache" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{"files":["https://quisqueyatravel.org/guia-punta-cana.html","https://quisqueyatravel.org/guia-punta-cana","https://quisqueyatravel.org/guia-santo-domingo.html","https://quisqueyatravel.org/guia-santo-domingo","https://quisqueyatravel.org/guia-barahona.html","https://quisqueyatravel.org/guia-barahona","https://quisqueyatravel.org/guia-vuelos-nyc-rd.html","https://quisqueyatravel.org/guia-vuelos-nyc-rd","https://quisqueyatravel.org/guia-costo-viaje-familia-rd.html","https://quisqueyatravel.org/guia-costo-viaje-familia-rd","https://quisqueyatravel.org/guia-requisitos-viaje-rd-2026.html","https://quisqueyatravel.org/guia-requisitos-viaje-rd-2026","https://quisqueyatravel.org/guia-samana.html","https://quisqueyatravel.org/guia-samana","https://quisqueyatravel.org/","https://quisqueyatravel.org/sitemap.xml"]}'
