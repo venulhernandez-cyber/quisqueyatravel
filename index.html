@@ -464,6 +464,23 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       .hero-stats { gap: 20px; }
       section { padding: 50px 15px; }
     }
+
+    .itinerario-cta {
+      background: rgba(26,107,58,0.07); border: 1px solid rgba(26,107,58,0.25);
+      border-radius: 12px; padding: 20px 24px; margin: 30px 0 10px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+    .itinerario-cta p { margin: 0; font-size: 0.98rem; line-height: 1.5; }
+    .itinerario-cta strong { display: block; margin-bottom: 4px; color: var(--verde); }
+    .itinerario-cta a.btn-itinerario {
+      background: var(--verde); color: #fff; text-decoration: none; font-weight: 600;
+      padding: 12px 22px; border-radius: 8px; white-space: nowrap; flex-shrink: 0;
+    }
+    .itinerario-cta a.btn-itinerario:hover { background: var(--verde2); }
+    @media (max-width: 480px) {
+      .itinerario-cta { flex-direction: column; align-items: flex-start; }
+      .itinerario-cta a.btn-itinerario { width: 100%; text-align: center; }
+    }
   </style>
 </head>
 <body>
@@ -805,6 +822,11 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       <div class="loading-msg">
         <span class="spinner"></span> Cargando hoteles disponibles...
       </div>
+    </div>
+
+    <div class="itinerario-cta">
+      <p><strong>¿No sabes cuál elegir?</strong>Dime a dónde quieres ir y te armo el itinerario gratis — hoteles, fechas y presupuesto. Te respondo por correo, sin compromiso.</p>
+      <a class="btn-itinerario" href="https://docs.google.com/forms/d/e/1FAIpQLSfLW6Bsqx-wOYzrRsAHxboj6DJ2SuwX9m-d44zRgEAJv6CBEQ/viewform" target="_blank" rel="noopener">✉️ Arma mi itinerario</a>
     </div>
   </div>
 </section>
