@@ -144,10 +144,24 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     /* ── BUSCADOR DESTACADO (hero) ── */
     .hero-buscador {
       background: rgba(255,255,255,0.97); border-radius: 16px;
-      padding: 16px 18px; display: flex; gap: 12px; flex-wrap: wrap;
+      padding: 16px 18px; display: flex; flex-direction: column; gap: 12px;
       align-items: center; justify-content: center; max-width: 640px;
       margin: 0 auto 28px; box-shadow: 0 12px 40px rgba(0,0,0,0.3);
     }
+    /* ── SEGMENTED CONTROL: Hoteles / Vuelos ── */
+    .buscador-tabs {
+      display: flex; gap: 6px; background: rgba(0,0,0,0.06);
+      padding: 4px; border-radius: 12px; width: 100%;
+    }
+    .tab-btn {
+      flex: 1; border: none; background: transparent; padding: 10px 16px;
+      border-radius: 9px; font-weight: 700; font-size: 0.9rem; color: #555;
+      cursor: pointer; min-height: 40px; transition: background 0.2s, color 0.2s;
+    }
+    .tab-btn.activo { background: var(--verde); color: var(--blanco); box-shadow: 0 2px 8px rgba(26,107,58,0.3); }
+    .buscador-panel { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: center; width: 100%; }
+    .buscador-panel[hidden] { display: none; }
+    .buscador-vuelos-texto { font-size: 0.9rem; color: var(--oscuro); flex: 1 1 100%; text-align: center; margin-bottom: 4px; }
     .hero-buscador select {
       flex: 1 1 220px; min-width: 200px; padding: 13px 14px; border-radius: 10px;
       border: 2px solid #e0e0e0; font-weight: 700; font-size: 0.95rem;
@@ -208,6 +222,25 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     .especial-wrap .btn-primary { background: var(--oscuro); color: var(--blanco); box-shadow: 0 4px 20px rgba(0,0,0,0.25); }
     .especial-wrap .btn-primary:hover { background: #2a2a3a; }
     .especial-nota { display: block; margin-top: 14px; font-size: 0.78rem; color: #3a2a14; opacity: 0.8; }
+
+    /* ── OFERTAS DE LA SEMANA (Bento Grid) ── */
+    #ofertas { background: var(--blanco); }
+    .ofertas-bento {
+      display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-flow: dense; gap: 20px;
+    }
+    .oferta-card { display: flex; flex-direction: column; }
+    .oferta-card .hotel-img-wrap { height: 160px; }
+    .oferta-featured { grid-column: span 2; grid-row: span 2; }
+    .oferta-featured .hotel-img-wrap { height: 100%; min-height: 260px; }
+    @media (max-width: 900px) {
+      .ofertas-bento { grid-template-columns: repeat(2, 1fr); }
+      .oferta-featured { grid-column: span 2; grid-row: span 1; }
+      .oferta-featured .hotel-img-wrap { min-height: 200px; }
+    }
+    @media (max-width: 560px) {
+      .ofertas-bento { grid-template-columns: 1fr; }
+      .oferta-featured { grid-column: span 1; }
+    }
 
     /* ── SECTION BASE ── */
     section { padding: 70px 20px; }
@@ -338,6 +371,30 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       font-size: 0.9rem; transition: background 0.2s;
     }
     .btn-hotel:hover { background: #e08c4a; }
+    /* ── POPOVER DE CONFIANZA (precio/cancelacion) ── */
+    .popover-wrap { position: relative; display: inline-block; }
+    .info-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--verde);
+      background: var(--blanco); color: var(--verde); font-size: 0.8rem; font-weight: 800;
+      cursor: pointer; margin-left: 8px; vertical-align: middle; padding: 0;
+    }
+    .info-btn:hover, .info-btn[aria-expanded="true"] { background: var(--verde); color: var(--blanco); }
+    .popover-precio {
+      position: absolute; top: 130%; left: 50%; transform: translateX(-50%);
+      background: var(--oscuro); color: #eee; font-size: 0.82rem; line-height: 1.6;
+      text-align: left; padding: 14px 16px; border-radius: 10px; width: 260px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 20;
+    }
+    .popover-precio::before {
+      content: ''; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
+      border: 7px solid transparent; border-bottom-color: var(--oscuro);
+    }
+    .popover-precio[hidden] { display: none; }
+    @media (max-width: 480px) {
+      .popover-precio { width: 220px; left: 0; transform: none; }
+      .popover-precio::before { left: 20px; transform: none; }
+    }
     .loading-msg { text-align: center; padding: 40px; color: #595959; font-size: 1rem; }
     .spinner { display: inline-block; width: 24px; height: 24px; border: 3px solid #eee; border-top-color: var(--verde); border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 10px; vertical-align: middle; }
     @keyframes spin { to { transform: rotate(360deg); } }
@@ -424,6 +481,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     <div class="collapse navbar-collapse" id="navPrincipal">
       <ul class="navbar-nav me-auto mb-3 mb-lg-0 align-items-lg-center gap-lg-2">
         <li class="nav-item"><a class="nav-link" href="#especial">🔥 Especial verano</a></li>
+        <li class="nav-item"><a class="nav-link" href="#ofertas">💸 Ofertas</a></li>
         <li class="nav-item"><a class="nav-link" href="#hoteles">Hoteles</a></li>
         <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
         <li class="nav-item"><a class="nav-link" href="#porque">¿Por qué RD?</a></li>
@@ -463,17 +521,27 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   </h1>
   <p>Playas de arena blanca, montañas verdes y una cultura que te roba el corazón. Te muestro los mejores rincones de la isla donde nací — con guías honestas para dominicanos de la diáspora y viajeros de todo el mundo.</p>
 
-  <div class="hero-buscador" role="search" aria-label="Buscador de hoteles por destino">
-    <select id="hero-destino" aria-label="Elige tu destino">
-      <option value="todos">🌍 ¿A dónde quieres ir?</option>
-      <option value="punta-cana">🌴 Punta Cana</option>
-      <option value="santo-domingo">🏛️ Santo Domingo</option>
-      <option value="puerto-plata">⛰️ Puerto Plata</option>
-      <option value="la-romana">🎨 La Romana</option>
-      <option value="samana">🐋 Samaná</option>
-      <option value="santiago">🏙️ Santiago</option>
-    </select>
-    <button type="button" class="btn-buscar" onclick="buscarDestinoHero()">🔍 Buscar hoteles</button>
+  <div class="hero-buscador" role="search" aria-label="Buscador de vuelos y hoteles">
+    <div class="buscador-tabs" role="tablist" aria-label="Elige qué buscar">
+      <button type="button" class="tab-btn activo" role="tab" aria-selected="true" id="tab-hoteles" aria-controls="panel-hoteles" onclick="cambiarTabBuscador('hoteles')">🏨 Hoteles</button>
+      <button type="button" class="tab-btn" role="tab" aria-selected="false" id="tab-vuelos" aria-controls="panel-vuelos" onclick="cambiarTabBuscador('vuelos')">✈️ Vuelos</button>
+    </div>
+    <div class="buscador-panel" id="panel-hoteles" role="tabpanel" aria-labelledby="tab-hoteles">
+      <select id="hero-destino" aria-label="Elige tu destino">
+        <option value="todos">🌍 ¿A dónde quieres ir?</option>
+        <option value="punta-cana">🌴 Punta Cana</option>
+        <option value="santo-domingo">🏛️ Santo Domingo</option>
+        <option value="puerto-plata">⛰️ Puerto Plata</option>
+        <option value="la-romana">🎨 La Romana</option>
+        <option value="samana">🐋 Samaná</option>
+        <option value="santiago">🏙️ Santiago</option>
+      </select>
+      <button type="button" class="btn-buscar" onclick="buscarDestinoHero()">🔍 Buscar hoteles</button>
+    </div>
+    <div class="buscador-panel" id="panel-vuelos" role="tabpanel" aria-labelledby="tab-vuelos" hidden>
+      <p class="buscador-vuelos-texto">Compara precios de vuelos a República Dominicana desde tu ciudad.</p>
+      <a href="https://aviasales.tpo.li/AIrUfvdu" target="_blank" rel="noopener sponsored" class="btn-buscar">✈️ Buscar vuelos</a>
+    </div>
   </div>
 
   <div class="hero-btns">
@@ -504,6 +572,101 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     </p>
     <a href="#hoteles" class="btn-primary">🏖️ Ver hoteles del especial de verano</a>
     <span class="especial-nota">Precios y disponibilidad sujetos a cambio · Vuelos desde EE.UU. a RD desde aprox. $373 ida y vuelta, según fecha y aerolínea.</span>
+  </div>
+</section>
+
+<!-- ── OFERTAS DE LA SEMANA (Bento Grid) ── -->
+<section id="ofertas">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">💸 Actualizado esta semana</span>
+      <h2>Los precios más bajos por destino</h2>
+      <p>El hotel más económico verificado en cada destino, más nuestro destacado de la semana.</p>
+    </div>
+    <div class="ofertas-bento">
+
+      <div class="oferta-card hotel-card oferta-featured">
+        <div class="hotel-img-wrap">
+          <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80" alt="Riu Palace Macao, Punta Cana" loading="lazy">
+          <span class="hotel-badge">🔥 Destacado de la semana</span>
+        </div>
+        <div class="hotel-body">
+          <h3>Riu Palace Macao</h3>
+          <div class="hotel-rating"><span class="stars">★★★★★</span> <span class="rating-num">8.8</span> <span style="color:#888;font-size:0.8rem">Excelente · Punta Cana</span></div>
+          <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$95</span><span class="precio-noche"> / noche</span></div>
+          <a href="https://www.stay22.com/allez/quisqueyatravel?address=Punta%20Cana%2C%20Dominican%20Republic&campaign=home_ofertas_punta_cana" target="_blank" rel="noopener sponsored" class="btn-hotel">Ver disponibilidad →</a>
+        </div>
+      </div>
+
+      <div class="oferta-card hotel-card">
+        <div class="hotel-img-wrap">
+          <img src="https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=500&q=80" alt="Hotel Hodelpa Caribe Colonial, Santo Domingo" loading="lazy">
+          <span class="hotel-badge">📍 Santo Domingo</span>
+        </div>
+        <div class="hotel-body">
+          <h3>Hotel Hodelpa Caribe Colonial</h3>
+          <div class="hotel-rating"><span class="stars">★★★★★</span> <span class="rating-num">8.2</span></div>
+          <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$55</span><span class="precio-noche"> / noche</span></div>
+          <a href="https://www.stay22.com/allez/quisqueyatravel?address=Santo%20Domingo%2C%20Dominican%20Republic&campaign=home_ofertas_santo_domingo" target="_blank" rel="noopener sponsored" class="btn-hotel">Ver disponibilidad →</a>
+        </div>
+      </div>
+
+      <div class="oferta-card hotel-card">
+        <div class="hotel-img-wrap">
+          <img src="https://images.unsplash.com/photo-1586611292717-f828b167408c?w=500&q=80" alt="Hodelpa Centro Plaza, Santiago" loading="lazy">
+          <span class="hotel-badge">📍 Santiago</span>
+        </div>
+        <div class="hotel-body">
+          <h3>Hodelpa Centro Plaza</h3>
+          <div class="hotel-rating"><span class="stars">★★★★★</span> <span class="rating-num">7.8</span></div>
+          <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$45</span><span class="precio-noche"> / noche</span></div>
+          <a href="https://www.stay22.com/allez/quisqueyatravel?address=Santiago%20de%20los%20Caballeros%2C%20Dominican%20Republic&campaign=home_ofertas_santiago" target="_blank" rel="noopener sponsored" class="btn-hotel">Ver disponibilidad →</a>
+        </div>
+      </div>
+
+      <div class="oferta-card hotel-card">
+        <div class="hotel-img-wrap">
+          <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=500&q=80" alt="Cofresi Palm Beach & Spa Resort, Puerto Plata" loading="lazy">
+          <span class="hotel-badge">📍 Puerto Plata</span>
+        </div>
+        <div class="hotel-body">
+          <h3>Cofresi Palm Beach & Spa Resort</h3>
+          <div class="hotel-rating"><span class="stars">★★★★★</span> <span class="rating-num">7.9</span></div>
+          <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$65</span><span class="precio-noche"> / noche</span></div>
+          <a href="https://www.stay22.com/allez/quisqueyatravel?address=Puerto%20Plata%2C%20Dominican%20Republic&campaign=home_ofertas_puerto_plata" target="_blank" rel="noopener sponsored" class="btn-hotel">Ver disponibilidad →</a>
+        </div>
+      </div>
+
+      <div class="oferta-card hotel-card">
+        <div class="hotel-img-wrap">
+          <img src="https://images.unsplash.com/photo-1596178060810-72f53ce9a65c?w=500&q=80" alt="Casa Marina Bay, Samaná" loading="lazy">
+          <span class="hotel-badge">📍 Samaná</span>
+        </div>
+        <div class="hotel-body">
+          <h3>Casa Marina Bay</h3>
+          <div class="hotel-rating"><span class="stars">★★★★★</span> <span class="rating-num">7.9</span></div>
+          <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$70</span><span class="precio-noche"> / noche</span></div>
+          <a href="https://www.stay22.com/allez/quisqueyatravel?address=Samana%2C%20Dominican%20Republic&campaign=home_ofertas_samana" target="_blank" rel="noopener sponsored" class="btn-hotel">Ver disponibilidad →</a>
+        </div>
+      </div>
+
+      <div class="oferta-card hotel-card">
+        <div class="hotel-img-wrap">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&q=80" alt="Sunscape Casa del Mar, La Romana" loading="lazy">
+          <span class="hotel-badge">📍 La Romana</span>
+        </div>
+        <div class="hotel-body">
+          <h3>Sunscape Casa del Mar</h3>
+          <div class="hotel-rating"><span class="stars">★★★★★</span> <span class="rating-num">8.3</span></div>
+          <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$85</span><span class="precio-noche"> / noche</span></div>
+          <a href="https://www.stay22.com/allez/quisqueyatravel?address=La%20Romana%2C%20Dominican%20Republic&campaign=home_ofertas_la_romana" target="_blank" rel="noopener sponsored" class="btn-hotel">Ver disponibilidad →</a>
+        </div>
+      </div>
+
+    </div>
+    <p style="text-align:center;margin-top:24px;font-size:0.82rem;color:#888">
+      Precios de referencia, actualizados manualmente · pueden variar según fecha y disponibilidad en Stay22/Booking.com.
+    </p>
   </div>
 </section>
 
@@ -596,10 +759,10 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       </div>
 
       <div class="destino-card reveal accent-sosua">
-        <div class="destino-img sosua"><span class="destino-tag">🏖️ Mejor cala del norte</span></div>
+        <div class="destino-img sosua"><span class="destino-tag">🏖️ Mejor bahía del norte</span></div>
         <div class="destino-body">
           <h3>Sosúa — Playa Alicia</h3>
-          <p>Una cala en forma de media luna con agua turquesa transparente y la arena más fina del norte. Snorkel, sombrillas y ese ambiente relajado que solo tiene Sosúa.</p>
+          <p>Una bahía en forma de media luna con agua turquesa transparente y la arena más fina del norte. Snorkel, sombrillas y ese ambiente relajado que solo tiene Sosúa.</p>
           <div class="destino-meta">
             <span>📅 Todo el año</span>
             <span>💰 $45–100/noche</span>
@@ -617,7 +780,14 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   <div class="container">
     <div class="section-header">
       <span class="section-label">🏨 Mejor precio garantizado</span>
-      <h2>Hoteles recomendados</h2>
+      <h2>Hoteles recomendados
+        <span class="popover-wrap">
+          <button type="button" class="info-btn" id="info-precio-btn" aria-expanded="false" aria-describedby="popover-precio" aria-label="Información sobre precios y cancelación">ⓘ</button>
+          <span class="popover-precio" id="popover-precio" role="tooltip" hidden>
+            Los precios se actualizan directamente desde Booking.com vía Stay22 y pueden cambiar según fecha y disponibilidad. La política de cancelación depende de cada hotel — revísala en la página de reserva antes de pagar. Quisqueya Travel no cobra ningún cargo extra por reservar aquí.
+          </span>
+        </span>
+      </h2>
       <p>Precios actualizados diariamente desde Booking.com. Haz clic para ver disponibilidad en tiempo real.</p>
     </div>
 
@@ -812,6 +982,22 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/hoteles2.js"></script>
 <script>
+  // Segmented control del buscador (Hoteles / Vuelos)
+  function cambiarTabBuscador(tab) {
+    var btnH = document.getElementById('tab-hoteles');
+    var btnV = document.getElementById('tab-vuelos');
+    var panelH = document.getElementById('panel-hoteles');
+    var panelV = document.getElementById('panel-vuelos');
+    if (!btnH || !btnV || !panelH || !panelV) return;
+    var esHoteles = tab === 'hoteles';
+    btnH.classList.toggle('activo', esHoteles);
+    btnV.classList.toggle('activo', !esHoteles);
+    btnH.setAttribute('aria-selected', esHoteles);
+    btnV.setAttribute('aria-selected', !esHoteles);
+    panelH.hidden = !esHoteles;
+    panelV.hidden = esHoteles;
+  }
+
   // Buscador destacado del hero — reutiliza filtrarHoteles() ya definida en hoteles2.js
   function buscarDestinoHero() {
     var sel = document.getElementById('hero-destino');
@@ -820,6 +1006,25 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     var destino = document.getElementById('hoteles');
     if (destino) { destino.scrollIntoView({ behavior: 'smooth' }); }
   }
+
+  // Popover de confianza (precios / cancelación) en la sección de hoteles
+  (function () {
+    var btn = document.getElementById('info-precio-btn');
+    var pop = document.getElementById('popover-precio');
+    if (!btn || !pop) return;
+    function cerrar() { pop.hidden = true; btn.setAttribute('aria-expanded', 'false'); }
+    function abrir() { pop.hidden = false; btn.setAttribute('aria-expanded', 'true'); }
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (pop.hidden) { abrir(); } else { cerrar(); }
+    });
+    document.addEventListener('click', function (e) {
+      if (!pop.hidden && !pop.contains(e.target) && e.target !== btn) cerrar();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !pop.hidden) { cerrar(); btn.focus(); }
+    });
+  })();
 
   // Animaciones de aparición al hacer scroll (tarjetas de destinos, "por qué RD" y servicios)
   (function () {
