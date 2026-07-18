@@ -21,10 +21,11 @@ Bitacora viva del sitio afiliado **https://quisqueyatravel.org**
 
 ## Estado Actual del Proyecto
 
-**Fecha de ultima actualizacion:** 2026-07-12 (revision de efectividad: hallazgo critico de error de pago en Meta Ads, widgets de afiliados confirmados completos, datos reales de SEO/GSC y Travelpayouts)
+**Fecha de ultima actualizacion:** 2026-07-18, parte 2 (diagnostico de ventas + captura de itinerario por correo en vivo + retargeting bloqueado por facturacion de Meta Ads)
 
 | Item | Estado | Detalle |
 |---|---|---|
+| Cambios locales 2026-07-18 | ✅ DESPLEGADO | 13 archivos subidos via GitHub web upload, commit `e754fe3`. Deploy to Cloudflare Pages #81 exitoso (31s). Verificado en vivo en quisqueyatravel.org y pages.dev sin necesidad de purgar cache — Segmented Control, Bento Grid de ofertas y popover funcionando; guia-samana.html (una de las truncadas) confirmada con whatsapp-float y 11 links de footer via JS en consola |
 | Sitio en vivo (pages.dev) | ✅ CORRECTO | quisqueyatravel.pages.dev — hoteles funcionando, Santiago filter, 13 cards |
 | Sitio en vivo (dominio) | ⚠️ CACHE STALE | quisqueyatravel.org — Cloudflare Zone cache sirve version vieja. Fix: purgar cache en dashboard |
 | GitHub repo | ✅ Actualizado | commit mas reciente: _headers (no-cache permanente) |
@@ -42,6 +43,10 @@ Bitacora viva del sitio afiliado **https://quisqueyatravel.org**
 | Posts FB con links muertos | ✅ RESUELTO (2026-07-10) | 6 posts con enlaces a Netlify eliminados de Facebook. Nuevo reel con video real (no IA) publicado en su lugar |
 | Blotato (video IA + auto-publish) | ❌ ROTO | API key invalida — Venul debe reconectar en my.blotato.com/settings/api |
 | Google Search Console | ⚠️ MAYORIA SIN INDEXAR | De 26 URLs conocidas por Google, solo 4 estaban indexadas (dato del reporte agregado "Paginas", desactualizado al 29/6/26). Verificado EN VIVO con Inspeccion de URLs (mas confiable que el agregado): guia-punta-cana SI esta indexada. Solicitada indexacion 2026-07-04 para: guia-jarabacoa, guia-puerto-plata, guia-santiago, guia-santo-domingo, guia-vuelos-nyc-rd, guia-requisitos-viaje-rd-2026, guia-costo-viaje-familia-rd, guia-barahona (8 URLs). Pendiente: volver a revisar en unos dias si ya quedaron indexadas |
+| Captura de itinerario por correo | ✅ EN VIVO (2026-07-18) | Google Form "Arma tu itinerario gratis" (Nombre, Correo, Destino) + CTA en `index.html` bajo la grilla de hoteles. Respuestas caen a un Sheet en el Drive de Venul. WhatsApp descartado a proposito (Venul dijo "no WhatsApp") |
+| Meta Ads (cuenta 290012163) | 🔴 BLOQUEADA | Estado `UNSETTLED` — la API rechaza cualquier creacion (audiencias, campanas) con "Ad account is not in an active state". Venul debe resolver Facturacion en Ads Manager. Pixel (2054264274867364) SI esta activo y disparando datos |
+| Blotato | ❌ ROTO (confirmado otra vez 2026-07-18) | API key invalida/vencida — bloquea publicar la semana de posts de venta ya redactada. Renovar en my.blotato.com/settings/api |
+| Local git (mount de Cowork) | ⚠️ INUTILIZABLE | `.git/index.lock` no se puede borrar (permiso denegado, probablemente por el sync de OneDrive) — `git add`/`commit` fallan desde este entorno. Usar SIEMPRE el upload web de GitHub para deploy, no depender de git local aqui |
 
 ---
 
@@ -74,11 +79,132 @@ Afiliados:
 Facebook:      pageId 2061443547418301 (El Quisqueyano en nyc)
 Instagram:     @venulh
 WhatsApp CTA:  +1 347 720 5769
+
+Captura de itinerario:
+  Google Form:  https://docs.google.com/forms/d/e/1FAIpQLSfLW6Bsqx-wOYzrRsAHxboj6DJ2SuwX9m-d44zRgEAJv6CBEQ/viewform
+  Respuestas:   Sheet vinculado en Google Drive de venulhernandez@gmail.com
+
+Meta Ads:
+  Ad account ID: 290012163 ("Venul Hernandez") — estado UNSETTLED, bloqueada hasta resolver facturacion
+  Pixel:         2054264274867364 — activo, disparando datos
 ```
 
 ---
 
 ## Historial de Sesiones
+
+### Sesion — 2026-07-18, parte 3 (fix de indexacion GSC — cache stale de Cloudflare)
+
+**Disparador:** correo de Search Console "Nuevos motivos que impiden la indexacion de paginas" (redireccion + canonica alternativa) + correo anterior del 3 jul (404 / duplicada).
+
+**Diagnostico:** al revisar las 12 guias en vivo, 6 + `guia-samana.html` estaban sirviendo contenido VIEJO desde la cache de zona de Cloudflare (bug ya documentado antes en esta bitacora: "Cloudflare Zone cache sirve version vieja"). El `.html` de esas paginas no redirigia (200 directo) mientras que las guias mas nuevas (Jarabacoa, La Romana, Puerto Plata, Santiago, Itinerario) si redirigian bien. Caso mas grave: `guia-samana.html` servia el HOME completo en vez de la guia — coincide con el "Duplicada: Google eligio version distinta como canonica" del correo del 3 jul.
+
+**Paginas afectadas:** guia-punta-cana, guia-santo-domingo, guia-barahona, guia-vuelos-nyc-rd, guia-costo-viaje-familia-rd, guia-requisitos-viaje-rd-2026, guia-samana.
+
+**Fix aplicado:** se encontro que ya existia un workflow `.github/workflows/purge-cache.yml` de una sesion anterior (7 corridas desde el 30 jun, con exitos confirmados) que purga la cache de zona via API de Cloudflare usando el secret `CLOUDFLARE_API_TOKEN` ya configurado — nunca se toco/vio el token. Se resubio el archivo (via GitHub upload UI, no git push — sigue fallando por host key/SSH desde el mount de Cowork) con la lista exacta de las 7 URLs afectadas (.html + version limpia) y se disparo manualmente desde Actions. Corrida #8: **Success**.
+
+**Verificado en vivo (Claude in Chrome, navegacion real, no cache de fetch):** las 7 URLs ya redirigen 301 a la URL limpia y sirven el contenido correcto y actualizado. `guia-samana.html` ya NO sirve el home — redirige a `/guia-samana` con el contenido real de Samana.
+
+**Pendiente para Venul:** volver a solicitar indexacion de estas 7 URLs en Google Search Console (Inspeccion de URLs → Solicitar indexacion) para que Google las vuelva a rastrear con el contenido correcto.
+
+**Nota para el futuro:** este bug de cache-stale en el dominio (no en pages.dev) puede repetirse tras cada deploy nuevo. Causa raiz real (fuera del alcance de Claude, requiere dashboard de Cloudflare): revisar si hay una Cache Rule de zona que no respeta el `Cache-Control: no-cache` de `_headers`, o activar "Respect Origin Cache-Control Headers". Mientras tanto, el workflow `purge-cache.yml` es el fix rapido reutilizable — se puede correr manualmente desde GitHub Actions cada vez que se sospeche cache vieja en el dominio.
+
+---
+
+### Sesion — 2026-07-18, parte 2 (diagnostico "no logro ventas" + retargeting + captura por correo, via Cowork)
+
+**Que se hizo:** Venul pregunto por que no esta logrando ventas (comisiones de afiliado). Contexto que dio: trafico viene de Facebook, hay clics pero no reservas, sitio con menos de 1 mes de vida.
+
+**Diagnostico del sitio (revisado en vivo con Claude in Chrome, no solo codigo):**
+- El embudo tecnico funciona: los botones "Ver disponibilidad" de cada hotel apuntan correctamente a `stay22.com/allez/quisqueyatravel` con el campaign tag por ciudad.
+- Se vieron varios 503 en llamadas de tracking (`emrldtp.com/collect`, Google Analytics, Cloudflare Insights) durante la prueba — posible artefacto de extensiones del navegador de prueba, no confirmado que le pase a visitantes reales. Queda como algo a revisar en incognito.
+- Conclusion principal: con <1 mes de vida y trafico de Facebook (bajo intent de compra vs. busqueda organica), cero/poquisimas ventas es normal — no es señal de que algo este roto.
+
+**Plan de accion propuesto y ejecutado:**
+1. **Retargeting en Meta Ads — BLOQUEADO.** Se encontro la cuenta de ads (290012163) y el pixel activo (2054264274867364, disparando datos hoy mismo). Al intentar crear la audiencia de visitantes del sitio, la API rechazo con "Ad account is not in an active state" — la cuenta esta en estado `UNSETTLED` (probablemente saldo pendiente). Venul debe resolver Facturacion en Ads Manager antes de que se pueda crear nada ahi.
+2. **Plantilla de UTM** para poder medir que post de Facebook genera que clics — entregada como archivo.
+3. **Semana de posts de venta** (Punta Cana, Samana, Santo Domingo, Puerto Plata, La Romana) con precio real, urgencia y FOMO de diaspora — redactada y entregada, NO publicada porque la API key de Blotato sigue invalida (mismo problema ya conocido).
+4. **Captura de contacto — WhatsApp propuesto y rechazado.** Se llego a agregar CSS/HTML de un CTA de WhatsApp en `index.html`, pero Venul dijo explicitamente "no WhatsApp" — se revirtio el cambio antes de subir nada.
+5. **Captura de contacto — Google Form (aprobado y desplegado).** Se creo el formulario "Arma tu itinerario gratis" (Nombre, Correo, Destino: Punta Cana/Santo Domingo/Puerto Plata/Otros) via Claude in Chrome, publicado con acceso "cualquiera con el vinculo". Se agrego una caja `.itinerario-cta` en `index.html` bajo la grilla de hoteles con boton "✉️ Arma mi itinerario" que abre el formulario.
+
+**Problema tecnico encontrado — git local inutilizable:** al intentar hacer `git add`/`commit` en el mount de Cowork goteo un `.git/index.lock` que no se pudo borrar (permiso denegado, probablemente por el sync de OneDrive). Se uso el proceso normal documentado (upload web de GitHub) para subir `index.html` en su lugar — commit `cae1b59` "Agregar captura de itinerario por correo (Google Form) en home", deploy automatico a Cloudflare Pages confirmado, CTA verificado en vivo en quisqueyatravel.org.
+
+**Hallazgo de paso:** al revisar el estado de git local parecia haber ~30 archivos con cambios sin subir (incluyendo el fix del widget de hoteles y el fix de CSP de sesiones anteriores) — resulto ser una falsa alarma: el repo remoto en GitHub ya tenia esos commits (subidos en sesiones anteriores via el mismo metodo de upload web), el mount local de git simplemente estaba desactualizado/no sincronizado. No se toco nada de eso.
+
+**Ademas, en esta sesion:** se personalizo el plugin de Cowork "operations" para el contexto de Quisqueya Travel (categorias de conector reemplazadas por Gmail/Calendar/Drive reales, skill de compliance reescrita para disclosure FTC + GDPR + terminos de redes de afiliados en vez de SOC2/ISO27001, vendor-review anclado a Netlify/Stay22/Travelpayouts/Booking-CJ). Entregado como archivo `.plugin` — no es parte del sitio, es una herramienta de Cowork.
+
+**Pendiente para proxima sesion (por prioridad):**
+- 🔴 Venul: resolver estado `UNSETTLED` de la cuenta de Meta Ads (Facturacion en Ads Manager) — bloquea el retargeting.
+- 🔴 Venul: renovar API key de Blotato en my.blotato.com/settings/api — bloquea publicar la semana de posts ya redactada.
+- 🟡 Una vez resueltos ambos: crear la audiencia de retargeting + campana pausada, y publicar los 5 posts de venta (uno por dia, no todos juntos).
+- 🟡 Revisar en incognito si los 503 de tracking vistos hoy son reales o artefacto del navegador de prueba.
+- 🟢 Con datos de 1-2 semanas del Google Form, decidir si el cuello de botella real era trafico, confianza del sitio, o simplemente tiempo (como se sospecha).
+
+---
+
+### Sesion — 2026-07-18 (auditoria de diseno completa del sitio, con NameThatUI como referencia de vocabulario, via Cowork)
+
+**Que se hizo:** Venul pidio auditar la pagina completa. Se reviso `index.html`, `bio-link-el-quisqueyano.html` y `guia-punta-cana.html` como muestra representativa, comparando estructura, navegacion, footer y consistencia visual entre paginas.
+
+**Hallazgo critico:** el boton flotante de WhatsApp (`whatsapp-float`, decision fija documentada arriba: "en todas las paginas") **NO esta en `index.html`** (el home) — confirmado con grep, cero coincidencias de "whatsapp"/"wa.me". Si esta presente en `guia-punta-cana.html` y (como link normal, no flotante) en el bio-link. El home es la pagina con mas trafico — es el hueco de conversion mas grande encontrado.
+
+**Hallazgo importante — footer incompleto en guias:** el footer de `index.html` enlaza a las 12 guias. El footer de `guia-punta-cana.html` (y probablemente el resto, no verificado uno por uno) solo enlaza a 5 guias (Requisitos, Presupuesto, Vuelos, Barahona, Santo Domingo) — le faltan Santiago, Puerto Plata, Jarabacoa, Samana, La Romana e Itinerario 10 dias. Afecta enlazado interno (SEO) y descubribilidad de contenido.
+
+**Hallazgo menor — CSS muerto:** en `index.html`, la media query mobile tiene el selector `.nav-links { display: none; }` pero ningun elemento del `<nav>` usa esa clase (el nav real usa clases de Bootstrap: `navbar-nav`, `navbar-collapse`, etc.). Es codigo residual de una version anterior del nav, no rompe nada pero no hace nada tampoco.
+
+**Hallazgo de arquitectura — navegacion asimetrica:** el home tiene un Navbar completo estilo Bootstrap con Hamburger Menu (nav-drawer) y un Dropdown Menu con las 12 guias. Las paginas de guia tienen un header simplificado (solo logo + un boton CTA "Ver hoteles") sin forma de saltar a otra guia excepto por los links parciales del footer. Es una decision de diseno razonable (mobile-first, menos distraccion en el articulo) pero combinada con el footer incompleto, deja las guias bastante aisladas entre si.
+
+**Lo que esta bien:** touch targets de 44px+ consistentes, foco visible (`:focus-visible`) en todos los archivos revisados, paleta de marca (verde/naranja/oscuro) consistente entre home y guias, CTAs de afiliado claramente marcados con `<!-- AFILIADO -->`, bio-link con `prefers-reduced-motion` respetado y buen contraste.
+
+**ACTUALIZACION (misma sesion) — Venul pidio completar los footers pero SIN tocar el WhatsApp del home:**
+
+1. Al revisar para completar los footers se encontraron **4 archivos truncados de verdad** (no solo footer incompleto — el archivo se cortaba a mitad de una etiqueta, sin `</html>`): `guia-costo-viaje-familia-rd.html`, `guia-requisitos-viaje-rd-2026.html`, `guia-vuelos-nyc-rd.html` (truncados en medio del footer) y `guia-samana.html` (truncado a mitad del link de WhatsApp, despues del footer — este se detecto en una segunda pasada de verificacion, no en la primera). Mismo patron de bug ya documentado en "Errores Conocidos" (archivo truncado → sitio en blanco). El contenido del articulo en los 4 estaba completo, solo faltaba el bloque final. Confirmado con Venul: se restauro el boton de WhatsApp en las 4 (es distinto al caso del home, que se dejo fuera a proposito).
+2. Reparados los 4 archivos: footer completo + boton flotante de WhatsApp + cierre `</body></html>`.
+3. **Footer estandarizado en las 12 guias**: cada una ahora enlaza a las otras 11 (antes cada archivo tenia una lista distinta e incompleta, entre 4 y 10 links). Se agrego "Itinerario 10 dias" a todos los footers — antes no aparecia en ninguna guia, solo en el home.
+4. **Corregidos 2 self-links**: `guia-barahona.html` y `guia-santiago.html` se enlazaban a si mismas en su propio footer — quitado.
+5. Verificado programaticamente (script Python sobre los 12 archivos + parser BeautifulSoup): los 12 cierran con `</html>`, ninguno se enlaza a si mismo, ninguno le falta un link a otra guia, los 12 tienen `whatsapp-float`.
+6. **Pendiente sin tocar, a proposito:** el home (`index.html`) sigue sin boton flotante de WhatsApp — Venul lo dejo fuera del alcance de esta sesion.
+
+**ACTUALIZACION (misma sesion) — Venul pidio implementar 3 mejoras de diseno sobre `index.html`, usando NameThatUI como referencia de vocabulario:**
+
+1. **Control segmentado (Segmented Control) en el buscador del hero**: pestanas "🏨 Hoteles" / "✈️ Vuelos" arriba del buscador. Hoteles mantiene el selector de destino + `filtrarHoteles()` que ya existia. Vuelos muestra un CTA que lleva al afiliado de Aviasales (`https://aviasales.tpo.li/AIrUfvdu`) — no hay motor de busqueda de vuelos real en el sitio, asi que es un link directo, no una busqueda con parametros. Accesible: `role="tablist"`/`role="tab"`/`role="tabpanel"`, `aria-selected`, panel oculto con atributo `hidden` (no `display:none` inline).
+2. **Bento Grid "Los precios mas bajos por destino"**: seccion nueva `#ofertas`, entre "Especial de verano" y "Destinos". 6 tarjetas (1 destacada grande + 5) reutilizando las clases `.hotel-card` existentes para consistencia visual. **Datos reales** sacados de `data/hoteles.json` (el hotel mas barato verificado por destino, mas un destacado con mejor rating/precio) — no se inventaron precios ni descuentos falsos. Se agrego "💸 Ofertas" al menu de navegacion para que la seccion sea alcanzable.
+3. **Popover de confianza**: boton `ⓘ` junto a "Hoteles recomendados" que explica en texto honesto que los precios vienen de Booking.com via Stay22, que la cancelacion depende de cada hotel, y que Quisqueya Travel no cobra cargo extra. Se abre con clic/teclado, cierra con `Escape` o clic afuera. Sin librerias — JS vanilla con `aria-expanded`/`aria-describedby`.
+4. Verificado con BeautifulSoup que todos los IDs nuevos existen y anidan bien, y que las llaves `{`/`}` del CSS estan balanceadas (210/210). No se pudo previsualizar en vivo con Claude in Chrome porque el navegador no soporta abrir `file://` desde este entorno — verificacion fue estatica (parser HTML), no visual.
+
+**Pendiente para proxima sesion (por prioridad):**
+- 🟡 Decidir si se agrega el boton de WhatsApp al home o se deja asi a proposito (aclarar con Venul, quedo pendiente sin resolver dos veces ya).
+- 🟢 Limpiar el selector `.nav-links` muerto en `index.html`.
+- 🟢 Evaluar agregar un mini-selector de "otras guias" dentro del articulo (no solo footer) para mejorar navegacion cruzada.
+- 🟢 La seccion de Vuelos del segmented control solo linkea al afiliado general de Aviasales — si Venul consigue una forma de pre-rellenar origen/destino en el link, mejoraria la conversion.
+- 🟢 Los precios de la seccion "Ofertas de la semana" son estaticos (hardcodeados en el HTML) — si `data/hoteles.json` cambia, hay que actualizar esta seccion a mano tambien.
+
+---
+
+### Sesion — 2026-07-13 (bug critico: widget de hoteles roto en todo el sitio, via Cowork)
+
+**Que se hizo:** Venul pidio revisar la carpeta local para ver si todo "estaba funcionando". Se encontro un bug critico en produccion: el widget de "Hoteles recomendados" del home se quedaba atascado para siempre en "Cargando hoteles disponibles..." — nunca renderizaba ni un solo hotel, en ningun filtro.
+
+**Causa raiz:** `index.html` (ya en produccion desde el commit `734aa10`) carga `<script src="js/hoteles2.js">`, pero ese archivo **nunca fue creado ni subido a GitHub** — solo existia `js/hoteles.js` (el original). Confirmado con `git log -- js/hoteles2.js` (sin resultados) y navegando en vivo a esa URL: Cloudflare Pages devolvia el HTML completo del home (fallback) en vez del JS real, el navegador fallaba silenciosamente al intentar ejecutarlo, y `filtrarHoteles()`/`renderHoteles()` nunca quedaban definidas.
+
+**Fix aplicado:**
+1. Se recreo `js/hoteles2.js` localmente con el mismo contenido funcional de `js/hoteles.js` (mismos hoteles, links de Stay22 con `campaign=`, fetch a `data/hoteles.json`).
+2. `git push` por SSH fallo (`Host key verification failed` — sin credenciales SSH en el sandbox de Cowork, consistente con lo ya documentado). Se subio por el metodo alternativo ya probado: GitHub web upload (`/upload/main/js`) con Claude in Chrome ya logueado. Commit `27927ff`.
+3. GitHub Actions desplego a Cloudflare Pages automaticamente (run #77, 35s, exitoso).
+4. **Nuevo hallazgo:** incluso despues del deploy exitoso, el sitio en vivo seguia sirviendo la version rota — Cloudflare Zone cache tenia cacheada la respuesta 404-fallback vieja para la URL exacta `/js/hoteles2.js` (bug ya documentado el 2026-07-12: "Cloudflare Zone cache sirve version vieja"). Se purgo cache especifica por URL en el dashboard de Cloudflare (`Purga personalizada` → URL: `/js/hoteles2.js`, `/`, `/index.html`).
+5. Verificado en vivo con hard-reload (Ctrl+Shift+R) y con JS (`typeof filtrarHoteles === 'function'`, `typeof renderHoteles === 'function'`): las funciones ya cargan correctamente y el grid de hoteles renderiza tarjetas reales con foto, precio y boton "Ver disponibilidad" en todos los filtros. Confirmado visualmente con screenshot.
+
+**Nota tecnica importante para el futuro:** cuando se edite `js/hoteles2.js` de nuevo, revisar primero si el archivo existe en el repo remoto (`git log -- js/hoteles2.js`) antes de asumir que el local esta sincronizado — este bug paso desapercibido varios dias porque nadie verifico que el archivo referenciado en `index.html` realmente existiera en GitHub.
+
+**Estado del deploy:** ✅ Commit `27927ff` en `main`, desplegado y purgado. Widget de hoteles 100% funcional en produccion al cierre de esta sesion.
+
+**ACTUALIZACION (misma sesion) — error de consola de Travelpayouts investigado y resuelto:** el error `emrldtp.com/chunk.Dv5fCQuf.js — config is not valid` SI era un bug real (no cosmetico): el script de Travelpayouts Drive necesita hacer `fetch`/XHR a `emrldtp.com` para cargar su configuracion, pero la Content-Security-Policy (meta tag en el `<head>` de cada HTML) no incluia `emrldtp.com` en `connect-src` — solo lo permitia en `script-src` (cargar el script si, conectarse no). Reproducido el bloqueo manualmente con `fetch()` en consola antes de aplicar el fix.
+
+**Fix:** agregado `https://emrldtp.com` a `connect-src` en los 24 archivos HTML (ES/EN/FR + bio-link) + `_headers`. Subido en 3 commits via GitHub web upload (raiz `decc88d`, en/ `2e96574`, fr/ `8102e8b`) — los 3 desplegaron bien en Cloudflare Pages (Actions #78, #79, #80). Purgado el cache completo de Cloudflare (Purga todo) para evitar el mismo problema de cache stale del bug de hoteles. Verificado en vivo con hard-reload: el error desaparecio, ahora se ven los logs normales de Travelpayouts (`emerald init`, `monetization enabled`, `link_switcher convert links`, `bb init`).
+
+**Pendiente menor nuevo (no bloqueante):** durante la verificacion aparecio un error distinto, `[tp] check_auth request failed — Failed to fetch (www.travelpayouts.com)` — mismo tipo de problema (CSP), pero para el dominio `www.travelpayouts.com` que tampoco esta en `connect-src`. No parece afectar el funcionamiento del widget (los links de afiliado ya se estan convirtiendo bien segun los logs). Si se quiere cerrar del todo, agregar tambien `https://www.travelpayouts.com` a `connect-src` en los mismos 25 archivos y repetir el flujo de deploy + purga.
+
+---
 
 ### Sesion — 2026-07-12 (revision de efectividad: conversiones, SEO, Meta Ads, tecnico, via Cowork)
 
@@ -828,7 +954,8 @@ Link del hilo: https://community.cloudflare.com/t/response-header-transform-rule
 - [x] Verificar quisqueyatravel.org sirviendo CF Pages tras propagacion DNS — COMPLETADO
 - [x] ~~Activar enlace de afiliado Booking.com cuando llegue la aprobacion de CJ Affiliate (CID 7985681)~~ — ABANDONADO 2026-07-04, Venul decidio no seguir con Booking/CJ. Afiliados definitivos: Stay22 + Travelpayouts
 - [ ] Configurar metodo de pago en Travelpayouts (`set your payout method`) — Venul debe hacerlo directo en el dashboard, Claude no puede ingresar datos financieros
-- [ ] Investigar por que 0 conversiones pese a clics reales en Stay22/Travelpayouts
+- [ ] Investigar por que 0 conversiones pese a clics reales en Stay22/Travelpayouts — diagnostico 2026-07-18 parte 2: embudo tecnico revisado y funciona (links con campaign tag correcto); conclusion mas probable es que el sitio tiene <1 mes y el trafico es de Facebook (bajo intent de compra) — no necesariamente algo roto. Se lanzo Google Form de captura de itinerario para no perder visitantes que no reservan en la primera visita
+- [ ] Renovar API key de Blotato (my.blotato.com/settings/api) — bloquea publicar la semana de posts de venta ya redactada (ver sesion 2026-07-18 parte 2)
 
 ### 🟡 Proximas sesiones
 - [x] Crear guia de Las Terrenas / Samana — COMPLETADO 2026-07-01 (pendiente subir a GitHub)
@@ -838,7 +965,7 @@ Link del hilo: https://community.cloudflare.com/t/response-header-transform-rule
 - [ ] Publicar post de Facebook para guia-punta-cana (pendiente aprobacion Blotato)
 - [x] Corregir canonical + og:url en todas las guias — COMPLETADO 2026-06-27
 - [x] Actualizar canonical a quisqueyatravel.org — COMPLETADO 2026-06-26
-- [ ] 🔴 Resolver error de pago en Meta Ads (campana "Quisqueya Travel — Trafico Global" no esta entregando) — detectado 2026-07-12
+- [ ] 🔴 Resolver error de pago en Meta Ads (campana "Quisqueya Travel — Trafico Global" no esta entregando) — detectado 2026-07-12, confirmado de nuevo 2026-07-18 parte 2: cuenta 290012163 en estado `UNSETTLED`, API rechaza crear audiencias/campanas hasta que se resuelva Facturacion en Ads Manager. Audiencia de retargeting de visitantes del sitio esta lista para crear en cuanto se desbloquee
 - [ ] Cuando se resuelva el pago: escalar AS1 (Diaspora Dominicana Global) y pausar/reducir AS2 (Viajeros al Caribe) — AS1 tiene 17x mas visitas a la pagina
 - [ ] Configurar metodo de pago en Travelpayouts (Venul directo en el dashboard)
 - [ ] Solicitar indexacion manual en GSC para las 16 paginas "descubiertas sin indexar"
