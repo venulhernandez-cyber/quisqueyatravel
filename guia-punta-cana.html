@@ -57,6 +57,49 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     "url": "https://quisqueyatravel.org/guia-punta-cana"
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://quisqueyatravel.org/" },
+      { "@type": "ListItem", "position": 2, "name": "Punta Cana", "item": "https://quisqueyatravel.org/guia-punta-cana" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta un viaje a Punta Cana?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Una familia de cuatro que va 5 noches a un resort todo incluido medio, con vuelos incluidos, gasta entre $3,500 y $5,500 en total. El vuelo redondo internacional a PUJ ronda $180-420 por persona, y el resort todo incluido entre $90-180 por persona por noche." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Vale la pena el todo incluido en Punta Cana?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Para la mayoría de familias sí: pagas una vez y listo (comida, bebidas, actividades), muy práctico con niños. Lo que no vas a encontrar buena en los resorts es la comida típica dominicana; para eso hay que salir a los restaurantes de Bávaro o Verón." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la mejor época para ir a Punta Cana?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Diciembre a abril es temporada seca con precios más altos. Julio y agosto es cuando más dominicanos de la diáspora viajan. Mayo-junio y septiembre-octubre son los meses más económicos, aunque hay más probabilidad de lluvia." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la mejor playa en Punta Cana?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Playa Bávaro es la más famosa, con la mayoría de los resorts. Playa Arena Blanca es más tranquila con aguas más cristalinas. Playa El Cortecito es más accesible si no estás hospedado en resort, con restaurantes de pescado fresco." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Vale la pena la excursión a Isla Saona?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí, es la excursión que más recomendamos fuera de la zona de resort. Sales en catamarán, paras en una piscina natural poco profunda, y llegas a una playa espectacular. Una excursión de día completo cuesta entre $60-80 por persona." }
+      }
+    ]
+  }
+  </script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -127,9 +170,25 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       table { font-size: 0.82rem; }
       th, td { padding: 8px 5px; }
     }
-  
+
+    /* ── PREGUNTAS FRECUENTES ── */
+    .faq-section { margin: 40px 0; }
+    .faq-item { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .faq-item summary {
+      cursor: pointer; padding: 16px 44px 16px 18px; font-weight: 700;
+      font-family: 'Montserrat', sans-serif; color: var(--oscuro); list-style: none;
+      position: relative; font-size: 0.98rem;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+'; position: absolute; right: 18px; top: 14px;
+      font-size: 1.3rem; color: var(--verde); font-weight: 400;
+    }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item p { padding: 0 18px 16px; margin: 0; color: #555; font-size: 0.95rem; }
+
     /* Foco visible (accesibilidad) */
-    a:focus-visible, button:focus-visible { outline: 3px solid var(--naranja); outline-offset: 2px; border-radius: 4px; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--naranja); outline-offset: 2px; border-radius: 4px; }
 </style>
 </head>
 <body>
@@ -217,6 +276,30 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   <p>Pero si lo que quieres es descansar de verdad, cargar las baterias, que los ninos se cansen en la piscina mientras tu te tomas un mojito frente al mar — Punta Cana lo hace mejor que cualquier otro lugar del Caribe a ese precio.</p>
   <p>Y al final del dia, es la tierra de nosotros. Aunque este lleno de turistas, sigues viendo la bandera dominicana, escuchas el acento, comes algo que se parece a lo de casa. Eso tiene su valor.</p>
   <p>¿Ya fuiste a Punta Cana o estas planeando el viaje? Cuentame en los <a href="https://www.facebook.com/profile.php?id=2061443547418301" target="_blank" rel="noopener">comentarios de Facebook</a> — y si conoces a alguien que esta armando el viaje este verano, compartele esta guia 🇩🇴</p>
+
+  <div class="faq-section">
+    <h2>Preguntas frecuentes sobre Punta Cana</h2>
+    <details class="faq-item">
+      <summary>¿Cuánto cuesta un viaje a Punta Cana?</summary>
+      <p>Una familia de cuatro que va 5 noches a un resort todo incluido medio, con vuelos incluidos, gasta entre $3,500 y $5,500 en total. El vuelo redondo internacional a PUJ ronda $180-420 por persona, y el resort todo incluido entre $90-180 por persona por noche.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Vale la pena el todo incluido en Punta Cana?</summary>
+      <p>Para la mayoría de familias sí: pagas una vez y listo (comida, bebidas, actividades), muy práctico con niños. Lo que no vas a encontrar buena en los resorts es la comida típica dominicana; para eso hay que salir a los restaurantes de Bávaro o Verón.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cuál es la mejor época para ir a Punta Cana?</summary>
+      <p>Diciembre a abril es temporada seca con precios más altos. Julio y agosto es cuando más dominicanos de la diáspora viajan. Mayo-junio y septiembre-octubre son los meses más económicos, aunque hay más probabilidad de lluvia.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cuál es la mejor playa en Punta Cana?</summary>
+      <p>Playa Bávaro es la más famosa, con la mayoría de los resorts. Playa Arena Blanca es más tranquila con aguas más cristalinas. Playa El Cortecito es más accesible si no estás hospedado en resort, con restaurantes de pescado fresco.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Vale la pena la excursión a Isla Saona?</summary>
+      <p>Sí, es la excursión que más recomendamos fuera de la zona de resort. Sales en catamarán, paras en una piscina natural poco profunda, y llegas a una playa espectacular. Una excursión de día completo cuesta entre $60-80 por persona.</p>
+    </details>
+  </div>
 
   <p class="disclaimer">Precios estimados y pueden variar segun temporada y disponibilidad. Confirma condiciones antes de reservar. Quisqueya Travel es un sitio afiliado de Stay22 y Travelpayouts — las reservas hechas a traves de nuestros enlaces nos generan una pequeña comision sin costo adicional para ti.</p>
 </article>

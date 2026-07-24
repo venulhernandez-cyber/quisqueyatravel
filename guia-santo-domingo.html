@@ -56,6 +56,49 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     "url": "https://quisqueyatravel.org/guia-santo-domingo"
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://quisqueyatravel.org/" },
+      { "@type": "ListItem", "position": 2, "name": "Santo Domingo", "item": "https://quisqueyatravel.org/guia-santo-domingo" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué hacer en Santo Domingo si tengo poco tiempo?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Camina la Zona Colonial (unos 20 minutos de punta a punta): la Catedral Primada de América, el Alcázar de Colón y el Malecón al atardecer son las paradas obligatorias. No necesitas carro para ese recorrido." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Dónde quedarse en Santo Domingo?",
+        "acceptedAnswer": { "@type": "Answer", "text": "La zona más práctica es el Distrito Nacional: Zona Colonial, Gazcue o Piantini. Hay boutique hotels en la Zona Colonial desde $60-80/noche, y opciones más modernas en Piantini y Naco." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo moverse en Santo Domingo?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Uber funciona bien y es la opción más segura y transparente en precio. Del aeropuerto Las Américas (SDQ) a la zona turística son 25-30 minutos, entre $10-18 USD." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta pasar 1-2 noches en Santo Domingo?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Hotel entre $55-120 la noche, comida $20-40 por persona al día, transporte del aeropuerto $10-18, y entradas a museos como el Alcázar de Colón entre $3-5 USD." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la mejor época para ir a Santo Domingo?",
+        "acceptedAnswer": { "@type": "Answer", "text": "La ciudad está activa todo el año. Diciembre a abril es más seco y cómodo. Julio y agosto el calor es más intenso pero la ciudad está más viva, con más dominicanos de la diáspora de visita." }
+      }
+    ]
+  }
+  </script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -127,9 +170,25 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       table { font-size: 0.82rem; }
       th, td { padding: 8px 5px; }
     }
-  
+
+    /* ── PREGUNTAS FRECUENTES ── */
+    .faq-section { margin: 40px 0; }
+    .faq-item { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .faq-item summary {
+      cursor: pointer; padding: 16px 44px 16px 18px; font-weight: 700;
+      font-family: 'Montserrat', sans-serif; color: var(--oscuro); list-style: none;
+      position: relative; font-size: 0.98rem;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+'; position: absolute; right: 18px; top: 14px;
+      font-size: 1.3rem; color: var(--verde); font-weight: 400;
+    }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item p { padding: 0 18px 16px; margin: 0; color: #555; font-size: 0.95rem; }
+
     /* Foco visible (accesibilidad) */
-    a:focus-visible, button:focus-visible { outline: 3px solid var(--naranja); outline-offset: 2px; border-radius: 4px; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--naranja); outline-offset: 2px; border-radius: 4px; }
 </style>
 </head>
 <body>
@@ -214,6 +273,30 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   <p>Santo Domingo no es perfecta — el tráfico desespera, el calor del mediodía es fuerte y algunas zonas fuera del Distrito Nacional no son para turistas novatos. Pero la Zona Colonial, el Malecón y la gastronomía criolla son experiencias que ningún dominicano de la diáspora debería perderse.</p>
   <p>Si llevas años yendo a RD solo para el resort, añade aunque sea una noche en la capital al próximo viaje. Te lo digo en serio — te va a cambiar la perspectiva de lo que es el país.</p>
   <p>¿Has estado en Santo Domingo antes? ¿Cuál es tu lugar favorito? Cuéntame en los <a href="https://www.facebook.com/profile.php?id=2061443547418301" target="_blank" rel="noopener">comentarios de Facebook</a> — y si conoces a alguien que está planeando viaje, compártele esta guía 🇩🇴</p>
+
+  <div class="faq-section">
+    <h2>Preguntas frecuentes sobre Santo Domingo</h2>
+    <details class="faq-item">
+      <summary>¿Qué hacer en Santo Domingo si tengo poco tiempo?</summary>
+      <p>Camina la Zona Colonial (unos 20 minutos de punta a punta): la Catedral Primada de América, el Alcázar de Colón y el Malecón al atardecer son las paradas obligatorias. No necesitas carro para ese recorrido.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Dónde quedarse en Santo Domingo?</summary>
+      <p>La zona más práctica es el Distrito Nacional: Zona Colonial, Gazcue o Piantini. Hay boutique hotels en la Zona Colonial desde $60-80/noche, y opciones más modernas en Piantini y Naco.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cómo moverse en Santo Domingo?</summary>
+      <p>Uber funciona bien y es la opción más segura y transparente en precio. Del aeropuerto Las Américas (SDQ) a la zona turística son 25-30 minutos, entre $10-18 USD.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cuánto cuesta pasar 1-2 noches en Santo Domingo?</summary>
+      <p>Hotel entre $55-120 la noche, comida $20-40 por persona al día, transporte del aeropuerto $10-18, y entradas a museos como el Alcázar de Colón entre $3-5 USD.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cuál es la mejor época para ir a Santo Domingo?</summary>
+      <p>La ciudad está activa todo el año. Diciembre a abril es más seco y cómodo. Julio y agosto el calor es más intenso pero la ciudad está más viva, con más dominicanos de la diáspora de visita.</p>
+    </details>
+  </div>
 
   <p class="disclaimer">Precios estimados y pueden variar. Confirma disponibilidad y condiciones antes de viajar. Quisqueya Travel es un sitio afiliado de Stay22 y Travelpayouts — las reservas hechas a través de nuestros enlaces nos generan una pequeña comisión sin costo adicional para ti.</p>
 </article>
