@@ -21,10 +21,13 @@ Bitacora viva del sitio afiliado **https://quisqueyatravel.org**
 
 ## Estado Actual del Proyecto
 
-**Fecha de ultima actualizacion:** 2026-07-21 (auditoria general + Blotato reconectado + post Punta Cana publicado + verificacion GSC, via Cowork)
+**Fecha de ultima actualizacion:** 2026-07-24 (SEO 2026: FAQ Schema + BreadcrumbList en las 12 guias principales, via Cowork)
 
 | Item | Estado | Detalle |
 |---|---|---|
+| FAQ Schema (SEO 2026) | ✅ DESPLEGADO (2026-07-24) | JSON-LD `FAQPage` + `BreadcrumbList` + acordeon visible `<details>/<summary>` agregado a las 12 guias principales (Punta Cana, Santo Domingo, Puerto Plata, Samana, Santiago, Barahona, Jarabacoa, La Romana, Requisitos 2026, Costo Familiar, Itinerario 10 dias, Vuelos NYC-RD). Commit `4c7649c`, pusheado directo (sin divergencia con origin) y verificado en vivo. Contenido de cada FAQ extraido/parafraseado honestamente del texto ya publicado en cada guia, sin inventar datos |
+| Mejoras home (retencion/conversion) | ✅ DESPLEGADO (2026-07-24) | Franja de confianza, calculadora interactiva de costo de viaje, galeria visual bento y boton flotante de WhatsApp agregados a `index.html`. Commit `c5208a0`. Verificado en vivo: calculadora probada (Punta Cana/5 noches/2 personas → $1,601 total) |
+| Auditoria de seguridad (2026-07-24) | ✅ LIMPIA | Escaneo de secretos: 0 hallazgos en 43 archivos. Dominios externos: sin sorpresas, solo pendiente documentar en el allowlist. Headers de seguridad (CSP, HSTS, X-Frame-Options, etc.) ya estaban bien configurados de una sesion anterior |
 | Blotato | ✅ RECONECTADO (2026-07-21) | Venul elimino y volvio a agregar el conector en Ajustes de Claude. `blotato_get_user` confirma subscriptionStatus active, plan starter. Ya se puede publicar de nuevo |
 | Post Punta Cana | ✅ PUBLICADO (2026-07-21) | Video First/Last Frame del 2026-07-20 (nunca publicado, Blotato estaba roto) + copy nuevo (hook nostalgia, ganador de autoconsistencia). FB: facebook.com/reel/1519591976114854 · IG: instagram.com/reel/DbEpBpekaTo |
 | Google Search Console | ✅ VERIFICADO (2026-07-21) | Propiedad correcta es URL-prefix `https://quisqueyatravel.org/` (no sc-domain). 19 paginas indexadas, 10 "sin indexar" pero desglosadas: 4 son .html que redirigen bien, 3 son duplicados con canonical correcto, 1 es el 404 inofensivo de `/cdn-cgi/l/email-protection` (proteccion de correo de Cloudflare, no es un error real), y las 2 ultimas (guia-requisitos-viaje-rd-2026.html y guia-santo-domingo.html crawleadas) resultaron ser duplicados .html — sus versiones canonicas SI estan indexadas. Conclusion: la indexacion esta sana, no hacia falta pedir nada manualmente |
@@ -99,6 +102,30 @@ Meta Ads:
 ---
 
 ## Historial de Sesiones
+
+### Sesion — 2026-07-24 (revision de trafico/GA4 + auditoria de seguridad + mejoras de conversion en home + FAQ Schema SEO 2026, via Cowork)
+
+**Que se hizo:** sesion larga con varios pedidos encadenados de Venul.
+
+**1. Revision de trafico (GA4 + Search Console, via Claude in Chrome):** Semrush y Supermetrics no sirvieron (plan sin Traffic Analytics / trial vencido) — se uso directo la propiedad GA4 ya conectada (property ID 541622169). Diagnostico: de ~3,200 "usuarios" en 28 dias, Search Console solo confirma 20 clics organicos reales — el resto del trafico tiene patrones de bot/scraper (tiempo de interaccion casi cero, picos de un solo dia, fuente no identificable). Se recomendo auditoria de seguridad como siguiente paso, no mas cambios de marketing.
+
+**2. Auditoria de seguridad (skill `quisqueya-travel-seguridad`):** escaneo de secretos expuestos (0 hallazgos en 43 archivos), auditoria de dominios externos vs. allowlist (sin sorpresas reales, solo nuevos dominios legitimos por documentar), y verificacion en vivo de headers HTTP de seguridad (X-Frame-Options, X-Content-Type-Options, Referrer-Policy, HSTS, Permissions-Policy — todos presentes; CSP se sirve via meta tag, no header, tambien correcto). Se investigo tambien un error de consola de Travelpayouts (`check_auth`) — resulto ser un quirk benigno del propio script del widget, no un problema del sitio (el tracking de clics real en el dashboard de Travelpayouts funciona bien).
+
+**3. Mejoras de retencion/conversion en el home (`index.html`):** Venul pidio retener mas tiempo a los visitantes y vender mas. Se implementaron las 4 mejoras que eligio: (a) franja de confianza/urgencia honesta (escrito por dominicano en NYC, precios actualizados, aviso de temporada alta), (b) galeria visual bento de 6 destinos, (c) boton flotante de WhatsApp en el home (antes solo estaba en las guias, quedaba pendiente de sesiones anteriores), (d) calculadora interactiva de costo de viaje (destino + noches + personas + presupuesto → total y desglose, con boton que filtra los hoteles del destino elegido). Todo con datos/precios ya usados en el sitio, sin inventar descuentos.
+
+**4. Deploy con problemas de git resueltos (OneDrive + lock files + divergencia):** el mismo problema de siempre (`.git/index.lock`, `.git/HEAD.lock` no se podian borrar ni con `rm` del sandbox) se resolvio esta vez borrandolos manualmente desde el Explorador de Windows (funciono donde `rm` fallaba). Se detecto que el branch local habia divergido de origin (9 commits pusheados desde otra sesion, nunca traidos aqui) — resuelto con `git reset --soft origin/main` (no destructivo) + recuperacion manual de `.github/workflows/purge-cache.yml` (se habria borrado por accidente si se commiteaba tal cual). Commit final `c5208a0` pusheado y verificado en vivo.
+
+**5. SEO 2026 — FAQ Schema (a peticion explicita de Venul: "toma una decision de experto en SEO... implementa algo grande"):** se investigo la estrategia SEO 2026 mas actual (GEO / AI Overviews / Answer Engine Optimization como paradigma dominante) y se eligio FAQ Schema como la implementacion de mayor impacto para este sitio especifico — evidencia: 36% mas probabilidad de citacion en respuestas de IA con FAQ Schema bien marcado, y es algo que la mayoria de sitios de viajes NO tiene. Se descarto `llms.txt` a proposito (adopcion todavia no confirmada por los crawlers principales de IA). Se agrego `FAQPage` + `BreadcrumbList` (JSON-LD) + un acordeon visible `<details>/<summary>` con 4-5 preguntas por guia a las 12 guias principales: Punta Cana, Santo Domingo, Puerto Plata, Samana, Santiago, Barahona, Jarabacoa, La Romana, Requisitos 2026, Costo Familiar, Itinerario 10 dias, Vuelos NYC-RD. Todo el contenido de las preguntas se extrajo/parafraseo honestamente de texto ya publicado en cada guia (tablas de precio, secciones existentes) — nada inventado. Validado antes de subir: los 3 bloques JSON-LD de cada archivo parsean como JSON valido, cantidad de `<details>` coincide con la cantidad de preguntas en el schema, sin IDs duplicados. Commit `4c7649c`, pusheado sin divergencia (main ya estaba sincronizado con origin), verificado en vivo en quisqueyatravel.org (confirmado con fetch real de `guia-vuelos-nyc-rd`).
+
+**Deploy final de la sesion:** dos commits — `c5208a0` (mejoras del home) y `4c7649c` (FAQ Schema en las 12 guias). Ambos verificados en vivo. Repo local y origin quedaron sincronizados.
+
+**Pendiente para proxima sesion:**
+- 🟡 Evaluar en Search Console (en 1-2 semanas) si el trafico organico real mejora despues del FAQ Schema, y si Google empieza a mostrar "rich results" de preguntas frecuentes para estas guias.
+- 🟡 Considerar extender el mismo patron de FAQ Schema a las guias traducidas (`/en/`, `/fr/`) — se decidio no hacerlo esta vez porque el espanol es el idioma dominante de la audiencia segun datos previos de GA4.
+- 🟢 Varios archivos sueltos de diagnostico (`CHEQUEO-*.bat`, `COMMIT-*.bat` y sus `-LOG.txt`) quedaron en la carpeta local como rastro de auditoria — se le informo a Venul que son seguros de borrar cuando quiera, no son parte del sitio.
+- 🟢 Seguian sin resolverse (seguramente igual que antes): estado de Meta Ads y de Blotato — no se tocaron en esta sesion, no se pidieron.
+
+---
 
 ### Sesion — 2026-07-20 (copy de alta conversion: hero, CTAs, servicios e itinerario, via Cowork)
 
@@ -943,6 +970,8 @@ guia-samana.html (nuevo), index.html, sitemap.xml, _redirects, guia-costo-viaje-
 
 | Fecha | Mejora | Archivos afectados |
 |---|---|---|
+| 2026-07-24 | SEO 2026: FAQ Schema (`FAQPage` + `BreadcrumbList` JSON-LD) + acordeon visible de preguntas frecuentes en las 12 guias principales | las 12 guias .html (ver detalle en sesion 2026-07-24) |
+| 2026-07-24 | Home: franja de confianza/urgencia, galeria visual bento, boton flotante de WhatsApp y calculadora interactiva de costo de viaje | index.html |
 | 2026-06-29 | deploy-cloudflare.yml corregido: `branch: main` — CF Pages ahora despliega a produccion | .github/workflows/deploy-cloudflare.yml |
 | 2026-06-29 | _redirects creado para Cloudflare Pages (.html → URL limpia) | _redirects |
 | 2026-06-29 | guia-jarabacoa.html creada con SEO completo | guia-jarabacoa.html |
@@ -999,6 +1028,8 @@ Link del hilo: https://community.cloudflare.com/t/response-header-transform-rule
 - [x] Renovar API key de Blotato — COMPLETADO 2026-07-21 (Venul reconecto el connector en Claude, ya funciona)
 
 ### 🟡 Proximas sesiones
+- [ ] Revisar en Search Console (2-3 semanas despues del 2026-07-24) si el trafico organico mejora y si aparecen rich results de preguntas frecuentes para las 12 guias con FAQ Schema
+- [ ] Evaluar si vale la pena extender el FAQ Schema a las guias traducidas (/en/, /fr/) — se dejo fuera de alcance el 2026-07-24 porque espanol es el idioma dominante de audiencia
 - [x] Crear guia de Las Terrenas / Samana — COMPLETADO 2026-07-01 (pendiente subir a GitHub)
 - [x] Crear guia de Jarabacoa — COMPLETADO 2026-06-29
 - [x] Agregar widgets de Travelpayouts en las guias (vuelos, hoteles) — COMPLETADO, verificado 2026-07-12: los 12 archivos locales ya tienen los 6 widgets (vuelos, carro, traslado, tours, eSIM, seguro) + Stay22
