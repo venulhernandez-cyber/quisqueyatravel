@@ -481,6 +481,91 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       .itinerario-cta { flex-direction: column; align-items: flex-start; }
       .itinerario-cta a.btn-itinerario { width: 100%; text-align: center; }
     }
+
+    /* ── FRANJA DE CONFIANZA / URGENCIA (honesta, sin datos inventados) ── */
+    .trust-strip {
+      background: var(--oscuro); color: #ddd; padding: 12px 20px;
+      display: flex; gap: 10px 28px; justify-content: center; align-items: center;
+      flex-wrap: wrap; font-size: 0.82rem; text-align: center;
+    }
+    .trust-strip span { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+    .trust-strip strong { color: var(--naranja); }
+
+    /* ── CALCULADORA DE COSTO DE VIAJE ── */
+    #calculadora { background: var(--gris); }
+    .calc-box {
+      background: var(--blanco); border-radius: 18px; padding: 30px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.08); max-width: 780px; margin: 0 auto;
+    }
+    .calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 20px; }
+    .calc-field label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--oscuro); margin-bottom: 6px; }
+    .calc-field select {
+      width: 100%; padding: 12px 14px; border-radius: 10px; border: 2px solid #e0e0e0;
+      font-weight: 600; font-size: 0.92rem; color: var(--oscuro); background: var(--blanco); min-height: 46px;
+    }
+    .calc-field select:focus { outline: none; border-color: var(--verde); }
+    .calc-btn {
+      width: 100%; background: var(--verde); color: var(--blanco); border: none;
+      padding: 14px; border-radius: 10px; font-weight: 800; font-size: 1rem;
+      cursor: pointer; min-height: 48px; transition: background 0.2s;
+    }
+    .calc-btn:hover { background: var(--verde2); }
+    .calc-resultado {
+      margin-top: 22px; padding-top: 22px; border-top: 2px dashed #e0e0e0;
+      opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.4s ease;
+    }
+    .calc-resultado.visible { opacity: 1; max-height: 600px; }
+    .calc-total-lbl { font-size: 0.85rem; color: #666; margin-bottom: 4px; }
+    .calc-total-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 2.3rem; color: var(--verde); }
+    .calc-desglose { list-style: none; margin: 16px 0; font-size: 0.9rem; color: #444; }
+    .calc-desglose li { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid #f0f0f0; }
+    .calc-nota { font-size: 0.78rem; color: #888; margin-top: 10px; line-height: 1.5; }
+    .calc-cta {
+      display: inline-flex; align-items: center; justify-content: center; margin-top: 16px;
+      background: var(--naranja); color: var(--oscuro); text-decoration: none; font-weight: 800;
+      padding: 13px 26px; border-radius: 10px; min-height: 46px; width: 100%; text-align: center;
+    }
+    .calc-cta:hover { background: #e08c4a; }
+
+    /* ── GALERÍA VISUAL ── */
+    #galeria { background: var(--blanco); }
+    .galeria-bento {
+      display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 140px; gap: 14px;
+    }
+    .galeria-item {
+      position: relative; border-radius: 14px; overflow: hidden; display: block;
+      grid-column: span 1; grid-row: span 1; text-decoration: none;
+    }
+    .galeria-item.g-big { grid-column: span 2; grid-row: span 2; }
+    .galeria-item img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.45s ease;
+    }
+    .galeria-item:hover img { transform: scale(1.08); }
+    .galeria-item::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 55%);
+    }
+    .galeria-cap {
+      position: absolute; left: 14px; bottom: 12px; z-index: 1;
+      color: var(--blanco); font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 0.95rem; text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    .galeria-item.g-big .galeria-cap { font-size: 1.25rem; }
+    @media (max-width: 900px) {
+      .galeria-bento { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+      .galeria-item.g-big { grid-column: span 2; grid-row: span 1; }
+    }
+
+    /* ── WHATSAPP FLOTANTE ── */
+    .whatsapp-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      background: #25d366; color: #fff; border-radius: 50%;
+      width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem; text-decoration: none; box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+      transition: transform 0.2s;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); }
   </style>
 </head>
 <body>
@@ -576,6 +661,13 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path fill="#f4a261" d="M0,32 C240,60 480,0 720,16 C960,32 1200,58 1440,28 L1440,60 L0,60 Z"></path></svg>
   </div>
 </header>
+
+<!-- ── FRANJA DE CONFIANZA (hechos reales, no inventados) ── -->
+<div class="trust-strip">
+  <span>🇩🇴 <strong>Escrito por un dominicano</strong> en NYC, no una agencia</span>
+  <span>💸 <strong>Precios de hoteles</strong> actualizados esta semana</span>
+  <span>⏰ Temporada alta 2026 (dic–abr) <strong>sube los precios</strong> — reserva con tiempo</span>
+</div>
 
 <!-- ── ESPECIAL DE VERANO ── -->
 <section id="especial">
@@ -792,6 +884,69 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   </div>
 </section>
 
+<!-- ── CALCULADORA DE COSTO DE VIAJE ── -->
+<section id="calculadora">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">🧮 Planea tu presupuesto</span>
+      <h2>¿Cuánto me cuesta el viaje?</h2>
+      <p>Elige tu destino, cuántos días y con cuántas personas viajas — te damos un estimado real para que planees sin sorpresas.</p>
+    </div>
+    <div class="calc-box">
+      <div class="calc-grid">
+        <div class="calc-field">
+          <label for="calc-destino">Destino</label>
+          <select id="calc-destino">
+            <option value="punta-cana">🌴 Punta Cana</option>
+            <option value="santo-domingo">🏛️ Santo Domingo</option>
+            <option value="puerto-plata">⛰️ Puerto Plata</option>
+            <option value="la-romana">🎨 La Romana</option>
+            <option value="samana">🐋 Samaná</option>
+            <option value="santiago">🏙️ Santiago</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label for="calc-noches">Noches</label>
+          <select id="calc-noches">
+            <option value="3">3 noches</option>
+            <option value="5" selected>5 noches</option>
+            <option value="7">7 noches</option>
+            <option value="10">10 noches</option>
+            <option value="14">14 noches</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label for="calc-personas">Personas</label>
+          <select id="calc-personas">
+            <option value="1">1 persona</option>
+            <option value="2" selected>2 personas</option>
+            <option value="3">3 personas</option>
+            <option value="4">4 personas</option>
+            <option value="5">5+ personas</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label for="calc-presupuesto">Estilo de viaje</label>
+          <select id="calc-presupuesto">
+            <option value="economico">💵 Económico</option>
+            <option value="comodo" selected>👍 Cómodo</option>
+            <option value="todo-incluido">✨ Todo incluido</option>
+          </select>
+        </div>
+      </div>
+      <button type="button" class="calc-btn" onclick="calcularViaje()">🧮 Calcular mi presupuesto</button>
+
+      <div class="calc-resultado" id="calc-resultado">
+        <div class="calc-total-lbl">Estimado total del viaje</div>
+        <div class="calc-total-num" id="calc-total">$0</div>
+        <ul class="calc-desglose" id="calc-desglose"></ul>
+        <p class="calc-nota">Estimado orientativo basado en precios de referencia del sitio (vuelos, hoteles y comida). No incluye impuestos, tours ni transporte interno. Verifica el precio real y disponibilidad en la sección de hoteles.</p>
+        <a href="#hoteles" class="calc-cta" id="calc-cta-link" onclick="verHotelesDesdeCalc()">🏨 Ver hoteles reales en este destino →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── HOTELES ── -->
 <section id="hoteles">
   <div class="container">
@@ -857,6 +1012,43 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       </a>
       <a href="https://ektatraveling.tpo.li/Oiq1T6km" target="_blank" rel="noopener sponsored" class="servicio-card reveal">
         <div class="servicio-icon">🛡️</div><h3>Seguro de viaje</h3><span>Viaja tranquilo, sin sorpresas →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── GALERÍA VISUAL ── -->
+<section id="galeria">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">📸 Así se ve RD de verdad</span>
+      <h2>Un vistazo antes de que reserves</h2>
+      <p>Fotos reales de los lugares que te recomendamos — pasa el cursor y explora.</p>
+    </div>
+    <div class="galeria-bento">
+      <a href="guia-punta-cana.html" class="galeria-item g-big reveal">
+        <img src="https://images.unsplash.com/photo-1551126892-7cf2e2d9a4d9?w=900&q=80&fit=crop&auto=format" alt="Playa de Punta Cana" loading="lazy">
+        <span class="galeria-cap">Punta Cana</span>
+      </a>
+      <a href="guia-santo-domingo.html" class="galeria-item reveal">
+        <img src="https://images.unsplash.com/photo-1615305211793-2b62059b8f27?w=600&q=80&fit=crop&auto=format" alt="Zona Colonial, Santo Domingo" loading="lazy">
+        <span class="galeria-cap">Santo Domingo</span>
+      </a>
+      <a href="guia-samana.html" class="galeria-item reveal">
+        <img src="https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Bahía de Samaná" loading="lazy">
+        <span class="galeria-cap">Samaná</span>
+      </a>
+      <a href="guia-puerto-plata.html" class="galeria-item reveal">
+        <img src="https://images.pexels.com/photos/29266595/pexels-photo-29266595.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Puerto Plata" loading="lazy">
+        <span class="galeria-cap">Puerto Plata</span>
+      </a>
+      <a href="guia-la-romana.html" class="galeria-item reveal">
+        <img src="https://images.unsplash.com/photo-1645408728506-b94d088f10f0?w=600&q=80&fit=crop&auto=format" alt="Altos de Chavón, La Romana" loading="lazy">
+        <span class="galeria-cap">La Romana</span>
+      </a>
+      <a href="https://www.stay22.com/allez/quisqueyatravel?address=Sos%C3%BAa%2C%20Dominican%20Republic&campaign=home_galeria" target="_blank" rel="noopener sponsored" class="galeria-item reveal">
+        <img src="https://images.pexels.com/photos/29221468/pexels-photo-29221468.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Playa Alicia, Sosúa" loading="lazy">
+        <span class="galeria-cap">Sosúa</span>
       </a>
     </div>
   </div>
@@ -1000,6 +1192,9 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   <p style="margin-top:6px;font-size:0.78rem" id="footer-update"></p>
 </footer>
 
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/13477205769" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">💬</a>
+
 <!-- ── JAVASCRIPT ── -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/hoteles2.js"></script>
@@ -1047,6 +1242,52 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       if (e.key === 'Escape' && !pop.hidden) { cerrar(); btn.focus(); }
     });
   })();
+
+  // Calculadora de costo de viaje — usa los mismos rangos de precio ya publicados
+  // en las tarjetas de "Destinos" y el vuelo de referencia de la sección "Especial".
+  var __calcDestinos = {
+    'punta-cana':    { nombre: 'Punta Cana',      bajo: 80, alto: 150 },
+    'santo-domingo': { nombre: 'Santo Domingo',   bajo: 40, alto: 90 },
+    'puerto-plata':  { nombre: 'Puerto Plata',    bajo: 50, alto: 110 },
+    'la-romana':     { nombre: 'La Romana',       bajo: 70, alto: 140 },
+    'samana':        { nombre: 'Samaná',          bajo: 50, alto: 120 },
+    'santiago':      { nombre: 'Santiago',        bajo: 45, alto: 90 }
+  };
+  var __calcDestinoActual = null;
+
+  function calcularViaje() {
+    var destinoSel = document.getElementById('calc-destino').value;
+    var noches = parseInt(document.getElementById('calc-noches').value, 10);
+    var personas = parseInt(document.getElementById('calc-personas').value, 10);
+    var presupuesto = document.getElementById('calc-presupuesto').value;
+    var d = __calcDestinos[destinoSel];
+    if (!d) return;
+
+    var precioNoche, comidaDia;
+    if (presupuesto === 'economico') { precioNoche = d.bajo; comidaDia = 18; }
+    else if (presupuesto === 'todo-incluido') { precioNoche = d.alto; comidaDia = 5; }
+    else { precioNoche = Math.round((d.bajo + d.alto) / 2); comidaDia = 28; }
+
+    var vueloPorPersona = 373; // mismo estimado publicado en la sección "Especial de verano"
+    var totalHotel = precioNoche * noches;
+    var totalComida = comidaDia * noches * personas;
+    var totalVuelos = vueloPorPersona * personas;
+    var total = totalHotel + totalComida + totalVuelos;
+
+    document.getElementById('calc-total').textContent = '$' + total.toLocaleString('en-US');
+    document.getElementById('calc-desglose').innerHTML =
+      '<li><span>🏨 Hotel (' + noches + ' noches, ' + d.nombre + ')</span><span>$' + totalHotel.toLocaleString('en-US') + '</span></li>' +
+      '<li><span>✈️ Vuelos (' + personas + ' persona' + (personas > 1 ? 's' : '') + ')</span><span>$' + totalVuelos.toLocaleString('en-US') + '</span></li>' +
+      '<li><span>🍽️ Comida estimada</span><span>$' + totalComida.toLocaleString('en-US') + '</span></li>';
+
+    document.getElementById('calc-resultado').classList.add('visible');
+    __calcDestinoActual = destinoSel;
+  }
+
+  function verHotelesDesdeCalc() {
+    var destino = __calcDestinoActual || document.getElementById('calc-destino').value;
+    if (typeof filtrarHoteles === 'function') { filtrarHoteles(destino); }
+  }
 
   // Animaciones de aparición al hacer scroll (tarjetas de destinos, "por qué RD" y servicios)
   (function () {

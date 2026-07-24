@@ -21,10 +21,17 @@ Bitacora viva del sitio afiliado **https://quisqueyatravel.org**
 
 ## Estado Actual del Proyecto
 
-**Fecha de ultima actualizacion:** 2026-07-18, parte 2 (diagnostico de ventas + captura de itinerario por correo en vivo + retargeting bloqueado por facturacion de Meta Ads)
+**Fecha de ultima actualizacion:** 2026-07-21 (auditoria general + Blotato reconectado + post Punta Cana publicado + verificacion GSC, via Cowork)
 
 | Item | Estado | Detalle |
 |---|---|---|
+| Blotato | ✅ RECONECTADO (2026-07-21) | Venul elimino y volvio a agregar el conector en Ajustes de Claude. `blotato_get_user` confirma subscriptionStatus active, plan starter. Ya se puede publicar de nuevo |
+| Post Punta Cana | ✅ PUBLICADO (2026-07-21) | Video First/Last Frame del 2026-07-20 (nunca publicado, Blotato estaba roto) + copy nuevo (hook nostalgia, ganador de autoconsistencia). FB: facebook.com/reel/1519591976114854 · IG: instagram.com/reel/DbEpBpekaTo |
+| Google Search Console | ✅ VERIFICADO (2026-07-21) | Propiedad correcta es URL-prefix `https://quisqueyatravel.org/` (no sc-domain). 19 paginas indexadas, 10 "sin indexar" pero desglosadas: 4 son .html que redirigen bien, 3 son duplicados con canonical correcto, 1 es el 404 inofensivo de `/cdn-cgi/l/email-protection` (proteccion de correo de Cloudflare, no es un error real), y las 2 ultimas (guia-requisitos-viaje-rd-2026.html y guia-santo-domingo.html crawleadas) resultaron ser duplicados .html — sus versiones canonicas SI estan indexadas. Conclusion: la indexacion esta sana, no hacia falta pedir nada manualmente |
+| Meta titles/descriptions | ✅ YA HECHO (desde 2026-07-16) | `informe-seo-quisqueya-travel.md` ya optimizo 8/12 guias y dejo 5 variantes por guia para A/B testing. Las otras 4 no necesitaban cambio. El pendiente de la lista de abajo estaba desactualizado — se marca como resuelto |
+| Grupos de Facebook (nuevos) | ✅ 2 PUBLICADOS, 2 EN ESPERA (2026-07-21) | Se encontraron y unieron 4 grupos nuevos de viajeros a Punta Cana (mas targeted que los genericos de diaspora usados antes). Se publico el reel en 2 (uno directo, otro pendiente de aprobacion de admins). "Mochileando Tips" espera al fin de semana por regla propia. "Punta Cana Ofertas!!!" se descarto (es de residentes locales, no viajeros). Detalle completo en grupos-fb-promo.md. Tarea programada quisqueya-travel-fb-grupos actualizada con el nuevo metodo (Metodo B: compartir reel a grupo individual) ya que el Metodo A original esta agotado desde el 9 jul |
+| Auditoria general 2026-07-21 | ⚠️ HALLAZGOS PENDIENTES DE ACCION DE VENUL | (1) `index.html` sigue con 3 placeholders `[TEXTO DEL COMENTARIO REAL]` / `[Nombre]` en la seccion de testimonios, visibles en vivo — Venul iba a pasar comentarios reales, aun no los paso. (2) `VID20260709WA0010.mp4` y `marketing.plugin` (zip de plugin de Cowork, entregado como herramienta interna, NO parte del sitio) estan committeados al repo del sitio y se sirven publicamente en la raiz de quisqueyatravel.org — Venul no dio permiso todavia para borrarlos (`allow_cowork_file_delete` rechazado), pendiente que el decida o los borre el mismo. (3) node-v24 installer (32MB) y una foto personal sueltos en la carpeta local, sin `.gitignore` — riesgo de subida accidental |
+| Git local (mount de Cowork) | ⚠️ SIGUE INUTILIZABLE (confirmado otra vez 2026-07-21) | `.git/index.lock` y `.git/HEAD.lock` siguen ahi, y ahora tampoco se pueden borrar archivos del working directory (`rm` da "Operation not permitted", ni siquiera con sudo del sandbox) — parece un permiso mas amplio de OneDrive/Cowork, no solo de `.git`. Seguir usando GitHub web upload (via Claude in Chrome) para cualquier deploy |
 | Cambios locales 2026-07-18 | ✅ DESPLEGADO | 13 archivos subidos via GitHub web upload, commit `e754fe3`. Deploy to Cloudflare Pages #81 exitoso (31s). Verificado en vivo en quisqueyatravel.org y pages.dev sin necesidad de purgar cache — Segmented Control, Bento Grid de ofertas y popover funcionando; guia-samana.html (una de las truncadas) confirmada con whatsapp-float y 11 links de footer via JS en consola |
 | Sitio en vivo (pages.dev) | ✅ CORRECTO | quisqueyatravel.pages.dev — hoteles funcionando, Santiago filter, 13 cards |
 | Sitio en vivo (dominio) | ⚠️ CACHE STALE | quisqueyatravel.org — Cloudflare Zone cache sirve version vieja. Fix: purgar cache en dashboard |
@@ -92,6 +99,40 @@ Meta Ads:
 ---
 
 ## Historial de Sesiones
+
+### Sesion — 2026-07-20 (copy de alta conversion: hero, CTAs, servicios e itinerario, via Cowork)
+
+**Que se hizo:** Venul pidio trabajar en copywriting de alta conversion (CTAs/headlines). Se redacto un documento con variantes para 5 bloques del sitio (hero, botones del hero, boton de ofertas, tarjetas de servicios, CTA de itinerario), cada una con el angulo psicologico (deseo, urgencia, perdida, confianza). Venul aprobo implementar las recomendadas con "continua".
+
+**Cambios implementados en `index.html`:**
+- H1 del hero: "Siente. Vive. Explora. República Dominicana." → "La República Dominicana que extrañas — a un clic de reservarla." (angulo deseo/nostalgia, apunta a la diaspora que es la audiencia principal de Facebook)
+- Subtitulo del hero: agregada promesa de precio al final
+- Botones del hero: "Buscar hoteles"→"Ver precios de hoteles", "Buscar vuelos"→"Comparar vuelos ahora", "Ver hoteles disponibles"→"Reserva tu hotel hoy", "Explorar destinos"→"Elige tu destino ideal"
+- Las 6 tarjetas del bento grid de ofertas: "Ver disponibilidad →" → "Asegura este precio →" (angulo perdida/urgencia)
+- Las 6 tarjetas de servicios (Vuelos, Carro, Traslado, Tours, eSIM, Seguro): microcopy generico ("Comparar precios", "Ver opciones", etc.) reemplazado por texto orientado al resultado ("Encuentra el vuelo mas barato", "Muevete libre por la isla", etc.)
+- CTA de captura de itinerario: agregada promesa de tiempo concreta ("en menos de 24 horas") al texto — el boton se dejo igual
+
+**Deploy:** git local seguia inutilizable (mismo `.git/index.lock` de siempre). Se uso el proceso normal (upload web de GitHub via Claude in Chrome) para subir solo `index.html`. Commit `f175e79`, Deploy to Cloudflare Pages #85 exitoso (30s). Verificado en vivo en quisqueyatravel.org — hero, tarjetas de ofertas y tarjetas de servicios confirmados con el copy nuevo.
+
+**Nota tecnica:** Chrome tenia traduccion automatica activa durante el upload, lo que mostraba visualmente "índice.html" en vez de "index.html" en la UI de GitHub — se verifico que era solo un artefacto visual de traduccion (no afecto el archivo real subido, confirmado revisando el listado del repo).
+
+**Pendiente para proxima sesion:** medir si el nuevo copy mueve la aguja en conversion una vez haya trafico suficiente. Los pendientes de sesiones anteriores (Meta Ads UNSETTLED, Blotato API key vencida, decision sobre WhatsApp en el home) siguen abiertos.
+
+---
+
+### Sesion — 2026-07-20, parte 2 (video Punta Cana con Higgsfield First/Last Frame — bloqueado en Blotato)
+
+**Que se hizo:** Venul pidio generar un video para FB/IG usando la tecnica de Higgsfield First & Last Frame (2 imagenes de la misma locacion como start_image/end_image, para que el lugar no se deforme). Confirmo presupuesto antes de gastar creditos ("no me desperdicies los creditos").
+
+**Generado:** 2 imagenes de Punta Cana con `soul_location` (estilo "Location" consistente, 9:16) + 1 video de 5s con `seedance_2_0` (720p, fast, sin audio, First/Last Frame) — costo total 17.5 creditos de 823 disponibles, un solo intento. Video: https://d8j0ntlcm91z4.cloudfront.net/user_3BIr3rEkWzimSr0jX6Jzj2wEBZ8/hf_20260720_125702_509f8c0a-9071-45a5-a1fe-4032a26577df.mp4
+
+**Bloqueado — Blotato sigue roto:** al intentar publicar en Facebook e Instagram, `blotato_get_user` devolvio "Invalid API key or auth session" — mismo problema ya documentado desde el 18 jul, sin resolver. Venul debe renovar la key en my.blotato.com/settings/api.
+
+**Nota tecnica:** el sandbox de Cowork no tiene el dominio de CDN de Higgsfield (`d8j0ntlcm91z4.cloudfront.net`) en su allowlist de red — no se pudo descargar el video al folder de trabajo via bash/curl (403 del proxy). El link publico si funciona para abrir/descargar directo desde el navegador de Venul.
+
+**Pendiente:** en cuanto Venul renueve la API key de Blotato, publicar este video (o uno nuevo) en la pagina de FB (2061443547418301) e Instagram (@venulh, accountId 44084).
+
+---
 
 ### Sesion — 2026-07-18, parte 3 (fix de indexacion GSC — cache stale de Cloudflare)
 
@@ -955,20 +996,22 @@ Link del hilo: https://community.cloudflare.com/t/response-header-transform-rule
 - [x] ~~Activar enlace de afiliado Booking.com cuando llegue la aprobacion de CJ Affiliate (CID 7985681)~~ — ABANDONADO 2026-07-04, Venul decidio no seguir con Booking/CJ. Afiliados definitivos: Stay22 + Travelpayouts
 - [ ] Configurar metodo de pago en Travelpayouts (`set your payout method`) — Venul debe hacerlo directo en el dashboard, Claude no puede ingresar datos financieros
 - [ ] Investigar por que 0 conversiones pese a clics reales en Stay22/Travelpayouts — diagnostico 2026-07-18 parte 2: embudo tecnico revisado y funciona (links con campaign tag correcto); conclusion mas probable es que el sitio tiene <1 mes y el trafico es de Facebook (bajo intent de compra) — no necesariamente algo roto. Se lanzo Google Form de captura de itinerario para no perder visitantes que no reservan en la primera visita
-- [ ] Renovar API key de Blotato (my.blotato.com/settings/api) — bloquea publicar la semana de posts de venta ya redactada (ver sesion 2026-07-18 parte 2)
+- [x] Renovar API key de Blotato — COMPLETADO 2026-07-21 (Venul reconecto el connector en Claude, ya funciona)
 
 ### 🟡 Proximas sesiones
 - [x] Crear guia de Las Terrenas / Samana — COMPLETADO 2026-07-01 (pendiente subir a GitHub)
 - [x] Crear guia de Jarabacoa — COMPLETADO 2026-06-29
 - [x] Agregar widgets de Travelpayouts en las guias (vuelos, hoteles) — COMPLETADO, verificado 2026-07-12: los 12 archivos locales ya tienen los 6 widgets (vuelos, carro, traslado, tours, eSIM, seguro) + Stay22
-- [ ] Optimizar meta titles y descriptions para mejorar CTR en Google
-- [ ] Publicar post de Facebook para guia-punta-cana (pendiente aprobacion Blotato)
+- [x] Optimizar meta titles y descriptions para mejorar CTR en Google — YA ESTABA HECHO desde 2026-07-16 (informe-seo-quisqueya-travel.md), solo faltaba marcarlo
+- [x] Publicar post de Facebook para guia-punta-cana — COMPLETADO 2026-07-21 (FB + IG, con video existente del 07-20)
 - [x] Corregir canonical + og:url en todas las guias — COMPLETADO 2026-06-27
 - [x] Actualizar canonical a quisqueyatravel.org — COMPLETADO 2026-06-26
 - [ ] 🔴 Resolver error de pago en Meta Ads (campana "Quisqueya Travel — Trafico Global" no esta entregando) — detectado 2026-07-12, confirmado de nuevo 2026-07-18 parte 2: cuenta 290012163 en estado `UNSETTLED`, API rechaza crear audiencias/campanas hasta que se resuelva Facturacion en Ads Manager. Audiencia de retargeting de visitantes del sitio esta lista para crear en cuanto se desbloquee
 - [ ] Cuando se resuelva el pago: escalar AS1 (Diaspora Dominicana Global) y pausar/reducir AS2 (Viajeros al Caribe) — AS1 tiene 17x mas visitas a la pagina
 - [ ] Configurar metodo de pago en Travelpayouts (Venul directo en el dashboard)
-- [ ] Solicitar indexacion manual en GSC para las 16 paginas "descubiertas sin indexar"
+- [x] Solicitar indexacion manual en GSC — REVISADO 2026-07-21: ya no hay 16 paginas sin indexar, esa cifra estaba vieja. Hoy: 19 indexadas, 10 "sin indexar" pero todas explicadas (duplicados .html con canonical correcto, un 404 inofensivo de cdn-cgi). No se necesito pedir indexacion manual de nada
+- [ ] 🔴 Pasarle a Claude 1-3 comentarios reales de Facebook/Instagram para reemplazar los 3 placeholders `[TEXTO DEL COMENTARIO REAL]` en index.html (visibles en vivo ahora mismo)
+- [ ] Decidir si borrar VID20260709WA0010.mp4 y marketing.plugin del repo del sitio (estan publicos en la raiz de quisqueyatravel.org sin necesidad) — Claude necesita permiso explicito para borrar archivos en esta carpeta
 
 ### 🟢 Ideas / Backlog
 - [ ] Newsletter mensual de ofertas de viaje

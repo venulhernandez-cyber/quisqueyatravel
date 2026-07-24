@@ -1,1 +1,74 @@
 Limpiando repo... 
+warning: in the working copy of '.github/workflows/deploy-cloudflare.yml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '_headers', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'auditoria.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'data/hoteles.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'functions/_middleware.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'guia-itinerario-republica-dominicana.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'js/hoteles.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'robots.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'COMMIT-LOG.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'COMMIT-PIXEL.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'COMMIT.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'LIMPIAR.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'REPARAR-GIT.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SETUP-GIT-IDENTIDAD.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SSH-LOG.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SSH-SETUP.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'grupos-fb-promo.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'memoria-proyecto.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'quisqueya-travel-memoria.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'sesion-2026-07-05.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'ultimo-reporte-auditoria.json', LF will be replaced by CRLF the next time Git touches it
+[main 3cefa64] Limpieza: quitar archivos viejos de Netlify, agregar scripts de mantenimiento
+ 39 files changed, 1915 insertions(+), 2753 deletions(-)
+ delete mode 100644 .github/dependabot.yml
+ delete mode 100644 .github/workflows/add-domain.yml
+ delete mode 100644 .github/workflows/lighthouse.yml
+ delete mode 100644 .github/workflows/purge-cache.yml
+ create mode 100644 465844268_10233458072818118_5383426069008612888_n.jpg
+ create mode 100644 COMMIT-LOG.txt
+ create mode 100644 COMMIT-PIXEL.bat
+ create mode 100644 COMMIT.bat
+ delete mode 100644 DEPLOY-LEEME.md
+ create mode 100644 LIMPIAR-LOG.txt
+ create mode 100644 LIMPIAR.bat
+ create mode 100644 REPARAR-GIT.bat
+ create mode 100644 SETUP-GIT-IDENTIDAD.bat
+ create mode 100644 SSH-LOG.txt
+ create mode 100644 SSH-SETUP.bat
+ create mode 100644 VID20260709WA0010.mp4
+ create mode 100644 grupos-fb-promo.md
+ delete mode 100644 guide-dominican-republic.html
+ delete mode 100644 guide-entry-requirements-2026.html
+ delete mode 100644 guide-family-budget-dr.html
+ delete mode 100644 guide-flights-nyc-dr.html
+ delete mode 100644 guide-punta-cana.html
+ delete mode 100644 guide-republique-dominicaine.html
+ delete mode 100644 guide-santo-domingo.html
+ delete mode 100644 hoteles.html
+ delete mode 100644 hoteles.js
+ delete mode 100644 js/hoteles2.js
+ delete mode 100644 lighthouserc.js
+ create mode 100644 marketing.plugin
+ create mode 100644 memoria-proyecto.md
+ delete mode 100644 netlify.toml
+ create mode 100644 quisqueya-travel-memoria.md
+ create mode 100644 quisqueya-travel-promo-facebook.png
+ delete mode 100644 registro-temas.md
+ create mode 100644 sesion-2026-07-05.md
+ create mode 100644 ultimo-reporte-auditoria.json
+ delete mode 100644 vuelos.html
+To github.com:venulhernandez-cyber/quisqueyatravel.git
+   bb3416c..3cefa64  main -> main
+ 
+ESTADO FINAL: 
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   LIMPIAR-LOG.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")

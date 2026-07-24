@@ -40,6 +40,7 @@ Tanda 3 — 2026-07-09 (vía tarea programada):
 - Alofoke Radio Chow
 - Venta de terrenos
 - Compra o vende tu casa en Republica Dominicana
+- Punta Cana Ofertas!!! (10,4 mil miembros) — verificado 2026-07-21: es para residentes locales de Punta Cana/Bávaro (comida, fiesta), no para viajeros de la diáspora
 - Cualquier grupo de chisme/farándula sin relación con viajes o comunidad dominicana/latina
 
 ## Intento de programar nativo en Meta (3 jul 2026, tarde)
@@ -73,6 +74,59 @@ Se leyó la lista completa del diálogo "Compartir en grupos" (20 grupos listado
 Por instrucción explícita de la tarea (si no hay grupos nuevos, no publicar), se cerró el composer sin seleccionar grupos y sin publicar. El borrador se descartó — no quedó nada publicado ni programado.
 
 **Confirmado: no quedan grupos nuevos elegibles en esta cuenta.** Recomendación para Venul: desactivar la tarea programada `quisqueya-travel-fb-grupos`, o si quiere seguir con esta estrategia, unirse manualmente a nuevos grupos dominicanos/latinos (idealmente de viajes, comunidad NY, o diáspora) para que vuelvan a aparecer grupos elegibles en el diálogo.
+
+## Tanda 5 — 2026-07-16 (vía tarea programada): NO SE PUBLICÓ
+
+Se repitió el flujo: se abrió "Crear publicación" en la Página, se escribió un copy nuevo (ángulo "cuánto tiempo llevas sin pisar tu país / nostalgia de tiempo sin ir", distinto a los ángulos usados en tandas 1-4), se adjuntó la imagen promocional, y se llegó a "Configuración de la publicación" → "Compartir en grupos".
+
+Se leyó la lista completa del diálogo (20 grupos, igual que en tandas 3 y 4): los 20 coinciden exactamente con los 16 ya usados en tandas 1-3 más los 4 de "Grupos a evitar siempre" (Planeta Alofoke, Alofoke Radio Chow, Venta de terrenos, Compra o vende tu casa en Republica Dominicana). **No apareció ni un solo grupo nuevo elegible** — tercera vez consecutiva (tandas 3, 4 y 5) que se confirma esto.
+
+Por instrucción explícita de la tarea, se cerró el composer sin seleccionar grupos y sin publicar. No quedó nada publicado ni programado.
+
+**Recomendación reforzada:** esta cuenta ya no tiene grupos nuevos disponibles para esta estrategia. Se sugiere a Venul desactivar la tarea programada `quisqueya-travel-fb-grupos` (para no seguir gastando ejecuciones en balde), o si quiere continuar, unirse manualmente a nuevos grupos dominicanos/latinos (idealmente de viajes, comunidad NY, o diáspora) antes de la próxima ejecución.
+
+## Tanda 6 — 2026-07-18 (vía tarea programada): NO SE PUBLICÓ
+
+Se repitió el flujo: se abrió "Crear publicación" en la Página, se escribió un copy nuevo (ángulo "orgullo/legado familiar — llevar a los hijos a conocer RD", distinto a los ángulos usados en tandas 1-5), se adjuntó la imagen promocional, y se llegó a "Configuración de la publicación" → "Compartir en grupos".
+
+Se leyó la lista completa del diálogo (20 grupos, igual que en tandas 3, 4 y 5): los 20 coinciden exactamente con los 16 ya usados en tandas 1-3 más los 4 de "Grupos a evitar siempre" (Planeta Alofoke, Alofoke Radio Chow, Venta de terrenos, Compra o vende tu casa en Republica Dominicana). **No apareció ni un solo grupo nuevo elegible** — cuarta vez consecutiva (tandas 3, 4, 5 y 6) que se confirma esto.
+
+Por instrucción explícita de la tarea, se cerró el composer sin seleccionar grupos y sin publicar. No quedó nada publicado ni programado.
+
+**Recomendación reforzada (4ª confirmación consecutiva):** esta cuenta ya no tiene grupos nuevos disponibles para esta estrategia — la lista de grupos disponibles en el diálogo no ha cambiado en cuatro ejecuciones seguidas (9 jul, 13 jul, 16 jul, 18 jul). Se recomienda fuertemente a Venul desactivar la tarea programada `quisqueya-travel-fb-grupos` para no seguir gastando ejecuciones en balde, o unirse manualmente a nuevos grupos dominicanos/latinos (idealmente de viajes, comunidad NY, o diáspora) antes de reactivarla.
+
+## Tanda 7 — 2026-07-21 (vía tarea programada): NO SE PUBLICÓ
+
+Se repitió el flujo: se abrió "Crear publicación" en la Página, se escribió un copy nuevo (ángulo "cuándo reservar / guía de temporada y precios — evitar perder dinero por no saber cuándo comprar el pasaje", distinto a los ángulos usados en tandas 1-6), se adjuntó la imagen promocional, y se llegó a "Configuración de la publicación" → "Compartir en grupos".
+
+Se leyó la lista completa del diálogo (20 grupos, igual que en tandas 3-6): los 20 coinciden exactamente con los 16 ya usados en tandas 1-3 más los 4 de "Grupos a evitar siempre" (Planeta Alofoke, Alofoke Radio Chow, Venta de terrenos, Compra o vende tu casa en Republica Dominicana). **No apareció ni un solo grupo nuevo elegible** — quinta vez consecutiva (tandas 3, 4, 5, 6 y 7) que se confirma esto, sin ningún cambio en la lista desde el 9 de julio.
+
+Por instrucción explícita de la tarea, se cerró el composer sin seleccionar grupos y sin publicar. No quedó nada publicado ni programado.
+
+**Recomendación reforzada (5ª confirmación consecutiva, 12 días sin cambios):** esta cuenta ya no tiene grupos nuevos disponibles para esta estrategia. Se recomienda fuertemente a Venul desactivar la tarea programada `quisqueya-travel-fb-grupos` para no seguir gastando ejecuciones en balde, o unirse manualmente a nuevos grupos dominicanos/latinos (idealmente de viajes, comunidad NY, o diáspora) antes de reactivarla.
+
+## Grupos nuevos encontrados y unidos — 2026-07-21 (búsqueda activa, via Cowork)
+
+Los grupos de las tandas 1-3 eran genéricos de diáspora/nostalgia (no específicos de viajes). Se buscaron grupos más específicos de gente activamente planeando viajes a Punta Cana/RD — mejor intención de compra que la nostalgia genérica. Se unió Venul (vía Claude in Chrome, cuenta personal) a estos 4 grupos nuevos, todos públicos y sin relación con los ya usados o evitados:
+
+- **Mochileando Tips para Vacaciones en Punta Cana 🇩🇴 RD 2026🏝️✨** (17,4 mil miembros, 4 pub/día) — https://www.facebook.com/groups/985886876547022 — ⚠️ REGLA DEL GRUPO: "No publiques promociones ni spam — solo los fines de semana se permite publicar tours, servicios de transporte, traslado, y cuando el turista pregunte". **NO publicar entre semana.**
+- **Punta Cana 2026 Ofertas de Viaje, Tours Imperdibles y Tips Esenciales** (5,1 mil miembros, 8 pub/día) — reglas no verificadas aún, revisar antes de publicar
+- **Viajar a Punta Cana (TIPS Y MAS)** (2,3 mil miembros, 6 pub/día) — reglas no verificadas aún
+- **Punta Cana Ofertas!!!** (10 mil miembros, 9 pub/día) — reglas no verificadas aún
+
+**Otros candidatos encontrados pero NO unidos todavía** (para explorar en próxima sesión): PUNTA CANA VACACIONES 2026 TIPS Y RECOMENDACIONES (42 mil, muy activo), Punta Cana 2026/Bayahibe/Tours Isla Saona (124 mil, solo 5 pub/día — buena relación tamaño/ruido), Viajeros En República Dominicana 🇩🇴 (2,6 mil), Dominicanos del Bronx (2,9 mil), Dominicano en New York🇩🇴 (2,4 mil), Dominicanos Unidos Oficial (57 mil, distinto del "Dominicanos Unidos" privado ya usado).
+
+**Decisión tomada:** se revisaron las reglas de los otros 3 grupos nuevos y se publicó donde tenía sentido, el mismo día (2026-07-21, martes):
+
+- **Mochileando Tips para Vacaciones en Punta Cana** — regla explícita: solo fines de semana. NO se publicó. Pendiente para el próximo sábado/domingo.
+- **Viajar a Punta Cana (TIPS Y MAS)** (2,4 mil miembros) — sin restricción de día en sus reglas. Descripción: "creado para personas que piensan viajar a Punta Cana y tengan alguna duda". ✅ PUBLICADO 2026-07-21 (reel de Punta Cana + copy "¿Vas a Punta Cana pronto?..." + link a la guía) — publicado directo, visible en el feed del grupo.
+- **Punta Cana 2026 Ofertas de Viaje, Tours Imperdibles y Tips Esenciales** (5,2 mil miembros) — sin restricción de día visible. ✅ PUBLICADO 2026-07-21 (mismo reel + copy "Antes de reservar en Punta Cana, échale un ojo a esto..." + link) — quedó PENDIENTE DE APROBACIÓN de los administradores del grupo (revisar en 1-2 días si ya se aprobó).
+- **Punta Cana Ofertas!!!** (10,4 mil miembros) — revisado y DESCARTADO: no es un grupo de viajeros, es para residentes locales de Punta Cana/Bávaro buscando ofertas de comida y fiesta ("dirigido especialmente a los residentes"). No es la audiencia de Quisqueya Travel — no publicar aquí en el futuro tampoco (agregar a "Grupos a evitar siempre" si se confirma de nuevo).
+
+**Pendiente para próxima sesión:**
+1. Revisar si "Punta Cana 2026 Ofertas de Viaje..." ya aprobó el post pendiente.
+2. El próximo sábado o domingo, publicar en "Mochileando Tips para Vacaciones en Punta Cana".
+3. Seguir explorando los candidatos de la lista de abajo (Viajeros En República Dominicana, Dominicanos del Bronx, etc.) — unirse y revisar sus reglas antes de publicar.
 
 ## Instrucciones para la próxima tanda
 
