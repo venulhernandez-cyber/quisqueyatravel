@@ -84,6 +84,16 @@ function extraerPuntuacion(puntuacion) {
   return match ? match[0] : '';
 }
 
+// FIX 2026-07-25: las estrellas estaban fijas en ★★★★★ para todos los hoteles,
+// sin importar su puntuacion real (ej. un 7.6 mostraba las mismas 5 estrellas
+// que un 9.1). Ahora se calculan segun la nota real (escala 0-10 -> 1-5 estrellas).
+function generarEstrellas(puntuacion) {
+  var nota = parseFloat(extraerPuntuacion(puntuacion));
+  if (isNaN(nota)) return '★★★★★';
+  var llenas = Math.max(1, Math.min(5, Math.round(nota / 2)));
+  return '★★★★★'.slice(0, llenas) + '☆☆☆☆☆'.slice(0, 5 - llenas);
+}
+
 function renderHoteles(filtro) {
   filtroActual = filtro;
   var grid = document.getElementById('hoteles-grid');
@@ -118,7 +128,7 @@ function renderHoteles(filtro) {
       '<div class="hotel-img-wrap">' + imgHtml + '<span class="hotel-badge">📍 ' + (hotel.destino || '') + '</span></div>' +
       '<div class="hotel-body">' +
         '<h3>' + hotel.nombre + '</h3>' +
-        '<div class="hotel-rating"><span class="stars">★★★★★</span> <span class="rating-num">' + extraerPuntuacion(hotel.puntuacion) + '</span> <span style="color:#888;font-size:0.8rem">' + hotel.puntuacion + '</span></div>' +
+        '<div class="hotel-rating"><span class="stars">' + generarEstrellas(hotel.puntuacion) + '</span> <span class="rating-num">' + extraerPuntuacion(hotel.puntuacion) + '</span> <span style="color:#888;font-size:0.8rem">' + hotel.puntuacion + '</span></div>' +
         '<div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">' + extraerPrecio(hotel.precio) + '</span><span class="precio-noche"> / noche</span></div>' +
         '<a href="' + hotel.link + '" target="_blank" rel="noopener sponsored" class="btn-hotel">Ver disponibilidad →</a>' +
       '</div></div>';
