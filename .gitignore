@@ -1,0 +1,17 @@
+# Instaladores y binarios pesados que no son parte del sitio
+*.msi
+*.exe
+*.dmg
+node_modules/
+
+# Videos y fotos personales sueltas (no deben servirse desde quisqueyatravel.org)
+*.mp4
+*.mov
+
+# Paquetes/herramientas internas (Cowork, etc.) que no son parte del sitio
+*.plugin
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
