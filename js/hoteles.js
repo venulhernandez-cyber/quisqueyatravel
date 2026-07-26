@@ -90,7 +90,9 @@ function extraerPuntuacion(puntuacion) {
 function generarEstrellas(puntuacion) {
   var nota = parseFloat(extraerPuntuacion(puntuacion));
   if (isNaN(nota)) return '★★★★★';
-  var llenas = Math.max(1, Math.min(5, Math.round(nota / 2)));
+  // Escala 0-10 (Booking) -> 0-5 estrellas. Sin piso artificial: un hotel con
+  // nota real muy baja debe poder mostrar menos de 1 estrella llena.
+  var llenas = Math.max(0, Math.min(5, Math.round(nota / 2)));
   return '★★★★★'.slice(0, llenas) + '☆☆☆☆☆'.slice(0, 5 - llenas);
 }
 
