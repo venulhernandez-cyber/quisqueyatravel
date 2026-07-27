@@ -242,6 +242,11 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       .ofertas-bento { grid-template-columns: 1fr; }
       .oferta-featured { grid-column: span 1; }
     }
+    .ofertas-intro { margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px dashed #e0e0e0; }
+    .ofertas-label {
+      text-align: center; font-weight: 700; color: var(--verde); font-size: 0.8rem;
+      letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 18px;
+    }
 
     /* ── SECTION BASE ── */
     section { padding: 70px 20px; }
@@ -455,7 +460,6 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       nav { padding: 0 15px; }
-
       .hero { padding: 70px 15px 60px; }
       .hero-stats { gap: 20px; }
       section { padding: 50px 15px; }
@@ -581,7 +585,9 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
         <li class="nav-item"><a class="nav-link" href="#especial">🔥 Especial verano</a></li>
         <li class="nav-item"><a class="nav-link" href="#ofertas">💸 Ofertas</a></li>
         <li class="nav-item"><a class="nav-link" href="#hoteles">Hoteles</a></li>
+        <li class="nav-item"><a class="nav-link" href="#calculadora">🧮 Calculadora</a></li>
         <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+        <li class="nav-item"><a class="nav-link" href="#galeria">📸 Galería</a></li>
         <li class="nav-item"><a class="nav-link" href="#porque">¿Por qué RD?</a></li>
         <li class="nav-item"><a class="nav-link" href="#sobre">Sobre mí</a></li>
         <li class="nav-item dropdown">
@@ -649,7 +655,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   <div class="hero-stats">
     <div class="hero-stat"><div class="num">7+</div><div class="lbl">Destinos</div></div>
     <div class="hero-stat"><div class="num">100%</div><div class="lbl">Dominicano</div></div>
-    <div class="hero-stat"><div class="num">🌍</div><div class="lbl">Para todos</div></div>
+    <div class="hero-stat"><div class="num">12</div><div class="lbl">Guías gratis</div></div>
   </div>
 
   <a href="#destinos" class="scroll-cue" aria-label="Desplázate para ver más">⌄</a>
@@ -677,101 +683,6 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     </p>
     <a href="#hoteles" class="btn-primary">🏖️ Ver hoteles del especial de verano</a>
     <span class="especial-nota">Precios y disponibilidad sujetos a cambio · Vuelos desde EE.UU. a RD desde aprox. $373 ida y vuelta, según fecha y aerolínea.</span>
-  </div>
-</section>
-
-<!-- ── OFERTAS DE LA SEMANA (Bento Grid) ── -->
-<section id="ofertas">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">💸 Actualizado esta semana</span>
-      <h2>Los precios más bajos por destino</h2>
-      <p>El hotel más económico verificado en cada destino, más nuestro destacado de la semana.</p>
-    </div>
-    <div class="ofertas-bento">
-
-      <div class="oferta-card hotel-card oferta-featured">
-        <div class="hotel-img-wrap">
-          <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80" alt="Riu Palace Macao, Punta Cana" loading="lazy">
-          <span class="hotel-badge">🔥 Destacado de la semana</span>
-        </div>
-        <div class="hotel-body">
-          <h3>Riu Palace Macao</h3>
-          <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.8</span> <span style="color:#888;font-size:0.8rem">Excelente · Punta Cana</span></div>
-          <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$95</span><span class="precio-noche"> / noche</span></div>
-          <a href="https://www.stay22.com/allez/quisqueyatravel?address=Punta%20Cana%2C%20Dominican%20Republic&campaign=home_ofertas_punta_cana" target="_blank" rel="noopener sponsored" class="btn-hotel">Asegura este precio →</a>
-        </div>
-      </div>
-
-      <div class="oferta-card hotel-card">
-        <div class="hotel-img-wrap">
-          <img src="https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=500&q=80" alt="Hotel Hodelpa Caribe Colonial, Santo Domingo" loading="lazy">
-          <span class="hotel-badge">📍 Santo Domingo</span>
-        </div>
-        <div class="hotel-body">
-          <h3>Hotel Hodelpa Caribe Colonial</h3>
-          <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.2</span></div>
-          <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$55</span><span class="precio-noche"> / noche</span></div>
-          <a href="https://www.stay22.com/allez/quisqueyatravel?address=Santo%20Domingo%2C%20Dominican%20Republic&campaign=home_ofertas_santo_domingo" target="_blank" rel="noopener sponsored" class="btn-hotel">Asegura este precio →</a>
-        </div>
-      </div>
-
-      <div class="oferta-card hotel-card">
-        <div class="hotel-img-wrap">
-          <img src="https://images.unsplash.com/photo-1586611292717-f828b167408c?w=500&q=80" alt="Hodelpa Centro Plaza, Santiago" loading="lazy">
-          <span class="hotel-badge">📍 Santiago</span>
-        </div>
-        <div class="hotel-body">
-          <h3>Hodelpa Centro Plaza</h3>
-          <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">7.8</span></div>
-          <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$45</span><span class="precio-noche"> / noche</span></div>
-          <a href="https://www.stay22.com/allez/quisqueyatravel?address=Santiago%20de%20los%20Caballeros%2C%20Dominican%20Republic&campaign=home_ofertas_santiago" target="_blank" rel="noopener sponsored" class="btn-hotel">Asegura este precio →</a>
-        </div>
-      </div>
-
-      <div class="oferta-card hotel-card">
-        <div class="hotel-img-wrap">
-          <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=500&q=80" alt="Cofresi Palm Beach & Spa Resort, Puerto Plata" loading="lazy">
-          <span class="hotel-badge">📍 Puerto Plata</span>
-        </div>
-        <div class="hotel-body">
-          <h3>Cofresi Palm Beach & Spa Resort</h3>
-          <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">7.9</span></div>
-          <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$65</span><span class="precio-noche"> / noche</span></div>
-          <a href="https://www.stay22.com/allez/quisqueyatravel?address=Puerto%20Plata%2C%20Dominican%20Republic&campaign=home_ofertas_puerto_plata" target="_blank" rel="noopener sponsored" class="btn-hotel">Asegura este precio →</a>
-        </div>
-      </div>
-
-      <div class="oferta-card hotel-card">
-        <div class="hotel-img-wrap">
-          <img src="https://images.unsplash.com/photo-1596178060810-72f53ce9a65c?w=500&q=80" alt="Casa Marina Bay, Samaná" loading="lazy">
-          <span class="hotel-badge">📍 Samaná</span>
-        </div>
-        <div class="hotel-body">
-          <h3>Casa Marina Bay</h3>
-          <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">7.9</span></div>
-          <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$70</span><span class="precio-noche"> / noche</span></div>
-          <a href="https://www.stay22.com/allez/quisqueyatravel?address=Samana%2C%20Dominican%20Republic&campaign=home_ofertas_samana" target="_blank" rel="noopener sponsored" class="btn-hotel">Asegura este precio →</a>
-        </div>
-      </div>
-
-      <div class="oferta-card hotel-card">
-        <div class="hotel-img-wrap">
-          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&q=80" alt="Sunscape Casa del Mar, La Romana" loading="lazy">
-          <span class="hotel-badge">📍 La Romana</span>
-        </div>
-        <div class="hotel-body">
-          <h3>Sunscape Casa del Mar</h3>
-          <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.3</span></div>
-          <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$85</span><span class="precio-noche"> / noche</span></div>
-          <a href="https://www.stay22.com/allez/quisqueyatravel?address=La%20Romana%2C%20Dominican%20Republic&campaign=home_ofertas_la_romana" target="_blank" rel="noopener sponsored" class="btn-hotel">Asegura este precio →</a>
-        </div>
-      </div>
-
-    </div>
-    <p style="text-align:center;margin-top:24px;font-size:0.82rem;color:#888">
-      Precios de referencia, actualizados manualmente · pueden variar según fecha y disponibilidad en Stay22/Booking.com.
-    </p>
   </div>
 </section>
 
@@ -957,6 +868,94 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
         </span>
       </h2>
       <p>Precios actualizados diariamente desde Booking.com. Haz clic para ver disponibilidad en tiempo real.</p>
+    </div>
+
+    <div id="ofertas" class="ofertas-intro">
+      <p class="ofertas-label">💸 Actualizado esta semana — el más económico por destino</p>
+      <div class="ofertas-bento">
+
+        <div class="oferta-card hotel-card oferta-featured">
+          <div class="hotel-img-wrap">
+            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80" alt="Riu Palace Macao, Punta Cana" loading="lazy">
+            <span class="hotel-badge">🔥 Destacado de la semana</span>
+          </div>
+          <div class="hotel-body">
+            <h3>Riu Palace Macao</h3>
+            <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.8</span> <span style="color:#888;font-size:0.8rem">Excelente · Punta Cana</span></div>
+            <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$95</span><span class="precio-noche"> / noche</span></div>
+            <a href="https://www.stay22.com/allez/quisqueyatravel?address=Punta%20Cana%2C%20Dominican%20Republic&campaign=home_ofertas_punta_cana" target="_blank" rel="noopener sponsored" class="btn-hotel">Asegura este precio →</a>
+          </div>
+        </div>
+
+        <div class="oferta-card hotel-card">
+          <div class="hotel-img-wrap">
+            <img src="https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=500&q=80" alt="Hotel Hodelpa Caribe Colonial, Santo Domingo" loading="lazy">
+            <span class="hotel-badge">📍 Santo Domingo</span>
+          </div>
+          <div class="hotel-body">
+            <h3>Hotel Hodelpa Caribe Colonial</h3>
+            <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.2</span></div>
+            <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$55</span><span class="precio-noche"> / noche</span></div>
+            <a href="https://www.stay22.com/allez/quisqueyatravel?address=Santo%20Domingo%2C%20Dominican%20Republic&campaign=home_ofertas_santo_domingo" target="_blank" rel="noopener sponsored" class="btn-hotel">Asegura este precio →</a>
+          </div>
+        </div>
+
+        <div class="oferta-card hotel-card">
+          <div class="hotel-img-wrap">
+            <img src="https://images.unsplash.com/photo-1586611292717-f828b167408c?w=500&q=80" alt="Hodelpa Centro Plaza, Santiago" loading="lazy">
+            <span class="hotel-badge">📍 Santiago</span>
+          </div>
+          <div class="hotel-body">
+            <h3>Hodelpa Centro Plaza</h3>
+            <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">7.8</span></div>
+            <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$45</span><span class="precio-noche"> / noche</span></div>
+            <a href="https://www.stay22.com/allez/quisqueyatravel?address=Santiago%20de%20los%20Caballeros%2C%20Dominican%20Republic&campaign=home_ofertas_santiago" target="_blank" rel="noopener sponsored" class="btn-hotel">Asegura este precio →</a>
+          </div>
+        </div>
+
+        <div class="oferta-card hotel-card">
+          <div class="hotel-img-wrap">
+            <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=500&q=80" alt="Cofresi Palm Beach & Spa Resort, Puerto Plata" loading="lazy">
+            <span class="hotel-badge">📍 Puerto Plata</span>
+          </div>
+          <div class="hotel-body">
+            <h3>Cofresi Palm Beach & Spa Resort</h3>
+            <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">7.9</span></div>
+            <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$65</span><span class="precio-noche"> / noche</span></div>
+            <a href="https://www.stay22.com/allez/quisqueyatravel?address=Puerto%20Plata%2C%20Dominican%20Republic&campaign=home_ofertas_puerto_plata" target="_blank" rel="noopener sponsored" class="btn-hotel">Asegura este precio →</a>
+          </div>
+        </div>
+
+        <div class="oferta-card hotel-card">
+          <div class="hotel-img-wrap">
+            <img src="https://images.unsplash.com/photo-1596178060810-72f53ce9a65c?w=500&q=80" alt="Casa Marina Bay, Samaná" loading="lazy">
+            <span class="hotel-badge">📍 Samaná</span>
+          </div>
+          <div class="hotel-body">
+            <h3>Casa Marina Bay</h3>
+            <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">7.9</span></div>
+            <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$70</span><span class="precio-noche"> / noche</span></div>
+            <a href="https://www.stay22.com/allez/quisqueyatravel?address=Samana%2C%20Dominican%20Republic&campaign=home_ofertas_samana" target="_blank" rel="noopener sponsored" class="btn-hotel">Asegura este precio →</a>
+          </div>
+        </div>
+
+        <div class="oferta-card hotel-card">
+          <div class="hotel-img-wrap">
+            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&q=80" alt="Sunscape Casa del Mar, La Romana" loading="lazy">
+            <span class="hotel-badge">📍 La Romana</span>
+          </div>
+          <div class="hotel-body">
+            <h3>Sunscape Casa del Mar</h3>
+            <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.3</span></div>
+            <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$85</span><span class="precio-noche"> / noche</span></div>
+            <a href="https://www.stay22.com/allez/quisqueyatravel?address=La%20Romana%2C%20Dominican%20Republic&campaign=home_ofertas_la_romana" target="_blank" rel="noopener sponsored" class="btn-hotel">Asegura este precio →</a>
+          </div>
+        </div>
+
+      </div>
+      <p style="text-align:center;margin-top:20px;font-size:0.82rem;color:#888">
+        Precios de referencia, actualizados manualmente · pueden variar según fecha y disponibilidad en Stay22/Booking.com.
+      </p>
     </div>
 
     <div class="filtros" id="filtros">
