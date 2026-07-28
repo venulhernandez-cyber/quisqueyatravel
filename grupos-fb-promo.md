@@ -128,6 +128,47 @@ Los grupos de las tandas 1-3 eran genéricos de diáspora/nostalgia (no específ
 2. El próximo sábado o domingo, publicar en "Mochileando Tips para Vacaciones en Punta Cana".
 3. Seguir explorando los candidatos de la lista de abajo (Viajeros En República Dominicana, Dominicanos del Bronx, etc.) — unirse y revisar sus reglas antes de publicar.
 
+## Tanda 8 — 2026-07-24 (vía tarea programada): NO SE PUBLICÓ
+
+Se probaron los dos métodos:
+
+**Método A** (Página → Crear publicación → Configuración de la publicación → Compartir en grupos): se escribió un copy nuevo (ángulo "el error #1 que cometen los dominicanos de afuera cuando por fin regresan a RD" — planificación/costos, distinto a los ángulos usados en tandas 1-7), se adjuntó la imagen promocional, y se abrió el diálogo de grupos. La lista mostró 20 grupos: los 2 grupos de Punta Cana (Punta Cana 2026 Ofertas de Viaje... y Viajar a Punta Cana (TIPS Y MAS)) aparecieron por primera vez en ESTE diálogo — pero ambos ya se habían usado el 2026-07-21 vía Método B, así que NO se volvieron a seleccionar (para no publicar dos veces en el mismo grupo en pocos días). El resto (16 conocidos + 4 de "evitar siempre") coincide con las tandas 3-7. **No hubo ningún grupo genuinamente nuevo.** Se cerró el composer sin publicar.
+
+**Método B** (reel https://www.facebook.com/reel/1519591976114854 → ícono compartir → Grupo): se revisó la lista completa de grupos personales de Venul. Resultado por grupo de la sección "Grupos nuevos encontrados y unidos":
+- Mochileando Tips para Vacaciones en Punta Cana — regla: solo fines de semana. Hoy (2026-07-24) es viernes. NO se publicó — sigue pendiente para sábado/domingo.
+- Punta Cana 2026 Ofertas de Viaje... — ya publicado el 2026-07-21. No se repitió.
+- Viajar a Punta Cana (TIPS Y MAS) — ya publicado el 2026-07-21. No se repitió.
+- Punta Cana Ofertas!!! — descartado (audiencia local, no viajeros).
+- Se buscó también "Viajeros" en la lista de grupos personales de Venul: no aparece ningún grupo con ese nombre — confirma que no se ha unido a "Viajeros En República Dominicana" ni a los otros candidatos pendientes (Dominicanos del Bronx, Dominicano en New York, Dominicanos Unidos Oficial, PUNTA CANA VACACIONES 2026 TIPS Y RECOMENDACIONES, Punta Cana 2026/Bayahibe) desde la última sesión.
+
+**No se publicó nada en esta tanda.** No hay riesgo de spam ni de violar reglas de grupo.
+
+**Recomendación para Venul:**
+1. Este sábado o domingo, publicar en "Mochileando Tips para Vacaciones en Punta Cana" (pendiente desde el 21 de julio).
+2. Unirse a los candidatos ya identificados y no unidos: PUNTA CANA VACACIONES 2026 TIPS Y RECOMENDACIONES (42 mil miembros), Punta Cana 2026/Bayahibe/Tours Isla Saona (124 mil), Viajeros En República Dominicana, Dominicanos del Bronx, Dominicano en New York, Dominicanos Unidos Oficial — para tener grupos nuevos disponibles en la próxima ejecución.
+3. El Método A (compartir desde la Página) sigue sin mostrar grupos genuinamente nuevos desde el 9 de julio (6ª confirmación consecutiva).
+
+## Tanda 9 — 2026-07-27 (vía tarea programada): PUBLICADO (Método B) — nuevo grupo encontrado
+
+Se probaron los dos métodos:
+
+**Método A** (Página → Crear publicación → Configuración de la publicación → Compartir en grupos): se escribió un copy nuevo (ángulo "documentos y qué empacar antes de comprar el pasaje — pasaporte, maleta, qué aeropuerto conviene", distinto a los ángulos usados en tandas 1-8), se adjuntó la imagen promocional, y se abrió el diálogo de grupos. La lista mostró los mismos 20 grupos de siempre (16 usados en tandas 1-3 + los 4 de "evitar siempre"), con los 2 grupos de Punta Cana (ya usados el 21 de julio vía Método B) apareciendo de nuevo arriba de la lista — no se volvieron a seleccionar. **No hubo ningún grupo genuinamente nuevo.** Se cerró el composer sin publicar (7ª confirmación consecutiva de que este lote está agotado).
+
+**Método B** (reel https://www.facebook.com/reel/1519591976114854 → ícono compartir → Grupo): se revisó la lista completa de grupos personales de Venul buscando candidatos:
+- Mochileando Tips para Vacaciones en Punta Cana — regla: solo fines de semana. Hoy (2026-07-27) es **lunes**. NO se publicó — sigue pendiente para el próximo sábado/domingo.
+- Punta Cana 2026 Ofertas de Viaje... y Viajar a Punta Cana (TIPS Y MAS) — ya publicados el 21 de julio, no se repitieron.
+- Punta Cana Ofertas!!! — descartado (audiencia local, no viajeros).
+- Búsqueda de "Viajeros" → sin resultados, Venul sigue sin unirse a "Viajeros En República Dominicana".
+- Búsqueda de "Bronx" → **se encontró un grupo nuevo no usado antes: "Dominicanos En Bronx -NewYork - Bronx - Queens - Brooklyn"** (5,5 mil miembros, grupo público, unido hace ~7 semanas — Venul ya era miembro pero nunca se había usado en ninguna tanda). Se revisó su sección "Información": descripción "Este grupo es para compartir Trabajos, venta de articulos, servicios y mangar tu visa o chapeo", sin reglas de día ni restricciones de promoción visibles. ✅ **PUBLICADO 2026-07-27** — se compartió el reel con copy nuevo (ángulo "para los que están por el Bronx pensando en su próximo viaje a RD") vía Método B, confirmado visible en el feed del grupo.
+
+**Grupo nuevo agregado a "Grupos ya usados":**
+- Dominicanos En Bronx -NewYork - Bronx - Queens - Brooklyn (Método B, 2026-07-27) — sin regla de día, apto para reutilizar en el futuro respetando espaciado entre publicaciones.
+
+**Pendiente para próxima sesión:**
+1. Próximo sábado o domingo, publicar en "Mochileando Tips para Vacaciones en Punta Cana" (pendiente desde el 21 de julio, ya van 2 tandas saltadas por caer entre semana).
+2. Seguir buscando/uniéndose a más grupos nuevos: la búsqueda "Bronx" puede tener más variantes (ej. "grupos dominicano en el Bronx New York", "Dominicanos del Bronx", "Dominicanos Unidos Oficial") — no unido aún a esos, solo se encontró y usó el de "Dominicanos En Bronx -NewYork...". Explorar también otras ciudades/barrios de NY (Queens, Brooklyn, Manhattan, Washington Heights) con la misma técnica de Método B para encontrar más grupos ya unidos pero nunca usados.
+3. El Método A (compartir desde la Página) sigue sin mostrar grupos genuinamente nuevos desde el 9 de julio (7ª confirmación consecutiva) — confirma que la fuente de grupos nuevos en adelante es Método B + unirse a más grupos manualmente.
+
 ## Instrucciones para la próxima tanda
 
 1. Leer este archivo completo para saber qué grupos ya se usaron.
