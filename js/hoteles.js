@@ -84,6 +84,10 @@ function extraerPuntuacion(puntuacion) {
   return match ? match[0] : '';
 }
 
+// FIX 2026-07-26: rating-num ya muestra el numero ("8.7"); el span de al lado
+// repetia hotel.puntuacion completo ("8.7 Excelente"), duplicando el numero
+// en pantalla ("8.7 8.7 Excelente"). Esta funcion devuelve solo la etiqueta
+// de texto ("Excelente"), sin el numero.
 function extraerEtiqueta(puntuacion) {
   if (!puntuacion) return '';
   return puntuacion.replace(/^\s*\d+(\.\d+)?\s*/, '');
