@@ -15,3 +15,30 @@ node_modules/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Notas internas y bitacoras de trabajo (nunca deben publicarse en el sitio)
+memoria-proyecto.md
+quisqueya-travel-memoria.md
+sesion-*.md
+ultimo-reporte-auditoria.json
+informe-seo-quisqueya-travel.md
+grupos-fb-promo.md
+prospector-skill.md
+
+# Scripts y logs de configuracion de git/SSH (contienen datos sensibles)
+COMMIT.bat
+COMMIT-PIXEL.bat
+COMMIT-LOG.txt
+LIMPIAR.bat
+LIMPIAR-LOG.txt
+REPARAR-GIT.bat
+SETUP-GIT-IDENTIDAD.bat
+SSH-SETUP.bat
+SSH-LOG.txt
+
+# Scripts de mantenimiento (no forman parte del sitio)
+auditoria.py
+reparacion.py
+
+# Documentos de trabajo
+*.docx
