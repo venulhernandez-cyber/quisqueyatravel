@@ -1,20 +1,16 @@
-// ── Hoteles base — links de afiliado Stay22 (quisqueyatravel) — v7 ──────────
+// ── Hoteles base — links de afiliado Booking.com/CJ (quisqueyatravel) — v8 ──
 // FIX 2026-07-13: index.html referenciaba js/hoteles2.js pero ese archivo nunca
 // se creo/subio a GitHub (solo existia js/hoteles.js) — el <script> cargaba 404
 // y Cloudflare Pages devolvia el HTML del home en su lugar, dejando el widget
 // de hoteles atascado en "Cargando hoteles disponibles..." para siempre.
 // Fix: recrear hoteles2.js con el mismo contenido funcional de hoteles.js.
-// FIX 2026-07-02: Stay22 Allez requiere el parametro "address" (o lat/lng), no "destination".
-// Con "destination=" el widget ignoraba el valor y caia al home generico de Booking.com
-// sin ninguna busqueda aplicada (0 hoteles mostrados). Ver: stay22.com/allezdocumentation
-// FIX 2026-07-09: agregado parametro "campaign" (recomendado por Stay22 para poder
-// medir en el dashboard que destino/pagina genera cada clic — antes todos los clics
-// del grid de hoteles caian sin etiqueta). Formato: home_hoteles_<ciudad-slug>.
-var STAY22 = 'https://www.stay22.com/allez/quisqueyatravel?address=';
+// MIGRACION 2026-08-07: reemplazado Stay22 por Booking.com/CJ Affiliate
+// (aprobacion recibida el mismo dia). PID de CJ: 101799556, link evergreen
+// 15734352 (deep-linkable). Formato: click-<PID>-<linkID>?url=<destino codificado>.
+var BOOKING_AFF = 'https://www.tkqlhce.com/click-101799556-15734352?url=';
 function addr(ciudad, slug) {
-  var url = STAY22 + encodeURIComponent(ciudad + ', Dominican Republic');
-  if (slug) url += '&campaign=home_hoteles_' + slug;
-  return url;
+  var destino = 'https://www.booking.com/searchresults.html?ss=' + encodeURIComponent(ciudad + ', Republica Dominicana');
+  return BOOKING_AFF + encodeURIComponent(destino);
 }
 
 var HOTELES_BASE = {
@@ -132,7 +128,7 @@ function renderHoteles(filtro) {
   }
 
   if (lista.length === 0) {
-    grid.innerHTML = '<div class="loading-msg">No hay hoteles para este destino. <a href="' + addr('Dominican Republic', 'general') + '" target="_blank" rel="noopener sponsored">Ver en Stay22</a></div>';
+    grid.innerHTML = '<div class="loading-msg">No hay hoteles para este destino. <a href="' + addr('Dominican Republic', 'general') + '" target="_blank" rel="noopener sponsored">Ver en Booking.com</a></div>';
     return;
   }
 
