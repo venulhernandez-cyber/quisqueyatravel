@@ -178,6 +178,48 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     }
     .hero-buscador .btn-buscar:hover { transform: translateY(-2px); box-shadow: 0 6px 22px rgba(244,162,97,0.55); }
 
+    /* ── Campos de fecha (estilo Booking: entrada/salida) ── */
+    .buscador-fecha-campo {
+      flex: 1 1 150px; min-width: 140px; display: flex; flex-direction: column;
+      gap: 4px; text-align: left;
+    }
+    .buscador-fecha-campo label {
+      font-size: 0.72rem; font-weight: 700; color: #666;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .buscador-fecha-campo input[type="date"] {
+      padding: 12px; border-radius: 10px; border: 2px solid #e0e0e0;
+      font-weight: 700; font-size: 0.9rem; color: var(--oscuro); background: var(--blanco);
+      min-height: 48px; font-family: 'Open Sans', sans-serif;
+    }
+    .buscador-fecha-campo input[type="date"]:focus { outline: none; border-color: var(--verde); }
+    .hero-buscador select#hero-huespedes { flex: 1 1 160px; min-width: 150px; }
+
+    /* ── Tira de destinos populares (estilo Booking, debajo del buscador) ── */
+    .destinos-populares {
+      display: flex; gap: 14px; overflow-x: auto; max-width: 640px;
+      margin: 0 auto 28px; padding: 2px 4px 8px; -webkit-overflow-scrolling: touch;
+    }
+    .destinos-populares::-webkit-scrollbar { height: 5px; }
+    .destinos-populares::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.35); border-radius: 3px; }
+    .destino-chip {
+      flex: 0 0 auto; display: flex; flex-direction: column; align-items: center;
+      gap: 6px; text-decoration: none; width: 76px; background: none; border: none;
+      cursor: pointer; font-family: inherit;
+    }
+    .destino-chip .chip-img {
+      width: 66px; height: 66px; border-radius: 50%; object-fit: cover;
+      border: 3px solid rgba(255,255,255,0.55); transition: border-color 0.2s, transform 0.2s;
+      display: block;
+    }
+    .destino-chip:hover .chip-img, .destino-chip:focus-visible .chip-img {
+      border-color: var(--naranja); transform: translateY(-3px);
+    }
+    .destino-chip span {
+      font-size: 0.74rem; font-weight: 700; color: var(--blanco);
+      text-align: center; line-height: 1.2;
+    }
+
     .hero-btns { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
     .btn-primary {
       background: var(--naranja); color: var(--oscuro);
@@ -646,12 +688,54 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
         <option value="samana">🐋 Samaná</option>
         <option value="santiago">🏙️ Santiago</option>
       </select>
+      <div class="buscador-fecha-campo">
+        <label for="hero-checkin">Entrada</label>
+        <input type="date" id="hero-checkin" aria-label="Fecha de entrada" oninput="var co=document.getElementById('hero-checkout'); if(co) co.min=this.value;">
+      </div>
+      <div class="buscador-fecha-campo">
+        <label for="hero-checkout">Salida</label>
+        <input type="date" id="hero-checkout" aria-label="Fecha de salida">
+      </div>
+      <select id="hero-huespedes" aria-label="Número de huéspedes">
+        <option value="1">1 adulto</option>
+        <option value="2" selected>2 adultos</option>
+        <option value="3">3 adultos</option>
+        <option value="4">4 adultos</option>
+        <option value="5">5+ adultos</option>
+      </select>
       <button type="button" class="btn-buscar" onclick="buscarDestinoHero()">🔍 Ver precios de hoteles</button>
     </div>
     <div class="buscador-panel" id="panel-vuelos" role="tabpanel" aria-labelledby="tab-vuelos" hidden>
       <p class="buscador-vuelos-texto">Compara precios de vuelos a República Dominicana desde tu ciudad.</p>
       <a href="https://www.tkqlhce.com/click-101799556-15734352?url=https%3A%2F%2Fwww.booking.com%2Fflights%2Findex.html" target="_blank" rel="noopener sponsored" class="btn-buscar">✈️ Comparar vuelos ahora</a>
     </div>
+  </div>
+
+  <div class="destinos-populares" aria-label="Destinos populares">
+    <button type="button" class="destino-chip" onclick="seleccionarDestinoPopular('punta-cana')">
+      <img class="chip-img" src="https://images.unsplash.com/photo-1551126892-7cf2e2d9a4d9?w=200&q=70&fit=crop&auto=format" alt="" loading="lazy">
+      <span>Punta Cana</span>
+    </button>
+    <button type="button" class="destino-chip" onclick="seleccionarDestinoPopular('santo-domingo')">
+      <img class="chip-img" src="https://images.pexels.com/photos/29141847/pexels-photo-29141847.jpeg?auto=compress&cs=tinysrgb&w=200" alt="" loading="lazy">
+      <span>Santo Domingo</span>
+    </button>
+    <button type="button" class="destino-chip" onclick="seleccionarDestinoPopular('puerto-plata')">
+      <img class="chip-img" src="https://images.pexels.com/photos/29266595/pexels-photo-29266595.jpeg?auto=compress&cs=tinysrgb&w=200" alt="" loading="lazy">
+      <span>Puerto Plata</span>
+    </button>
+    <button type="button" class="destino-chip" onclick="seleccionarDestinoPopular('la-romana')">
+      <img class="chip-img" src="https://images.unsplash.com/photo-1645408728506-b94d088f10f0?w=200&q=70&fit=crop&auto=format" alt="" loading="lazy">
+      <span>La Romana</span>
+    </button>
+    <button type="button" class="destino-chip" onclick="seleccionarDestinoPopular('samana')">
+      <img class="chip-img" src="https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=200" alt="" loading="lazy">
+      <span>Samaná</span>
+    </button>
+    <button type="button" class="destino-chip" onclick="seleccionarDestinoPopular('santiago')">
+      <img class="chip-img" src="/img/santiago-400.jpg" alt="" loading="lazy">
+      <span>Santiago</span>
+    </button>
   </div>
 
   <div class="hero-btns">
@@ -1243,12 +1327,31 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   }
 
   // Buscador destacado del hero — reutiliza filtrarHoteles() ya definida en hoteles2.js
+  // MEJORA 2026-08-07: guarda fechas/huespedes elegidos (estilo Booking.com) en
+  // sessionStorage; bookingSearchLink() en hoteles.js/hoteles2.js los lee y los
+  // agrega a cada link de "Ver disponibilidad", asi el usuario llega a Booking.com
+  // con sus fechas ya puestas, sin tener que repetirlas.
   function buscarDestinoHero() {
     var sel = document.getElementById('hero-destino');
     var val = sel ? sel.value : 'todos';
+    try {
+      var checkin = document.getElementById('hero-checkin');
+      var checkout = document.getElementById('hero-checkout');
+      var huespedes = document.getElementById('hero-huespedes');
+      if (checkin && checkin.value) { sessionStorage.setItem('qt_checkin', checkin.value); } else { sessionStorage.removeItem('qt_checkin'); }
+      if (checkout && checkout.value) { sessionStorage.setItem('qt_checkout', checkout.value); } else { sessionStorage.removeItem('qt_checkout'); }
+      if (huespedes && huespedes.value) { sessionStorage.setItem('qt_adults', huespedes.value); }
+    } catch (e) {}
     if (typeof filtrarHoteles === 'function') { filtrarHoteles(val); }
     var destino = document.getElementById('hoteles');
     if (destino) { destino.scrollIntoView({ behavior: 'smooth' }); }
+  }
+
+  // Tira de "Destinos populares" bajo el buscador — clic elige el destino y busca
+  function seleccionarDestinoPopular(destino) {
+    var sel = document.getElementById('hero-destino');
+    if (sel) { sel.value = destino; }
+    buscarDestinoHero();
   }
 
   // Popover de confianza (precios / cancelación) en la sección de hoteles

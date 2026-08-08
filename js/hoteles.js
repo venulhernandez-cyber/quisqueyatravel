@@ -8,6 +8,24 @@ function addr(ciudad, slug) {
   return BOOKING_AFF + encodeURIComponent(destino);
 }
 
+// MEJORA 2026-08-07: buscador del hero estilo Booking.com (fechas + huespedes).
+// bookingSearchLink() arma el link en el momento de mostrar cada hotel (no al
+// cargar la pagina), asi que si el usuario eligio fechas/huespedes en el
+// buscador, esos datos viajan al link de Booking.com de cada hotel — algo que
+// ni el propio Booking hace tan directo desde su home.
+function bookingSearchLink(ss) {
+  var destino = 'https://www.booking.com/searchresults.html?ss=' + encodeURIComponent(ss);
+  try {
+    var checkin = sessionStorage.getItem('qt_checkin');
+    var checkout = sessionStorage.getItem('qt_checkout');
+    var adults = sessionStorage.getItem('qt_adults') || '2';
+    if (checkin) destino += '&checkin=' + encodeURIComponent(checkin);
+    if (checkout) destino += '&checkout=' + encodeURIComponent(checkout);
+    destino += '&group_adults=' + encodeURIComponent(adults) + '&no_rooms=1';
+  } catch (e) {}
+  return BOOKING_AFF + encodeURIComponent(destino);
+}
+
 var HOTELES_BASE = {
   'punta-cana': {
     destino: 'Punta Cana',
@@ -123,7 +141,7 @@ function renderHoteles(filtro) {
   }
 
   if (lista.length === 0) {
-    grid.innerHTML = '<div class="loading-msg">No hay hoteles para este destino. <a href="' + addr('Dominican Republic', 'general') + '" target="_blank" rel="noopener sponsored">Ver en Booking.com</a></div>';
+    grid.innerHTML = '<div class="loading-msg">No hay hoteles para este destino. <a href="' + bookingSearchLink('Republica Dominicana') + '" target="_blank" rel="noopener sponsored">Ver en Booking.com</a></div>';
     return;
   }
 
@@ -131,13 +149,14 @@ function renderHoteles(filtro) {
     var imgHtml = hotel.imagen
       ? '<img src="' + hotel.imagen + '" alt="' + hotel.nombre + '" loading="lazy">'
       : '<div class="hotel-img-placeholder">' + (hotel.emoji || '🏨') + '</div>';
+    var link = bookingSearchLink((hotel.destino || 'Republica Dominicana') + ', Republica Dominicana');
     return '<div class="hotel-card">' +
       '<div class="hotel-img-wrap">' + imgHtml + '<span class="hotel-badge">📍 ' + (hotel.destino || '') + '</span></div>' +
       '<div class="hotel-body">' +
         '<h3>' + hotel.nombre + '</h3>' +
         '<div class="hotel-rating"><span class="stars">' + generarEstrellas(hotel.puntuacion) + '</span> <span class="rating-num">' + extraerPuntuacion(hotel.puntuacion) + '</span> <span style="color:#888;font-size:0.8rem">' + extraerEtiqueta(hotel.puntuacion) + '</span></div>' +
         '<div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">' + extraerPrecio(hotel.precio) + '</span><span class="precio-noche"> / noche</span></div>' +
-        '<a href="' + hotel.link + '" target="_blank" rel="noopener sponsored" class="btn-hotel">Ver disponibilidad →</a>' +
+        '<a href="' + link + '" target="_blank" rel="noopener sponsored" class="btn-hotel">Ver disponibilidad →</a>' +
       '</div></div>';
   }).join('');
 }
