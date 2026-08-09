@@ -455,6 +455,24 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     .servicio-icon { font-size: 2.2rem; margin-bottom: 10px; }
     .servicio-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--oscuro); margin-bottom: 4px; }
     .servicio-card span { color: var(--verde); font-size: 0.8rem; font-weight: 700; }
+    .servicio-card.destacado {
+      position: relative; border: 2px solid var(--verde); background: linear-gradient(160deg, #ffffff, #e8f5e9);
+      box-shadow: 0 6px 22px rgba(46,125,50,0.25); padding-top: 30px;
+    }
+    @media (min-width: 600px) { .servicio-card.destacado { grid-column: span 2; } }
+    .servicio-card.destacado .servicio-icon { font-size: 2.7rem; }
+    .servicio-card.destacado h3 { font-size: 1.05rem; }
+    .servicio-badge {
+      position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+      background: var(--verde); color: var(--blanco);
+      padding: 3px 10px; border-radius: 6px; font-size: 0.68rem; font-weight: 700; white-space: nowrap;
+      animation: pulso-badge 1.8s ease-in-out infinite;
+    }
+    @keyframes pulso-badge {
+      0%, 100% { transform: translateX(-50%) scale(1); box-shadow: 0 0 0 0 rgba(46,125,50,0.4); }
+      50% { transform: translateX(-50%) scale(1.06); box-shadow: 0 0 0 6px rgba(46,125,50,0); }
+    }
+    .servicio-nota { display: block; margin-top: 6px; font-size: 0.72rem; color: #2e7d32; font-weight: 700; }
 
     /* ── POR QUÉ RD ── */
     #porque { background: var(--blanco); }
@@ -1105,8 +1123,10 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       <a href="https://www.tkqlhce.com/click-101799556-15734352?url=https%3A%2F%2Fwww.booking.com%2Fflights%2Findex.html" target="_blank" rel="noopener sponsored" class="servicio-card reveal">
         <div class="servicio-icon">✈️</div><h3>Vuelos</h3><span>Compara vuelos con Booking.com →</span>
       </a>
-      <a href="https://www.tkqlhce.com/click-101799556-15734352?url=https%3A%2F%2Fwww.booking.com%2Fcars%2Findex.html" target="_blank" rel="noopener sponsored" class="servicio-card reveal">
-        <div class="servicio-icon">🚗</div><h3>Alquiler de carro</h3><span>Muévete libre por la isla con Booking.com →</span>
+      <a href="https://www.tkqlhce.com/click-101799556-15734352?url=https%3A%2F%2Fwww.booking.com%2Fcars%2Findex.html" target="_blank" rel="noopener sponsored" class="servicio-card destacado reveal">
+        <span class="servicio-badge">🔥 Muy pedido</span>
+        <div class="servicio-icon">🚗</div><h3>Alquiler de carro</h3><span>Muévete libre por la isla, a tu ritmo, con Booking.com →</span>
+        <small class="servicio-nota">✅ Disponible ahora · Cancelación gratis en la mayoría de reservas</small>
       </a>
       <a href="https://www.tkqlhce.com/click-101799556-15734352?url=https%3A%2F%2Fwww.booking.com%2Ftaxi%2Findex.html" target="_blank" rel="noopener sponsored" class="servicio-card reveal">
         <div class="servicio-icon">🚐</div><h3>Traslado aeropuerto</h3><span>Que te esperen con Booking.com Taxi →</span>
