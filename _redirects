@@ -1,32 +1,33 @@
 # Redirects para Cloudflare Pages
-# Formato: /origen  /destino  codigo
+# Formato: /origen /destino codigo
 
 # URLs limpias sin .html (301 permanente)
-/guia-punta-cana.html           /guia-punta-cana                301
-/guia-santo-domingo.html        /guia-santo-domingo             301
-/guia-barahona.html             /guia-barahona                  301
-/guia-santiago.html             /guia-santiago                  301
-/guia-vuelos-nyc-rd.html        /guia-vuelos-nyc-rd             301
-/guia-costo-viaje-familia-rd.html /guia-costo-viaje-familia-rd  301
+/guia-punta-cana.html /guia-punta-cana 301
+/guia-santo-domingo.html /guia-santo-domingo 301
+/guia-barahona.html /guia-barahona 301
+/guia-santiago.html /guia-santiago 301
+/guia-vuelos-nyc-rd.html /guia-vuelos-nyc-rd 301
+/guia-costo-viaje-familia-rd.html /guia-costo-viaje-familia-rd 301
 /guia-requisitos-viaje-rd-2026.html /guia-requisitos-viaje-rd-2026 301
-/guia-jarabacoa.html            /guia-jarabacoa                 301
-/guia-samana.html               /guia-samana                    301
-/guia-la-romana.html            /guia-la-romana                 301
-/guia-puerto-plata.html         /guia-puerto-plata              301
+/guia-jarabacoa.html /guia-jarabacoa 301
+/guia-samana.html /guia-samana 301
+/guia-la-romana.html /guia-la-romana 301
+/guia-puerto-plata.html /guia-puerto-plata 301
 /guia-itinerario-republica-dominicana.html /guia-itinerario-republica-dominicana 301
-/guia-isla-saona.html          /guia-isla-saona                301
-/guia-las-terrenas.html         /guia-las-terrenas              301
-/hoteles.html                   /hoteles                        301
-/vuelos.html                    /vuelos                         301
+/guia-isla-saona.html /guia-isla-saona 301
+/guia-las-terrenas.html /guia-las-terrenas 301
+/hoteles.html /hoteles 301
+/vuelos.html /vuelos 301
 
 # EN / FR (faltaban, causaban contenido duplicado sin indexar en GSC)
-/en/guide-dominican-republic.html    /en/guide-dominican-republic    301
+/en/guide-dominican-republic.html /en/guide-dominican-republic 301
 /en/guide-entry-requirements-2026.html /en/guide-entry-requirements-2026 301
-/en/guide-family-budget-dr.html      /en/guide-family-budget-dr      301
-/en/guide-flights-nyc-dr.html        /en/guide-flights-nyc-dr        301
-/en/guide-punta-cana.html            /en/guide-punta-cana            301
-/en/guide-santo-domingo.html         /en/guide-santo-domingo         301
-/fr/guide-punta-cana.html            /fr/guide-punta-cana            301
+/en/guide-family-budget-dr.html /en/guide-family-budget-dr 301
+/en/guide-flights-nyc-dr.html /en/guide-flights-nyc-dr 301
+/en/guide-punta-cana.html /en/guide-punta-cana 301
+/en/guide-santo-domingo.html /en/guide-santo-domingo 301
+/fr/guide-punta-cana.html /fr/guide-punta-cana 301
 /fr/guide-republique-dominicaine.html /fr/guide-republique-dominicaine 301
 /guia-constanza.html /guia-constanza 301
-/guia-mejor-epoca-para-viajar-rd.html  /guia-mejor-epoca-para-viajar-rd  301
+/guia-mejor-epoca-para-viajar-rd.html /guia-mejor-epoca-para-viajar-rd 301
+/guia-boca-chica.html /guia-boca-chica 301
