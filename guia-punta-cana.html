@@ -19,6 +19,16 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+  <!-- Meta Pixel: clic en boton de reserva de hotel (mismo click que ya mide GA4 como clic_reserva_hotel) -->
+  <script>
+    document.addEventListener('click', function(e){
+        var a = e.target.closest('a[href*="stay22.com"]');
+        if (a && typeof fbq === 'function') {
+              fbq('trackCustom', 'ClicReservaHotel');
+              fbq('track', 'Lead');
+        }
+    });
+  </script>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LJWN28FFQE"></script>
