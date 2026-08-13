@@ -2,31 +2,31 @@
   "punta-cana": {
     "destino": "Punta Cana",
     "hoteles": [
-      { "nombre": "Live Aqua Punta Cana - All Inclusive - Adults Only", "precio": "Desde $210/noche", "puntuacion": "8.9 Excelente", "imagen": "https://images.unsplash.com/photo-1549294413-26f195200c16?w=500&q=80", "emoji": "💎", "link": "https://www.tkqlhce.com/click-101799556-15734352?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPunta%2520Cana%252C%2520Republica%2520Dominicana" }
+      { "nombre": "Live Aqua Punta Cana - All Inclusive - Adults Only", "precio": "Desde $607/noche", "puntuacion": "8.9 Excelente", "imagen": "https://images.unsplash.com/photo-1549294413-26f195200c16?w=500&q=80", "emoji": "💎", "link": "https://www.tkqlhce.com/click-101799556-15734352?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPunta%2520Cana%252C%2520Republica%2520Dominicana" }
     ]
   },
   "santo-domingo": {
     "destino": "Santo Domingo",
     "hoteles": [
-      { "nombre": "Catalonia Santo Domingo", "precio": "Desde $75/noche", "puntuacion": "8.7 Excelente", "imagen": "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=500&q=80", "emoji": "🏙️", "link": "https://www.tkqlhce.com/click-101799556-15734352?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSanto%2520Domingo%252C%2520Republica%2520Dominicana" }
+      { "nombre": "Catalonia Santo Domingo", "precio": "Desde $102/noche", "puntuacion": "8.7 Excelente", "imagen": "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=500&q=80", "emoji": "🏙️", "link": "https://www.tkqlhce.com/click-101799556-15734352?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSanto%2520Domingo%252C%2520Republica%2520Dominicana" }
     ]
   },
   "puerto-plata": {
     "destino": "Puerto Plata",
     "hoteles": [
-      { "nombre": "Casa Marina Sosua, Trademark by Wyndham All Inclusive", "precio": "Desde $80/noche", "puntuacion": "7.4 Bueno", "imagen": "https://images.unsplash.com/photo-1693933714044-131908e39427?w=500&q=80", "emoji": "🏝️", "link": "https://www.tkqlhce.com/click-101799556-15734352?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPuerto%2520Plata%252C%2520Republica%2520Dominicana" }
+      { "nombre": "Casa Marina Sosua, Trademark by Wyndham All Inclusive", "precio": "Desde $126/noche", "puntuacion": "7.4 Bueno", "imagen": "https://images.unsplash.com/photo-1693933714044-131908e39427?w=500&q=80", "emoji": "🏝️", "link": "https://www.tkqlhce.com/click-101799556-15734352?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPuerto%2520Plata%252C%2520Republica%2520Dominicana" }
     ]
   },
   "la-romana": {
     "destino": "La Romana",
     "hoteles": [
-      { "nombre": "Sunscape Dominicus La Romana - All Inclusive", "precio": "Desde $95/noche", "puntuacion": "8.1 Muy bueno", "imagen": "https://images.unsplash.com/photo-1693934304978-22274e6a3276?w=500&q=80", "emoji": "🏖️", "link": "https://www.tkqlhce.com/click-101799556-15734352?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DLa%2520Romana%252C%2520Republica%2520Dominicana" }
+      { "nombre": "Sunscape Dominicus La Romana - All Inclusive", "precio": "Desde $369/noche", "puntuacion": "8.1 Muy bueno", "imagen": "https://images.unsplash.com/photo-1693934304978-22274e6a3276?w=500&q=80", "emoji": "🏖️", "link": "https://www.tkqlhce.com/click-101799556-15734352?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DLa%2520Romana%252C%2520Republica%2520Dominicana" }
     ]
   },
   "samana": {
     "destino": "Samaná",
     "hoteles": [
-      { "nombre": "Viva V Samana by Wyndham, A Trademark Adults All Inclusive", "precio": "Desde $85/noche", "puntuacion": "7.7 Bueno", "imagen": "https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700", "emoji": "🌴", "link": "https://www.tkqlhce.com/click-101799556-15734352?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSamana%252C%2520Republica%2520Dominicana" }
+      { "nombre": "Viva V Samana by Wyndham, A Trademark Adults All Inclusive", "precio": "Desde $339/noche", "puntuacion": "7.7 Bueno", "imagen": "https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700", "emoji": "🌴", "link": "https://www.tkqlhce.com/click-101799556-15734352?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSamana%252C%2520Republica%2520Dominicana" }
     ]
   },
   "santiago": {
