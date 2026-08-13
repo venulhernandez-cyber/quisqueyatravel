@@ -12,7 +12,66 @@
 // Una Pages Function se ejecuta en cada petición y puede setear cualquier cabecera
 // sin esa limitación, así que la forzamos aquí como solución confiable.
 
+// --- Protección del Panel de Administración (admin.html) ---
+// admin.html expone leads de clientes y la configuración del agente de ventas,
+// así que no puede quedar público. Esto lo protege con usuario/contraseña
+// (HTTP Basic Auth) usando las variables de entorno ADMIN_USER y ADMIN_PASS,
+// que debes configurar en Cloudflare Pages > tu proyecto > Settings >
+// Environment variables (como "secret", no como texto plano).
+//
+// Si esas variables no están configuradas, la ruta se bloquea por completo
+// (falla cerrado) en vez de quedar abierta por accidente.
+function isAdminProtected(request, url) {
+  if (url.pathname === '/admin.html' || url.pathname === '/admin') return true;
+  // El panel también lee/escribe leads y configuración vía estas rutas — solo
+  // los métodos que exponen datos o permiten escribir necesitan protegerse.
+  // GET /api/config y POST /api/leads quedan públicos a propósito: el widget
+  // los usa para atender a visitantes anónimos del sitio.
+  if (url.pathname === '/api/leads' && request.method === 'GET') return true;
+  if (url.pathname === '/api/config' && request.method === 'POST') return true;
+  return false;
+}
+
+function requireAdminAuth(request, env) {
+  if (!env.ADMIN_USER || !env.ADMIN_PASS) {
+    return new Response(
+      'Panel de administración deshabilitado: configura ADMIN_USER y ADMIN_PASS en Cloudflare Pages (Settings > Environment variables) para activarlo.',
+      { status: 503 }
+    );
+  }
+
+  const authHeader = request.headers.get('Authorization') || '';
+  if (authHeader.startsWith('Basic ')) {
+    let user = '';
+    let pass = '';
+    try {
+      const decoded = atob(authHeader.slice(6));
+      const sep = decoded.indexOf(':');
+      user = decoded.slice(0, sep);
+      pass = decoded.slice(sep + 1);
+    } catch {
+      // credenciales mal formadas, caen al 401 de abajo
+    }
+    if (user === env.ADMIN_USER && pass === env.ADMIN_PASS) {
+      return null; // autenticado, dejar pasar
+    }
+  }
+
+  return new Response('Autenticación requerida', {
+    status: 401,
+    headers: { 'WWW-Authenticate': 'Basic realm="Quisqueya Travel Admin"' },
+  });
+}
+
 export async function onRequest(context) {
+  const { request, env } = context;
+  const url = new URL(request.url);
+
+  if (isAdminProtected(request, url)) {
+    const denied = requireAdminAuth(request, env);
+    if (denied) return denied;
+  }
+
   const response = await context.next();
 
   // Intento 2 (2026-07-08): en vez de construir un objeto Headers nuevo y

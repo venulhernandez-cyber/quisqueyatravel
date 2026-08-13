@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quisqueya Travel - Panel de Control & Agente de Ventas IA</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="./style-admin.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- SIDEBAR & DASHBOARD PANEL -->
+        <main class="admin-panel">
+            <header class="admin-header">
+                <div class="logo-area">
+                    <div class="logo-icon">
+                        <i data-lucide="palmtree" class="text-emerald-400"></i>
+                    </div>
+                    <div>
+                        <h1>Quisqueya Travel</h1>
+                        <span class="subtitle">AI Sales Agent Hub</span>
+                    </div>
+                </div>
+                <div class="api-status-badge" id="api-status">
+                    <span class="status-indicator status-off"></span>
+                    <span class="status-text">Gemini API Desconectada</span>
+                </div>
+            </header>
+
+            <!-- Navigation Tabs -->
+            <nav class="admin-tabs">
+                <button class="tab-btn active" data-tab="leads-tab">
+                    <i data-lucide="users"></i> Leads Capturados
+                </button>
+                <button class="tab-btn" data-tab="kb-tab">
+                    <i data-lucide="database"></i> Base de Conocimiento
+                </button>
+                <button class="tab-btn" data-tab="embed-tab">
+                    <i data-lucide="code-2"></i> Código de Integración
+                </button>
+                <button class="tab-btn" data-tab="config-tab">
+                    <i data-lucide="settings"></i> Configuración
+                </button>
+            </nav>
+
+            <!-- Tab Contents -->
+            <section class="tab-content-container">
+                <!-- LEADS TAB -->
+                <div class="tab-pane active" id="leads-tab">
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-info">
+                                <span class="metric-label">Total Leads</span>
+                                <span class="metric-value" id="metric-total">0</span>
+                            </div>
+                            <div class="metric-icon bg-indigo"><i data-lucide="user-check"></i></div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-info">
+                                <span class="metric-label">Leads Calificados</span>
+                                <span class="metric-value" id="metric-qualified">0</span>
+                            </div>
+                            <div class="metric-icon bg-emerald"><i data-lucide="award"></i></div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-info">
+                                <span class="metric-label">Interés en Paquetes</span>
+                                <span class="metric-value" id="metric-packages">0</span>
+                            </div>
+                            <div class="metric-icon bg-sky"><i data-lucide="compass"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="leads-section">
+                        <div class="section-header">
+                            <h2>Prospectos en Tiempo Real</h2>
+                            <button class="btn btn-secondary" id="export-leads-btn">
+                                <i data-lucide="download"></i> Exportar CSV
+                            </button>
+                        </div>
+                        <div class="table-container">
+                            <table class="leads-table">
+                               <thead>
+                                   <tr>
+                                       <th>Nombre</th>
+                                       <th>Contacto</th>
+                                       <th>Destino / Interés</th>
+                                       <th>Detalles del Viaje</th>
+                                       <th>Estatus</th>
+                                   </tr>
+                               </thead>
+                               <tbody id="leads-tbody">
+                                   <!-- Dynamic Rows -->
+                                   <tr class="empty-state-row">
+                                       <td colspan="5">
+                                           <div class="empty-state">
+                                               <i data-lucide="message-square-dashed"></i>
+                                               <p>No se han capturado leads aún. ¡Interactúa con el chat simulador para generar prospectos!</p>
+                                           </div>
+                                       </td>
+                                   </tr>
+                               </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KNOWLEDGE BASE TAB -->
+                <div class="tab-pane" id="kb-tab">
+                    <div class="settings-form">
+                        <div class="section-header">
+                            <div>
+                                <h2>Base de Conocimiento del Agente</h2>
+                                <p class="section-description">Esta es la información que el agente utilizará para responder a los clientes. Personaliza los paquetes turísticos, ofertas y FAQs.</p>
+                            </div>
+                            <button class="btn btn-primary" id="save-kb-btn">
+                                <i data-lucide="save"></i> Guardar Cambios
+                            </button>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="kb-agency-info">Información General de Quisqueya Travel</label>
+                            <textarea id="kb-agency-info" rows="4" placeholder="Escribe sobre la agencia, horarios, canales de contacto, misión..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="kb-packages">Ofertas y Paquetes de Viaje Activos</label>
+                            <textarea id="kb-packages" rows="8" placeholder="Listado de paquetes disponibles con precios, lo que incluye y condiciones..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="kb-faqs">Preguntas Frecuentes (FAQs)</label>
+                            <textarea id="kb-faqs" rows="6" placeholder="Preguntas comunes sobre visados, pagos, política de cancelación, etc..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EMBED CODE TAB -->
+                <div class="tab-pane" id="embed-tab">
+                    <div class="embed-container">
+                        <h2>Instalación en quisqueyatravel.org</h2>
+                        <p class="section-description">Para que este agente funcione en tu sitio web real, simplemente copia el siguiente fragmento de código e insértalo justo antes de la etiqueta de cierre <code>&lt;/body&gt;</code> en tu HTML.</p>
+                        
+                        <div class="code-block-wrapper">
+                            <div class="code-header">
+                                <span>Código HTML / JS de Integración</span>
+                                <button class="btn-copy" id="copy-code-btn">
+                                    <i data-lucide="copy"></i> Copiar
+                                </button>
+                            </div>
+                            <pre><code id="embed-code-snippet">&lt;!-- Quisqueya Travel AI Agent Widget --&gt;
+&lt;script src="./js/widget.js" data-agent-id="quisqueya-sales" defer&gt;&lt;/script&gt;</code></pre>
+                        </div>
+
+                        <div class="integration-guide">
+                            <h3>Pasos para la puesta en marcha:</h3>
+                            <ol>
+                                <li>
+                                    <strong>Configura tu API Key:</strong> Asegúrate de ingresar tu clave en la pestaña de configuración.
+                                </li>
+                                <li>
+                                    <strong>Despliegue de producción:</strong> Para producción, sube el archivo <code>widget.js</code> a tu servidor o CDN y reemplaza el enlace de localhost por tu URL real.
+                                </li>
+                                <li>
+                                    <strong>Seguridad:</strong> El widget ya no llama a Gemini directamente desde el navegador. Todas las peticiones pasan por la función serverless <code>/api/chat</code> (Cloudflare Pages Functions), que usa tu API Key guardada como variable de entorno secreta en Cloudflare — nunca viaja al navegador del visitante.
+                                </li>
+                             </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONFIGURATION TAB -->
+                <div class="tab-pane" id="config-tab">
+                    <div class="settings-form">
+                        <div class="section-header">
+                            <div>
+                                <h2>Configuración del Sistema</h2>
+                                <p class="section-description">Administra las credenciales de IA y las reglas de comportamiento del agente.</p>
+                            </div>
+                            <button class="btn btn-primary" id="save-config-btn">
+                                <i data-lucide="save"></i> Guardar Configuración
+                            </button>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gemini-key">Gemini API Key (heredado — ya no se usa)</label>
+                            <div class="password-input-wrapper">
+                                <input type="password" id="gemini-key" placeholder="Configúrala en Cloudflare, no aquí" disabled>
+                                <button type="button" class="btn-toggle-password" id="toggle-key-visibility">
+                                    <i data-lucide="eye"></i>
+                                </button>
+                            </div>
+                            <span class="input-helper">Por seguridad, la API Key ya no se guarda en el navegador. Configúrala como variable de entorno secreta <code>GEMINI_API_KEY</code> en Cloudflare Pages &gt; tu proyecto &gt; Settings &gt; Environment variables.</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="agent-persona">Instrucciones del Sistema (Rol del Agente)</label>
+                            <textarea id="agent-persona" rows="6" placeholder="Define cómo debe comportarse el agente (amigable, profesional, etc.), qué debe priorizar y las reglas de venta..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="agent-goal">Objetivo Principal del Agente</label>
+                            <select id="agent-goal">
+                                <option value="capture_lead">Capturar Información de Contacto (Lead)</option>
+                                <option value="book_call">Agendar una Llamada / Cita</option>
+                                <option value="direct_sale">Vender directamente / Enviar cotización por Email</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- CUSTOMER CHAT SIMULATOR (RIGHT PANEL) -->
+        <aside class="chat-simulator">
+            <div class="simulator-badge">Simulador de tu Web</div>
+            
+            <div class="phone-frame">
+                <div class="phone-screen">
+                    <!-- Widget Header -->
+                    <div class="widget-header">
+                        <div class="widget-brand">
+                            <div class="widget-avatar">
+                                <i data-lucide="sparkles"></i>
+                            </div>
+                            <div class="widget-brand-info">
+                                <h3>Asistente Quisqueya</h3>
+                                <span class="widget-status"><span class="dot-online"></span> En línea - Te ayuda a viajar</span>
+                            </div>
+                        </div>
+                        <button class="widget-reset" id="reset-chat-btn" title="Reiniciar chat">
+                            <i data-lucide="rotate-ccw"></i>
+                        </button>
+                    </div>
+
+                    <!-- Chat Message Area -->
+                    <div class="widget-chat-messages" id="chat-messages">
+                        <!-- Dynamic Messages -->
+                        <div class="message system-msg">
+                            Hola 👋. Soy tu asesor de Quisqueya Travel. ¿Estás buscando planificar tu próximo viaje, reservar vuelos o buscar hoteles? ¡Cuéntame qué destino tienes en mente!
+                        </div>
+                    </div>
+
+                    <!-- Typing Indicator -->
+                    <div class="typing-indicator-container hidden" id="typing-indicator">
+                        <div class="typing-bubble">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                        <span class="typing-text">Asistente está escribiendo...</span>
+                    </div>
+
+                    <!-- Quick Suggestions -->
+                    <div class="chat-suggestions" id="chat-suggestions">
+                        <button class="suggestion-chip">🏝️ Paquetes a Punta Cana</button>
+                        <button class="suggestion-chip">✈️ Vuelos a Santo Domingo</button>
+                        <button class="suggestion-chip">📞 Cotizar viaje a medida</button>
+                    </div>
+
+                    <!-- Input Area -->
+                    <div class="widget-chat-input-area">
+                        <input type="text" id="chat-input" placeholder="Escribe tu consulta aquí..." autocomplete="off">
+                        <button id="chat-send-btn" class="btn-chat-send">
+                            <i data-lucide="send"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Notification system -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="./js/app-admin.js" defer></script>
+</body>
+</html>
