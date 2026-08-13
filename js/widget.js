@@ -270,22 +270,39 @@
     // desde el servidor (Cloudflare KV vía /api/config), no de localStorage —
     // así llega igual a cualquier visitante, no solo al navegador donde se
     // configuró desde el panel de administración.
+    //
+    // Antes de mostrar la burbuja de chat, esperamos esta respuesta y
+    // revisamos "ready" (true solo si GEMINI_API_KEY está configurada en
+    // Cloudflare). Así, mientras Venul termina de configurar las variables de
+    // entorno, ningún visitante ve un chat que responde "tengo dificultades
+    // técnicas" — el widget simplemente no aparece todavía.
     let config = { agentPersona: '', agentGoal: 'capture_lead' };
     let kb = { agencyInfo: '', packages: '', faqs: '' };
-
-    fetch('/api/config')
-        .then(r => r.json())
-        .then(data => {
-            if (data && typeof data === 'object') {
-                config = { agentPersona: data.agentPersona, agentGoal: data.agentGoal };
-                if (data.kb) kb = data.kb;
-            }
-        })
-        .catch(() => {});
-
     let chatHistory = [];
 
+    initWidget();
+
+    async function initWidget() {
+        let data;
+        try {
+            const res = await fetch('/api/config');
+            data = await res.json();
+        } catch {
+            return; // sin servidor disponible, no mostramos un widget roto
+        }
+
+        if (!data || !data.ready) {
+            return; // agente no configurado todavía (falta GEMINI_API_KEY)
+        }
+
+        config = { agentPersona: data.agentPersona, agentGoal: data.agentGoal };
+        if (data.kb) kb = data.kb;
+
+        renderWidget();
+    }
+
     // 3. Crear el árbol del DOM del widget
+    function renderWidget() {
     const container = document.createElement('div');
     container.id = 'qt-widget-container';
     container.innerHTML = `
@@ -491,4 +508,5 @@ ${chatHistory.map(m => `${m.role === 'user' ? 'Cliente' : 'Asistente'}: ${m.text
     inputEl.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') sendMessage();
     });
+    } // fin de renderWidget()
 })();

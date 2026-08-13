@@ -65,7 +65,10 @@ REGLAS DE COMPORTAMIENTO:
 export async function onRequestGet(context) {
   const raw = await kvGet(context.env, 'config');
   const config = raw ? safeParse(raw, DEFAULT_CONFIG) : DEFAULT_CONFIG;
-  return json(config);
+  // "ready" le dice al widget si puede mostrarse: true solo si GEMINI_API_KEY
+  // está configurada en Cloudflare. Nunca se expone la key en sí, solo este
+  // booleano — así ningún visitante ve un chat que no puede responder.
+  return json({ ...config, ready: Boolean(context.env.GEMINI_API_KEY) });
 }
 
 export async function onRequestPost(context) {
