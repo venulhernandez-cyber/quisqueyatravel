@@ -66,10 +66,10 @@ var HOTELES_BASE = {
   'samana': {
     destino: 'Samana',
     hoteles: [
-      { nombre: 'Grand Bahia Principe Cayacoa', precio: 'Desde $90/noche', puntuacion: '8.7 Excelente', imagen: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=500&q=80', emoji: '🐋', link: addr('Samana', 'samana') },
-      { nombre: 'Hotel Bahia Principe Grand Samana', precio: 'Desde $75/noche', puntuacion: '8.5 Muy bueno', imagen: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=500&q=80', emoji: '🌴', link: addr('Samana', 'samana') },
-      { nombre: 'Bahia Principe Grand El Portillo', precio: 'Desde $95/noche', puntuacion: '8.4 Muy bueno', imagen: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=500&q=80', emoji: '🌴', link: addr('Samana', 'samana') },
-      { nombre: 'Casa Marina Bay', precio: 'Desde $70/noche', puntuacion: '7.9 Bueno', imagen: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=500&q=80', emoji: '🐚', link: addr('Samana', 'samana') }
+      { nombre: 'Grand Bahia Principe Cayacoa', precio: 'Desde $90/noche', puntuacion: '8.7 Excelente', imagen: 'https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700', emoji: '🐋', link: addr('Samana', 'samana') },
+      { nombre: 'Hotel Bahia Principe Grand Samana', precio: 'Desde $75/noche', puntuacion: '8.5 Muy bueno', imagen: 'https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700', emoji: '🌴', link: addr('Samana', 'samana') },
+      { nombre: 'Bahia Principe Grand El Portillo', precio: 'Desde $95/noche', puntuacion: '8.4 Muy bueno', imagen: 'https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700', emoji: '🌴', link: addr('Samana', 'samana') },
+      { nombre: 'Casa Marina Bay', precio: 'Desde $70/noche', puntuacion: '7.9 Bueno', imagen: 'https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700', emoji: '🐚', link: addr('Samana', 'samana') }
     ]
   },
   'santiago': {
