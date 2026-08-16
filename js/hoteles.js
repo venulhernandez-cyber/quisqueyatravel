@@ -1,8 +1,13 @@
 // ── Hoteles base — links de afiliado Booking.com/CJ (quisqueyatravel) — v7 ──
 // MIGRACION 2026-08-07: reemplazado Stay22 por Booking.com/CJ Affiliate
-// (aprobacion recibida el mismo dia). PID de CJ: 101799556, link evergreen
-// 15734352 (deep-linkable). Formato: click-<PID>-<linkID>?url=<destino codificado>.
-var BOOKING_AFF = 'https://www.tkqlhce.com/click-101799556-15734352?url=';
+// (aprobacion recibida el mismo dia). PID de CJ: 101799556.
+// ACTUALIZADO 2026-08-16: cambiado de programa "Booking.com Spain & Portugal"
+// (link 15734352) a "Booking.com LATAM" (link 17288992, AID "Homepage"),
+// la region correcta para contenido de Republica Dominicana. Nota: Booking.com
+// NO soporta override de destino via ?url= en CJ (confirmado con pruebas en
+// vivo) — el parametro se ignora y todo enlace cae en la home de Booking.com.
+// Se deja el parametro por si Booking lo habilita en el futuro; no rompe nada.
+var BOOKING_AFF = 'https://www.jdoqocy.com/click-101799556-17288992?url=';
 function addr(ciudad, slug) {
   var destino = 'https://www.booking.com/searchresults.html?ss=' + encodeURIComponent(ciudad + ', Republica Dominicana');
   return BOOKING_AFF + encodeURIComponent(destino);
