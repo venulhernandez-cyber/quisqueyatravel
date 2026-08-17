@@ -27,6 +27,11 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
               fbq('trackCustom', 'ClicReservaHotel');
               fbq('track', 'Lead');
         }
+        var n = e.target.closest('a[href*="docs.google.com/forms"]');
+        if (n && typeof fbq === 'function') {
+              fbq('trackCustom', 'ClicNewsletter');
+              fbq('track', 'Lead');
+        }
     });
   </script>
 
@@ -649,6 +654,22 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       transition: transform 0.2s;
     }
     .whatsapp-float:hover { transform: scale(1.1); }
+
+    /* ── NEWSLETTER / CAPTURA DE EMAIL ── */
+    #newsletter { background: linear-gradient(135deg, var(--verde) 0%, var(--verde2) 100%); padding: 60px 20px; }
+    .newsletter-box { max-width: 640px; margin: 0 auto; text-align: center; color: var(--blanco); }
+    .newsletter-icon { font-size: 2.8rem; margin-bottom: 14px; }
+    .newsletter-box h2 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(1.5rem, 4vw, 2.1rem); margin-bottom: 12px; }
+    .newsletter-box p { opacity: 0.92; font-size: 1rem; line-height: 1.7; margin-bottom: 26px; }
+    .btn-newsletter {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--naranja); color: var(--oscuro); text-decoration: none;
+      font-weight: 800; padding: 15px 32px; border-radius: 10px; font-size: 1rem;
+      min-height: 48px; transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .btn-newsletter:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(0,0,0,0.3); }
+    .newsletter-nota { display: block; margin-top: 14px; font-size: 0.8rem; opacity: 0.8; }
   </style>
 </head>
 <body>
@@ -1270,6 +1291,19 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
         <h3>Resorts de lujo</h3>
         <p>Los mejores resorts todo incluido del planeta están en suelo dominicano.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NEWSLETTER / CAPTURA DE EMAIL ── -->
+<section id="newsletter">
+  <div class="container">
+    <div class="newsletter-box">
+      <div class="newsletter-icon">📩</div>
+      <h2>Recibe tu guía gratis de República Dominicana</h2>
+      <p>Te mando la guía completa por correo: hoteles, presupuesto y consejos, directo de un dominicano en NYC. También te aviso de ofertas de vuelos y hoteles antes que nadie.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxCKhZu92s9fJl4reY3-JW9WQwBMkL-RA__zPPlSvETciqjw/viewform" target="_blank" rel="noopener" class="btn-newsletter">✉️ Quiero mi guía gratis</a>
+      <span class="newsletter-nota">Sin spam. Solo viajes, ofertas y cultura dominicana.</span>
     </div>
   </div>
 </section>
