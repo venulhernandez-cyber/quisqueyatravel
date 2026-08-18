@@ -165,3 +165,5 @@ function json(obj, status = 200) {
     headers: { 'Content-Type': 'application/json' },
   });
 }
+
+// deploy-trigger: activar OmniRoute en Cloudflare Pages (2026-08-18 00:17 EST)
