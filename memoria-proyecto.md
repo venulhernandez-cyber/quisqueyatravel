@@ -126,6 +126,20 @@ Travelpayouts:  https://emrldtp.com/NTQzMzQ5.js?t=543349
 
 ---
 
+## ✅ Auditoría de voz humana — sitio completo (18 ago, skill `quisqueya-travel-voz-humana`)
+
+Se revisaron las 24 guías + `index.html` + `bio-link-el-quisqueyano.html` buscando texto con
+"olor a IA" (transiciones de relleno, aperturas de folleto genérico, listas sin voz propia,
+exceso de adjetivos vacíos, estructura robóticamente simétrica). **Resultado: el sitio ya está
+bien humanizado.** Los párrafos son en primera persona, con anécdotas reales ("yo nací en la
+isla", "los muchachos", "mi gente"), datos concretos y humor — no se encontró ningún patrón
+genérico de folleto turístico ni relleno corporativo que valiera la pena reescribir. Único
+hallazgo menor: el header `<h2>Lo que no te puedes perder</h2>` en `guia-barahona.html` (frase
+común pero no problemática, es solo un título de sección — no se tocó).
+**No se hizo ningún cambio de contenido.** Próxima sesión: no hace falta re-auditar el sitio
+completo salvo que se agreguen guías nuevas — auditar solo la guía nueva antes de darla por
+terminada.
+
 ## ✅ Reorganización de la carpeta subida a GitHub (18 ago, sesión Cowork)
 
 Los archivos de `_interno/` (seo, planificacion, scripts, media, bitacoras-viejas) y las 3 copias
