@@ -126,6 +126,17 @@ Travelpayouts:  https://emrldtp.com/NTQzMzQ5.js?t=543349
 
 ---
 
+## ✅ Reorganización de la carpeta subida a GitHub (18 ago, sesión Cowork)
+
+Los archivos de `_interno/` (seo, planificacion, scripts, media, bitacoras-viejas) y las 3 copias
+raíz actualizadas (`memoria-proyecto.md`, `quisqueya-travel-memoria.md`, `LEEME-CARPETA.md`) ya
+están commiteados y pusheados a `main` en GitHub vía el uploader web (Claude in Chrome), en 6
+commits separados. Cloudflare Pages ya los desplegó (no afectan el sitio en vivo, son solo docs).
+**Sigue pendiente que Venul borre los 21 archivos originales que quedaron duplicados sueltos en
+la raíz de la carpeta local** (`C:\Users\venul\OneDrive\Desktop\Quisqueya\`) — ver checklist en
+`LEEME-CARPETA.md`. Los originales en GitHub también quedaron duplicados (root + `_interno/`)
+hasta que alguien los borre ahí también con `git rm` o el editor web.
+
 ## ✅ Tareas programadas reales creadas (18 ago, sesión Cowork)
 
 Se confirmó que `quisqueya-travel-daily`, `quisqueya-travel-video-diario` y `quisqueya-travel-fb-grupos` NUNCA existieron como tareas programadas reales (`list_triggers` devolvía 0). Se crearon 2 tareas reales con el sistema correcto (`create_trigger`), que sobreviven aunque se cierre la sesión:
