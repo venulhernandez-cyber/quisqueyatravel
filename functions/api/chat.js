@@ -111,6 +111,7 @@ async function callOmniRoute({ env, safeContents, systemInstruction, temperature
       messages,
       temperature,
       max_tokens: MAX_OUTPUT_TOKENS,
+      stream: false,
       ...(wantsJson ? { response_format: { type: 'json_object' } } : {}),
     }),
   });
