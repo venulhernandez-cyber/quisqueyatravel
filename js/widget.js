@@ -322,7 +322,7 @@
             
             <div id="qt-chat-messages">
                 <div class="qt-msg qt-msg-agent">
-                    ¡Hola! 👋 Bienvenido a Quisqueya Travel. ¿A qué parte del mundo o del Caribe te gustaría viajar? Estoy aquí para ayudarte con vuelos, hoteles y excursiones.
+                    ¡Hola! 👋 Bienvenido a Quisqueya Travel. ¿A qué parte de República Dominicana te gustaría viajar? Estoy aquí para ayudarte con vuelos, hoteles y excursiones.
                 </div>
                 
                 <div class="qt-typing-container qt-hidden" id="qt-widget-typing">
