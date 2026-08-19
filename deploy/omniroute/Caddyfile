@@ -1,3 +1,0 @@
-ai.quisqueyatravel.org {
-    reverse_proxy omniroute:20128
-}
