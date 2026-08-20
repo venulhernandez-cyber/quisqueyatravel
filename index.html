@@ -740,7 +740,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     <span class="stagger-line stagger-3">a un clic</span>
     <span class="stagger-line stagger-4">de reservarla.</span>
   </h1>
-  <p>Playas de arena blanca, montañas verdes y una cultura que te roba el corazón. Te muestro los mejores rincones de la isla donde nací — con guías honestas y los precios más bajos que vas a encontrar, sin vueltas.</p>
+  <p>Playas de arena blanca, montañas verdes y una cultura que te roba el corazón. Te muestro los mejores rincones de la isla donde nací — con guías honestas y precios reales, sin vueltas.</p>
 
   <div class="hero-buscador" role="search" aria-label="Buscador de vuelos y hoteles">
     <div class="buscador-tabs" role="tablist" aria-label="Elige qué buscar">
@@ -975,6 +975,20 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     <div class="calc-box">
       <div class="calc-grid">
         <div class="calc-field">
+          <label for="calc-origen">¿Desde dónde viajas?</label>
+          <select id="calc-origen">
+            <option value="nyc" selected>🗽 Nueva York (JFK/LGA)</option>
+            <option value="newark">🗽 Newark (EWR)</option>
+            <option value="miami">🌴 Miami</option>
+            <option value="boston">🦞 Boston</option>
+            <option value="orlando">🎢 Orlando</option>
+            <option value="filadelfia">🔔 Filadelfia</option>
+            <option value="atlanta">🍑 Atlanta</option>
+            <option value="dc">🏛️ Washington D.C.</option>
+            <option value="chicago">🌆 Chicago</option>
+          </select>
+        </div>
+        <div class="calc-field">
           <label for="calc-destino">Destino</label>
           <select id="calc-destino">
             <option value="punta-cana">🌴 Punta Cana</option>
@@ -1023,6 +1037,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
         <p class="calc-nota">Estimado orientativo basado en precios de referencia del sitio (vuelos, hoteles y comida). No incluye impuestos, tours ni transporte interno. Verifica el precio real y disponibilidad en la sección de hoteles.</p>
         <a href="#hoteles" class="calc-cta" id="calc-cta-link" onclick="verHotelesDesdeCalc()">🏨 Ver hoteles reales en este destino →</a>
         <a href="/landing-arma-tu-itinerario" class="calc-cta" style="margin-top:10px">🗺️ Prefiero que me armen el itinerario completo gratis →</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxCKhZu92s9fJl4reY3-JW9WQwBMkL-RA__zPPlSvETciqjw/viewform" target="_blank" rel="noopener" class="calc-cta" style="margin-top:10px">📧 Enviarme este estimado + guía completa por correo →</a>
       </div>
     </div>
   </div>
@@ -1053,7 +1068,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
 <section id="hoteles">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">🏨 Mejor precio garantizado</span>
+      <span class="section-label">🏨 Precios de referencia, sin sorpresas</span>
       <h2>Hoteles recomendados
         <span class="popover-wrap">
           <button type="button" class="info-btn" id="info-precio-btn" aria-expanded="false" aria-describedby="popover-precio" aria-label="Información sobre precios y cancelación">ⓘ</button>
@@ -1497,12 +1512,28 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   };
   var __calcDestinoActual = null;
 
+  // Estimado de vuelo redondo por persona según ciudad de origen — referencia, no tarifa en vivo.
+  // Base: 373 = mismo estimado publicado en la sección "Especial de verano" (NYC).
+  var __calcOrigenes = {
+    'nyc':       { nombre: 'Nueva York', vuelo: 373 },
+    'newark':    { nombre: 'Newark',     vuelo: 373 },
+    'miami':     { nombre: 'Miami',      vuelo: 320 },
+    'boston':    { nombre: 'Boston',     vuelo: 400 },
+    'orlando':   { nombre: 'Orlando',    vuelo: 340 },
+    'filadelfia':{ nombre: 'Filadelfia', vuelo: 390 },
+    'atlanta':   { nombre: 'Atlanta',    vuelo: 360 },
+    'dc':        { nombre: 'Washington D.C.', vuelo: 380 },
+    'chicago':   { nombre: 'Chicago',    vuelo: 420 }
+  };
+
   function calcularViaje() {
+    var origenSel = document.getElementById('calc-origen').value;
     var destinoSel = document.getElementById('calc-destino').value;
     var noches = parseInt(document.getElementById('calc-noches').value, 10);
     var personas = parseInt(document.getElementById('calc-personas').value, 10);
     var presupuesto = document.getElementById('calc-presupuesto').value;
     var d = __calcDestinos[destinoSel];
+    var o = __calcOrigenes[origenSel] || __calcOrigenes['nyc'];
     if (!d) return;
 
     var precioNoche, comidaDia;
@@ -1510,7 +1541,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     else if (presupuesto === 'todo-incluido') { precioNoche = d.alto; comidaDia = 5; }
     else { precioNoche = Math.round((d.bajo + d.alto) / 2); comidaDia = 28; }
 
-    var vueloPorPersona = 373; // mismo estimado publicado en la sección "Especial de verano"
+    var vueloPorPersona = o.vuelo;
     var totalHotel = precioNoche * noches;
     var totalComida = comidaDia * noches * personas;
     var totalVuelos = vueloPorPersona * personas;
@@ -1519,7 +1550,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     document.getElementById('calc-total').textContent = '$' + total.toLocaleString('en-US');
     document.getElementById('calc-desglose').innerHTML =
       '<li><span>🏨 Hotel (' + noches + ' noches, ' + d.nombre + ')</span><span>$' + totalHotel.toLocaleString('en-US') + '</span></li>' +
-      '<li><span>✈️ Vuelos (' + personas + ' persona' + (personas > 1 ? 's' : '') + ')</span><span>$' + totalVuelos.toLocaleString('en-US') + '</span></li>' +
+      '<li><span>✈️ Vuelos desde ' + o.nombre + ' (' + personas + ' persona' + (personas > 1 ? 's' : '') + ')</span><span>$' + totalVuelos.toLocaleString('en-US') + '</span></li>' +
       '<li><span>🍽️ Comida estimada</span><span>$' + totalComida.toLocaleString('en-US') + '</span></li>';
 
     document.getElementById('calc-resultado').classList.add('visible');
