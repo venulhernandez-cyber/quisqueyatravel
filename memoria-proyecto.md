@@ -28,7 +28,7 @@ Bitácora viva del sitio afiliado **https://quisqueyatravel.org**
 
 ## Estado Actual del Proyecto
 
-**Última actualización:** 17 de agosto de 2026
+**Última actualización:** 22 de agosto de 2026
 
 | Item | Estado | Detalle |
 |---|---|---|
@@ -176,6 +176,117 @@ Se investigó `deploy/omniroute/` (pendiente viejo) y se confirmó que SÍ estab
 ---
 
 ## Historial de Sesiones
+
+### Sesión — 22 de agosto de 2026 (Cowork — continuación de indexación manual + investigación de backlinks reales)
+
+**Contexto:** Venul pidió revisar el proyecto y luego dio luz verde para seguir con "lo que sea necesario". Se retomaron los 2 frentes abiertos desde el 20 ago (parte 4): indexación manual en Search Console y backlinks reales.
+
+**1. Indexación manual — 4 páginas nuevas solicitadas antes de toparse con la cuota diaria de Google.** Se confirmó el listado completo de las 33 páginas en estado "Descubierta: sin indexar" (dato de Search Console del 16 ago) y se identificó que 25 de ellas nunca habían sido solicitadas (las 8 del 20 ago sí lo fueron, aunque el reporte de Search Console todavía no lo refleja). Se solicitó indexación para:
+- `guia-bayahibe` (ES, nunca antes solicitada)
+- `guia-mejor-epoca-para-viajar-rd` (ES, nunca antes solicitada)
+- `en/guide-santiago`
+- `en/guide-puerto-plata`
+
+Al intentar la 5ta (`en/guide-la-romana`), Search Console devolvió **"Cuota superada — has superado tu cuota diaria, prueba a enviarla de nuevo mañana"**. Confirma que el límite práctico es de ~4-5 solicitudes por sesión/día desde esta cuenta (más bajo que lo asumido antes). **Quedan 21 páginas por solicitar**, priorizando por tráfico esperado: primero el resto de guías EN de destinos populares (la-romana, boca-chica, constanza, jarabacoa, las-terrenas, saona-island, barahona, best-beaches, best-time-to-visit, cheap-hotels-punta-cana, itinerary-10-days, itinerary-7-days, plan-my-trip), después las 7 páginas FR, siguiendo el mismo proceso (Inspección de URLs → pegar URL → Solicitar indexación) a razón de ~4-5 por sesión.
+
+**2. Backlinks reales — lista de oportunidades investigada (no ejecutada, requiere acción humana o próxima sesión):**
+- **Queens Latino** — directorio de negocios latinos en EE.UU., aceptaría un listado de Quisqueya Travel.
+- **Neoyorkinos.com** — medio digital sobre la comunidad dominicana en NY (ya cubre temas como "el legado dominicano en NY"); candidato para pitch de nota o guest post.
+- **El Diario NY / El Nuevo Diario (sección "Entérate NY" / "Dominicanos en Nueva York")** — medios reales con audiencia dominicana en NY, candidatos para nota de prensa sobre el sitio.
+- **Guest posting en blogs de viajes en español** — Raido Viajeros, Somos Viajeros, Paulina on the Road tienen programas activos de "autor invitado"; se les podría ofrecer un artículo tipo "Guía de RD para la diáspora dominicana en NYC" con enlace de regreso.
+- **Cross-link desde El Quisqueyano en NYC** (FB/IG bio → quisqueyatravel.org) — confirmar que ya esté puesto, es el enlace más fácil de conseguir.
+
+**Pendiente para la próxima sesión:** seguir pidiendo indexación (empezar por `en/guide-la-romana`, que quedó sin enviar por la cuota) y, si Venul aprueba, empezar a contactar/enviar a los 2-3 primeros de la lista de backlinks de arriba.
+
+---
+
+### Sesión — 20 de agosto de 2026, parte 4 (Venul pidió "todos" — se ejecutaron los 3 pendientes del audit)
+
+**Contexto:** tras el audit de Semrush (parte 3), Venul pidió atacar los 3 frentes a la vez: backlinks, indexación en español y la keyword "punta cana". Esto es lo que se investigó y ejecutó hoy:
+
+**1. Backlinks — resultado inesperado: el perfil real es CERO, no "débil".** Se revisaron los 29 backlinks uno por uno (`backlinks` report de Semrush). Los 29 son spam automatizado de redes de bots/PBN (`fiverr-seo-*.site`, `domraider.*`, `seopxl-*.shop`, `pbnlinks.shop`, `linknora.shop`, `seovora.shop`, etc.) — sitios que generan enlaces falsos en masa sin que nadie los pida, no compras reales de Venul. Ninguno aporta autoridad real; Google los ignora. **No hay ningún enlace entrante legítimo hoy.** Conclusión: no es "reforzar" el perfil de backlinks, es construirlo desde cero. Ver lista de oportunidades reales que se le pasó a Venul en el chat (directorios de turismo RD, comunidad dominicana NYC, cross-link desde El Quisqueyano).
+
+**2. Por qué el español no rankea — diagnosticado con Google Search Console (no era hreflang ni robots.txt, ambos están bien):** el sitio pasó de ~25 a 75 páginas totales alrededor del 6-13 de agosto (crecimiento reciente de contenido). De esas 75, Google solo tiene **23 indexadas**; **52 sin indexar** (17 por redirección normal .html→limpia, 1 error 404, 33 en estado "Descubierta: actualmente sin indexar" — Google las vio pero no las ha rastreado todavía, típico en un dominio con Authority Score bajo y poco crawl budget). Las 33 no son solo en español — hay mezcla de ES/EN/FR — así que no es un bloqueo por idioma, es que el sitio creció más rápido de lo que Google puede rastrearlo con la autoridad que tiene hoy. La homepage en español (`/`) y varias guías SÍ están indexadas; las más nuevas (Boca Chica, Constanza, La Romana, Las Terrenas, Samaná, Bayahíbe, mejores playas, mejores hoteles baratos, landing de itinerario) todavía no.
+   - **Acción tomada hoy:** se solicitó indexación manual vía Search Console (Inspección de URLs → Solicitar indexación) para las 8 páginas de mayor prioridad: `guia-boca-chica`, `guia-constanza`, `guia-la-romana`, `guia-las-terrenas`, `guia-samana`, `guia-mejores-hoteles-baratos-punta-cana`, `guia-mejores-playas-republica-dominicana`, `landing-arma-tu-itinerario`. Las 8 quedaron en la cola de rastreo prioritaria de Google — no es instantáneo, puede tardar de días a un par de semanas.
+   - Nota técnica: `guia-las-terrenas` mostró "Google no reconoce esta URL" con "ningún sitemap de referencia" en el momento de inspeccionar — puede ser un estado temporal de caché de Google, no significa que falte del sitemap.xml real (se verificó por separado que sí está listada). Vigilar si sigue sin indexarse después de esta solicitud.
+   - Quedan 25 páginas más en la cola de "no indexadas" sin solicitar hoy (límite práctico de cuántas se pueden pedir por día) — seguir el mismo proceso en próximas sesiones, priorizando las guías ES que faltan.
+
+**3. "Punta cana" en posición 27 — conclusión: el contenido está bien, no hay nada que arreglar ahí.** Se revisó `en/guide-punta-cana.html`: 1,169 palabras de texto real, 7 H2 bien estructurados, y 45 archivos del sitio ya enlazan internamente hacia esa página. No es un problema de contenido ni de enlazado interno — es 100% autoridad de dominio (Authority Score 6/100 compitiendo contra TripAdvisor, Expedia, sitios oficiales de turismo para una palabra de 246K búsquedas/mes). Llegar a top 10 requiere backlinks reales + tiempo, no más ediciones a esa página.
+
+**Resumen para las próximas sesiones:** el verdadero cuello de botella del sitio hoy es autoridad de dominio (backlinks reales + que Google termine de indexar las 75 páginas), no el contenido ni la técnica (sitemap, robots.txt, hreflang, canonical — todo eso ya está bien). Cualquier esfuerzo de SEO de aquí en adelante debe ir a conseguir enlaces reales y a seguir solicitando indexación manual del resto de páginas nuevas.
+
+---
+
+### Sesión — 20 de agosto de 2026, parte 3 (Auditoría SEO real con Semrush)
+
+**Pedido de Venul:** buscó una herramienta llamada "CrawlSEO" en GitHub. Se encontró (`crawlseo/crawlseo`, open-source, MIT) pero requiere self-hosting completo (Docker + PostgreSQL + Google OAuth) — no es algo que se pueda "usar" dentro de una sesión de Cowork. Se le explicó y, en vez de montar infraestructura nueva, Venul pidió usar **Semrush** (ya conectado vía MCP) para un audit real del dominio.
+
+**Datos duros (Semrush, base US, 20 ago 2026):**
+- **Semrush Rank del dominio: 2,978,862** — autoridad todavía muy baja (normal para un sitio de ~2 meses).
+- **101 keywords orgánicas** posicionadas en el top 100 de Google, pero **solo 175 visitas/mes estimadas** en total.
+- **Backlinks: 29 enlaces totales, 21 dominios referentes, Authority Score 6/100, Trust Score 6/100.** Perfil de enlaces extremadamente débil — es probablemente el freno #1 para subir posiciones ahora mismo.
+- **Solo UNA página genera tráfico orgánico real: `/en/guide-punta-cana` (100% del tráfico estimado).** El resto de las páginas rankean para keywords pero en posiciones tan bajas (30–90) que no reciben clicks.
+- **Keyword más valiosa: "punta cana" (246,000 búsquedas/mes) — posición 27.** Justo fuera de la primera página. Moverla a top 10 sería el mayor salto de tráfico posible en el sitio hoy.
+- 🚩 **Hallazgo más importante: ninguna keyword en español aparece en el top 50 con tráfico.** Todo lo que rankea es contenido en inglés (`/en/guide-*`). Para un sitio cuyo público objetivo es la diáspora dominicana/hispanohablante de NY, esto es una señal fuerte de que el contenido en español (la mayoría del sitio — 27 páginas ES vs 19 EN) casi no tiene visibilidad orgánica todavía. No se investigó la causa hoy (¿indexación? ¿canonical? ¿simplemente contenido más nuevo/débil?) — queda como pendiente.
+- Las keywords NYC específicas ("flights to dominican republic from nyc", "flight to dr from nyc") rankean muy débil (posición 42–58) pese a ser el corazón del posicionamiento diáspora-NYC del sitio.
+- La guía de requisitos de entrada (`guide-entry-requirements-2026`) tiene buen volumen de keywords relacionadas pero todas en posiciones 48–85 — contenido válido, le falta autoridad para subir.
+
+**Prioridad recomendada (no ejecutado hoy, queda en pendientes):**
+1. Construir enlaces entrantes reales (directorios de turismo RD, sitios de comunidad dominicana/latina, guest posts) — con Authority Score 6 y solo 21 dominios referentes, esto es lo que más rápido movería el rank.
+2. Reforzar `/en/guide-punta-cana` (contenido + enlaces internos) para empujar "punta cana" de posición 27 a top 10–15.
+3. Investigar por qué el contenido en español no aparece en ninguna búsqueda con tráfico — revisar indexación real en Search Console de las páginas ES antes de asumir causa.
+4. Retomar el cluster NYC/diáspora ya identificado el 20 ago (parte 1) — hoy con datos que lo confirman: las keywords NYC existen pero rankean débil, hay espacio real para ganar terreno.
+
+---
+
+### Sesión — 20 de agosto de 2026, parte 2 (WhatsApp sin exponer el número)
+
+**Pedido de Venul:** activar/dejar visible el botón de WhatsApp del sitio, pero que funcione "sin que vean mi número".
+
+**Hallazgo:** el enlace `https://wa.me/13477205769` (número real de Venul) estaba escrito literal en **56 archivos HTML** — el botón flotante y/o el enlace de contacto de las 27 páginas en español, las 19 en inglés y las 10 en francés. Como el repo de GitHub es **público** (confirmado hoy: label "Public" en la página del repo), cualquiera que abriera el código fuente de cualquier página, o el repo en GitHub, veía el número completo — no solo quien mirara la página en el navegador.
+
+**Solución implementada:**
+1. Nueva Cloudflare Pages Function: `functions/whatsapp.js` — la ruta `/whatsapp` redirige (302) a `https://wa.me/<numero>?text=...` con un mensaje precargado. El número **no está escrito en el código** — la función lo lee de la variable de entorno `WHATSAPP_NUMBER`, mismo patrón ya usado con éxito para `ADMIN_PASS` en `_middleware.js`. Si la variable no está configurada, la ruta responde con un mensaje claro en vez de fallar en silencio o exponer un número por defecto.
+2. Las 56 páginas HTML se editaron (`sed` sobre coincidencia literal única por archivo, verificado 0 referencias residuales a `wa.me/13477205769` y que las 56 siguen cerrando en `</html>`) para que el botón/enlace apunte a `/whatsapp` en vez del link directo.
+3. Todo commiteado y desplegado en 4 lotes (raíz, `/en`, `/fr`, `/functions`) vía `github.com/.../upload/main/<carpeta>` + Claude in Chrome — commits `481e33d`, `f69e8ba`, `53a739b` y uno más para la raíz, los 4 con deploy verde en Cloudflare Pages.
+
+**🔴 PENDIENTE — acción de Venul, no se puede completar sin él:** el botón está desplegado pero **no funciona todavía**. Verificado en vivo: `quisqueyatravel.org/whatsapp` devuelve el mensaje "WhatsApp no configurado". Falta que Venul agregue la variable de entorno:
+1. Ir a Cloudflare Pages → proyecto `quisqueyatravel` → Settings → Environment variables.
+2. Agregar `WHATSAPP_NUMBER` = `13477205769` (o el número que quiera usar), como **secret** (mismo tipo que `ADMIN_PASS`).
+3. Como con `ADMIN_PASS`, Cloudflare Pages no aplica variables nuevas a deployments ya existentes — hay que forzar un deployment nuevo ("Re-run all jobs" sobre el último `Deploy to Cloudflare Pages` en GitHub Actions) para que la función lo recoja.
+4. Verificar visitando `quisqueyatravel.org/whatsapp` — debe redirigir directo al chat.
+
+**Nota:** el número sigue existiendo en el historial de commits viejo de GitHub (no se puede borrar del historial sin reescribir el repo, que no se tocó por ser una operación riesgosa/destructiva). Esto resuelve el enlace hacia adelante, no borra el rastro histórico — si Venul quiere borrar el historial también, eso es una conversación aparte (`git filter-repo` o similar, fuera de alcance de hoy).
+
+**Bug encontrado después de desplegar (mismo día):** Venul avisó "no se ve en la página". El botón de WhatsApp SÍ estaba en el DOM y visible según CSS, pero el widget de ventas (`js/widget.js`, `#qt-widget-container`/`#qt-widget-bubble`) usa el mismo rincón exacto (`bottom:24px; right:24px`) con `z-index:999999` — 60px de burbuja tapando por completo los 56px del botón verde de WhatsApp (`z-index:999`). Confirmado con `elementFromPoint` en la consola del navegador antes de tocar nada. **Fix:** en `index.html`, `.whatsapp-float` pasó de `right: 24px` a `right: 94px` — ahora quedan lado a lado (verde WhatsApp + morado del widget), verificado visualmente en vivo con zoom sobre esa esquina. Commit `25583b3`, deploy #245 + purga de caché, ambos verdes.
+
+---
+
+### Sesión — 20 de agosto de 2026 (Cowork — auditoría de un análisis externo del sitio + fixes rápidos)
+
+**Contexto:** Venul pegó un análisis largo (aparentemente de otra IA/consultor) con 18 puntos sobre posicionamiento, contenido, SEO y monetización de Quisqueya Travel. Antes de actuar sobre él, se verificó cada claim contra el sitio real (grep sobre los archivos locales, no supuestos).
+
+**Qué se descubrió en la verificación:**
+- ❌ **El análisis se equivocó en su punto "más urgente".** Decía que los testimonios placeholder (`[TEXTO DEL COMENTARIO REAL 1]`) estaban en vivo engañando a los visitantes. Falso: la sección `#resenas` tiene `style="display:none"` desde el 7 jul, a propósito, documentado en un comentario HTML en el propio archivo — ya se sabía (ver sesión 19 ago). No había nada "urgente" que apagar.
+- ❌ Pedía crear cosas que ya existen: el posicionamiento "Escrito por un dominicano en NYC, no una agencia" ya está en el hero (línea 828); `guia-vuelos-nyc-rd.html` ya existe (aunque como página única, no cluster); el disclaimer "precios de referencia, pueden variar" ya está en el popover de hoteles, en la calculadora y en el footer de las 24 guías.
+- 🐛 **Bug real encontrado (no estaba en el análisis):** `guia-constanza.html` seguía diciendo "Sitio afiliado de Stay22" en el disclaimer y en el footer, pese a que la migración a Booking/CJ quedó 100% completa en agosto (confirmado 18 ago, 0 referencias a `stay22.com` en el repo). Era el único archivo con esa etiqueta desactualizada. **Corregido.**
+- ✅ Puntos válidos y accionables que el análisis sí aportó de nuevo: calculadora sin selector de origen ni captura de email (solo tiraba estimado); frases de precio absolutas ("Mejor precio garantizado", "los precios más bajos que vas a encontrar") sin poder sostenerlas; cluster NYC/diáspora → RD como idea de contenido fuerte (hoy 1 página, no cluster); nivel premium de itinerario personalizado ya tiene entrada (`landing-arma-tu-itinerario.html`) pero no se confirmó si cobra.
+
+**Cambios hechos hoy (LOCAL, en `C:\Users\venul\OneDrive\Desktop\Quisqueya\`):**
+- `guia-constanza.html`: "Sitio afiliado de Stay22" → "Sitio afiliado de Booking.com" (disclaimer + footer).
+- `index.html` hero: "los precios más bajos que vas a encontrar, sin vueltas" → "precios reales, sin vueltas".
+- `index.html` sección hoteles: label "🏨 Mejor precio garantizado" → "🏨 Precios de referencia, sin sorpresas".
+- `index.html` calculadora (`#calculadora`): agregado selector "¿Desde dónde viajas?" (NYC, Newark, Miami, Boston, Orlando, Filadelfia, Atlanta, Washington D.C., Chicago) con estimado de vuelo propio por ciudad (`__calcOrigenes` en el JS, base $373 NYC ya publicado). El desglose de vuelos ahora muestra "Vuelos desde {ciudad}". Se agregó un tercer CTA de resultado: "📧 Enviarme este estimado + guía completa por correo" que reutiliza el Google Form del newsletter que ya existe (no se creó un form nuevo).
+
+**✅ Desplegado en vivo (20 ago, mismo día).** Venul tenía GitHub abierto en su navegador y pidió subirlo ahí mismo. Se usó `github.com/.../upload/main` (Claude in Chrome + `file_upload` directo sobre el input de archivos, sin pasar por el editor CodeMirror — evita el freeze conocido con archivos >30KB). Commit `ef37a7d` ("Fix Constanza affiliate label + calculator origin/email CTA + soften price claims"), 2 archivos, +35/-4 en `index.html` y +1/-1 en `guia-constanza.html`. `Deploy to Cloudflare Pages #240` corrió y completó en 28s, seguido de una purga de caché automática. Verificado en vivo en `quisqueyatravel.org`: el selector "¿Desde dónde viajas?" ya aparece en la calculadora real.
+- Nota técnica: durante el proceso, la UI de GitHub (en español, idioma de la cuenta) mostró brevemente los nombres de archivo mal renderizados ("índice.html" en vez de "index.html") en la pantalla de staging del upload — se confirmó por JS y por el diff del commit que era solo un artefacto visual de renderizado, los nombres reales subidos fueron correctos (`index.html`, `guia-constanza.html`). Anotado por si se repite.
+
+**Pendiente para la próxima sesión (o para Venul):**
+1. Testimonios reales — se mandaron 3 mensajes de WhatsApp listos (Belitza, Luisa, Mercedes) pidiéndoles la cita real. En cuanto Venul tenga las respuestas, reemplazar los 3 placeholders de `#resenas` y quitar `display:none`.
+2. Decidir si se ataca el cluster NYC/diáspora → RD (idea validada del análisis externo) como próximo bloque de contenido.
+3. Confirmar si `landing-arma-tu-itinerario.html` ya cobra algo o sigue siendo gratis — si sigue gratis, ahí está la oportunidad de nivel premium que mencionaba el análisis.
+
+---
 
 ### Sesión — 19 de agosto de 2026 (Cowork — pendientes urgentes: guía Las Terrenas vs Samaná, admin.html, Travelpayouts)
 
@@ -527,6 +638,8 @@ Se investigó `deploy/omniroute/` (pendiente viejo) y se confirmó que SÍ estab
 > Nota: muchos pendientes de julio ya estaban resueltos sin documentar (23 guías ES en vez de 10, Schema.org Article ya en todas, EN/FR muy ampliados). Lista de abajo = estado real verificado hoy.
 
 ### 🔴 Urgente
+- [x] ~~Venul: agregar `WHATSAPP_NUMBER` en Cloudflare Pages + forzar re-deploy~~ → ✅ Hecho (20 ago): Venul pidió que Claude lo hiciera. Variable agregada como Secret vía computer-use en el dashboard de Cloudflare, re-deploy forzado desde GitHub Actions ("Re-run all jobs" sobre el run #245). Verificado en vivo: `quisqueyatravel.org/whatsapp` redirige correctamente a `api.whatsapp.com` con el mensaje precargado.
+- [x] ~~Commitear a GitHub y desplegar los cambios del 20 ago~~ → ✅ Desplegado (20 ago), commit `ef37a7d`, verificado en vivo en quisqueyatravel.org
 - [x] ~~Subir a GitHub y desplegar los 6 archivos de Constanza/Boca Chica (Stay22 → Booking CJ)~~ → ✅ Desplegado (17 ago)
 - [x] ~~Verificar que TODO el sitio migró de Stay22 a Booking CJ~~ → ✅ Verificado (18 ago) con grep sobre las 62 páginas HTML del repo local: **cero referencias a `stay22.com` en todo el sitio**. 57 páginas tienen link de Booking (`jdoqocy.com`), 2 usan el dominio alterno de CJ `tkqlhce.com` (mismo afiliado, misma comisión) — solo `404.html`, `admin.html` y el archivo de verificación de Google no tienen link de hotel, y no deberían tenerlo. `js/hoteles.js` y `js/hoteles2.js` (buscador interno) también apuntan a Booking. Migración 100% completa.
 - [x] ~~Venul: configurar método de pago en Travelpayouts~~ → ✅ Confirmado (19 ago): el método (Bank account, USD USA) ya estaba cargado, solo faltaba el link de confirmación por email — Venul lo confirmó y ahora aparece como **Main** en Payout methods. Falta acumular el mínimo de $400 para el primer pago, eso es normal.
@@ -537,6 +650,11 @@ Se investigó `deploy/omniroute/` (pendiente viejo) y se confirmó que SÍ estab
 - [x] ~~Duplicado de `/guia-punta-cana.html` vs `/guia-punta-cana` en producción~~ → ✅ Verificado en vivo (18 ago): ambas URLs sirven ahora exactamente el mismo título, H1 y canonical (`https://quisqueyatravel.org/guia-punta-cana`) — el `.html` ya no es un artículo distinto, aunque técnicamente sigue devolviendo 200 en vez de un 301 real (el canonical correcto evita el problema de indexación duplicada de todas formas). El link "Leer en Español" en `/en/guide-punta-cana.html` sigue apuntando al `.html`, pero como ya sirve el contenido correcto no hay impacto real. Los 2 links del footer de esa misma página (Entry Requirements, Flights NYC-DR) también están corregidos — ya apuntan a las versiones en inglés (`/en/guide-entry-requirements-2026.html`, `/en/guide-flights-nyc-dr.html`) en vez de a las páginas en español. El hallazgo del 13 ago se resolvió solo entre esa fecha y hoy, probablemente por el "segundo camino de despliegue" mencionado en ese mismo informe.
 
 ### 🟡 Próximas sesiones
+- [ ] **Backlinks reales — perfil actual es CERO (20 ago, parte 4):** los 29 backlinks existentes son 100% spam de bots, no cuentan. Construir desde cero: directorios de turismo RD, comunidad dominicana NYC, cross-link desde El Quisqueyano en NYC (FB/IG bio → quisqueyatravel.org), posible guest post en blogs de viaje/latinos. Ver lista de opciones concretas que Claude le pasó a Venul el 20 ago.
+- [ ] **Seguir solicitando indexación manual en Search Console:** quedan ~21 páginas sin pedir (22 ago: se pidieron 4 más — guia-bayahibe, guia-mejor-epoca-para-viajar-rd, en/guide-santiago, en/guide-puerto-plata — antes de toparse con la cuota diaria de Google, ~4-5 por sesión). Empezar la próxima ronda por `en/guide-la-romana`. Ir a Search Console → Inspección de URLs → pegar la URL → "Solicitar indexación".
+- [ ] **Backlinks reales — lista de oportunidades lista (22 ago), falta ejecutar:** Queens Latino (directorio), Neoyorkinos.com (pitch/guest post), El Diario NY / El Nuevo Diario "Entérate NY" (nota de prensa), guest posting en Raido Viajeros/Somos Viajeros/Paulina on the Road, y confirmar cross-link desde El Quisqueyano en NYC (FB/IG bio). Ver detalle en sesión 22 ago.
+- [x] ~~Investigar por qué el contenido en español no aparece con tráfico~~ → ✅ Diagnosticado (20 ago, parte 4): no es un bloqueo técnico (sitemap y robots.txt están bien) — es que el sitio casi triplicó su número de páginas en agosto y Google todavía no ha rastreado/indexado 52 de 75 páginas totales (no es solo español, es todo el contenido nuevo). Ver detalle en la sesión.
+- [x] ~~Empujar "punta cana" (posición 27) hacia el top 10~~ → ✅ Evaluado (20 ago, parte 4): el contenido de esa página ya es sólido (1,169 palabras, bien estructurado, 45 enlaces internos) — no hay nada más que optimizar ahí. El límite es 100% autoridad de dominio; sube solo con backlinks reales + tiempo.
 - [ ] Prueba social en el home: sección `#resenas` en `index.html` sigue oculta (`display:none`). Investigado (19 ago): no hay comentarios reales de audiencia disponibles vía Blotato (la app no tiene permiso para leer comentarios en Meta, `errorCode 20201`) — falta que Venul pase 3 comentarios reales (texto + nombre) para publicarla, o que se arregle ese permiso en Meta Business.
 - [x] ~~Pinterest: crear cuenta de negocio~~ → ✅ Creada y verificada (17 ago) — `pinterest.com/quisqueyatravel`
 - [x] ~~Pinterest: crear tableros por destino y publicar primeros pines~~ → ✅ 6 tableros creados con 1 pin cada uno, enlazando a las guías reales (17 ago). Falta: agregar más pines por tablero y descripciones (ver nota técnica en la sesión de hoy)
@@ -547,10 +665,12 @@ Se investigó `deploy/omniroute/` (pendiente viejo) y se confirmó que SÍ estab
 
 ### 🟢 Ideas / Backlog
 - [ ] Borrar la carpeta oculta `.git` rota dentro de `Quisqueya` (inofensiva)
-- [ ] Diversificar ingreso: versión de pago de "Arma tu itinerario gratis" (itinerario personalizado)
+- [ ] Diversificar ingreso: versión de pago de "Arma tu itinerario gratis" (itinerario personalizado) — confirmar si `landing-arma-tu-itinerario.html` ya cobra o sigue gratis (validado por análisis externo del 20 ago)
 - [ ] Reforzar la voz/cara de Venul dentro de las guías (no solo en "Sobre mí")
 - [ ] Video corto por guía (mismo esfuerzo que ya hace para El Quisqueyano, aplicado a Quisqueya Travel)
 - [ ] Guía de vuelos desde Miami a RD (mercado hispano USA no-NYC)
+- [ ] **Cluster NYC/diáspora → RD** (idea del análisis externo del 20 ago, validada): expandir `guia-vuelos-nyc-rd.html` de página única a varias páginas con intención específica (JFK vs EWR, mejor época para comprar, aerolínea por aerolínea) + réplica para Miami, Boston, Orlando, Filadelfia, Atlanta, DC, Chicago
+- [ ] Revisar el resto del sitio por lenguaje de precio absoluto tipo "el más barato/mejor precio" fuera de `index.html` (hoy ya corregido solo ahí)
 
 ---
 
@@ -568,6 +688,7 @@ Se investigó `deploy/omniroute/` (pendiente viejo) y se confirmó que SÍ estab
 | Sin tildes en alt/meta de imágenes | Evita problemas de encoding | Jun 2026 |
 | Travelpayouts como segundo afiliado (vuelos/carro/traslados/tours/eSIM/seguro) | Stay22 solo cubre hoteles — TP cubre el resto del viaje sin requerir cuenta nueva por servicio | 30 jun 2026 |
 | Eliminar cuenta de Netlify por completo (no solo desconectar) | El sitio viejo seguía indexado en Google compitiendo con quisqueyatravel.org pese al canonical correcto | 30 jun 2026 |
+| No activar "Booking.com Connected Trip" (vuelos/carro/taxi vía CJ) | Llegó por email de CJ. Comparado contra las tasas publicadas de Travelpayouts: vuelos Aviasales ~1.1-1.3% (~$4-5 en un ticket NYC-RD) vs Booking €2 fijos (~$2); carro GetRentacar 10% vs Booking 6%/3.8%; taxi Kiwitaxi 9-11% vs Booking 4%. Travelpayouts paga mejor en los 3. Solo "Atracciones" (Booking 4% vs Klook 2-5%) queda parejo — no vale la pena duplicar integración por eso solo | 20 ago 2026 |
 
 ---
 
