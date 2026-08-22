@@ -12,7 +12,7 @@ import { kvGet, kvPut } from '../_lib/kv.js';
 const DEFAULT_KB = {
   agencyInfo: `Quisqueya Travel es una agencia líder en viajes al Caribe y todo el mundo, con más de 15 años de experiencia. Nos especializamos en vuelos, paquetes vacacionales todo incluido, cruceros, hoteles y excursiones de aventura.
 Ofrecemos atención al cliente 24/7 y asistencia en español, inglés y francés durante todo tu viaje.
-Contacto: reservas@quisqueyatravel.org | Teléfono: +1 (809) 555-0199 | WhatsApp: +1 (829) 555-0100
+Contacto: reservas@quisqueyatravel.org | WhatsApp: +1 (347) 720-5769
 Dirección: Av. Winston Churchill, Plaza Metropolitana, Santo Domingo, República Dominicana.`,
 
   packages: `1. Paquete Punta Cana Todo Incluido:
