@@ -20,7 +20,7 @@
 //   }
 // Respuesta: { text: '...' }  o  { error: '...' } con status >= 400
 
-const GEMINI_MODEL = 'gemini-flash-latest;
+const GEMINI_MODEL = 'gemini-flash-latest';
 const MAX_MESSAGES = 40;
 const MAX_MESSAGE_CHARS = 4000;
 const MAX_SYSTEM_CHARS = 8000;
