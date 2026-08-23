@@ -28,7 +28,7 @@ Bitácora viva del sitio afiliado **https://quisqueyatravel.org**
 
 ## Estado Actual del Proyecto
 
-**Última actualización:** 22 de agosto de 2026
+**Última actualización:** 23 de agosto de 2026
 
 | Item | Estado | Detalle |
 |---|---|---|
@@ -176,6 +176,35 @@ Se investigó `deploy/omniroute/` (pendiente viejo) y se confirmó que SÍ estab
 ---
 
 ## Historial de Sesiones
+
+### Sesión — 23 de agosto de 2026 (Cowork — auditoría SEO fecha nueva + indexación manual, uso directo de la computadora de Venul)
+
+**Contexto:** Venul pidió una auditoría SEO nueva ("seo auditoria"), luego "termina todos" para cerrar los pendientes, y dio permiso explícito ("puede hacerlo usa mi computadora") para resolver bloqueadores usando su computadora directamente. Al final preguntó por qué salía "una versión vieja" en Google, y pidió arreglar el problema real de indexación.
+
+**1. Auditoría SEO nueva entregada** (`_interno/seo/seo-audit-quisqueyatravel-2026-08-23.md`, enviada a Venul y guardada en la carpeta). Resumen: los 2 hallazgos críticos del 13 ago (duplicado Punta Cana, pipeline de despliegue desincronizado) siguen resueltos. Hallazgo nuevo evaluado y descartado como riesgo real: 58 archivos locales sin commitear resultaron ser **idénticos byte a byte** a lo ya pusheado en `origin/main` (verificado con md5sum) — no es trabajo nuevo sin sincronizar, es un artefacto de git. El fix de privacidad de WhatsApp (`functions/whatsapp.js` + variable `WHATSAPP_NUMBER`) ya está en producción hace ~17 horas y la variable de entorno existe en Cloudflare Pages — sin riesgo, contrario a como se había planteado inicialmente en el borrador del reporte.
+
+**2. Bloqueador de git sin resolver — `.git/index.lock` viejo.** Impide `git reset --hard origin/main` para terminar de alinear el working tree local. El sandbox de Claude no tiene permiso para borrar archivos en la carpeta del usuario y no había herramienta de excepción de borrado disponible en esta sesión. **Pendiente: Venul debe borrar manualmente `.git\index.lock` dentro de `Quisqueya\` (cerrando cualquier app de Git GUI abierta primero).**
+
+**3. Testimonios reales para `#resenas`** — seguía bloqueado. Blotato no dejó consultar comentarios de FB/IG: el bloqueador real es **facturación pendiente** en la cuenta de Blotato (no una API key inválida como parecía el error). **Pendiente: Venul debe poner al día el método de pago en Blotato antes de que Claude pueda traer los 3 testimonios reales.**
+
+**4. "Versión vieja en Google" — investigado y descartado como bug real.** Se confirmó en Search Console que el rastreo del home es de hoy (23 ago, 4:56am) y el título coincide byte a byte con el `<title>` actual del sitio. El problema real detrás de la percepción de Venul es el que sigue abajo: la mayoría de páginas del sitio (52 de 75 según el reporte de indexación) no están indexadas, así que lo que Google muestra para muchas búsquedas puede no reflejar el estado más reciente del sitio.
+
+**5. Indexación manual — sesión larga, sin tope de 4-5 esta vez.** Se revisaron ~19 URLs de la lista "Descubierta: actualmente sin indexar" (dato de Search Console podía estar desactualizado — varias marcadas como sin indexar en el reporte resultaron ya indexadas al inspeccionarlas directo):
+
+*Ya estaban indexadas, sin acción necesaria:* `en/guide-boca-chica`, `en/guide-constanza`, `en/guide-barahona`, `en/guide-best-beaches`, `en/guide-best-time-to-visit`, `fr/` (home), `fr/guide-republique-dominicaine`, `fr/guide-constanza`.
+
+*Solicitud de indexación enviada con éxito (11 páginas):* `en/guide-la-romana`, `en/guide-jarabacoa`, `en/guide-las-terrenas`, `en/guide-saona-island`, `en/guide-cheap-hotels-punta-cana`, `en/guide-itinerary-10-days`, `en/guide-itinerary-7-days`, `en/plan-my-trip`, `fr/guide-boca-chica`, `fr/guide-hotels-pas-chers-punta-cana`, `fr/guide-itineraire-7-jours`.
+
+*Cuota superada en el intento 12:* `fr/guide-las-terrenas` (estado especial: "Google no reconoce esta URL", no el "Descubierta: sin indexar" habitual — se intentó igual, mismo botón). Confirma que la cuota diaria varía de un día a otro (hoy permitió 11, el 22 ago solo permitió 4) — no asumir un número fijo.
+
+**Quedan pendientes de solicitar la próxima sesión:** `fr/guide-las-terrenas` (reintentar), `fr/guide-meilleure-periode`, `fr/guide-punta-cana`, `fr/plan-mon-voyage`.
+
+**Pendientes para la próxima sesión:**
+- Retomar indexación manual con las 4 URLs de arriba en cuanto se resetee la cuota.
+- Venul: borrar `.git\index.lock` en la carpeta local.
+- Venul: poner al día el pago de Blotato para desbloquear los testimonios reales de `#resenas`.
+
+---
 
 ### Sesión — 22 de agosto de 2026 (Cowork — continuación de indexación manual + investigación de backlinks reales)
 

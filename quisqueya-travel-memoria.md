@@ -1,8 +1,84 @@
 # Quisqueya Travel — Memoria de Proyecto
 
+## 🔴 SESIÓN — 2026-08-22 (21:28 EDT): corrida de `quisqueya-travel-video-diario` — BLOQUEADA (Blotato: "Invalid API key or auth session")
+
+Corrida programada del turno de HOTELES (21:28 EDT cae en la ventana 15h–23h). Antes de tocar
+Pexels se intentó `blotato_list_posts` y `blotato_list_accounts` (para revisar duplicados de
+hotel de los últimos 10 posts) — ambas llamadas fallaron, pero esta vez con un mensaje distinto
+al de las corridas del 21 de agosto:
+
+> "Invalid API key or auth session. Get your key at https://my.blotato.com/settings/api, or refresh your auth session."
+
+Ya no dice "Subscription expired" — el mensaje cambió a un problema de API key/sesión de auth.
+Puede que la suscripción ya se haya reactivado pero la key quedó vieja/inválida, o que sea un
+problema distinto. **Bloqueo total de publicación** de todas formas (no se puede leer historial
+ni publicar en Facebook/Instagram). Siguiendo la regla de la skill, esta corrida se detuvo aquí —
+no se buscó contenido en Pexels ni se escribió copy, porque no hay forma de publicarlo ni de
+verificar el registro de posts recientes de todas formas.
+
+**Acción pendiente para Venul (nueva forma del mismo bloqueo):** ir a
+https://my.blotato.com/settings/api y generar/copiar una API key válida (o revisar que la sesión
+de auth conectada a Cowork no haya expirado). Hasta que eso pase, ninguna corrida de esta tarea
+(playas ni hoteles, mañana ni tarde) podrá publicar.
+
+**Nota técnica (recurrente):** tampoco se pudo leer/escribir
+`C:\Users\venul\OneDrive\Documentos\Claude\Scheduled\quisqueya-travel-diario\config.md` ni
+`registro-temas.md` (carpeta no montada en esta sesión de Cowork, mismo problema documentado el
+16, 17, 21 y ahora 22 de agosto). Este archivo sigue como respaldo del registro.
+
+---
+
+## 🔴 SESIÓN — 2026-08-21 (18:10 EDT): corrida de `quisqueya-travel-video-diario` — BLOQUEADA (Blotato: suscripción vencida, sigue igual que la mañana)
+
+Corrida programada del turno de HOTELES (18:10 EDT cae en la ventana 15h–23h). Antes de tocar
+Pexels se intentó `blotato_list_accounts` y `blotato_list_posts` (para revisar duplicados de
+hotel de los últimos 10 posts) — ambas llamadas fallaron igual que en la corrida de esta mañana
+(09:57 EDT, turno playas):
+
+> "Subscription expired. Reactivate at https://my.blotato.com/settings/billing"
+
+Bloqueo total de publicación, sin cambios desde la mañana. Siguiendo la regla de la skill, esta
+corrida se detuvo aquí — no se buscó contenido en Pexels ni se escribió copy, porque no hay forma
+de publicarlo ni de verificar el registro de posts recientes de todas formas.
+
+**Acción pendiente para Venul (sigue abierta):** reactivar la suscripción de Blotato en
+https://my.blotato.com/settings/billing. Hasta que eso pase, ninguna corrida de esta tarea
+(playas ni hoteles, mañana ni tarde) podrá publicar.
+
+**Nota técnica (recurrente):** tampoco se pudo leer/escribir
+`C:\Users\venul\OneDrive\Documentos\Claude\Scheduled\quisqueya-travel-diario\config.md` ni
+`registro-temas.md` (carpeta no montada en esta sesión de Cowork, mismo problema documentado el
+16, 17 y 21 de agosto). Este archivo sigue como respaldo del registro.
+
+---
+
 > 📌 **Este proyecto vende/afilia: hoteles (Booking.com CJ + Stay22), vuelos, alquiler de carros, traslados, tours, eSIM y seguro de viaje (todo vía Travelpayouts) — enfocado 100% en turismo hacia República Dominicana.**
 >
 > 📎 **Existe otra bitácora activa: [`memoria-proyecto.md`](./memoria-proyecto.md)**, con el "Estado Actual" en formato tabla y el roadmap — se usa más en sesiones manuales de Cowork, mientras este archivo lo actualizan sobre todo las sesiones automáticas/programadas. **Leer AMBOS archivos al empezar una sesión.** Ver `LEEME-CARPETA.md` en la raíz para el mapa completo de la carpeta.
+
+## 🔴 SESIÓN — 2026-08-21 (09:57 EDT): corrida de `quisqueya-travel-video-diario` — BLOQUEADA (Blotato: suscripción vencida)
+
+Corrida programada del turno de PLAYAS (09:57 EDT cae en la ventana 8am–14h). Antes de tocar
+Pexels o escribir el copy, se intentó `blotato_list_posts` y `blotato_list_accounts` para
+verificar duplicados recientes — ambas llamadas fallaron con:
+
+> "Subscription expired. Reactivate at https://my.blotato.com/settings/billing"
+
+**Esto es un bloqueo total de publicación** (no se puede ni leer el historial ni publicar en
+Facebook/Instagram vía Blotato). Siguiendo la regla de la skill ("si hay bloqueo total,
+documenta todo en el registro y detente sin publicar"), esta corrida se detuvo aquí — no se
+buscó contenido en Pexels ni se escribió copy, porque no hay forma de publicarlo de todas formas.
+
+**Acción pendiente para Venul:** reactivar la suscripción de Blotato en
+https://my.blotato.com/settings/billing. Hasta que eso pase, ninguna corrida de esta tarea
+(playas ni hoteles, mañana ni tarde) podrá publicar.
+
+**Nota técnica (recurrente):** tampoco se pudo escribir en
+`C:\Users\venul\OneDrive\Documentos\Claude\Scheduled\quisqueya-travel-diario\registro-temas.md`
+(carpeta no montada en esta sesión de Cowork, mismo problema documentado el 16 y 17 de agosto).
+Este archivo queda como respaldo del registro.
+
+---
 
 ## 🟡 SESIÓN — 2026-08-18: DNS recuperado + limpieza de tareas + guía comparativa (push pendiente)
 
