@@ -1,0 +1,51 @@
+name: publish-social
+
+# Dispara la publicacion en Facebook/Instagram via Graph API de Meta,
+# reemplazo de Blotato. Se lanza a mano o desde una sesion programada con:
+#   gh workflow run publish-social.yml \
+#     -f platform=facebook -f type=video -f media_url=https://... -f caption="texto"
+
+on:
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: "facebook o instagram"
+        required: true
+        type: choice
+        options:
+          - facebook
+          - instagram
+      type:
+        description: "video o image"
+        required: true
+        type: choice
+        options:
+          - video
+          - image
+      media_url:
+        description: "URL https publica del archivo (Meta debe poder descargarla)"
+        required: true
+        type: string
+      caption:
+        description: "Texto del post"
+        required: false
+        type: string
+        default: ""
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Publicar en Meta
+        env:
+          PLATFORM: ${{ inputs.platform }}
+          TYPE: ${{ inputs.type }}
+          MEDIA_URL: ${{ inputs.media_url }}
+          CAPTION: ${{ inputs.caption }}
+          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
+          META_PAGE_ACCESS_TOKEN: ${{ secrets.META_PAGE_ACCESS_TOKEN }}
+          META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
+        run: node .github/scripts/publish-social.js
