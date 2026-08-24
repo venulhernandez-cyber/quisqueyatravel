@@ -44,7 +44,8 @@
 
         #qt-widget-window {
             width: 360px;
-            height: 520px;
+            height: min(520px, calc(100vh - 120px));
+            max-height: calc(100vh - 120px);
             border-radius: 20px;
             background: #0d1222;
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -72,6 +73,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-shrink: 0;
         }
 
         .qt-brand-wrapper {
@@ -212,6 +214,7 @@
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             display: flex;
             gap: 8px;
+            flex-shrink: 0;
         }
 
         #qt-input-area input {
