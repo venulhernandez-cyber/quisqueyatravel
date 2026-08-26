@@ -15,6 +15,13 @@ Bitácora viva del sitio afiliado **https://quisqueyatravel.org**
 
 **Ningún post en Facebook (ni en la Página, ni compartido en grupos) se publica solo con texto+imagen. SIEMPRE debe incluir video.** Si se está preparando una publicación (ej. campaña de grupos, promoción de una guía) y no hay un video listo para ese post, no publicar — conseguir o generar el video primero, o esperar.
 
+## ⚠️ REGLA FIJA — NUNCA PUBLICAR VIDEO/FOTO CON BARRAS NEGRAS (confirmado por Venul 2026-08-26)
+
+**Ningún video o foto se publica en Facebook/Instagram con barras negras (letterbox/pillarbox) por diferencia de formato.** Antes de publicar, adaptar SIEMPRE el media al formato del post:
+- Reels/Stories (IG y FB): recortar a vertical 9:16 (1080x1920), recorte centrado (crop, no padding con barras negras).
+- Post normal de Facebook (no reel): recortar/escalar al aspect ratio que use ese tipo de post.
+Si el video de origen (ej. de Pexels) es horizontal, se recorta el centro para llenar el cuadro vertical — nunca se sube tal cual dejando franjas negras arriba/abajo o a los lados. Usar ffmpeg (`-vf "crop=..."` o `scale+crop`) u otro editor antes de subir a Blotato/GitHub Actions.
+
 ## ⚠️ REGLA FIJA — NO NETLIFY (confirmado por Venul 2026-07-02)
 
 **Venul YA NO usa Netlify. Cuenta eliminada por completo el 30 de junio de 2026. NUNCA sugerir Netlify, ni como hosting, ni como deploy, ni como fallback.**
