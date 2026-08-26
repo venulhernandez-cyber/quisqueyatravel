@@ -1,5 +1,113 @@
 # Quisqueya Travel — Memoria de Proyecto
 
+## 🔴 SESIÓN — 2026-08-24 (10:09 EDT): corrida de `quisqueya-travel-video-diario` — BLOQUEADA (Blotato: "Invalid API key or auth session", sigue sin resolverse)
+
+Corrida programada del turno de PLAYAS (10:09 EDT cae en la ventana 8am–14h). Antes de tocar
+Pexels se intentó `blotato_list_accounts` y `blotato_list_posts` (para revisar duplicados de
+destino de los últimos posts) — ambas llamadas fallaron con el mismo mensaje documentado desde
+el 22 de agosto, sin cambios:
+
+> "Invalid API key or auth session. Get your key at https://my.blotato.com/settings/api, or refresh your auth session."
+
+**Bloqueo total de publicación**, cuarta corrida consecutiva bloqueada (21, 22, 23 y ahora 24 de
+agosto). Siguiendo la regla de la skill, esta corrida se detuvo aquí — no se buscó contenido en
+Pexels ni se escribió copy, porque no hay forma de publicarlo ni de verificar el registro de
+posts recientes de todas formas.
+
+**Acción pendiente para Venul (misma de las últimas 6+ corridas, sin resolver):** poner al día
+la API key/facturación de Blotato — revisar https://my.blotato.com/settings/api y
+https://my.blotato.com/settings/billing. Hasta que eso pase, ninguna corrida de esta tarea
+(playas ni hoteles, mañana ni tarde) podrá publicar.
+
+**Nota técnica (recurrente):** tampoco se pudo leer/escribir
+`C:\Users\venul\OneDrive\Documentos\Claude\Scheduled\quisqueya-travel-diario\config.md` ni
+`registro-temas.md` (carpeta no montada en esta sesión de Cowork, mismo problema documentado
+desde el 16 de agosto). Este archivo sigue como respaldo del registro.
+
+---
+
+## 🟢 SESIÓN — 2026-08-24: auditoría semanal completa (solo lectura, sin cambios en el sitio)
+
+Corrida automática de `auditoria-semanal-quisqueya-travel`. **Nota técnica importante:** la
+carpeta `C:\Users\venul\OneDrive\Documentos\GitHub\quisqueyatravel` (el "repo real") estaba
+54 commits detrás de `origin/main` — mucho más desactualizada que la copia de Desktop (solo 2
+commits detrás). Para no auditar código viejo, se hizo un `git clone` limpio de
+`origin/main` en el sandbox y las 5 auditorías corrieron sobre ese clone (la fuente de verdad
+real, sin tocar ningún archivo local de Venul).
+
+**Resultado: sitio en buen estado, sin hallazgos críticos nuevos.**
+
+- 🟡 **CSP sigue sin servirse en vivo** — mismo bug de Cloudflare documentado el 2026-07-01.
+  `_headers` tiene la directiva `Content-Security-Policy` bien escrita (confirmado en el repo),
+  pero `fetch('/').headers.has('content-security-policy')` en el sitio en vivo devuelve `false`.
+  Las otras 5 cabeceras (X-Frame-Options, X-Content-Type-Options, Referrer-Policy,
+  Permissions-Policy, HSTS) sí se sirven correctamente. Sigue bloqueado en Cloudflare (Rules >
+  Transform Rules), no en el código — Venul tiene que revisarlo desde su dashboard.
+- 🟡 **`allowlist-dominios.md` de la skill de seguridad está truncado/corrupto** al final del
+  archivo (corta a mitad de palabra después de "www.facebook.com"). Por eso el escaneo de
+  dominios marca ~12 dominios como "sin clasificar" cada vez, aunque todos son legítimos ya
+  verificados: `connect.facebook.net` (Pixel), `docs.google.com` (Google Form del newsletter),
+  `eticket.migracion.gob.do` (link oficial de migración RD en la guía de requisitos),
+  `images.pexels.com`, `instagram.com`, `schema.org` (JSON-LD), `unpkg.com` (ya en CSP),
+  `www.google-analytics.com`, `www.jdoqocy.com` y `www.tkqlhce.com` (tracking de CJ
+  Affiliate/Booking), `www.travelpayouts.com`, `www.w3.org` (namespace XML). Pendiente:
+  arreglar el archivo de referencia en una sesión en vivo para que no se repita cada semana.
+- 🟢 Secretos: 0 hallazgos en 100 archivos escaneados (`scan_secrets.py`).
+- 🟢 Contraste WCAG: revisado con los fondos reales del CSS (no blanco por defecto) — todo pasa
+  AA. El texto naranja (`--naranja` sobre blanco fallaría 2.06:1) solo se usa siempre sobre
+  fondos oscuros (`--oscuro`, overlay del hero), donde da 8.27:1–9.06:1.
+- 🟢 Zonas táctiles: WhatsApp flotante 56×56px, `.nav-cta`/`.btn-destino`/`.btn-hotel` con
+  `min-height:44px` explícito.
+- 🔵 Foco visible: consistente en casi todo (`outline: 3px solid var(--naranja)`), pero los
+  `<select>` del buscador y la calculadora usan `outline:none` + solo cambio de `border-color`
+  a verde — visible pero más débil/inconsistente que el resto del sitio. Cosmético, no urgente.
+- 🔵 Imágenes sin `width`/`height` en HTML (26 en `index.html`) — no genera CLS real porque
+  cada una vive en un contenedor con altura fija en CSS (`object-fit:cover` + `position:absolute`).
+  No requiere acción.
+- 🟢 SEO técnico: 25 páginas revisadas (24 guías + portada) — 0 sin title, 0 sin meta
+  description, 0 sin H1 o con H1 duplicado, 0 sin canonical, 0 titles/descriptions duplicados
+  entre páginas. `robots.txt` limpio. `sitemap.xml` con 59 URLs, las 24 guías presentes, sin
+  huérfanas.
+- 🟢 Voz humana: 0 coincidencias de 18 frases genéricas de IA en las 26 páginas revisadas
+  (guías + portada + bio-link). Muestra de `guia-punta-cana.html` confirma voz auténtica de
+  Venul en primera persona ("Seamos honestos...", dominicanismos). No hace falta reescribir nada.
+
+**Lo que sigue igual que semanas anteriores (no se repite como hallazgo nuevo, ya conocido y
+bloqueado en Venul):** 3 testimonios reales para `#resenas`, método de pago de Travelpayouts,
+facturación de Blotato (no aplica a esta auditoría del sitio).
+
+---
+
+
+## 🔴 SESIÓN — 2026-08-23 (22:14 EDT): corrida de `quisqueya-travel-video-diario` — BLOQUEADA (Blotato: "Invalid API key or auth session", sigue igual)
+
+Corrida programada del turno de HOTELES (22:14 EDT cae en la ventana 15h–23h). Antes de tocar
+Pexels se intentó `blotato_list_accounts` y `blotato_list_posts` (para revisar duplicados de
+hotel de los últimos posts) — ambas llamadas fallaron con el mismo mensaje documentado desde
+el 22 de agosto:
+
+> "Invalid API key or auth session. Get your key at https://my.blotato.com/settings/api, or refresh your auth session."
+
+**Esto confirma la nota de la sesión manual de Cowork de hoy mismo (23 ago, más temprano):** al
+intentar traer comentarios reales para `#resenas`, se determinó que el bloqueador real detrás de
+este mensaje es **facturación pendiente** en la cuenta de Blotato, no una API key inválida per se
+— el mensaje de error es engañoso. **Bloqueo total de publicación** de nuevo (no se puede leer
+historial ni publicar en Facebook/Instagram). Siguiendo la regla de la skill, esta corrida se
+detuvo aquí — no se buscó contenido en Pexels ni se escribió copy, porque no hay forma de
+publicarlo ni de verificar el registro de posts recientes de todas formas.
+
+**Acción pendiente para Venul (misma de las últimas 5+ corridas):** poner al día el método de
+pago/facturación de Blotato (revisar https://my.blotato.com/settings/billing y
+https://my.blotato.com/settings/api). Hasta que eso pase, ninguna corrida de esta tarea (playas
+ni hoteles, mañana ni tarde) podrá publicar — llevamos bloqueado desde el 21 de agosto.
+
+**Nota técnica (recurrente):** tampoco se pudo leer/escribir
+`C:\Users\venul\OneDrive\Documentos\Claude\Scheduled\quisqueya-travel-diario\config.md` ni
+`registro-temas.md` (carpeta no montada en esta sesión de Cowork, mismo problema documentado el
+16, 17, 21, 22 y ahora 23 de agosto). Este archivo sigue como respaldo del registro.
+
+---
+
 ## 🔴 SESIÓN — 2026-08-22 (21:28 EDT): corrida de `quisqueya-travel-video-diario` — BLOQUEADA (Blotato: "Invalid API key or auth session")
 
 Corrida programada del turno de HOTELES (21:28 EDT cae en la ventana 15h–23h). Antes de tocar
