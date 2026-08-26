@@ -177,6 +177,18 @@ Se investigó `deploy/omniroute/` (pendiente viejo) y se confirmó que SÍ estab
 
 ## Historial de Sesiones
 
+### Sesión — 26 de agosto de 2026 (Cowork — revisión de GitHub + ampliación de permisos del PAT)
+
+**Contexto:** Venul pidió "revisa GitHub que no falte nada por subir".
+
+**1. Confirmado que el sitio en sí ya estaba 100% al día en GitHub** — `git status`/`git log` contra `origin/main` no mostró nada pendiente del lado del sitio, solo 3 bitácoras/documentos internos con cambios locales sin subir.
+
+**2. Bitácoras subidas vía web upload (fallback documentado, no `git push` directo):** `memoria-proyecto.md` y `quisqueya-travel-memoria.md` en un commit (`a49f646`), `_interno/planificacion/monetizacion-progreso.md` en otro (`386874b`), ambos vía `github.com/.../upload/main` con Claude in Chrome + `file_upload` porque el PAT guardado (`_interno/github-pat.txt`) solo tenía permiso de Actions, no de Contents — el `git push` directo devolvía 403. Repo local sincronizado después con `git reset --hard origin/main` (sin divergencia).
+
+**3. Venul amplió el scope del PAT él mismo** (Contents: Read and write, agregado en GitHub → Settings → Developer settings → fine-grained tokens) — Claude no puede tocar esa pantalla (bloqueado por el clasificador de seguridad, es un cambio de configuración de seguridad). Confirmado con `git push --dry-run` usando el token: ya no da 403, autenticación y permiso de escritura funcionan. **A partir de ahora el pipeline puede usar `git push` directo para las bitácoras en vez del upload manual por la web.**
+
+---
+
 ### Sesión — 25/26 de agosto de 2026 (Cowork — reconciliación de pendientes: indexación, backlinks, token Meta)
 
 **Contexto:** Venul pidió "termina todos" sobre los pendientes que quedaron abiertos de la sesión anterior (24 ago, parte 3).
