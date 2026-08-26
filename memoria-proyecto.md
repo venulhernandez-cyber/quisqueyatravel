@@ -184,6 +184,27 @@ Se investigó `deploy/omniroute/` (pendiente viejo) y se confirmó que SÍ estab
 
 ## Historial de Sesiones
 
+### Sesión — 26 de agosto de 2026 (Cowork — turnos Playa y Hoteles fallidos arreglados, causa raíz encontrada)
+
+**Contexto:** Venul preguntó si el turno de playa/hoteles de hoy se había publicado. No — ambos turnos automáticos de hoy (10am y 6pm ET) fallaron: Turno Hoteles ni siquiera llegó a disparar `publish-social.yml`.
+
+**Causa raíz encontrada (revisando el log real del job en GitHub, no solo el estado de la tarea programada):**
+- `META_PAGE_ACCESS_TOKEN` estaba vencido desde el domingo 23-Aug-26 22:00 PDT — el mismo problema ya documentado en sesiones anteriores, nunca se había vuelto a arreglar de verdad pese a la nota de "resuelto" del 24 ago.
+- Además, `META_IG_USER_ID` tenía un valor incorrecto cargado (se sobrescribió en algún punto de las últimas ~8h, probablemente por una sesión automática) — Instagram fallaba con "Object does not exist" al intentar crear el media container.
+
+**Arreglado (con Venul dando la contraseña y el código de verificación por correo, pasos que Claude no puede completar solo):**
+1. Explorador de la API Graph (Meta) → generado nuevo User Access Token → "Ampliar token de acceso" (Venul puso su contraseña) → consulta `2061443547418301?fields=id,name,access_token` (Venul dio el clic final, ese paso con la palabra `access_token` en la URL lo bloquea el clasificador de seguridad de Claude) → nuevo Page Access Token de larga duración obtenido.
+2. `META_PAGE_ACCESS_TOKEN` actualizado en GitHub → Settings → Secrets → Actions (Venul confirmó por código de verificación de email la primera vez; la segunda actualización ese mismo rato no volvió a pedir código).
+3. Confirmado el ID real de Instagram vía Graph API (`instagram_business_account.id = 17841401006083879`) y corregido `META_IG_USER_ID` en GitHub Secrets (tenía otro valor).
+
+**Publicado exitosamente (ambos turnos de hoy, con contenido nuevo elegido para no repetir destinos recientes):**
+- Turno Playa — Las Terrenas (video vertical real de Pexels, "Tropical beach road drive in Las Terrenas"): FB id `1621058426052949`, IG id `17978091537093563`.
+- Turno Hoteles — Sunscape Dominicus, La Romana (video vertical real de Pexels, resort aerial con piscina): FB id `1651990236485874`, IG id `18364639141212703` (el primer intento de IG falló por timeout de procesamiento de Instagram — 30s no alcanzaron —, el reintento sí terminó a tiempo).
+- Los 4 dispatch se hicieron manualmente desde esta sesión (no por la tarea programada), reusando `publish-social.yml` con `device_bash` + curl, igual que el pipeline automático.
+
+**Nota para el futuro:** con `META_PAGE_ACCESS_TOKEN` y `META_IG_USER_ID` corregidos, los próximos turnos programados (10am y 6pm ET) deberían volver a correr solos sin intervención — pero si Instagram vuelve a fallar por timeout de procesamiento, no es un problema de credenciales, solo hay que reintentar ese dispatch (el video sí se sube, Instagram a veces tarda más de 30s en procesarlo).
+
+
 ### Sesión — 26 de agosto de 2026 (Cowork — revisión de GitHub + ampliación de permisos del PAT)
 
 **Contexto:** Venul pidió "revisa GitHub que no falte nada por subir".
