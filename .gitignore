@@ -46,3 +46,7 @@ reparacion.py
 
 # Documentos de trabajo
 *.docx
+
+# Secretos / credenciales (nunca deben subirse al repo)
+_interno/github-pat.txt
+_interno/pexels-api-key.txt
