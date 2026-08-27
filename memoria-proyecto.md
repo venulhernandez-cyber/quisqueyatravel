@@ -184,6 +184,26 @@ Se investigó `deploy/omniroute/` (pendiente viejo) y se confirmó que SÍ estab
 
 ## Historial de Sesiones
 
+### Sesión — 27 de agosto de 2026 (Cowork — verificación de turnos automáticos y de las habilidades de venta)
+
+**Actualización misma sesión — CJ Affiliate revisado en vivo (Venul ya lo tenía abierto en su navegador):**
+- **Sesión activa, logueada como "Quisqueya Travel", publisher ID 7661029.**
+- **Confirmado en "Unido" (Afiliados):** Booking.com LATAM y Booking.com Spain & Portugal — la aprobación del 17 ago sigue vigente, no se cayó ni se desactivó.
+- **Comisiones últimos 30 días: $0,00, 0 registros ("No se encontraron resultados")** en el informe "Detalles de comisiones". No es una falla — coincide con el roadmap (Fase 7 "Primera comisión de afiliado" sigue pendiente, cuenta aprobada hace ~10 días y el perfil de backlinks está en cero real). El pipeline de tracking en sí está funcionando (el informe corre sin error, solo no hay transacciones que mostrar todavía).
+- **Pendiente suelto sin revisar a fondo:** el panel muestra una tarea "Revisar ofertas pendientes de aprobación (1)" — no se pudo abrir por navegación (el link no cambiaba de página al hacer clic). Venul puede revisarla directo la próxima vez que entre.
+
+
+**Contexto:** Venul pidió primero verificar la "tarea de hoy" (turnos automáticos) y luego que se verificara que "las habilidades de ventas están trabajando".
+
+**1. Turnos automáticos de hoy — todavía no habían corrido al momento de revisar** (Playa dispara 14:06 UTC / 10:06am ET, Hoteles 22:01 UTC / 6:01pm ET). Se confirmó vía `list_triggers` que ambas tareas programadas siguen activas (`enabled: true`) y que el `last_run` de ayer (26 ago) fue `SUCCEEDED` en ambas — el arreglo del token de Meta del 26 ago se mantiene. Se revisaron los últimos runs de `publish-social` en GitHub Actions (todos de ayer) y todos los relevantes terminaron en `success`.
+
+**2. Habilidades de venta — verificado el lado de infraestructura, no solo las skills de Claude:**
+- **Meta Ads (act_290012163) — el bloqueador de "Pago requerido" documentado desde el 18 ago ya NO está.** Verificado en vivo vía Meta Ads MCP (no vía navegador, sin bloqueo del clasificador): `account_status: ACTIVE`, `has_payment_method: true`. Dos campañas activas y gastando de verdad en los últimos 7 días — "Conversión Reserva Hotel FB+IG" ($3/día, $5.80 gastado, 534 impresiones, 36 clics) y "Tráfico Punta Cana FB+IG" ($5/día, $18.11 gastado, 4671 impresiones, 422 clics). "Tráfico Top Emisores Turismo" sigue en PAUSED (no es el mismo error, revisar con Venul si se reactiva). Pendiente actualizado en la sección de Pendientes.
+- **Links de afiliado (Booking vía CJ) — verificados en el código local:** las 32 páginas del sitio con oferta de hotel (`guia-*.html`, `index.html`) tienen su link `jdoqocy.com`/`tkqlhce.com` bien formado, ninguna quedó sin link. No se pudo probar la resolución en vivo (sin salida de red ni desde el sandbox en la nube ni desde `device_bash` en la computadora de Venul hacia dominios externos) — solo se verificó que el HTML fuente tiene el link correcto.
+- **Skills de venta de Claude (`quisqueya-travel-ventas`, `vendedor-booking`) — presentes y cargadas correctamente**, sin cambios ni errores de configuración.
+- No verificado esta sesión (requiere login manual de Venul): estado real de CJ Affiliate y Travelpayouts en sus paneles — se asume vigente lo último confirmado (CJ aprobado 17 ago; Travelpayouts con método de pago cargado, acumulando mínimo de $400).
+
+
 ### Sesión — 26 de agosto de 2026 (Cowork — turnos Playa y Hoteles fallidos arreglados, causa raíz encontrada)
 
 **Contexto:** Venul preguntó si el turno de playa/hoteles de hoy se había publicado. No — ambos turnos automáticos de hoy (10am y 6pm ET) fallaron: Turno Hoteles ni siquiera llegó a disparar `publish-social.yml`.
@@ -852,7 +872,7 @@ Al intentar la 5ta (`en/guide-la-romana`), Search Console devolvió **"Cuota sup
 - [x] ~~Subir a GitHub y desplegar los 6 archivos de Constanza/Boca Chica (Stay22 → Booking CJ)~~ → ✅ Desplegado (17 ago)
 - [x] ~~Verificar que TODO el sitio migró de Stay22 a Booking CJ~~ → ✅ Verificado (18 ago) con grep sobre las 62 páginas HTML del repo local: **cero referencias a `stay22.com` en todo el sitio**. 57 páginas tienen link de Booking (`jdoqocy.com`), 2 usan el dominio alterno de CJ `tkqlhce.com` (mismo afiliado, misma comisión) — solo `404.html`, `admin.html` y el archivo de verificación de Google no tienen link de hotel, y no deberían tenerlo. `js/hoteles.js` y `js/hoteles2.js` (buscador interno) también apuntan a Booking. Migración 100% completa.
 - [x] ~~Venul: configurar método de pago en Travelpayouts~~ → ✅ Confirmado (19 ago): el método (Bank account, USD USA) ya estaba cargado, solo faltaba el link de confirmación por email — Venul lo confirmó y ahora aparece como **Main** en Payout methods. Falta acumular el mínimo de $400 para el primer pago, eso es normal.
-- [ ] 🔴 **Hallazgo (18 ago), sigue pendiente al 19 ago:** al entrar al panel de la Página de Facebook apareció un aviso de **"Pago requerido"** — los anuncios de la cuenta publicitaria (Meta Ads, act_290012163) se pausaron porque no se pudo procesar el último pago. Venul debe actualizar el método de pago directamente en Facebook (Claude no introduce datos de pago) para que la campaña de tráfico a Punta Cana (`$5/día`) vuelva a correr.
+- [x] ~~Hallazgo (18 ago): "Pago requerido" en Meta Ads, campañas pausadas~~ → ✅ Resuelto (27 ago): verificado vía Meta Ads MCP — `account_status: ACTIVE`, `has_payment_method: true`. Las 2 campañas activas están corriendo y gastando de verdad en los últimos 7 días: "Conversión Reserva Hotel FB+IG" ($3/día, $5.80 gastados, 534 impresiones, 36 clics) y "Tráfico Punta Cana FB+IG" ($5/día, $18.11 gastados, 4671 impresiones, 422 clics). La campaña "Tráfico Top Emisores Turismo" está en PAUSED pero no por error de pago (gastó $4.67, 872 impresiones — pausa previa, revisar con Venul si se reactiva).
 - [x] ~~Confirmar si la sección CSP/Cloudflare sigue teniendo el problema detectado en julio~~ → ✅ Verificado en vivo (18 ago) vía cabeceras HTTP reales: `Content-Security-Policy` SÍ se está sirviendo (`default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net...`), junto con `Strict-Transport-Security`, `Referrer-Policy: strict-origin-when-cross-origin` y `X-Content-Type-Options: nosniff`. Cloudflare ya NO está removiendo la cabecera — el problema de julio quedó resuelto. Único detalle menor: el CSP incluye `'unsafe-inline'` en `script-src`, lo cual no es ideal pero no es un bloqueador.
 - [x] ~~Confirmar si CJ Affiliate (Booking, CID 7985681) ya fue aprobado~~ → ✅ Confirmado por Venul el 17 ago — APROBADO
 - [x] ~~Lista de correo / newsletter — sitio sin forma de capturar emails~~ → ✅ Google Form + sección `#newsletter` en `index.html`, desplegado (17 ago)
