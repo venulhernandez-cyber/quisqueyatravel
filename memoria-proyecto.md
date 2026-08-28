@@ -184,6 +184,19 @@ Se investigó `deploy/omniroute/` (pendiente viejo) y se confirmó que SÍ estab
 
 ## Historial de Sesiones
 
+### Sesión — 28 de agosto de 2026 (Cowork — dry-run del pipeline antes del turno de playa)
+
+**Contexto:** Venul pidió "DRY-RUN" (7:44am ET, ~2h20 antes del turno de playa de las 10:06am ET) para confirmar si el pipeline iba a fallar de nuevo por el token de Meta, sin publicar nada real.
+
+**1. Creado un workflow nuevo dedicado a esto — `check-meta-token.yml` → `.github/scripts/check-meta-token.js`.** Hace solo 2 llamadas GET de solo lectura a la Graph API (page + IG business account), cero publicación, cero side effects. Commits: `a67846e` (script, via `git push` normal — el PAT ya tiene scope de Contents) y `5b99766` (el `.yml`, subido por el editor web de GitHub con Claude in Chrome porque el PAT no tiene scope `workflow`, igual que se hizo con `publish-social.yml` el 23 ago).
+
+**2. Disparado vía API de GitHub (`device_bash` + curl, mismo patrón ya usado) — confirmado: `META_PAGE_ACCESS_TOKEN` SIGUE VENCIDO.** Run #1 (`33169023660`), falló en 6s con el mismo error de siempre: *"Session has expired on Wednesday, 26-Aug-26 17:00:00 PDT"* (verificado hora actual del run: 28-Aug-26 04:55 PDT). El token no se renovó desde el 26 ago pese al intento bloqueado del 27 ago (contenido de Puerto Plata).
+
+**Conclusión del dry-run: el turno de playa de HOY (10:06am ET) va a fallar otra vez si Venul no renueva `META_PAGE_ACCESS_TOKEN` antes de esa hora.** Mismo proceso de siempre (Explorador de la API Graph → "Ampliar token de acceso" con la contraseña de Venul → nuevo Page Access Token → actualizar el secret en GitHub). Contenido de Puerto Plata del 27 ago (video Pexels + copy) sigue listo para usar en cuanto el token esté arreglado — no hace falta rehacerlo.
+
+**Nota para el futuro:** `check-meta-token.yml` queda disponible para correr este mismo chequeo cualquier día antes de que dispare un turno automático — `gh workflow run check-meta-token.yml` o el botón "Run workflow" en Actions.
+
+
 ### Sesión — 27 de agosto de 2026 (Cowork — verificación de turnos automáticos y de las habilidades de venta)
 
 **Actualización misma sesión — CJ Affiliate revisado en vivo (Venul ya lo tenía abierto en su navegador):**
