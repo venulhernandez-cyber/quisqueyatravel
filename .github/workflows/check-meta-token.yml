@@ -1,0 +1,23 @@
+name: check-meta-token
+
+# Dry-run del pipeline publish-social: verifica que las credenciales de
+# Meta (token de pagina + IDs) siguen validas, sin publicar nada.
+# Se dispara a mano con:
+#   gh workflow run check-meta-token.yml
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verificar token de Meta (solo lectura)
+        env:
+          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
+          META_PAGE_ACCESS_TOKEN: ${{ secrets.META_PAGE_ACCESS_TOKEN }}
+          META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
+        run: node .github/scripts/check-meta-token.js
