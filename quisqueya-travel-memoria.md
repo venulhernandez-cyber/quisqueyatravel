@@ -1,5 +1,38 @@
 # Quisqueya Travel — Memoria de Proyecto
 
+## 🟢 SESIÓN — 2026-08-28 (10:10 EDT): corrida de `quisqueya-travel-video-diario` (turno PLAYAS) — SIN ACCIÓN, turno de hoy ya estaba publicado
+
+Corrida programada del turno de PLAYAS (10:10 EDT cae en la ventana 8am–14h). Antes de buscar
+contenido nuevo se verificó vía `blotato_list_posts` si el turno de hoy ya se había publicado
+(sustituyendo la verificación de `registro-temas.md`, que sigue sin poder leerse — ver nota de
+carpeta abajo). Resultado: **el post de playas de hoy ya estaba publicado en ambas cuentas**,
+disparado ~2h antes de esta corrida:
+
+- **Destino:** Puerto Plata — mismo copy que quedó preparado y bloqueado en la sesión del 27-ago
+  (token de Meta vencido). El token se renovó y/o el pipeline de Blotato volvió a estar disponible,
+  y el contenido salió publicado esta mañana.
+- **Instagram** (@venulh): publicado 2026-08-28T12:22:37Z → https://www.instagram.com/reel/DclWd6RgleW/
+- **Facebook** (El Quisqueyano en nyc): publicado 2026-08-28T12:22:01Z → https://facebook.com/reel/1077906148503284/
+- Video vía Pexels, re-hospedado en `database.blotato.io` (no se usó el link crudo de
+  `videos.pexels.com`, correcto según la instrucción de esta tarea).
+
+**Decisión:** no se publicó contenido nuevo en esta corrida para evitar duplicar el turno de
+playas del mismo día (la propia tarea indica una pieza por corrida/turno). No hace falta acción
+de Venul.
+
+**Nota de carpeta (recurrente, sin cambios):** `C:\Users\venul\OneDrive\Documentos\Claude\Scheduled\quisqueya-travel-diario\`
+(`config.md` y `registro-temas.md`) sigue sin estar montada en esta sesión — mismo problema
+documentado desde el 16 de agosto. Se usó `blotato_list_posts` como sustituto para verificar
+duplicados, que funcionó bien esta vez. Sigue pendiente que Venul conecte esa carpeta o que se
+actualice el SKILL.md de la tarea para dejar de depender de ella.
+
+**Observación aparte (no es turno de hoy, solo para contexto):** revisando el historial de
+`blotato_list_posts`, el turno de HOTELES (6pm) no ha publicado nada desde el 19 de agosto
+(Hodelpa Caribe Colonial) — los últimos días solo salieron posts de playas. Vale la pena que
+Venul confirme si el turno de las 6pm está corriendo con normalidad.
+
+---
+
 ## 🔴 SESIÓN — 2026-08-27 (10:09 EDT): corrida de `quisqueya-travel-video-diario` (turno PLAYAS) — contenido listo, publicación BLOQUEADA (token de Meta vencido otra vez)
 
 Corrida programada del turno de PLAYAS (10:09 EDT cae en la ventana 8am–14h). Esta tarea sigue
