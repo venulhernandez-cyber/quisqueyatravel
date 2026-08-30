@@ -44,9 +44,33 @@ const result = platform === 'facebook'
 : await publishInstagram(type, mediaUrl, caption);
 console.log('RESULTADO: ' + JSON.stringify(result));
 if (!result.ok) process.exit(1);
+
+const linkComment = (process.env.LINK_COMMENT || '').trim();
+if (linkComment) {
+try {
+const commentResult = await postComment(result.id, linkComment);
+if (commentResult.ok) {
+console.log('COMENTARIO_LINK: publicado (' + commentResult.id + ')');
+} else {
+console.log('COMENTARIO_LINK_AVISO: no se pudo publicar el link como comentario — ' + commentResult.error);
+}
+} catch (ce) {
+console.log('COMENTARIO_LINK_AVISO: error al publicar el link como comentario — ' + (ce.message || String(ce)));
+}
+}
 } catch (e) {
 fail(e.message || String(e));
 }
+}
+
+async function postComment(objectId, message) {
+const token = process.env.META_PAGE_ACCESS_TOKEN;
+if (!objectId || !token) return { ok: false, error: 'Falta objectId o META_PAGE_ACCESS_TOKEN' };
+const params = new URLSearchParams({ access_token: token, message });
+const res = await fetch(`${GRAPH_BASE}/${objectId}/comments`, { method: 'POST', body: params });
+const data = await res.json();
+if (!res.ok) return { ok: false, error: graphErrorMessage(data) };
+return { ok: true, id: data.id };
 }
 
 async function publishFacebook(type, mediaUrl, caption) {

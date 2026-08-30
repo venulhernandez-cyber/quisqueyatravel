@@ -31,6 +31,11 @@ on:
         required: false
         type: string
         default: ""
+      link_comment:
+        description: "Texto del link a publicar como primer comentario (opcional, con UTM)"
+        required: false
+        type: string
+        default: ""
 
 jobs:
   publish:
@@ -45,6 +50,7 @@ jobs:
           TYPE: ${{ inputs.type }}
           MEDIA_URL: ${{ inputs.media_url }}
           CAPTION: ${{ inputs.caption }}
+          LINK_COMMENT: ${{ inputs.link_comment }}
           META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
           META_PAGE_ACCESS_TOKEN: ${{ secrets.META_PAGE_ACCESS_TOKEN }}
           META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
