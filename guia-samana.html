@@ -158,6 +158,31 @@ th, td { padding: 8px 5px; }
 
 /* Foco visible (accesibilidad) */
 a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--naranja); outline-offset: 2px; border-radius: 4px; }
+
+    /* -- Tarjetas visuales de hoteles y tours (2026-08-29, con lo que ya tenemos: Booking/CJ + Klook + GetYourGuide) -- */
+    .hoteles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; margin: 20px 0 10px; }
+    .hotel-card { background: #fff; border-radius: 14px; overflow: hidden; border: 1px solid #eee; transition: box-shadow 0.2s; }
+    .hotel-card:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .hotel-img-wrap { position: relative; height: 140px; background: #eee; overflow: hidden; }
+    .hotel-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hotel-badge { position: absolute; top: 10px; left: 10px; background: var(--verde); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; }
+    .hotel-body { padding: 14px; }
+    .hotel-body h3 { font-family: 'Montserrat', sans-serif; font-size: 0.92rem; margin-bottom: 8px; color: var(--oscuro); }
+    .hotel-rating { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+    .stars { color: #f4a261; font-size: 0.88rem; }
+    .rating-num { font-weight: 700; color: var(--verde); font-size: 0.88rem; }
+    .hotel-precio { margin-bottom: 12px; }
+    .precio-desde, .precio-noche { font-size: 0.72rem; color: #595959; }
+    .precio-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.15rem; color: var(--verde); }
+    .btn-hotel { display: flex; align-items: center; justify-content: center; background: var(--naranja); color: var(--oscuro); padding: 10px; border-radius: 8px; min-height: 44px; text-decoration: none; font-weight: 700; font-size: 0.85rem; }
+    .btn-hotel:hover { opacity: 0.9; }
+    .tours-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 16px; margin: 16px 0 10px; }
+    .tour-card { background: #fff; border-radius: 14px; overflow: hidden; border: 1px solid #eee; transition: box-shadow 0.2s; }
+    .tour-card:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .tour-icon-wrap { height: 100px; display: flex; align-items: center; justify-content: center; font-size: 2.4rem; background: linear-gradient(135deg, #e8f5e9, #b2dfdb); }
+    .tour-body { padding: 14px; text-align: center; }
+    .tour-body h3 { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; margin-bottom: 6px; color: var(--oscuro); }
+    .tour-body p { font-size: 0.82rem; color: #595959; margin-bottom: 12px; line-height: 1.5; }
 </style>
 </head>
 <body>
@@ -211,22 +236,71 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 <tr><td>Traslado a Playa Rincón (lancha o carro)</td><td>$15–30 por persona</td></tr>
 </table>
 
-<div class="cta-box">
-<p>Compara hoteles en Samaná y Las Terrenas — todo incluido o boutique, con cancelación gratuita.</p>
-<a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSamana%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-primary">🏨 Ver hoteles en Samaná</a>
-</div>
+<p style="font-weight:700;font-family:'Montserrat',sans-serif;color:var(--oscuro);margin:36px 0 14px;text-align:center">🏨 Hoteles recomendados en Samaná</p>
+  <div class="hoteles-grid">
+    <div class="hotel-card">
+      <div class="hotel-img-wrap"><img src="https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Grand Bahia Principe Cayacoa" loading="lazy"><span class="hotel-badge">📍 Samaná</span></div>
+      <div class="hotel-body">
+        <h3>Grand Bahia Principe Cayacoa</h3>
+        <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.7</span> <span style="color:#888;font-size:0.78rem">Excelente</span></div>
+        <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$90</span><span class="precio-noche"> / noche</span></div>
+        <a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSamana%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-hotel">Ver disponibilidad →</a>
+      </div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-img-wrap"><img src="https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Hotel Bahia Principe Grand Samana" loading="lazy"><span class="hotel-badge">📍 Samaná</span></div>
+      <div class="hotel-body">
+        <h3>Hotel Bahia Principe Grand Samana</h3>
+        <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.5</span> <span style="color:#888;font-size:0.78rem">Muy bueno</span></div>
+        <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$75</span><span class="precio-noche"> / noche</span></div>
+        <a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSamana%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-hotel">Ver disponibilidad →</a>
+      </div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-img-wrap"><img src="https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Bahia Principe Grand El Portillo" loading="lazy"><span class="hotel-badge">📍 Samaná</span></div>
+      <div class="hotel-body">
+        <h3>Bahia Principe Grand El Portillo</h3>
+        <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.4</span> <span style="color:#888;font-size:0.78rem">Muy bueno</span></div>
+        <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$95</span><span class="precio-noche"> / noche</span></div>
+        <a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSamana%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-hotel">Ver disponibilidad →</a>
+      </div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-img-wrap"><img src="https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Casa Marina Bay" loading="lazy"><span class="hotel-badge">📍 Samaná</span></div>
+      <div class="hotel-body">
+        <h3>Casa Marina Bay</h3>
+        <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">7.9</span> <span style="color:#888;font-size:0.78rem">Bueno</span></div>
+        <div class="hotel-precio"><span class="precio-desde">Desde </span><span class="precio-num">$70</span><span class="precio-noche"> / noche</span></div>
+        <a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSamana%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-hotel">Ver disponibilidad →</a>
+      </div>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:16px"><a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSamana%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-primary" style="font-size:0.85rem;padding:9px 20px">Ver todos los hoteles en Samaná →</a></p>
 
 <div class="cta-box">
 <p>🧳 Todo lo demás para tu viaje a Samaná:</p>
 <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
 <a href="https://aviasales.tpo.li/AIrUfvdu" target="_blank" rel="noopener sponsored" style="font-size:0.85rem;padding:10px 18px;margin-top:0">✈️ Vuelos baratos</a>
 <a href="https://getrentacar.tpo.li/gFUlN3Yl" target="_blank" rel="noopener sponsored" style="font-size:0.85rem;padding:10px 18px;margin-top:0">🚗 Alquilar carro</a>
-<a href="https://kiwitaxi.tpo.li/wOqfFo9t" target="_blank" rel="noopener sponsored" style="font-size:0.85rem;padding:10px 18px;margin-top:0">🚐 Traslado del aeropuerto</a>
-<a href="https://klook.tpo.li/yEpeRgNT" target="_blank" rel="noopener sponsored" style="font-size:0.85rem;padding:10px 18px;margin-top:0">🎟️ Tours (ballenas, El Limón)</a>
-<a href="https://yesim.tpo.li/weRmytbR" target="_blank" rel="noopener sponsored" style="font-size:0.85rem;padding:10px 18px;margin-top:0">📶 eSIM de datos</a>
+<a href="https://kiwitaxi.tpo.li/wOqfFo9t" target="_blank" rel="noopener sponsored" style="font-size:0.85rem;padding:10px 18px;margin-top:0">🚐 Traslado del aeropuerto</a><a href="https://yesim.tpo.li/weRmytbR" target="_blank" rel="noopener sponsored" style="font-size:0.85rem;padding:10px 18px;margin-top:0">📶 eSIM de datos</a>
 <a href="https://ektatraveling.tpo.li/Oiq1T6km" target="_blank" rel="noopener sponsored" style="font-size:0.85rem;padding:10px 18px;margin-top:0">🛡️ Seguro de viaje</a>
 </div>
 </div>
+
+  <div style="margin:30px 0">
+    <p style="font-weight:700;font-family:'Montserrat',sans-serif;color:var(--oscuro);margin-bottom:14px;text-align:center">🎟️ Tours y excursiones en Samaná</p>
+    <div class="tours-grid">
+      <div class="tour-card">
+        <div class="tour-icon-wrap">🐚</div>
+        <div class="tour-body">
+          <h3>🎟️ Tours (ballenas, El Limón)</h3>
+          <p>Reserva excursiones y tours en Samaná con cancelacion gratuita en la mayoria.</p>
+          <a href="https://klook.tpo.li/yEpeRgNT" target="_blank" rel="noopener sponsored" class="btn-primary" style="width:100%">Ver tours →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 <h2>Cuándo ir</h2>
 <p>Enero a marzo si lo tuyo son las ballenas — es también temporada seca, así que matas dos pájaros de un tiro. Abril a agosto tiene menos turistas y buenos precios, aunque sin ballenas. Evita septiembre-octubre si puedes — es temporada más lluviosa y de huracanes en esa zona de la isla.</p>
