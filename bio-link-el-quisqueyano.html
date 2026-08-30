@@ -262,5 +262,23 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
 
 </div>
 
+<script>
+  // Pasa la fuente (?src=facebook_bio | instagram_bio) al link de Quisqueya Travel
+  // como UTM, para medir en Analytics qué red social manda mas trafico real.
+  (function () {
+    try {
+      var src = new URLSearchParams(window.location.search).get('src');
+      if (!src) return;
+      var link = document.querySelector('a.link-card.featured[href*="quisqueyatravel.org"]');
+      if (!link) return;
+      var url = new URL(link.getAttribute('href'), window.location.href);
+      url.searchParams.set('utm_source', src);
+      url.searchParams.set('utm_medium', 'social');
+      url.searchParams.set('utm_campaign', 'link_hub');
+      link.setAttribute('href', url.toString());
+    } catch (e) { /* silencioso: nunca romper el bio-link por esto */ }
+  })();
+</script>
+
 </body>
 </html>
