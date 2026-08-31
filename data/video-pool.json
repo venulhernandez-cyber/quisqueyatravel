@@ -1,0 +1,26 @@
+{
+    "_readme": "Pool curado de videos reales de Pexels para las publicaciones automaticas de playa/hoteles. Las sesiones programadas (Blotato o Plan B) eligen el primer item de cada lista con used_at mas antiguo (o null), publican, y actualizan used_at a la fecha de hoy. Asi ya no dependen de Chrome/dispositivo para buscar video en vivo. Para variar el contenido, se puede agregar mas entradas a mano (buscar en pexels.com/search/videos, copiar el link con la mejor resolucion HD/1920 disponible).",
+    "destinos": [
+          { "slug": "punta-cana", "nombre": "Punta Cana", "guia": "guía-punta-cana.html", "video": "https://videos.pexels.com/video-files/14834660/14834660-uhd_2560_1440_60fps.mp4", "used_at": null },
+          { "slug": "santo-domingo", "nombre": "Santo Domingo", "guia": "guía-santo-domingo.html", "video": "https://videos.pexels.com/video-files/17404367/17404367-hd_1920_1080_24fps.mp4", "used_at": null },
+          { "slug": "puerto-plata", "nombre": "Puerto Plata", "guia": "guía-puerto-plata.html", "video": "https://videos.pexels.com/video-files/28856647/12496701_1920_1080_30fps.mp4", "used_at": null },
+          { "slug": "samana", "nombre": "Samaná", "guia": "guía-samana.html", "video": "https://videos.pexels.com/video-files/13722194/13722194-hd_1920_1080_24fps.mp4", "used_at": null },
+          { "slug": "la-romana", "nombre": "La Romana", "guia": "guía-la-romana.html", "video": "https://videos.pexels.com/video-files/28924698/12518543_1920_1080_24fps.mp4", "used_at": null },
+          { "slug": "las-terrenas", "nombre": "Las Terrenas", "guia": "guía-las-terrenas.html", "video": "https://videos.pexels.com/video-files/13831209/13831209-hd_1920_1080_60fps.mp4", "used_at": null },
+          { "slug": "jarabacoa", "nombre": "Jarabacoa", "guia": "guía-jarabacoa.html", "video": "https://videos.pexels.com/video-files/5735619/5735619-hd_1920_1080_30fps.mp4", "used_at": null },
+          { "slug": "constanza", "nombre": "Constanza", "guia": "guía-constanza.html", "video": "https://videos.pexels.com/video-files/9758665/9758665-hd_1920_1080_30fps.mp4", "used_at": null },
+          { "slug": "boca-chica", "nombre": "Boca Chica", "guia": "guía-boca-chica.html", "video": "https://videos.pexels.com/video-files/14834785/14834785-hd_1920_1080_60fps.mp4", "used_at": null },
+          { "slug": "barahona", "nombre": "Barahona", "guia": "guía-barahona.html", "video": "https://videos.pexels.com/video-files/13721003/13721003-hd_1920_1080_24fps.mp4", "used_at": null },
+          { "slug": "isla-saona", "nombre": "Isla Saona", "guia": "guía-isla-saona.html", "video": "https://videos.pexels.com/video-files/6003442/6003442-hd_1920_1080_25fps.mp4", "used_at": null },
+          { "slug": "bayahibe", "nombre": "Bayahíbe", "guia": "guía-bayahibe.html", "video": "https://videos.pexels.com/video-files/12021206/12021206-hd_1920_1080_30fps.mp4", "used_at": null },
+          { "slug": "santiago", "nombre": "Santiago de los Caballeros", "guia": "guía-santiago.html", "video": "https://videos.pexels.com/video-files/34369089/14559836_1920_1080_30fps.mp4", "used_at": null }
+    ],
+    "hoteles": [
+          { "slug": "live-aqua-punta-cana", "nombre": "Live Aqua Punta Cana - All Inclusive - Adults Only", "destino_slug": "punta-cana", "guia": "guía-punta-cana.html", "video": "https://videos.pexels.com/video-files/3576305/3576305-hd_1920_1080_25fps.mp4", "used_at": null },
+          { "slug": "catalonia-santo-domingo", "nombre": "Catalonia Santo Domingo", "destino_slug": "santo-domingo", "guia": "guía-santo-domingo.html", "video": "https://videos.pexels.com/video-files/34708748/14711715_1080_1920_60fps.mp4", "used_at": null },
+          { "slug": "casa-marina-sosua", "nombre": "Casa Marina Sosua, Trademark by Wyndham All Inclusive", "destino_slug": "puerto-plata", "guia": "guía-puerto-plata.html", "video": "https://videos.pexels.com/video-files/29461250/12681713_1080_1920_30fps.mp4", "used_at": null },
+          { "slug": "sunscape-dominicus-la-romana", "nombre": "Sunscape Dominicus La Romana - All Inclusive", "destino_slug": "la-romana", "guia": "guía-la-romana.html", "video": "https://videos.pexels.com/video-files/3576315/3576315-hd_1920_1080_25fps.mp4", "used_at": null },
+          { "slug": "viva-v-samana", "nombre": "Viva V Samana by Wyndham, A Trademark Adults All Inclusive", "destino_slug": "samana", "guia": "guía-samana.html", "video": "https://videos.pexels.com/video-files/3576352/3576352-hd_1920_1080_25fps.mp4", "used_at": null },
+          { "slug": "hodelpa-garden-court", "nombre": "Hodelpa Garden Court", "destino_slug": "santiago", "guia": "guía-santiago.html", "video": "https://videos.pexels.com/video-files/7236519/7236519-hd_1080_2048_25fps.mp4", "used_at": null }
+    ]
+}
