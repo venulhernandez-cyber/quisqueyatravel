@@ -50,3 +50,9 @@ reparacion.py
 # Secretos / credenciales (nunca deben subirse al repo)
 _interno/github-pat.txt
 _interno/pexels-api-key.txt
+
+# Excepcion: videos ya editados por el pipeline de HyperFrames (overlay
+# sobre clips de Pexels), servidos via raw.githubusercontent.com para
+# Blotato. Y el placeholder tecnico de la plantilla (no es contenido real).
+!data/rendered/*.mp4
+!automation/hyperframes-quisqueya/assets/placeholder.mp4
