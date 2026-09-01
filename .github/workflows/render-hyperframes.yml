@@ -1,0 +1,101 @@
+name: render-hyperframes
+
+# Descarga un video de Pexels, le pega overlays animados (destino/hotel, gancho,
+# CTA) con HyperFrames y sube el resultado a data/rendered/ para que quede
+# disponible en una URL publica estable (raw.githubusercontent.com), sin
+# necesitar la computadora de Venul ni depender del sandbox restringido donde
+# corren los triggers de Quisqueya Travel (ese sandbox no puede descargar de
+# Pexels directamente; este runner de GitHub si puede).
+#
+# Se dispara a mano o desde una sesion programada con:
+#   gh workflow run render-hyperframes.yml \
+#     -f video_url=https://videos.pexels.com/... \
+#     -f headline="Isla Saona" \
+#     -f subtitle="Un dia de playa que no vas a olvidar" \
+#     -f cta="Guia completa en el link de abajo" \
+#     -f output_name=turno_playa_isla-saona_20260901.mp4
+
+on:
+  workflow_dispatch:
+    inputs:
+      video_url:
+        description: "URL directa .mp4 del video de Pexels"
+        required: true
+        type: string
+      headline:
+        description: "Nombre del destino u hotel (texto grande)"
+        required: true
+        type: string
+      subtitle:
+        description: "Gancho / oferta (texto chico debajo del headline)"
+        required: true
+        type: string
+      cta:
+        description: "Texto de la barra de CTA al pie"
+        required: false
+        type: string
+        default: "Guía completa en el link de abajo"
+      output_name:
+        description: "Nombre de archivo final, ej: turno_playa_isla-saona_20260901.mp4"
+        required: true
+        type: string
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    defaults:
+      run:
+        working-directory: automation/hyperframes-quisqueya
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Descargar video de Pexels
+        run: |
+          curl -fsSL --retry 3 "${{ inputs.video_url }}" -o assets/source.mp4
+          ls -la assets/
+
+      - name: Preparar Chrome headless para HyperFrames
+        run: npx --yes hyperframes@0.8.22 browser ensure
+
+      - name: Preparar variables de la composicion
+        run: |
+          node -e '
+            const fs = require("fs");
+            fs.writeFileSync("vars.json", JSON.stringify({
+              videoSrc: "assets/source.mp4",
+              headline: process.env.HEADLINE,
+              subtitle: process.env.SUBTITLE,
+              cta: process.env.CTA
+            }));
+          '
+        env:
+          HEADLINE: ${{ inputs.headline }}
+          SUBTITLE: ${{ inputs.subtitle }}
+          CTA: ${{ inputs.cta }}
+
+      - name: Renderizar composicion
+        run: |
+          npx --yes hyperframes@0.8.22 render . \
+            -o "${{ github.workspace }}/rendered-output.mp4" \
+            --variables-file vars.json \
+            --strict-variables
+
+      - name: Subir resultado al repo
+        run: |
+          mkdir -p "${{ github.workspace }}/data/rendered"
+          cp "${{ github.workspace }}/rendered-output.mp4" "${{ github.workspace }}/data/rendered/${{ inputs.output_name }}"
+          cd "${{ github.workspace }}"
+          git config user.name "quisqueya-render-bot"
+          git config user.email "render-bot@quisqueyatravel.org"
+          git add "data/rendered/${{ inputs.output_name }}"
+          git commit -m "render: ${{ inputs.output_name }}"
+          git push
