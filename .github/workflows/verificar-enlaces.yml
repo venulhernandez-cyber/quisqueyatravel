@@ -1,0 +1,29 @@
+name: Verificar Enlaces
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 10 * * *"
+
+jobs:
+  linkChecker:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --root-dir "$(pwd)" --verbose --no-progress './**/*.html'
+          fail: false
+
+      - name: Crear Issue si hay enlaces rotos
+        if: steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "Reporte de enlaces rotos"
+          content-filepath: ./lychee/out.md
+          labels: enlaces-rotos, automatizado
