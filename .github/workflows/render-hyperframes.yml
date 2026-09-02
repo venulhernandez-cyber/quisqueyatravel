@@ -59,8 +59,15 @@ jobs:
           node-version: 22
 
       - name: Descargar video de Pexels
+        # FIX 2026-09-02: el CDN de Pexels devuelve 403 a peticiones curl "desnudas"
+        # (sin User-Agent/Referer de navegador) — asi fallo el intento manual de hoy
+        # (run #1, exit code 22). Se agregan headers de navegador para que el CDN
+        # sirva el archivo igual que lo haria a un visitante normal.
         run: |
-          curl -fsSL --retry 3 "${{ inputs.video_url }}" -o assets/source.mp4
+          curl -fsSL --retry 3 \
+            -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" \
+            -e "https://www.pexels.com/" \
+            "${{ inputs.video_url }}" -o assets/source.mp4
           ls -la assets/
 
       - name: Preparar Chrome headless para HyperFrames
