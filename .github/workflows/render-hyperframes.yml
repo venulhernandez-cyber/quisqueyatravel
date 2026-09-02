@@ -58,17 +58,47 @@ jobs:
         with:
           node-version: 22
 
-      - name: Descargar video de Pexels
-        # FIX 2026-09-02: el CDN de Pexels devuelve 403 a peticiones curl "desnudas"
-        # (sin User-Agent/Referer de navegador) — asi fallo el intento manual de hoy
-        # (run #1, exit code 22). Se agregan headers de navegador para que el CDN
-        # sirva el archivo igual que lo haria a un visitante normal.
+      - name: Instalar Playwright para descargar el video
+        # FIX 2026-09-02, intento 2: curl con headers de navegador SIGUE dando 403
+        # (run #2) — Pexels bloquea por IP de datacenter / fingerprint TLS, no solo
+        # por headers. La unica forma que ya probamos que funciona de verdad es
+        # descargar el binario con un fetch() ejecutado DENTRO de una pagina real de
+        # pexels.com (asi lo hizo Claude in Chrome a mano el 1 sep). Replicamos eso
+        # aqui con un navegador real (Playwright) en vez de curl.
         run: |
-          curl -fsSL --retry 3 \
-            -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" \
-            -e "https://www.pexels.com/" \
-            "${{ inputs.video_url }}" -o assets/source.mp4
+          npm install --no-save playwright@1.48.0
+          npx --yes playwright@1.48.0 install --with-deps chromium
+
+      - name: Descargar video de Pexels (navegador real)
+        run: |
+          node -e '
+            const fs = require("fs");
+            const { chromium } = require("playwright");
+            (async () => {
+              const browser = await chromium.launch();
+              const page = await browser.newPage({
+                userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+              });
+              await page.goto("https://www.pexels.com/", { waitUntil: "domcontentloaded", timeout: 30000 });
+              const base64 = await page.evaluate(async (url) => {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error("fetch fallo: HTTP " + res.status);
+                const buf = await res.arrayBuffer();
+                const bytes = new Uint8Array(buf);
+                let binary = "";
+                const chunk = 0x8000;
+                for (let i = 0; i < bytes.length; i += chunk) {
+                  binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunk));
+                }
+                return btoa(binary);
+              }, process.env.VIDEO_URL);
+              fs.writeFileSync("assets/source.mp4", Buffer.from(base64, "base64"));
+              await browser.close();
+            })().catch((e) => { console.error(e); process.exit(1); });
+          '
           ls -la assets/
+        env:
+          VIDEO_URL: ${{ inputs.video_url }}
 
       - name: Preparar Chrome headless para HyperFrames
         run: npx --yes hyperframes@0.8.22 browser ensure
