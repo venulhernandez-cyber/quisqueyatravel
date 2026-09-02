@@ -11,7 +11,7 @@
             flex-direction: column;
             align-items: flex-end;
         }
-
+        
         #qt-widget-bubble {
             width: 60px;
             height: 60px;
@@ -322,12 +322,12 @@
                 </div>
                 <button class="qt-close-btn" id="qt-close-btn">&times;</button>
             </div>
-
+            
             <div id="qt-chat-messages">
                 <div class="qt-msg qt-msg-agent">
                     ¡Hola! 👋 Bienvenido a Quisqueya Travel. ¿A qué parte de República Dominicana te gustaría viajar? Estoy aquí para ayudarte con vuelos, hoteles y excursiones.
                 </div>
-
+                
                 <div class="qt-typing-container qt-hidden" id="qt-widget-typing">
                     <div class="qt-typing-bubble">
                         <div class="qt-dot"></div>
@@ -372,6 +372,8 @@
 
     // Enviar Mensajes
     let fallbackToWhatsApp = false;
+    let whatsappCtaShown = false;
+    let userMessageCount = 0;
 
     async function sendMessage() {
         const text = inputEl.value.trim();
@@ -382,6 +384,7 @@
         // Añadir mensaje de usuario al DOM e historial
         appendMessage(text, 'user');
         chatHistory.push({ role: 'user', text: text });
+        userMessageCount++;
 
         // Mostrar indicador de escritura
         showTyping(true);
@@ -396,10 +399,31 @@
 
         // FIX 2026-09-02: si el server pidió fallback a WhatsApp, mostramos un
         // botón real en vez de dejar el mensaje de texto como único recurso.
-        if (fallbackToWhatsApp) appendWhatsAppButton();
+        if (fallbackToWhatsApp) {
+            whatsappCtaShown = true;
+            appendWhatsAppButton();
+        } else if (userMessageCount >= 3 && !whatsappCtaShown) {
+            // MEJORA 2026-09-02: si ya van 3 mensajes del visitante y todavia
+            // no se cerro el dato de contacto, movemos la conversacion a
+            // WhatsApp en vez de dejar el lead esperando en el chat web (que
+            // solo Venul ve si entra al panel admin). WhatsApp llega directo
+            // a su telefono.
+            whatsappCtaShown = true;
+            appendMessage('Para darte un presupuesto exacto y más rápido, ¿seguimos por WhatsApp? Ahí te respondo directo. 🙌', 'agent');
+            appendWhatsAppButton();
+        }
 
-        // Extracción de leads en background
-        extractLeadBackground();
+        // Extracción de leads en background. Si el analisis detecta interes
+        // alto o que ya dejo contacto (email/telefono), es un lead caliente:
+        // ofrecemos WhatsApp de inmediato aunque no se hayan cumplido los 3
+        // mensajes de arriba.
+        extractLeadBackground().then((extracted) => {
+            if (extracted && !whatsappCtaShown && (extracted.interes === 'alto' || extracted.email || extracted.telefono)) {
+                whatsappCtaShown = true;
+                appendMessage('¡Genial! Para reservarte esto rápido, sigamos la conversación por WhatsApp. 📲', 'agent');
+                appendWhatsAppButton();
+            }
+        });
     }
 
     function appendWhatsAppButton() {
@@ -490,8 +514,10 @@ ${kb.faqs || ''}`;
     }
 
     // Extractor de Leads en segundo plano (para actualizar localStorage y que el Panel lo capte en tiempo real)
+    // Devuelve el objeto extraido (o null) para que sendMessage() pueda decidir
+    // si ofrece WhatsApp a un lead caliente, sin bloquear el chat mientras esto corre.
     async function extractLeadBackground() {
-        if (chatHistory.length < 2) return;
+        if (chatHistory.length < 2) return null;
 
         const promptText = `Analiza la conversación y extrae la información en un JSON plano con los campos estrictos:
 - "nombre" (si lo menciona, o vacío)
@@ -515,9 +541,9 @@ ${chatHistory.map(m => `${m.role === 'user' ? 'Cliente' : 'Asistente'}: ${m.text
                 })
             });
 
-            if (!res.ok) return;
+            if (!res.ok) return null;
             const data = await res.json();
-            if (!data.text) return;
+            if (!data.text) return null;
             const extracted = JSON.parse(data.text.trim());
 
             if (extracted.nombre || extracted.email || extracted.telefono || extracted.destino) {
@@ -529,9 +555,12 @@ ${chatHistory.map(m => `${m.role === 'user' ? 'Cliente' : 'Asistente'}: ${m.text
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(extracted)
                 });
+                return extracted;
             }
+            return null;
         } catch (e) {
             console.warn("Widget background lead extraction failed", e);
+            return null;
         }
     }
 
