@@ -70,36 +70,35 @@ jobs:
           npx --yes playwright@1.48.0 install --with-deps chromium
 
       - name: Descargar video de Pexels (navegador real)
-        # FIX 2026-09-02, intento 3: el fetch() DENTRO de la pagina (intento 2)
-        # fallo con "Failed to fetch" — es CORS del navegador (videos.pexels.com
-        # es otro origen y no manda cabeceras CORS para fetch), no un bloqueo de
-        # Pexels. En vez de pedir el archivo con fetch(), navegamos el propio
-        # Chromium real directamente a la URL del video (igual que si Venul la
-        # pegara en la barra de direcciones) y capturamos la respuesta cruda con
-        # waitForResponse — eso no pasa por CORS y usa el motor de red real de
-        # Chrome (el mismo metodo que funciono a mano el 1 sep).
+        # FIX 2026-09-02, intento 4: el intento 3 (waitForResponse + response.body())
+        # ya NO dio 403 (la URL de video se acepta bien desde el runner de GitHub —
+        # el 403 de los intentos 1 y 2 era por una URL de prueba reusada/gastada,
+        # NO por bloqueo a la IP de GitHub) pero fallo con "Protocol error
+        # (Network.getResponseBody): No resource with given identifier found":
+        # Chromium trata la navegacion directa a un .mp4 como una DESCARGA nativa
+        # y aborta el "documento" antes de que podamos leer el body por CDP.
+        # Fix: activar acceptDownloads en el contexto y capturar el archivo con el
+        # evento download de Playwright (la forma correcta de descargar un archivo
+        # navegando directo a su URL), en vez de leer response.body().
         run: |
           node -e '
             const fs = require("fs");
             const { chromium } = require("playwright");
             (async () => {
               const browser = await chromium.launch();
-              const page = await browser.newPage({
+              const context = await browser.newContext({
+                acceptDownloads: true,
                 userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
               });
+              const page = await context.newPage();
               await page.goto("https://www.pexels.com/", { waitUntil: "domcontentloaded", timeout: 30000 });
               const videoUrl = process.env.VIDEO_URL;
-              const responsePromise = page.waitForResponse(
-                (r) => r.url() === videoUrl,
-                { timeout: 60000 }
-              );
+              const downloadPromise = page.waitForEvent("download", { timeout: 60000 });
               await page
                 .goto(videoUrl, { referer: "https://www.pexels.com/", timeout: 60000 })
                 .catch(() => {});
-              const response = await responsePromise;
-              if (!response.ok()) throw new Error("descarga fallo: HTTP " + response.status());
-              const buffer = await response.body();
-              fs.writeFileSync("assets/source.mp4", buffer);
+              const download = await downloadPromise;
+              await download.saveAs("assets/source.mp4");
               await browser.close();
             })().catch((e) => { console.error(e); process.exit(1); });
           '
