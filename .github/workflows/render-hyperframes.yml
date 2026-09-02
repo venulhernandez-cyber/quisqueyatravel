@@ -70,6 +70,14 @@ jobs:
           npx --yes playwright@1.48.0 install --with-deps chromium
 
       - name: Descargar video de Pexels (navegador real)
+        # FIX 2026-09-02, intento 3: el fetch() DENTRO de la pagina (intento 2)
+        # fallo con "Failed to fetch" — es CORS del navegador (videos.pexels.com
+        # es otro origen y no manda cabeceras CORS para fetch), no un bloqueo de
+        # Pexels. En vez de pedir el archivo con fetch(), navegamos el propio
+        # Chromium real directamente a la URL del video (igual que si Venul la
+        # pegara en la barra de direcciones) y capturamos la respuesta cruda con
+        # waitForResponse — eso no pasa por CORS y usa el motor de red real de
+        # Chrome (el mismo metodo que funciono a mano el 1 sep).
         run: |
           node -e '
             const fs = require("fs");
@@ -80,19 +88,18 @@ jobs:
                 userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
               });
               await page.goto("https://www.pexels.com/", { waitUntil: "domcontentloaded", timeout: 30000 });
-              const base64 = await page.evaluate(async (url) => {
-                const res = await fetch(url);
-                if (!res.ok) throw new Error("fetch fallo: HTTP " + res.status);
-                const buf = await res.arrayBuffer();
-                const bytes = new Uint8Array(buf);
-                let binary = "";
-                const chunk = 0x8000;
-                for (let i = 0; i < bytes.length; i += chunk) {
-                  binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunk));
-                }
-                return btoa(binary);
-              }, process.env.VIDEO_URL);
-              fs.writeFileSync("assets/source.mp4", Buffer.from(base64, "base64"));
+              const videoUrl = process.env.VIDEO_URL;
+              const responsePromise = page.waitForResponse(
+                (r) => r.url() === videoUrl,
+                { timeout: 60000 }
+              );
+              await page
+                .goto(videoUrl, { referer: "https://www.pexels.com/", timeout: 60000 })
+                .catch(() => {});
+              const response = await responsePromise;
+              if (!response.ok()) throw new Error("descarga fallo: HTTP " + response.status());
+              const buffer = await response.body();
+              fs.writeFileSync("assets/source.mp4", buffer);
               await browser.close();
             })().catch((e) => { console.error(e); process.exit(1); });
           '
