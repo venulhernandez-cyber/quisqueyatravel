@@ -11,7 +11,7 @@
             flex-direction: column;
             align-items: flex-end;
         }
-        
+
         #qt-widget-bubble {
             width: 60px;
             height: 60px;
@@ -322,12 +322,12 @@
                 </div>
                 <button class="qt-close-btn" id="qt-close-btn">&times;</button>
             </div>
-            
+
             <div id="qt-chat-messages">
                 <div class="qt-msg qt-msg-agent">
                     ¡Hola! 👋 Bienvenido a Quisqueya Travel. ¿A qué parte de República Dominicana te gustaría viajar? Estoy aquí para ayudarte con vuelos, hoteles y excursiones.
                 </div>
-                
+
                 <div class="qt-typing-container qt-hidden" id="qt-widget-typing">
                     <div class="qt-typing-bubble">
                         <div class="qt-dot"></div>
@@ -371,6 +371,8 @@
     });
 
     // Enviar Mensajes
+    let fallbackToWhatsApp = false;
+
     async function sendMessage() {
         const text = inputEl.value.trim();
         if (!text) return;
@@ -385,14 +387,31 @@
         showTyping(true);
 
         // Llamar a Gemini API
+        fallbackToWhatsApp = false;
         const responseText = await getGeminiResponse();
 
         showTyping(false);
         appendMessage(responseText, 'agent');
         chatHistory.push({ role: 'model', text: responseText });
 
+        // FIX 2026-09-02: si el server pidió fallback a WhatsApp, mostramos un
+        // botón real en vez de dejar el mensaje de texto como único recurso.
+        if (fallbackToWhatsApp) appendWhatsAppButton();
+
         // Extracción de leads en background
         extractLeadBackground();
+    }
+
+    function appendWhatsAppButton() {
+        const wrap = document.createElement('div');
+        wrap.style.alignSelf = 'flex-start';
+        wrap.style.margin = '2px 0 4px 4px';
+        wrap.innerHTML = '<a href="/whatsapp" target="_blank" rel="noopener" ' +
+            'style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#0d1222;' +
+            'font-weight:700;font-size:12.5px;padding:9px 14px;border-radius:20px;text-decoration:none;">' +
+            '💬 Seguir por WhatsApp</a>';
+        messagesEl.insertBefore(wrap, typingEl);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
     }
 
     function escapeHtml(text) {
@@ -452,11 +471,21 @@ ${kb.faqs || ''}`;
             });
 
             const data = await res.json();
-            if (!res.ok || !data.text) throw new Error(data.error || ("HTTP " + res.status));
+            if (!res.ok || !data.text) {
+                const err = new Error(data.error || ("HTTP " + res.status));
+                err.fallback = data.fallback;
+                throw err;
+            }
             return data.text;
         } catch (e) {
             console.error("Widget API Error:", e);
-            return "Lo siento, tengo dificultades técnicas para procesar tu consulta en este momento. Por favor, reintenta en un momento.";
+            // FIX 2026-09-02: antes esto era un callejon sin salida (el chat
+            // pedia "reintenta en un momento" y ahi se quedaba el visitante).
+            // Si el servidor marco fallback:'whatsapp' (Gemini sigue fallando
+            // tras reintentar), mostramos un boton directo a /whatsapp — el
+            // numero real nunca se expone aqui, la ruta ya lo maneja server-side.
+            fallbackToWhatsApp = e.fallback === 'whatsapp';
+            return "¡Uy, se me trabó el chat justo ahora! 😅 Para no hacerte esperar, escríbeme directo por WhatsApp y seguimos la conversación ahí mismo.";
         }
     }
 
