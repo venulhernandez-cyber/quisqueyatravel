@@ -371,6 +371,10 @@
     });
 
     // Enviar Mensajes
+    let fallbackToWhatsApp = false;
+    let whatsappCtaShown = false;
+    let userMessageCount = 0;
+
     async function sendMessage() {
         const text = inputEl.value.trim();
         if (!text) return;
@@ -380,19 +384,58 @@
         // Añadir mensaje de usuario al DOM e historial
         appendMessage(text, 'user');
         chatHistory.push({ role: 'user', text: text });
+        userMessageCount++;
 
         // Mostrar indicador de escritura
         showTyping(true);
 
         // Llamar a Gemini API
+        fallbackToWhatsApp = false;
         const responseText = await getGeminiResponse();
 
         showTyping(false);
         appendMessage(responseText, 'agent');
         chatHistory.push({ role: 'model', text: responseText });
 
-        // Extracción de leads en background
-        extractLeadBackground();
+        // FIX 2026-09-02: si el server pidió fallback a WhatsApp, mostramos un
+        // botón real en vez de dejar el mensaje de texto como único recurso.
+        if (fallbackToWhatsApp) {
+            whatsappCtaShown = true;
+            appendWhatsAppButton();
+        } else if (userMessageCount >= 3 && !whatsappCtaShown) {
+            // MEJORA 2026-09-02: si ya van 3 mensajes del visitante y todavia
+            // no se cerro el dato de contacto, movemos la conversacion a
+            // WhatsApp en vez de dejar el lead esperando en el chat web (que
+            // solo Venul ve si entra al panel admin). WhatsApp llega directo
+            // a su telefono.
+            whatsappCtaShown = true;
+            appendMessage('Para darte un presupuesto exacto y más rápido, ¿seguimos por WhatsApp? Ahí te respondo directo. 🙌', 'agent');
+            appendWhatsAppButton();
+        }
+
+        // Extracción de leads en background. Si el analisis detecta interes
+        // alto o que ya dejo contacto (email/telefono), es un lead caliente:
+        // ofrecemos WhatsApp de inmediato aunque no se hayan cumplido los 3
+        // mensajes de arriba.
+        extractLeadBackground().then((extracted) => {
+            if (extracted && !whatsappCtaShown && (extracted.interes === 'alto' || extracted.email || extracted.telefono)) {
+                whatsappCtaShown = true;
+                appendMessage('¡Genial! Para reservarte esto rápido, sigamos la conversación por WhatsApp. 📲', 'agent');
+                appendWhatsAppButton();
+            }
+        });
+    }
+
+    function appendWhatsAppButton() {
+        const wrap = document.createElement('div');
+        wrap.style.alignSelf = 'flex-start';
+        wrap.style.margin = '2px 0 4px 4px';
+        wrap.innerHTML = '<a href="/whatsapp" target="_blank" rel="noopener" ' +
+            'style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#0d1222;' +
+            'font-weight:700;font-size:12.5px;padding:9px 14px;border-radius:20px;text-decoration:none;">' +
+            '💬 Seguir por WhatsApp</a>';
+        messagesEl.insertBefore(wrap, typingEl);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
     }
 
     function escapeHtml(text) {
@@ -452,17 +495,29 @@ ${kb.faqs || ''}`;
             });
 
             const data = await res.json();
-            if (!res.ok || !data.text) throw new Error(data.error || ("HTTP " + res.status));
+            if (!res.ok || !data.text) {
+                const err = new Error(data.error || ("HTTP " + res.status));
+                err.fallback = data.fallback;
+                throw err;
+            }
             return data.text;
         } catch (e) {
             console.error("Widget API Error:", e);
-            return "Lo siento, tengo dificultades técnicas para procesar tu consulta en este momento. Por favor, reintenta en un momento.";
+            // FIX 2026-09-02: antes esto era un callejon sin salida (el chat
+            // pedia "reintenta en un momento" y ahi se quedaba el visitante).
+            // Si el servidor marco fallback:'whatsapp' (Gemini sigue fallando
+            // tras reintentar), mostramos un boton directo a /whatsapp — el
+            // numero real nunca se expone aqui, la ruta ya lo maneja server-side.
+            fallbackToWhatsApp = e.fallback === 'whatsapp';
+            return "¡Uy, se me trabó el chat justo ahora! 😅 Para no hacerte esperar, escríbeme directo por WhatsApp y seguimos la conversación ahí mismo.";
         }
     }
 
     // Extractor de Leads en segundo plano (para actualizar localStorage y que el Panel lo capte en tiempo real)
+    // Devuelve el objeto extraido (o null) para que sendMessage() pueda decidir
+    // si ofrece WhatsApp a un lead caliente, sin bloquear el chat mientras esto corre.
     async function extractLeadBackground() {
-        if (chatHistory.length < 2) return;
+        if (chatHistory.length < 2) return null;
 
         const promptText = `Analiza la conversación y extrae la información en un JSON plano con los campos estrictos:
 - "nombre" (si lo menciona, o vacío)
@@ -486,9 +541,9 @@ ${chatHistory.map(m => `${m.role === 'user' ? 'Cliente' : 'Asistente'}: ${m.text
                 })
             });
 
-            if (!res.ok) return;
+            if (!res.ok) return null;
             const data = await res.json();
-            if (!data.text) return;
+            if (!data.text) return null;
             const extracted = JSON.parse(data.text.trim());
 
             if (extracted.nombre || extracted.email || extracted.telefono || extracted.destino) {
@@ -500,9 +555,12 @@ ${chatHistory.map(m => `${m.role === 'user' ? 'Cliente' : 'Asistente'}: ${m.text
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(extracted)
                 });
+                return extracted;
             }
+            return null;
         } catch (e) {
             console.warn("Widget background lead extraction failed", e);
+            return null;
         }
     }
 

@@ -1,0 +1,149 @@
+name: render-hyperframes
+
+# Descarga un video de Pexels, le pega overlays animados (destino/hotel, gancho,
+# CTA) con HyperFrames y sube el resultado a data/rendered/ para que quede
+# disponible en una URL publica estable (raw.githubusercontent.com), sin
+# necesitar la computadora de Venul ni depender del sandbox restringido donde
+# corren los triggers de Quisqueya Travel (ese sandbox no puede descargar de
+# Pexels directamente; este runner de GitHub si puede).
+#
+# Se dispara a mano o desde una sesion programada con:
+#   gh workflow run render-hyperframes.yml \
+#     -f video_url=https://videos.pexels.com/... \
+#     -f headline="Isla Saona" \
+#     -f subtitle="Un dia de playa que no vas a olvidar" \
+#     -f cta="Guia completa en el link de abajo" \
+#     -f output_name=turno_playa_isla-saona_20260901.mp4
+
+on:
+  workflow_dispatch:
+    inputs:
+      video_url:
+        description: "URL directa .mp4 del video de Pexels"
+        required: true
+        type: string
+      headline:
+        description: "Nombre del destino u hotel (texto grande)"
+        required: true
+        type: string
+      subtitle:
+        description: "Gancho / oferta (texto chico debajo del headline)"
+        required: true
+        type: string
+      cta:
+        description: "Texto de la barra de CTA al pie"
+        required: false
+        type: string
+        default: "Guía completa en el link de abajo"
+      output_name:
+        description: "Nombre de archivo final, ej: turno_playa_isla-saona_20260901.mp4"
+        required: true
+        type: string
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    defaults:
+      run:
+        working-directory: automation/hyperframes-quisqueya
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Instalar Playwright para descargar el video
+        # FIX 2026-09-02, intento 2: curl con headers de navegador SIGUE dando 403
+        # (run #2) — Pexels bloquea por IP de datacenter / fingerprint TLS, no solo
+        # por headers. La unica forma que ya probamos que funciona de verdad es
+        # descargar el binario con un fetch() ejecutado DENTRO de una pagina real de
+        # pexels.com (asi lo hizo Claude in Chrome a mano el 1 sep). Replicamos eso
+        # aqui con un navegador real (Playwright) en vez de curl.
+        run: |
+          npm install --no-save playwright@1.48.0
+          npx --yes playwright@1.48.0 install --with-deps chromium
+
+      - name: Descargar video de Pexels (navegador real)
+        # FIX 2026-09-02, intento 4: el intento 3 (waitForResponse + response.body())
+        # ya NO dio 403 (la URL de video se acepta bien desde el runner de GitHub —
+        # el 403 de los intentos 1 y 2 era por una URL de prueba reusada/gastada,
+        # NO por bloqueo a la IP de GitHub) pero fallo con "Protocol error
+        # (Network.getResponseBody): No resource with given identifier found":
+        # Chromium trata la navegacion directa a un .mp4 como una DESCARGA nativa
+        # y aborta el "documento" antes de que podamos leer el body por CDP.
+        # Fix: activar acceptDownloads en el contexto y capturar el archivo con el
+        # evento download de Playwright (la forma correcta de descargar un archivo
+        # navegando directo a su URL), en vez de leer response.body().
+        run: |
+          node -e '
+            const fs = require("fs");
+            const { chromium } = require("playwright");
+            (async () => {
+              const browser = await chromium.launch();
+              const context = await browser.newContext({
+                acceptDownloads: true,
+                userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+              });
+              const page = await context.newPage();
+              await page.goto("https://www.pexels.com/", { waitUntil: "domcontentloaded", timeout: 30000 });
+              const videoUrl = process.env.VIDEO_URL;
+              const downloadPromise = page.waitForEvent("download", { timeout: 60000 });
+              await page
+                .goto(videoUrl, { referer: "https://www.pexels.com/", timeout: 60000 })
+                .catch(() => {});
+              const download = await downloadPromise;
+              await download.saveAs("assets/source.mp4");
+              await browser.close();
+            })().catch((e) => { console.error(e); process.exit(1); });
+          '
+          ls -la assets/
+        env:
+          VIDEO_URL: ${{ inputs.video_url }}
+
+      - name: Instalar FFmpeg
+        # FIX 2026-09-02: HyperFrames necesita ffmpeg/ffprobe en el PATH para
+        # codificar el video final — el runner de GitHub no lo trae por defecto.
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Preparar Chrome headless para HyperFrames
+        run: npx --yes hyperframes@0.8.22 browser ensure
+
+      - name: Preparar variables de la composicion
+        run: |
+          node -e '
+            const fs = require("fs");
+            fs.writeFileSync("vars.json", JSON.stringify({
+              videoSrc: "assets/source.mp4",
+              headline: process.env.HEADLINE,
+              subtitle: process.env.SUBTITLE,
+              cta: process.env.CTA
+            }));
+          '
+        env:
+          HEADLINE: ${{ inputs.headline }}
+          SUBTITLE: ${{ inputs.subtitle }}
+          CTA: ${{ inputs.cta }}
+
+      - name: Renderizar composicion
+        run: |
+          npx --yes hyperframes@0.8.22 render . \
+            -o "${{ github.workspace }}/rendered-output.mp4" \
+            --variables-file vars.json \
+            --strict-variables
+
+      - name: Subir resultado al repo
+        run: |
+          mkdir -p "${{ github.workspace }}/data/rendered"
+          cp "${{ github.workspace }}/rendered-output.mp4" "${{ github.workspace }}/data/rendered/${{ inputs.output_name }}"
+          cd "${{ github.workspace }}"
+          git config user.name "quisqueya-render-bot"
+          git config user.email "render-bot@quisqueyatravel.org"
+          git add "data/rendered/${{ inputs.output_name }}"
+          git commit -m "render: ${{ inputs.output_name }}"
+          git push

@@ -65,7 +65,14 @@ export async function onRequestPost(context) {
         const text = await callGemini({ env, safeContents, systemInstruction, temperature, wantsJson });
         return json({ text });
   } catch (err) {
-        return json({ error: `Gemini falló: ${err.message}` }, 502);
+        // FIX 2026-09-02: si Gemini sigue fallando tras el reintento (ej. 429
+        // sostenido o caida del servicio), le decimos al widget que ofrezca
+        // WhatsApp como salida — para no perder el lead solo porque la IA
+        // esta ocupada. `fallback: 'whatsapp'` lo consume js/widget.js.
+        return json(
+          { error: `Gemini falló: ${err.message}`, fallback: 'whatsapp' },
+                502
+              );
   }
 }
 
@@ -80,19 +87,37 @@ async function callGemini({ env, safeContents, systemInstruction, temperature, w
     };
 
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${env.GEMINI_API_KEY}`;
-
-  const res = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-                contents,
-                ...(systemInstruction ? { systemInstruction: { parts: [{ text: systemInstruction }] } } : {}),
-                generationConfig,
-        }),
+  const payload = JSON.stringify({
+        contents,
+        ...(systemInstruction ? { systemInstruction: { parts: [{ text: systemInstruction }] } } : {}),
+        generationConfig,
   });
 
+  // FIX 2026-09-02: el tier gratis de Gemini tiene un limite de peticiones por
+  // minuto bastante bajo. Cuando el sitio recibe varias visitas seguidas (ej.
+  // trafico de un anuncio o un post viral), Gemini responde 429 y, antes de
+  // este fix, el widget mostraba de una vez "tengo dificultades tecnicas" sin
+  // reintentar — un cliente real perdido en pleno chat de venta. Ahora se
+  // reintenta una vez tras una pausa corta antes de rendirse.
+  let res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload,
+  });
+
+  if (res.status === 429) {
+        await new Promise((r) => setTimeout(r, 900));
+        res = await fetch(url, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: payload,
+        });
+  }
+
   if (!res.ok) {
-        throw new Error(`estado ${res.status}`);
+        const err = new Error(`estado ${res.status}`);
+        err.status = res.status;
+        throw err;
   }
 
   const data = await res.json();
