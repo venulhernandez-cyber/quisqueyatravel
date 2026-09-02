@@ -1,5 +1,45 @@
 # Quisqueya Travel — Memoria de Proyecto
 
+## 🟢 SESIÓN — 2026-09-02 (10:10 EDT): corrida de `quisqueya-travel-video-diario` (turno PLAYAS) — publicado sin problemas, destino Boca Chica
+
+Corrida programada del turno de PLAYAS (10:10 EDT cae en la ventana 8am–14h). Blotato funcionó
+sin bloqueos esta vez (contraste con las corridas de 21–24 ago). Verificado primero con
+`blotato_list_posts` (ventana 2026-09-02T04:00:00Z en adelante, límite EDT medianoche) que el
+turno de playas de HOY no se había publicado — el último post fue el de HOTELES de anoche
+(Hodelpa Caribe Colonial, Santo Domingo, 2026-09-01 ~21:30 EDT). Sin riesgo de duplicado.
+
+- **Destino elegido:** Boca Chica — revisando los últimos ~15 posts publicados (20 ago en
+  adelante) no aparecía este destino, y sí tiene guía propia (`guia-boca-chica.html`). Evitados:
+  Isla Saona (1 sep), Puerto Plata (28 y 26 ago), Punta Cana (30 y 27 ago), Bayahíbe (26 ago),
+  Samaná (31 y 20 ago), Barahona (20 ago), La Romana (30 ago).
+- **Video real de Pexels** — id **14834785** ("A Beautiful Beach Under the Blue Sky and White
+  Clouds", `14834785-hd_1920_1080_60fps.mp4`), tomado del pool curado en `data/video-pool.json`
+  (entrada `boca-chica`, `used_at` estaba en `null`). Cero IA. El sandbox no tiene salida de red
+  hacia `videos.pexels.com`, así que se descargó vía `fetch()` en Claude in Chrome (25.6MB,
+  status 200) y se re-hospedó con `blotato_create_presigned_upload_url` + `PUT` directo desde el
+  navegador al `presignedUrl` — **nunca se usó el link crudo de `videos.pexels.com` como
+  mediaUrl**, siguiendo la instrucción de la tarea (el incidente del 15-ago con 8 posts caídos
+  por 403 fue justo por saltarse este paso).
+  - mediaUrl final (Blotato, `database.blotato.io`): `.../1033c1c6-cbf1-4ac5-aa61-b0b28a9be0d8.mp4`
+- **Copy** (voz de Venul, gancho + emojis + CTA a comentar/compartir): playa de agua tranquila y
+  poco profunda a 30 min de Santo Domingo, cerca del aeropuerto de Las Américas, "la playa de los
+  dominicanos de verdad". Facebook con campo `link` nativo a la guía; Instagram con "link en mi
+  bio" + hashtags.
+- **Publicado en ambas cuentas, confirmado con `blotato_get_post_status`:**
+  - Facebook (pageId 2061443547418301, "El Quisqueyano en nyc"): published →
+    https://facebook.com/reel/1585267622994832/
+  - Instagram (@venulh, accountId 44084): published →
+    https://www.instagram.com/reel/DcybUjDEdtq/
+
+**Pendiente recordatorio de infraestructura (sin cambios, no bloqueó esta corrida):** la carpeta
+`C:\Users\venul\OneDrive\Documentos\Claude\Scheduled\quisqueya-travel-diario\` (`config.md` /
+`registro-temas.md`, fuente de verdad según el SKILL.md de la tarea) sigue sin estar montada en
+esta sesión — mismo problema documentado desde el 16 de agosto. Este archivo (`quisqueya-travel-memoria.md`)
+sigue funcionando como registro real. Vale la pena que Venul actualice el SKILL.md de la tarea
+programada para apuntar aquí en vez de a esa carpeta ausente.
+
+---
+
 ## 🟢 SESIÓN — 2026-08-28 (10:10 EDT): corrida de `quisqueya-travel-video-diario` (turno PLAYAS) — SIN ACCIÓN, turno de hoy ya estaba publicado
 
 Corrida programada del turno de PLAYAS (10:10 EDT cae en la ventana 8am–14h). Antes de buscar

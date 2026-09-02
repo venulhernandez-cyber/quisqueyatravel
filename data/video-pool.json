@@ -9,7 +9,7 @@
           { "slug": "las-terrenas", "nombre": "Las Terrenas", "guia": "guía-las-terrenas.html", "video": "https://videos.pexels.com/video-files/13831209/13831209-hd_1920_1080_60fps.mp4", "used_at": null },
           { "slug": "jarabacoa", "nombre": "Jarabacoa", "guia": "guía-jarabacoa.html", "video": "https://videos.pexels.com/video-files/5735619/5735619-hd_1920_1080_30fps.mp4", "used_at": null },
           { "slug": "constanza", "nombre": "Constanza", "guia": "guía-constanza.html", "video": "https://videos.pexels.com/video-files/9758665/9758665-hd_1920_1080_30fps.mp4", "used_at": null },
-          { "slug": "boca-chica", "nombre": "Boca Chica", "guia": "guía-boca-chica.html", "video": "https://videos.pexels.com/video-files/14834785/14834785-hd_1920_1080_60fps.mp4", "used_at": null },
+          { "slug": "boca-chica", "nombre": "Boca Chica", "guia": "guía-boca-chica.html", "video": "https://videos.pexels.com/video-files/14834785/14834785-hd_1920_1080_60fps.mp4", "used_at": "2026-09-02" },
           { "slug": "barahona", "nombre": "Barahona", "guia": "guía-barahona.html", "video": "https://videos.pexels.com/video-files/13721003/13721003-hd_1920_1080_24fps.mp4", "used_at": null },
           { "slug": "isla-saona", "nombre": "Isla Saona", "guia": "guía-isla-saona.html", "video": "https://videos.pexels.com/video-files/6003442/6003442-hd_1920_1080_25fps.mp4", "used_at": null },
           { "slug": "bayahibe", "nombre": "Bayahíbe", "guia": "guía-bayahibe.html", "video": "https://videos.pexels.com/video-files/12021206/12021206-hd_1920_1080_30fps.mp4", "used_at": null },
