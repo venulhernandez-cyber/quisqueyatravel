@@ -64,9 +64,42 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     "headline": "Guide Punta Cana 2026 — Plages, Hôtels et Conseils Honnêtes",
     "author": { "@type": "Person", "name": "Venul Hernandez — Quisqueya Travel" },
     "datePublished": "2026-06-25",
-    "dateModified": "2026-06-25",
+    "dateModified": "2026-09-10",
     "url": "https://quisqueyatravel.org/fr/guide-punta-cana",
     "inLanguage": "fr"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Combien coute un voyage a Punta Cana ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Une famille de quatre personnes pour 5 nuits dans un resort tout inclus milieu de gamme, vols inclus, depense entre 3 500 et 5 500 USD au total. Un vol international aller-retour vers PUJ coute entre 180 et 420 USD par personne, et un resort tout inclus entre 90 et 180 USD par personne et par nuit." }
+      },
+      {
+        "@type": "Question",
+        "name": "Le tout inclus vaut-il le coup a Punta Cana ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Pour la plupart des familles, oui : vous payez une fois et n'y pensez plus (nourriture, boissons, activites) - tres pratique avec des enfants. Ce que les resorts ne font pas bien, c'est la cuisine dominicaine authentique ; pour ca, il faut sortir vers les restaurants de Bavaro ou Veron." }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle est la meilleure periode pour aller a Punta Cana ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "De decembre a avril, c'est la saison seche avec des prix plus eleves. Juillet et aout sont les mois ou le plus de voyageurs de la diaspora se deplacent. Mai-juin et septembre-octobre sont les mois les moins chers, avec un peu plus de risque de pluie." }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle est la meilleure plage a Punta Cana ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "La plage Bavaro est la plus celebre, avec la plupart des complexes hoteliers. La plage Arena Gorda est plus calme avec une eau plus cristalline. El Cortecito est plus accessible si vous ne sejournez pas dans un resort, avec des restaurants de fruits de mer frais." }
+      },
+      {
+        "@type": "Question",
+        "name": "L'excursion a l'Ile Saona vaut-elle le coup ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Oui, c'est l'excursion que nous recommandons le plus en dehors de la zone resort. Vous partez en catamaran, vous arretez dans une piscine naturelle peu profonde, et vous arrivez sur une plage spectaculaire. Une excursion d'une journee complete coute entre 60 et 80 USD par personne." }
+      }
+    ]
   }
   </script>
   <style>
@@ -107,6 +140,45 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   
     /* Foco visible (accesibilidad) */
     a:focus-visible, button:focus-visible { outline: 3px solid var(--naranja); outline-offset: 2px; border-radius: 4px; }
+
+    .trust-box { background: #fff; border: 2px solid var(--verde); border-radius: 14px; padding: 22px 24px; margin: 28px 0; }
+    .trust-box h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--oscuro); font-size: 1.1rem; margin-bottom: 12px; }
+    .trust-box p { margin-bottom: 12px; line-height: 1.7; font-size: 0.95rem; }
+    .trust-box p:last-child { margin-bottom: 0; }
+
+    /* -- FAQ -- */
+    .faq-section { margin: 40px 0; }
+    .faq-item { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .faq-item summary {
+      cursor: pointer; padding: 16px 44px 16px 18px; font-weight: 700;
+      font-family: 'Montserrat', sans-serif; color: var(--oscuro); list-style: none;
+      position: relative; font-size: 0.98rem;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+'; position: absolute; right: 18px; top: 14px;
+      font-size: 1.3rem; color: var(--verde); font-weight: 400;
+    }
+    .faq-item[open] summary::after { content: '\2212'; }
+    .faq-item p { padding: 0 18px 16px; margin: 0; color: #555; font-size: 0.95rem; }
+
+    /* -- Hotel cards -- */
+    .hoteles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; margin: 20px 0 10px; }
+    .hotel-card { background: #fff; border-radius: 14px; overflow: hidden; border: 1px solid #eee; transition: box-shadow 0.2s; }
+    .hotel-card:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .hotel-img-wrap { position: relative; height: 140px; background: #eee; overflow: hidden; }
+    .hotel-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hotel-badge { position: absolute; top: 10px; left: 10px; background: var(--verde); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; }
+    .hotel-body { padding: 14px; }
+    .hotel-body h3 { font-family: 'Montserrat', sans-serif; font-size: 0.92rem; margin-bottom: 8px; color: var(--oscuro); }
+    .hotel-rating { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+    .stars { color: #f4a261; font-size: 0.88rem; }
+    .rating-num { font-weight: 700; color: var(--verde); font-size: 0.88rem; }
+    .hotel-precio { margin-bottom: 12px; }
+    .precio-desde, .precio-noche { font-size: 0.72rem; color: #595959; }
+    .precio-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.15rem; color: var(--verde); }
+    .btn-hotel { display: flex; align-items: center; justify-content: center; background: var(--naranja); color: var(--oscuro); padding: 10px; border-radius: 8px; min-height: 44px; text-decoration: none; font-weight: 700; font-size: 0.85rem; }
+    .btn-hotel:hover { opacity: 0.9; }
 </style>
 </head>
 <body>
@@ -139,9 +211,51 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   <p>Si vous pouvez consacrer une journée à une excursion, <strong>l'Île Saona</strong> est le point culminant absolu de tout voyage à Punta Cana. Vous partez en catamaran, vous arrêtez dans une piscine naturelle en pleine mer, et vous arrivez sur une plage de rêve. Une excursion full-day coûte environ 60–80 € par personne et en vaut absolument la peine.</p>
 
   <!-- AFFILIATE -->
-  <div class="cta-box">
-    <p>Trouvez votre resort idéal à Punta Cana — tout inclus, boutique ou en bord de mer. Comparez et réservez avec annulation gratuite.</p>
-    <a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPunta%2520Cana%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-primary">🏨 Voir les Hôtels à Punta Cana</a>
+  <p style="font-weight:700;font-family:'Montserrat',sans-serif;color:var(--oscuro);margin:36px 0 14px;text-align:center">🏨 Hôtels recommandés à Punta Cana</p>
+  <div class="hoteles-grid">
+    <div class="hotel-card">
+      <div class="hotel-img-wrap"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&q=80" alt="Barcelo Bavaro Palace" loading="lazy"><span class="hotel-badge">📍 Punta Cana</span></div>
+      <div class="hotel-body">
+        <h3>Barcelo Bavaro Palace</h3>
+        <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.6</span> <span style="color:#888;font-size:0.78rem">Excellent</span></div>
+        <div class="hotel-precio"><span class="precio-desde">À partir de </span><span class="precio-num">$120</span><span class="precio-noche"> / nuit</span></div>
+        <a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPunta%2520Cana%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-hotel">Voir la disponibilité →</a>
+      </div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-img-wrap"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=500&q=80" alt="Hard Rock Hotel & Casino Punta Cana" loading="lazy"><span class="hotel-badge">📍 Punta Cana</span></div>
+      <div class="hotel-body">
+        <h3>Hard Rock Hotel & Casino Punta Cana</h3>
+        <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.4</span> <span style="color:#888;font-size:0.78rem">Très bien</span></div>
+        <div class="hotel-precio"><span class="precio-desde">À partir de </span><span class="precio-num">$145</span><span class="precio-noche"> / nuit</span></div>
+        <a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPunta%2520Cana%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-hotel">Voir la disponibilité →</a>
+      </div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-img-wrap"><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&q=80" alt="Riu Palace Macao" loading="lazy"><span class="hotel-badge">📍 Punta Cana</span></div>
+      <div class="hotel-body">
+        <h3>Riu Palace Macao</h3>
+        <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.8</span> <span style="color:#888;font-size:0.78rem">Excellent</span></div>
+        <div class="hotel-precio"><span class="precio-desde">À partir de </span><span class="precio-num">$95</span><span class="precio-noche"> / nuit</span></div>
+        <a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPunta%2520Cana%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-hotel">Voir la disponibilité →</a>
+      </div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-img-wrap"><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&q=80" alt="Majestic Elegance Punta Cana" loading="lazy"><span class="hotel-badge">📍 Punta Cana</span></div>
+      <div class="hotel-body">
+        <h3>Majestic Elegance Punta Cana</h3>
+        <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.7</span> <span style="color:#888;font-size:0.78rem">Excellent</span></div>
+        <div class="hotel-precio"><span class="precio-desde">À partir de </span><span class="precio-num">$110</span><span class="precio-noche"> / nuit</span></div>
+        <a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPunta%2520Cana%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-hotel">Voir la disponibilité →</a>
+      </div>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:16px"><a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPunta%2520Cana%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-primary" style="font-size:0.85rem;padding:9px 20px">Voir tous les hôtels à Punta Cana →</a></p>
+
+  <div class="trust-box">
+    <h3>🤝 Pourquoi réserver ici plutôt qu'en direct ?</h3>
+    <p>Vous pouvez réserver directement avec l'hôtel, bien sûr. Mais ici vous voyez de vrais avis de personnes qui y ont déjà séjourné, vous comparez les prix au même endroit, et vous pouvez presque toujours annuler gratuitement. Je réserve moi-même de cette façon — c'est pour ça que je vous le recommande.</p>
+    <p>Les liens de ce site sont des liens d'affiliation (Booking.com et partenaires de voyage vérifiés) : cela ne vous coûte pas un centime de plus, et c'est ce qui me permet de faire vivre Quisqueya Travel pour continuer à vous apporter des guides honnêtes sur l'île.</p>
   </div>
 
   <h2>Tout Inclus : Ça Vaut le Coup ou Pas ?</h2>
@@ -187,6 +301,30 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   <p>Le pourboire est important dans la culture locale. Les employés des resorts sont souvent payés de faibles salaires de base et dépendent des pourboires. Quelques euros par jour pour le ménage, 1–2 € par verre au bar et 5 € par portage de bagages sont appropriés et sincèrement appréciés.</p>
   <p>Évitez les présentations timeshare. De nombreux resorts proposent des excursions gratuites ou des crédits en échange d'une participation à une "présentation de 90 minutes". Elle dure généralement 3 heures ou plus et est à haute pression. Si votre temps a de la valeur, passez votre chemin.</p>
   <p>Des questions ? Partagez vos expériences sur notre <a href="https://www.facebook.com/profile.php?id=2061443547418301" target="_blank" rel="noopener">page Facebook</a> 🇩🇴</p>
+
+  <div class="faq-section">
+    <h2>Questions fréquentes sur Punta Cana</h2>
+    <details class="faq-item">
+      <summary>Combien coûte un voyage à Punta Cana ?</summary>
+      <p>Une famille de quatre personnes pour 5 nuits dans un resort tout inclus milieu de gamme, vols inclus, dépense entre 3 500 et 5 500 USD au total. Un vol international aller-retour vers PUJ coûte entre 180 et 420 USD par personne, et un resort tout inclus entre 90 et 180 USD par personne et par nuit.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Le tout inclus vaut-il le coup à Punta Cana ?</summary>
+      <p>Pour la plupart des familles, oui : vous payez une fois et n'y pensez plus (nourriture, boissons, activités) — très pratique avec des enfants. Ce que les resorts ne font pas bien, c'est la cuisine dominicaine authentique ; pour ça, il faut sortir vers les restaurants de Bávaro ou Verón.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Quelle est la meilleure période pour aller à Punta Cana ?</summary>
+      <p>De décembre à avril, c'est la saison sèche avec des prix plus élevés. Juillet et août sont les mois où le plus de voyageurs de la diaspora se déplacent. Mai-juin et septembre-octobre sont les mois les moins chers, avec un peu plus de risque de pluie.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Quelle est la meilleure plage à Punta Cana ?</summary>
+      <p>La plage Bávaro est la plus célèbre, avec la plupart des complexes hôteliers. La plage Arena Gorda est plus calme avec une eau plus cristalline. El Cortecito est plus accessible si vous ne séjournez pas dans un resort, avec des restaurants de fruits de mer frais.</p>
+    </details>
+    <details class="faq-item">
+      <summary>L'excursion à l'Île Saona vaut-elle le coup ?</summary>
+      <p>Oui, c'est l'excursion que nous recommandons le plus en dehors de la zone resort. Vous partez en catamaran, vous arrêtez dans une piscine naturelle peu profonde, et vous arrivez sur une plage spectaculaire. Une excursion d'une journée complète coûte entre 60 et 80 USD par personne.</p>
+    </details>
+  </div>
 
   <p class="disclaimer">Les prix sont des estimations et peuvent varier selon la saison et la disponibilité. Confirmez les conditions avant de réserver. Quisqueya Travel est un site affilié — les réservations effectuées via nos liens nous rapportent une petite commission sans frais supplémentaires pour vous.</p>
 </article>
