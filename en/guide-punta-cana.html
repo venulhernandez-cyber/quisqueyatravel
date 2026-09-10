@@ -64,9 +64,42 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     "headline": "Punta Cana Travel Guide 2026 — Beaches, Hotels & Honest Tips",
     "author": { "@type": "Person", "name": "Venul Hernandez — Quisqueya Travel" },
     "datePublished": "2026-06-25",
-    "dateModified": "2026-06-25",
+    "dateModified": "2026-09-10",
     "url": "https://quisqueyatravel.org/en/guide-punta-cana",
     "inLanguage": "en"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does a trip to Punta Cana cost?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A family of four doing 5 nights at a mid-range all-inclusive, flights included, spends between $3,500 and $5,500 total. A round-trip international flight to PUJ runs $180-420 per person, and an all-inclusive resort runs $90-180 per person per night." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the all-inclusive worth it in Punta Cana?",
+        "acceptedAnswer": { "@type": "Answer", "text": "For most families, yes: you pay once and you're set (food, drinks, activities) - very convenient with kids. What resorts don't do well is authentic Dominican food; for that you need to head out to restaurants in Bavaro or Veron." }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the best time to visit Punta Cana?",
+        "acceptedAnswer": { "@type": "Answer", "text": "December through April is dry season with higher prices. July and August is when the most diaspora travelers visit. May-June and September-October are the cheapest months, though there's a higher chance of rain." }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the best beach in Punta Cana?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Bavaro Beach is the most famous, with most of the resorts. Arena Gorda Beach is quieter with more crystal-clear water. El Cortecito Beach is more accessible if you're not staying at a resort, with fresh seafood restaurants." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the Saona Island excursion worth it?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, it's the excursion we recommend most outside the resort zone. You sail out by catamaran, stop at a shallow natural pool, and arrive at a spectacular beach. A full-day excursion costs $60-80 per person." }
+      }
+    ]
   }
   </script>
   <style>
@@ -142,6 +175,45 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   
     /* Foco visible (accesibilidad) */
     a:focus-visible, button:focus-visible { outline: 3px solid var(--naranja); outline-offset: 2px; border-radius: 4px; }
+
+    .trust-box { background: #fff; border: 2px solid var(--verde); border-radius: 14px; padding: 22px 24px; margin: 28px 0; }
+    .trust-box h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--oscuro); font-size: 1.1rem; margin-bottom: 12px; }
+    .trust-box p { margin-bottom: 12px; line-height: 1.7; font-size: 0.95rem; }
+    .trust-box p:last-child { margin-bottom: 0; }
+
+    /* -- FAQ -- */
+    .faq-section { margin: 40px 0; }
+    .faq-item { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .faq-item summary {
+      cursor: pointer; padding: 16px 44px 16px 18px; font-weight: 700;
+      font-family: 'Montserrat', sans-serif; color: var(--oscuro); list-style: none;
+      position: relative; font-size: 0.98rem;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+'; position: absolute; right: 18px; top: 14px;
+      font-size: 1.3rem; color: var(--verde); font-weight: 400;
+    }
+    .faq-item[open] summary::after { content: '\2212'; }
+    .faq-item p { padding: 0 18px 16px; margin: 0; color: #555; font-size: 0.95rem; }
+
+    /* -- Hotel cards -- */
+    .hoteles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; margin: 20px 0 10px; }
+    .hotel-card { background: #fff; border-radius: 14px; overflow: hidden; border: 1px solid #eee; transition: box-shadow 0.2s; }
+    .hotel-card:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .hotel-img-wrap { position: relative; height: 140px; background: #eee; overflow: hidden; }
+    .hotel-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hotel-badge { position: absolute; top: 10px; left: 10px; background: var(--verde); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; }
+    .hotel-body { padding: 14px; }
+    .hotel-body h3 { font-family: 'Montserrat', sans-serif; font-size: 0.92rem; margin-bottom: 8px; color: var(--oscuro); }
+    .hotel-rating { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+    .stars { color: #f4a261; font-size: 0.88rem; }
+    .rating-num { font-weight: 700; color: var(--verde); font-size: 0.88rem; }
+    .hotel-precio { margin-bottom: 12px; }
+    .precio-desde, .precio-noche { font-size: 0.72rem; color: #595959; }
+    .precio-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.15rem; color: var(--verde); }
+    .btn-hotel { display: flex; align-items: center; justify-content: center; background: var(--naranja); color: var(--oscuro); padding: 10px; border-radius: 8px; min-height: 44px; text-decoration: none; font-weight: 700; font-size: 0.85rem; }
+    .btn-hotel:hover { opacity: 0.9; }
 </style>
 </head>
 <body>
@@ -175,9 +247,51 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   <p>If you're willing to spend one day on an excursion, <strong>Saona Island</strong> is the undisputed highlight of any Punta Cana trip. You sail out by catamaran, stop at a natural pool in the middle of the sea, and arrive at a beach that looks like a movie set. A full-day trip costs around $60–80 per person and is absolutely worth it.</p>
 
   <!-- AFFILIATE -->
-  <div class="cta-box">
-    <p>Find your perfect resort in Punta Cana — all-inclusive, boutique or beachfront. Compare and book with free cancellation.</p>
-    <a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPunta%2520Cana%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-primary">🏨 Browse Punta Cana Hotels</a>
+  <p style="font-weight:700;font-family:'Montserrat',sans-serif;color:var(--oscuro);margin:36px 0 14px;text-align:center">🏨 Recommended Hotels in Punta Cana</p>
+  <div class="hoteles-grid">
+    <div class="hotel-card">
+      <div class="hotel-img-wrap"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&q=80" alt="Barcelo Bavaro Palace" loading="lazy"><span class="hotel-badge">📍 Punta Cana</span></div>
+      <div class="hotel-body">
+        <h3>Barcelo Bavaro Palace</h3>
+        <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.6</span> <span style="color:#888;font-size:0.78rem">Excellent</span></div>
+        <div class="hotel-precio"><span class="precio-desde">From </span><span class="precio-num">$120</span><span class="precio-noche"> / night</span></div>
+        <a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPunta%2520Cana%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-hotel">Check availability →</a>
+      </div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-img-wrap"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=500&q=80" alt="Hard Rock Hotel & Casino Punta Cana" loading="lazy"><span class="hotel-badge">📍 Punta Cana</span></div>
+      <div class="hotel-body">
+        <h3>Hard Rock Hotel & Casino Punta Cana</h3>
+        <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.4</span> <span style="color:#888;font-size:0.78rem">Very good</span></div>
+        <div class="hotel-precio"><span class="precio-desde">From </span><span class="precio-num">$145</span><span class="precio-noche"> / night</span></div>
+        <a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPunta%2520Cana%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-hotel">Check availability →</a>
+      </div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-img-wrap"><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&q=80" alt="Riu Palace Macao" loading="lazy"><span class="hotel-badge">📍 Punta Cana</span></div>
+      <div class="hotel-body">
+        <h3>Riu Palace Macao</h3>
+        <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.8</span> <span style="color:#888;font-size:0.78rem">Excellent</span></div>
+        <div class="hotel-precio"><span class="precio-desde">From </span><span class="precio-num">$95</span><span class="precio-noche"> / night</span></div>
+        <a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPunta%2520Cana%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-hotel">Check availability →</a>
+      </div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-img-wrap"><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&q=80" alt="Majestic Elegance Punta Cana" loading="lazy"><span class="hotel-badge">📍 Punta Cana</span></div>
+      <div class="hotel-body">
+        <h3>Majestic Elegance Punta Cana</h3>
+        <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.7</span> <span style="color:#888;font-size:0.78rem">Excellent</span></div>
+        <div class="hotel-precio"><span class="precio-desde">From </span><span class="precio-num">$110</span><span class="precio-noche"> / night</span></div>
+        <a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPunta%2520Cana%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-hotel">Check availability →</a>
+      </div>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:16px"><a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPunta%2520Cana%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-primary" style="font-size:0.85rem;padding:9px 20px">See all hotels in Punta Cana →</a></p>
+
+  <div class="trust-box">
+    <h3>🤝 Why Book Through This Link Instead of Direct?</h3>
+    <p>You can book directly with the hotel, sure. But here you'll see real reviews from people who've actually stayed, compare prices in one place, and can almost always cancel for free. I book this way myself — that's why I recommend it.</p>
+    <p>The links on this site are affiliate links (Booking.com and verified travel partners): it doesn't cost you an extra cent, and it's how I keep Quisqueya Travel running so I can keep bringing you honest guides to the island.</p>
   </div>
 
   <h2>All-Inclusive Resorts: Worth It or Not?</h2>
@@ -223,6 +337,30 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   <p>Tipping culture is important. Resort workers are often paid low base wages and depend on tips. A few dollars a day to housekeeping, $1–2 per drink to the bartender and $5 per round of luggage carrying is appropriate and genuinely appreciated.</p>
   <p>The timeshare pitch. Many resorts offer free excursions or resort credits in exchange for attending a "90-minute" presentation. It usually runs 3+ hours and is high-pressure. If your time is worth anything, skip it.</p>
   <p>Have questions or want to share your own Punta Cana tips? Find us on <a href="https://www.facebook.com/profile.php?id=2061443547418301" target="_blank" rel="noopener">Facebook</a> — we'd love to hear from you. 🇩🇴</p>
+
+  <div class="faq-section">
+    <h2>Frequently Asked Questions About Punta Cana</h2>
+    <details class="faq-item">
+      <summary>How much does a trip to Punta Cana cost?</summary>
+      <p>A family of four doing 5 nights at a mid-range all-inclusive, flights included, spends between $3,500 and $5,500 total. A round-trip international flight to PUJ runs $180-420 per person, and an all-inclusive resort runs $90-180 per person per night.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Is the all-inclusive worth it in Punta Cana?</summary>
+      <p>For most families, yes: you pay once and you're set (food, drinks, activities) — very convenient with kids. What resorts don't do well is authentic Dominican food; for that you need to head out to restaurants in Bávaro or Verón.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What's the best time to visit Punta Cana?</summary>
+      <p>December through April is dry season with higher prices. July and August is when the most diaspora travelers visit. May-June and September-October are the cheapest months, though there's a higher chance of rain.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What's the best beach in Punta Cana?</summary>
+      <p>Bávaro Beach is the most famous, with most of the resorts. Arena Gorda Beach is quieter with more crystal-clear water. El Cortecito Beach is more accessible if you're not staying at a resort, with fresh seafood restaurants.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Is the Saona Island excursion worth it?</summary>
+      <p>Yes, it's the excursion we recommend most outside the resort zone. You sail out by catamaran, stop at a shallow natural pool, and arrive at a spectacular beach. A full-day excursion costs $60-80 per person.</p>
+    </details>
+  </div>
 
   <p class="disclaimer">Prices are estimates and may vary by season and availability. Confirm conditions before booking. Quisqueya Travel is an affiliate site — bookings made through our links earn us a small commission at no extra cost to you.</p>
 </article>

@@ -64,7 +64,41 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     "url": "https://quisqueyatravel.org/en/guide-santo-domingo",
     "author": {"@type": "Person", "name": "Venul Hernández"},
     "publisher": {"@type": "Organization", "name": "Quisqueya Travel"},
-    "datePublished": "2026-06-01"
+    "datePublished": "2026-06-01",
+    "dateModified": "2026-09-10"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What should I do in Santo Domingo if I'm short on time?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Walk the Zona Colonial (about 20 minutes end to end): the Catedral Primada de America, the Alcazar de Colon and the Malecon at sunset are the must-sees. You don't need a car for that stretch." }
+      },
+      {
+        "@type": "Question",
+        "name": "Where should I stay in Santo Domingo?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The most practical area is the Distrito Nacional: Zona Colonial, Gazcue or Piantini. There are boutique hotels in the Zona Colonial from $60-80/night, and more modern options in Piantini and Naco." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you get around Santo Domingo?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Uber works well and is the safest, most price-transparent option. From Las Americas Airport (SDQ) to the tourist zone is 25-30 minutes, between $10-18 USD." }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does 1-2 nights in Santo Domingo cost?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Hotel between $55-120 a night, food $20-40 per person a day, airport transport $10-18, and museum entries like the Alcazar de Colon between $3-5 USD." }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the best time to visit Santo Domingo?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The city is active year-round. December through April is drier and more comfortable. July and August are hotter but the city feels more alive, with more diaspora Dominicans visiting." }
+      }
+    ]
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -111,6 +145,45 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   
     /* Foco visible (accesibilidad) */
     a:focus-visible, button:focus-visible { outline: 3px solid var(--naranja); outline-offset: 2px; border-radius: 4px; }
+
+    .trust-box { background: #fff; border: 2px solid var(--verde); border-radius: 14px; padding: 22px 24px; margin: 28px 0; }
+    .trust-box h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--oscuro); font-size: 1.1rem; margin-bottom: 12px; }
+    .trust-box p { margin-bottom: 12px; line-height: 1.7; font-size: 0.95rem; }
+    .trust-box p:last-child { margin-bottom: 0; }
+
+    /* -- FAQ -- */
+    .faq-section { margin: 40px 0; }
+    .faq-item { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .faq-item summary {
+      cursor: pointer; padding: 16px 44px 16px 18px; font-weight: 700;
+      font-family: 'Montserrat', sans-serif; color: var(--oscuro); list-style: none;
+      position: relative; font-size: 0.98rem;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+'; position: absolute; right: 18px; top: 14px;
+      font-size: 1.3rem; color: var(--verde); font-weight: 400;
+    }
+    .faq-item[open] summary::after { content: '\2212'; }
+    .faq-item p { padding: 0 18px 16px; margin: 0; color: #555; font-size: 0.95rem; }
+
+    /* -- Hotel cards -- */
+    .hoteles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; margin: 20px 0 10px; }
+    .hotel-card { background: #fff; border-radius: 14px; overflow: hidden; border: 1px solid #eee; transition: box-shadow 0.2s; }
+    .hotel-card:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .hotel-img-wrap { position: relative; height: 140px; background: #eee; overflow: hidden; }
+    .hotel-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hotel-badge { position: absolute; top: 10px; left: 10px; background: var(--verde); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; }
+    .hotel-body { padding: 14px; }
+    .hotel-body h3 { font-family: 'Montserrat', sans-serif; font-size: 0.92rem; margin-bottom: 8px; color: var(--oscuro); }
+    .hotel-rating { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+    .stars { color: #f4a261; font-size: 0.88rem; }
+    .rating-num { font-weight: 700; color: var(--verde); font-size: 0.88rem; }
+    .hotel-precio { margin-bottom: 12px; }
+    .precio-desde, .precio-noche { font-size: 0.72rem; color: #595959; }
+    .precio-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.15rem; color: var(--verde); }
+    .btn-hotel { display: flex; align-items: center; justify-content: center; background: var(--naranja); color: var(--oscuro); padding: 10px; border-radius: 8px; min-height: 44px; text-decoration: none; font-weight: 700; font-size: 0.85rem; }
+    .btn-hotel:hover { opacity: 0.9; }
 </style>
 </head>
 <body>
@@ -149,9 +222,52 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   <p>The most practical areas for visitors are the <strong>Distrito Nacional</strong> itself — specifically between the Zona Colonial, Gazcue, and Piantini. If you want modern hotels near shopping malls and upscale restaurants, Piantini and Naco are the neighborhoods where the money moves.</p>
   <p>Options range from boutique colonial hotels at $60–80/night to larger Malecón properties with pools and ocean views.</p>
 
-  <div class="cta-box">
-    <p>Search and book your Santo Domingo hotel at the best available rate — free cancellation on most properties.</p>
-    <a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSanto%2520Domingo%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-primary">🏨 Find Hotels in Santo Domingo</a>
+  <!-- AFFILIATE -->
+  <p style="font-weight:700;font-family:'Montserrat',sans-serif;color:var(--oscuro);margin:36px 0 14px;text-align:center">🏨 Recommended Hotels in Santo Domingo</p>
+  <div class="hoteles-grid">
+    <div class="hotel-card">
+      <div class="hotel-img-wrap"><img src="https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=500&q=80" alt="Hotel Hodelpa Caribe Colonial" loading="lazy"><span class="hotel-badge">📍 Santo Domingo</span></div>
+      <div class="hotel-body">
+        <h3>Hotel Hodelpa Caribe Colonial</h3>
+        <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.2</span> <span style="color:#888;font-size:0.78rem">Very good</span></div>
+        <div class="hotel-precio"><span class="precio-desde">From </span><span class="precio-num">$55</span><span class="precio-noche"> / night</span></div>
+        <a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSanto%2520Domingo%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-hotel">Check availability →</a>
+      </div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-img-wrap"><img src="https://images.unsplash.com/photo-1551882547-ff40c4c79d4d?w=500&q=80" alt="Radisson Blu Hotel Santo Domingo" loading="lazy"><span class="hotel-badge">📍 Santo Domingo</span></div>
+      <div class="hotel-body">
+        <h3>Radisson Blu Hotel Santo Domingo</h3>
+        <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.5</span> <span style="color:#888;font-size:0.78rem">Very good</span></div>
+        <div class="hotel-precio"><span class="precio-desde">From </span><span class="precio-num">$80</span><span class="precio-noche"> / night</span></div>
+        <a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSanto%2520Domingo%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-hotel">Check availability →</a>
+      </div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-img-wrap"><img src="https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=500&q=80" alt="InterContinental Real Santo Domingo" loading="lazy"><span class="hotel-badge">📍 Santo Domingo</span></div>
+      <div class="hotel-body">
+        <h3>InterContinental Real Santo Domingo</h3>
+        <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.7</span> <span style="color:#888;font-size:0.78rem">Excellent</span></div>
+        <div class="hotel-precio"><span class="precio-desde">From </span><span class="precio-num">$95</span><span class="precio-noche"> / night</span></div>
+        <a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSanto%2520Domingo%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-hotel">Check availability →</a>
+      </div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-img-wrap"><img src="https://images.unsplash.com/photo-1551882547-ff40c4c79d4d?w=500&q=80" alt="Hotel El Embajador, Autograph Collection" loading="lazy"><span class="hotel-badge">📍 Santo Domingo</span></div>
+      <div class="hotel-body">
+        <h3>Hotel El Embajador, Autograph Collection</h3>
+        <div class="hotel-rating"><span class="stars">★★★★☆</span> <span class="rating-num">8.4</span> <span style="color:#888;font-size:0.78rem">Very good</span></div>
+        <div class="hotel-precio"><span class="precio-desde">From </span><span class="precio-num">$88</span><span class="precio-noche"> / night</span></div>
+        <a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSanto%2520Domingo%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-hotel">Check availability →</a>
+      </div>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:16px"><a href="https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSanto%2520Domingo%252C%2520Republica%2520Dominicana" target="_blank" rel="noopener sponsored" class="btn-primary" style="font-size:0.85rem;padding:9px 20px">See all hotels in Santo Domingo →</a></p>
+
+  <div class="trust-box">
+    <h3>🤝 Why Book Through This Link Instead of Direct?</h3>
+    <p>You can book directly with the hotel, sure. But here you'll see real reviews from people who've actually stayed, compare prices in one place, and can almost always cancel for free. I book this way myself — that's why I recommend it.</p>
+    <p>The links on this site are affiliate links (Booking.com and verified travel partners): it doesn't cost you an extra cent, and it's how I keep Quisqueya Travel running so I can keep bringing you honest guides to the island.</p>
   </div>
 
   <h2>Where to Eat (Without Paying Tourist Prices)</h2>
@@ -185,6 +301,30 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   <h2>The Honest Take</h2>
   <p>Santo Domingo isn't perfect — traffic can be maddening, the midday heat is real, and some areas outside the Distrito Nacional aren't for first-timers. But the Zona Colonial, the Malecón, and real Dominican cooking are experiences no one from the Dominican diaspora should keep skipping.</p>
   <p>If you've been visiting the DR for years and only ever seen the resort, add one night in the capital on your next trip. I mean it — it'll change how you see the country.</p>
+
+  <div class="faq-section">
+    <h2>Frequently Asked Questions About Santo Domingo</h2>
+    <details class="faq-item">
+      <summary>What should I do in Santo Domingo if I'm short on time?</summary>
+      <p>Walk the Zona Colonial (about 20 minutes end to end): the Catedral Primada de América, the Alcázar de Colón and the Malecón at sunset are the must-sees. You don't need a car for that stretch.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Where should I stay in Santo Domingo?</summary>
+      <p>The most practical area is the Distrito Nacional: Zona Colonial, Gazcue or Piantini. There are boutique hotels in the Zona Colonial from $60-80/night, and more modern options in Piantini and Naco.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How do you get around Santo Domingo?</summary>
+      <p>Uber works well and is the safest, most price-transparent option. From Las Américas Airport (SDQ) to the tourist zone is 25-30 minutes, between $10-18 USD.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How much does 1-2 nights in Santo Domingo cost?</summary>
+      <p>Hotel between $55-120 a night, food $20-40 per person a day, airport transport $10-18, and museum entries like the Alcázar de Colón between $3-5 USD.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What's the best time to visit Santo Domingo?</summary>
+      <p>The city is active year-round. December through April is drier and more comfortable. July and August are hotter but the city feels more alive, with more diaspora Dominicans visiting.</p>
+    </details>
+  </div>
 
   <p style="margin-top:30px;font-size:0.82rem;color:#999">Prices are estimates and may vary. Always confirm conditions before traveling. Quisqueya Travel is a Booking.com affiliate site — bookings made through our links generate a small commission at no extra cost to you.</p>
 
