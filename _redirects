@@ -1,6 +1,11 @@
 # Redirects para Cloudflare Pages
 # Formato: /origen /destino codigo
 
+# Fix: el generador de comentarios (link directo) a veces escribe "guía-"
+# (con tilde) en vez de "guia-" (nombre real del archivo) y esos links
+# dan 404. Esta regla salva cualquier variante con tilde, ya publicada o futura.
+/guía-* /guia-:splat 301
+
 # URLs limpias sin .html (301 permanente)
 /guia-punta-cana.html /guia-punta-cana 301
 /guia-santo-domingo.html /guia-santo-domingo 301
