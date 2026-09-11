@@ -74,6 +74,23 @@ export async function onRequest(context) {
 
   const response = await context.next();
 
+  // Fix (2026-09-11): el generador automatico de links (comentarios de
+  // Facebook/Instagram con "Aqui tienes el link directo") a veces escribe
+  // el slug con tildes (ej. "guía-santo-domingo.html") en vez del nombre
+  // real del archivo, que nunca lleva tildes (ej. "guia-santo-domingo.html").
+  // Esos posts ya publicados no se pueden editar, asi que en vez de intentar
+  // adivinar todas las variantes en _redirects, si el sitio esta por devolver
+  // un 404 probamos la misma ruta sin acentos antes de rendirnos. Cubre esta
+  // pagina y cualquier otro typo de tilde futuro, en cualquier ruta del sitio.
+  if (response.status === 404) {
+    const sinAcentos = url.pathname.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    if (sinAcentos !== url.pathname) {
+      const destino = new URL(url);
+      destino.pathname = sinAcentos;
+      return Response.redirect(destino.toString(), 301);
+    }
+  }
+
   // Intento 2 (2026-07-08): en vez de construir un objeto Headers nuevo y
   // pasarlo como init de un Response nuevo, clonamos la respuesta original
   // (esto copia status/statusText/headers automáticamente) y mutamos sus
