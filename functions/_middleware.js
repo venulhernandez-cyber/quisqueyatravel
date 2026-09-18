@@ -115,8 +115,26 @@ export async function onRequest(context) {
 
   newResponse.headers.set(
     'Content-Security-Policy',
-    "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://emrldtp.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://*.google-analytics.com https://www.googletagmanager.com https://emrldtp.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'"
+    "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://emrldtp.com https://cloud.umami.is; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://*.google-analytics.com https://www.googletagmanager.com https://emrldtp.com https://cloud.umami.is; frame-ancestors 'none'; base-uri 'self'; object-src 'none'"
   );
 
+  // --- Analítica Umami (11 sep 2026) ---
+  // Inyecta el script de tracking en el <head> de cada página HTML servida,
+  // sin tener que tocar cada uno de los archivos .html del sitio a mano.
+  // Website ID de "Quisqueya Travel" en cloud.umami.is.
+  const contentType = newResponse.headers.get('Content-Type') || '';
+  if (contentType.includes('text/html')) {
+    return new HTMLRewriter().on('head', new UmamiHeadInjector()).transform(newResponse);
+  }
+
   return newResponse;
+}
+
+class UmamiHeadInjector {
+  element(element) {
+    element.append(
+      '<script defer src="https://cloud.umami.is/script.js" data-website-id="8adc5c26-2aa5-41fe-851f-ea5deee2d3c6"></script>',
+      { html: true }
+    );
+  }
 }

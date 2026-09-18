@@ -1,5 +1,27 @@
 # Quisqueya Travel — Memoria de Proyecto
 
+## 🟡 SESIÓN — 2026-09-16: auditoría semanal completa (solo lectura, sin cambios en el sitio)
+
+Corrida automática de `auditoria-semanal-quisqueya-travel`. Repo auditado: `C:\Users\venul\OneDrive\Documentos\GitHub\quisqueyatravel` (repo real / lo que está en producción). **Nota técnica:** el shell (`bash`) de esta sesión no pudo iniciar (bug conocido de Windows Update del 8 sept que rompe el montaje del workspace) — no se pudieron correr `scan_secrets.py` ni `list_external_domains.py` como scripts. Las 5 auditorías se hicieron igual, a mano, con búsquedas de texto (`grep`) sobre el repo real, con resultados equivalentes.
+
+**Hallazgo nuevo importante (🟠 impacto medio, causa raíz probable del bug de CSP que lleva meses abierto):** `_headers` (línea 8) y `functions/_middleware.js` (líneas 99-102) **declaran la cabecera `Content-Security-Policy` los dos a la vez, con contenido distinto y desincronizado**. La bitácora de `memoria-proyecto.md` (sesión de julio) dice que se había quitado la línea de `_headers` para dejarla solo en la Function — pero en el repo de hoy **sigue en ambos archivos**, y son diferentes: la del Function le faltan `connect.facebook.net`, `unpkg.com`, `*.tpo.li`, `www.travelpayouts.com` en las directivas, y no tiene `frame-src` (necesaria para los iframes de `stay22.com`/`tpo.li`). Es muy probable que esta duplicación con contenido distinto sea la razón real por la que Cloudflare Pages nunca sirve el header (no un problema del dashboard/Transform Rules como se venía asumiendo). **Fix concreto:** quitar la línea `Content-Security-Policy` de `_headers` (dejarla solo en `functions/_middleware.js`) y actualizar el CSP de `_middleware.js` para que incluya los mismos dominios que tiene hoy `_headers` (`connect.facebook.net`, `unpkg.com`, `*.tpo.li`, `www.travelpayouts.com`, `frame-src` con `stay22.com`/`tpo.li`). Requiere sesión en vivo para editar y desplegar — no se tocó nada en esta corrida de solo lectura.
+
+**Lo que sigue igual que la última auditoría (24-ago), sin cambios:**
+- 🟢 Secretos: 0 hallazgos reales (todas las referencias a "key"/"token"/"secret" en el repo son variables de entorno o `${{ secrets.X }}` de GitHub Actions, no valores expuestos).
+- 🟢 Dominios externos: todos coinciden con la lista blanca conocida (Travelpayouts/`*.tpo.li`, `emrldtp.com` confirmado como el script legítimo de Travelpayouts Drive, CJ/Booking `tkqlhce.com`/`jdoqocy.com`, Stay22, GA, Meta Pixel, Google Fonts, Unsplash/Pexels, `eticket.migracion.gob.do`). Cero dominios nuevos o sospechosos.
+- 🟢 Contraste WCAG, zonas táctiles (44-56px) y foco visible: sin cambios, todo sigue en verde. Único punto cosmético repetido: los `<select>` del buscador/calculadora usan `outline:none` + solo cambio de `border-color` — visible pero más débil que el resto del sitio (bajo, no urgente).
+- 🟢 Web Interface Guidelines (Vercel) sobre `index.html` y `bio-link-el-quisqueyano.html`: sin `transition: all`, sin `user-scalable=no`, imágenes con `alt` + `loading="lazy"`, inputs de fecha con `aria-label`, tarjetas clickeables con `role="button"` + `tabindex="0"` + `onkeydown` (Enter/Espacio) — cumple, aunque lo ideal a futuro sería `<button>` real en vez de `<div role="button">`.
+- 🟢 SEO técnico: 25 páginas ES + 23 EN + 10 FR revisadas — 0 sin title, 0 sin meta description, 0 sin H1, 0 sin canonical, 0 duplicados. `robots.txt` limpio. `sitemap.xml` con 58 URLs, todas las guías reales presentes, ninguna huérfana.
+- 🟢 Voz humana: 0 coincidencias de frases genéricas de IA revisadas en las guías ES. Tono auténtico de Venul confirmado (ej. "Yo les creo" en `guia-barahona.html`).
+- 🔵 CSP en Cloudflare seguía reportándose como "pendiente de revisar en el dashboard" en auditorías anteriores — con el hallazgo de arriba, es más probable que sea un problema de código (duplicado) que de configuración de cuenta. Recomendado probar el fix de código primero antes de seguir buscando en Cloudflare.
+- 🔵 `allowlist-dominios.md` de la skill de seguridad seguía sin poder verificarse esta vez (no se encontró en las carpetas conectadas a esta sesión) — no bloqueó el escaneo manual.
+
+**Nota aparte, fuera del alcance de las 5 auditorías (para que Venul lo sepa):** `C:\Users\venul\OneDrive\Desktop\Quisqueya` tiene bastantes guías nuevas (ej. `guia-esim-republica-dominicana.html`, `guia-mejores-playas-argentinos.html`, `guia-vuelos-bogota-punta-cana.html`, `guia-requisitos-rd-colombia-argentina.html`, `guia-costo-viaje-punta-cana-colombia.html`, `guia-es-seguro-punta-cana.html`, `guia-alquiler-carro-punta-cana.html`, `guia-seguro-viaje-republica-dominicana.html`, `guia-vuelos-miami-rd.html`, y varias guías EN nuevas) que **no existen en el repo de GitHub** — es decir, no están desplegadas en quisqueyatravel.org. `memoria-proyecto.md` confirma que al menos `guia-vuelos-miami-rd.html` se guardó local "primer paso" sin subir sitemap/_redirects. Vale la pena que Venul revise si esas guías (varias apuntan a audiencia LATAM: Colombia/Argentina) se quedaron a medio publicar o si fueron descartadas a propósito.
+
+**Lo que sigue igual que semanas anteriores (no se repite como hallazgo nuevo, ya conocido y bloqueado en Venul):** 3 testimonios reales para `#resenas`, método de pago de Travelpayouts, aprobación de Booking LATAM en CJ.
+
+---
+
 ## 🟢 SESIÓN — 2026-09-02 (10:10 EDT): corrida de `quisqueya-travel-video-diario` (turno PLAYAS) — publicado sin problemas, destino Boca Chica
 
 Corrida programada del turno de PLAYAS (10:10 EDT cae en la ventana 8am–14h). Blotato funcionó
