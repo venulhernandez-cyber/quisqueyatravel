@@ -184,6 +184,22 @@ Se investigó `deploy/omniroute/` (pendiente viejo) y se confirmó que SÍ estab
 
 ## Historial de Sesiones
 
+### Sesión — 3 de septiembre de 2026 (Cowork — herramientas de venta activadas: fix de conversión + contenido nuevo)
+
+**Contexto:** Venul pidió "pon a trabajar las herramientas de venta, necesito vender". Se priorizó el fix de conversión del sitio primero, luego contenido nuevo para redes.
+
+**1. Fix de conversión (ver también `analisis-ventas.md` en memoria de proyecto):** el trust-box "¿Por qué reservar aquí y no directo?" ya vivía en Punta Cana, Santo Domingo y Boca Chica; se agregó a las 4 guías restantes con hotel-cards que no lo tenían (La Romana, Puerto Plata, Samaná, Santiago). Commit `5de320a`, push hecho manualmente por Venul vía GitHub Desktop (Claude no tiene credenciales de git en el device_bash) con ayuda de computer-use (clic en "Push origin").
+
+**2. Contenido nuevo publicado (fuera de los turnos automáticos Playa/Hoteles):** 3 captions nuevos escritos (testimonios reales, curación personal, temporada alta) — ángulos distintos a los del 30 ago para no repetir. Venul priorizó "testimonios reales". Video: Punta Cana, id Pexels 14834660 (no usado en los últimos 20 posts). Publicado en Facebook (reel, https://facebook.com/reel/1377230274554934/) e Instagram (reel, https://www.instagram.com/reel/Dc1biTGDc1X/), ambos con firstComment `https://quisqueyatravel.org/?utm_source=<plataforma>&utm_medium=social&utm_campaign=pedir_testimonios`. Objetivo: conseguir citas reales de clientes para llenar la sección "Lo que dice mi gente" del sitio, que sigue vacía.
+
+**Pendiente:** revisar comentarios/DMs de este post en los próximos días — es la fuente de los testimonios reales que faltan.
+
+**3. Los otros dos captions también publicados (misma sesión, Venul pidió continuar):**
+- Curación personal (yo reviso cada hotel) — video Catalonia Santo Domingo, id Pexels 34708748. FB: https://facebook.com/reel/1259459416309703/ · IG: https://www.instagram.com/reel/Dc1cQMxlZkW/ · firstComment con utm_campaign=curacion_hoteles.
+- Temporada alta se acerca — video La Romana, id Pexels 28924698. FB: https://facebook.com/reel/28175227782126393/ · IG: https://www.instagram.com/reel/Dc1cTERAWel/ · firstComment con utm_campaign=temporada_alta.
+
+Con esto los 3 captions nuevos del día quedaron publicados (testimonios, curación, temporada alta) — 6 posts en total entre FB e IG, ninguno repite video de los últimos 20 posts.
+
 ### Sesión — 28 de agosto de 2026 (Cowork — dry-run del pipeline antes del turno de playa)
 
 **Contexto:** Venul pidió "DRY-RUN" (7:44am ET, ~2h20 antes del turno de playa de las 10:06am ET) para confirmar si el pipeline iba a fallar de nuevo por el token de Meta, sin publicar nada real.

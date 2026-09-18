@@ -22,6 +22,158 @@ Corrida automática de `auditoria-semanal-quisqueya-travel`. Repo auditado: `C:\
 
 ---
 
+## 🟢 SESIÓN — 2026-09-10 (11:47 EDT): corrida de `quisqueya-travel-video-diario` (turno PLAYAS) — SIN ACCIÓN, turno de hoy ya estaba publicado
+
+Corrida programada del turno de PLAYAS (11:47 EDT cae en la ventana 8am–14h). Antes de buscar
+contenido nuevo se verificó vía `blotato_list_posts` (ventana desde 2026-09-05) si el turno de
+hoy ya se había publicado — mismo chequeo que en sesiones anteriores (28 ago, 2 sep, 6 sep). La
+carpeta `Documentos\Claude\Scheduled\quisqueya-travel-diario\` (`config.md`/`registro-temas.md`)
+sigue sin estar montada en esta sesión (confirmado otra vez).
+
+**Resultado: el post de playas de hoy ya estaba publicado en ambas cuentas**, disparado ~1h17min
+antes de esta corrida (probablemente por el pipeline de GitHub Actions, no por esta sesión):
+
+- **Destino:** Las Terrenas (Samaná) — video re-hospedado en `database.blotato.io`.
+- **Instagram** (@venulh): publicado 2026-09-10T14:30:10Z → https://www.instagram.com/reel/DdHDaS9DBFL/
+- **Facebook** (El Quisqueyano en nyc): publicado 2026-09-10T14:29:35Z → https://facebook.com/reel/2317074569103712/
+
+**Decisión:** no se publicó contenido nuevo en esta corrida para evitar duplicar el turno de
+playas del mismo día (una pieza por corrida/turno, según la propia tarea). No hace falta acción
+de Venul.
+
+**Para referencia (no usados en esta corrida, quedan disponibles para próximos turnos):**
+revisando `blotato_list_posts` desde el 5 de sep, los destinos/hoteles más recientes publicados
+fueron: Las Terrenas/Samaná playa (hoy), Santiago/Hodelpa Garden Court hotel (9 sep), Punta
+Cana/Majestic Elegance hotel (9 sep), Isla Saona playa (9 sep), Samaná/Viva V hotel (8 sep),
+Santo Domingo/Zona Colonial playa-ciudad (8 sep), Punta Cana/Live Aqua hotel (7 sep), Punta
+Cana/Riu Palace Macao hotel (7 sep), Barahona playa (7 sep), Santiago/Hodelpa Centro Plaza
+hotel (6 sep) — evitar repetir estos en el próximo turno de Hoteles (6pm) o Playas. También hay
+varios posts ya **scheduled** para el 11, 13 y 15 sep (comparativas de hoteles Punta Cana/Santo
+Domingo/La Romana) — no son turnos Playa/Hotel Pexels, son otro tipo de contenido ya en cola.
+
+**Nota de carpeta (recurrente, sin cambios):** `C:\Users\venul\OneDrive\Documentos\Claude\Scheduled\quisqueya-travel-diario\`
+sigue sin estar montada en esta sesión. `blotato_list_posts` + esta bitácora siguen siendo el
+sustituto real y funcionando bien.
+
+---
+
+## 🟡 SESIÓN — 2026-09-07: auditoría semanal completa (solo lectura, sin cambios en el sitio)
+
+Corrida automática de `auditoria-semanal-quisqueya-travel`. **Corrección importante sobre qué
+carpeta es la real:** el SKILL.md de esta tarea asume que `C:\Users\venul\OneDrive\Documentos\GitHub\quisqueyatravel`
+es el repo real y que `Desktop\Quisqueya` (Cowork) suele estar desactualizada — **hoy es al
+revés.** Verificado con `git fetch`/`git log`: `GitHub\quisqueyatravel` tiene su rama local
+divergida de `origin/main` (1 commit propio vs. 101 commits detrás, último commit local
+18-ago) — ese checkout está roto/abandonado. `Desktop\Quisqueya` sí está sincronizada con
+`origin/main` (mismo HEAD) más **1 commit local sin subir** (`aac2795`, 6-sep: nuevo texto del
+hero en español, quita marco de nostalgia diáspora). Esta auditoría corrió sobre
+`Desktop\Quisqueya` por ser la fuente de verdad real. Recomendación para Venul: la próxima vez
+que se use GitHub Desktop, hacer `git reset --hard origin/main` (o similar) en la carpeta de
+`Documentos\GitHub` para no seguir arrastrando esa divergencia, o simplemente dejar de usar esa
+carpeta y quedarse con `Desktop\Quisqueya` como única fuente de trabajo.
+
+**Resultado: sitio sano, sin hallazgos críticos. 1 hallazgo de impacto medio nuevo, el resto son
+repeticiones ya conocidas o cosméticos.**
+
+- 🟡 **Página huérfana:** `guia-vuelos-miami-rd.html` (creada 31-ago) existe, está en
+  `sitemap.xml`, tiene title/meta/H1/canonical correctos — pero no está enlazada desde
+  `index.html` (nav ni footer) ni desde ninguna otra guía. Mismo patrón que `guia-boca-chica.html`
+  (corregido en sesión anterior). Fix sugerido: agregarla al dropdown "Destinos y guías" del nav,
+  al footer de `index.html`, y un cross-link desde `guia-vuelos-nyc-rd.html` o alguna guía de
+  Punta Cana.
+- 🔵 CSP no reverificada en vivo esta corrida — el navegador integrado está bloqueado por
+  política en esta sesión automática (no hay usuario presente para aprobar acceso al sitio).
+  Sigue como bug de Cloudflare (Rules > Transform Rules) documentado el 1-jul y 24-ago, no de
+  código — pendiente que Venul lo revise en su dashboard.
+- 🔵 `allowlist-dominios.md` del skill de seguridad sigue truncado (mismo problema de semanas
+  anteriores) — el escaneo de dominios se hizo manualmente esta vez. Los ~20 dominios externos
+  detectados son los ya conocidos (Pixel, GA4, Pexels/Unsplash, CJ/Booking, Travelpayouts,
+  schema.org, formularios de Google) más 3 nuevos y legítimos no documentados aún:
+  `api.cloudflare.com` y `graph.facebook.com` (llamados server-side desde `functions/api/*.js`,
+  no expuestos al cliente) y `generativelanguage.googleapis.com` (proxy del agente de Gemini,
+  también server-side). `hyperframes.heygen.com`/`raw.githubusercontent.com` aparecen solo como
+  `$schema` en un JSON de la carpeta interna `automation/hyperframes-quisqueya/` (no es una
+  página pública enlazada). Nada que corregir, solo pendiente documentarlos en el allowlist una
+  vez se repare el archivo.
+- 🔵 Cosmético, sin cambios: 3 `<select>`/campos de fecha (buscador del hero y calculadora) usan
+  `outline:none` + solo cambio de `border-color` al enfocar — visible pero más débil que el
+  resto del sitio.
+- 🔵 Cosmético, nuevo: `.cta-box a` (botón usado en varias guías, ej.
+  `guia-las-terrenas-vs-samana.html`) no declara `min-height:44px` explícito — con el padding
+  actual queda justo en el límite (~42-44px). Sugerido agregarlo por consistencia con
+  `.nav-cta`/`.btn-destino`/`.btn-hotel`, que sí lo tienen.
+- 🟢 **Secretos:** 0 expuestos a git — `scan_secrets.py` marcó `_interno/github-pat.txt` (tiene
+  un token real), pero está en `.gitignore` (línea 51) y nunca fue commiteado (`git log` vacío
+  para ese archivo). No es una fuga real, es un archivo local de trabajo correctamente ignorado.
+- 🟢 **SEO técnico:** 33 guías + portada (34 páginas) revisadas — 0 sin title, 0 sin meta
+  description, 0 sin H1/H1 duplicado, 0 sin canonical, 0 títulos/descriptions duplicados entre
+  páginas. `sitemap.xml` con 75 URLs, las 33 guías presentes (incluida la huérfana de arriba).
+  `robots.txt` limpio (`Disallow: /cdn-cgi/` sigue ahí). Sitio creció de 24 a 33 guías desde la
+  última auditoría completa (24-ago): nuevas `guia-alquiler-carro-punta-cana`,
+  `guia-costo-viaje-punta-cana-colombia`, `guia-es-seguro-punta-cana`,
+  `guia-esim-republica-dominicana`, `guia-itinerario-5-dias-republica-dominicana`,
+  `guia-las-terrenas-vs-samana`, `guia-mejores-playas-argentinos`, `guia-que-llevar-maleta-rd`,
+  `guia-requisitos-rd-colombia-argentina`, `guia-seguro-viaje-republica-dominicana`,
+  `guia-vuelos-bogota-punta-cana`, `guia-vuelos-miami-rd`.
+- 🟢 **Voz humana:** 0 coincidencias reales de 21 frases genéricas de IA en 35 páginas (33 guías
+  + portada + bio-link). 1 falso positivo revisado y descartado: "Lo que no te puedes perder"
+  (encabezado en `guia-barahona.html`) — el párrafo que sigue tiene voz auténtica en primera
+  persona ("Yo les creo"), no es relleno de IA. El nuevo texto del hero de `index.html` (sin
+  subir a producción todavía, ver nota de arriba) también suena a Venul, sin relleno.
+- 🟢 **Guías de interfaz (Vercel web-interface-guidelines)** sobre `index.html` y
+  `bio-link-el-quisqueyano.html`: sin anti-patterns nuevos — 0 `transition: all`, 0
+  `user-scalable=no`/`maximum-scale`, 0 "..." literal (debería ser "…"), aria-labels correctos
+  en el buscador del hero (`role="search"`, `role="tablist"/"tab"/"tabpanel"`),
+  `prefers-reduced-motion` respetado en bio-link. Las 26 imágenes de `index.html` sin
+  `width`/`height` explícito siguen sin generar CLS real (contenedores con altura fija en CSS) —
+  mismo hallazgo de siempre, sin acción necesaria.
+
+**Sigue igual que semanas anteriores (no es hallazgo nuevo, bloqueado en Venul):** 3 testimonios
+reales para `#resenas` (sigue oculto con `display:none`, confirmado, no se ve roto en vivo);
+aprobación de "Booking.com LATAM" en CJ Affiliate.
+
+**Nota aparte (no es hallazgo de auditoría, es FYI):** el hero nuevo en español
+(`Descubre República Dominicana como alguien de aquí te la mostraría.`) está listo en el commit
+local `aac2795` pero el sitio en vivo todavía muestra el hero viejo ("La República Dominicana
+que extrañas...") — falta hacer push + deploy.
+
+---
+
+## 🟢 SESIÓN — 2026-09-06 (12:33 EDT): corrida de `quisqueya-travel-video-diario` (turno PLAYAS) — SIN ACCIÓN, turno de hoy ya estaba publicado
+
+Corrida programada del turno de PLAYAS (12:33 EDT cae en la ventana 8am–14h). Antes de buscar
+contenido nuevo se verificó vía `blotato_list_posts` (ventana desde 2026-08-25) si el turno de
+hoy ya se había publicado — mismo chequeo que en sesiones anteriores (28 ago, 2 sep), porque la
+carpeta `Documentos\Claude\Scheduled\quisqueya-travel-diario\` (`config.md`/`registro-temas.md`)
+sigue sin estar montada en esta sesión.
+
+**Resultado: el post de playas de hoy ya estaba publicado en ambas cuentas**, disparado ~2h15min
+antes de esta corrida:
+
+- **Destino:** Samaná (El Limón, Playa Rincón, Cayo Levantado) — video re-hospedado en
+  `database.blotato.io`, sin usar el link crudo de `videos.pexels.com`.
+- **Instagram** (@venulh): publicado 2026-09-06T14:20:51Z → https://www.instagram.com/reel/Dc8vJVFASaQ/
+- **Facebook** (El Quisqueyano en nyc): publicado 2026-09-06T14:20:14Z → https://facebook.com/reel/1015059384844192/
+- Ambos con "🔗 Link directo en el primer comentario" (patrón `firstComment` con UTM, ya
+  establecido en las corridas recientes de esta tarea).
+
+**Decisión:** no se publicó contenido nuevo en esta corrida para evitar duplicar el turno de
+playas del mismo día (una pieza por corrida/turno, según la propia tarea). No hace falta acción
+de Venul.
+
+**Para referencia (no usados en esta corrida, quedan disponibles para el próximo turno):**
+revisando `blotato_list_posts` desde el 25 de agosto, los destinos/hoteles más recientes fueron:
+Samaná playa (hoy), Puerto Plata/Casa Marina Sosúa hotel (5 sep), Punta Cana playa (5 sep),
+La Romana/Sunscape Dominicus hotel (4 sep), Constanza (4 sep), Jarabacoa (4 sep), Santo
+Domingo/Catalonia hotel (3 sep) — evitar repetir estos en el próximo turno de Hoteles (6pm) o
+Playas.
+
+**Nota de carpeta (recurrente, sin cambios):** `C:\Users\venul\OneDrive\Documentos\Claude\Scheduled\quisqueya-travel-diario\`
+sigue sin estar montada en esta sesión. `blotato_list_posts` + esta bitácora siguen siendo el
+sustituto real y funcionando bien.
+
+---
+
 ## 🟢 SESIÓN — 2026-09-02 (10:10 EDT): corrida de `quisqueya-travel-video-diario` (turno PLAYAS) — publicado sin problemas, destino Boca Chica
 
 Corrida programada del turno de PLAYAS (10:10 EDT cae en la ventana 8am–14h). Blotato funcionó

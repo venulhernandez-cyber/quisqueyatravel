@@ -4,7 +4,9 @@
 # Fix: el generador de comentarios (link directo) a veces escribe "guía-"
 # (con tilde) en vez de "guia-" (nombre real del archivo) y esos links
 # dan 404. Esta regla salva cualquier variante con tilde, ya publicada o futura.
+# (dos variantes por si el navegador manda la i con tilde codificada como %C3%AD)
 /guía-* /guia-:splat 301
+/gu%C3%ADa-* /guia-:splat 301
 
 # URLs limpias sin .html (301 permanente)
 /guia-punta-cana.html /guia-punta-cana 301
