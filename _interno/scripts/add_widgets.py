@@ -4,13 +4,14 @@ import os, re, sys
 
 APPLY = "--apply" in sys.argv
 ROOT = os.path.expanduser("~/mnt/Quisqueya")
+AV = {"es": "es", "fr": "fr"}  # host de aviasales por idioma (el idioma debe coincidir con el host o sale una tarjeta promo)
 G = "%231a6b3a"  # verde de marca (--verde #1a6b3a)
 
 def src(kind, loc, sub):
     m = f"743485.{sub}"
     if kind == "vuelos":
         return (f"https://tpemb.com/content?currency=usd&trs=543349&shmarker={m}&show_hotels=false&powered_by=false"
-                f"&locale={loc}&searchUrl=www.aviasales.com%2Fsearch&primary_override={G}&color_button={G}&color_icons={G}"
+                f"&locale={loc}&searchUrl=www.aviasales.{AV.get(loc, 'com')}%2Fsearch&primary_override={G}&color_button={G}&color_icons={G}"
                 f"&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused={G}"
                 f"&border_radius=8&plain=false&promo_id=7879&campaign_id=100")
     if kind == "traslados":
@@ -92,7 +93,7 @@ PLAN = {
 
 ANCHORS = ['<div class="cta-box">', '<div class="trust-box">']
 HOSTS = ("https://tpemb.com https://*.tpemb.com https://tp.media https://*.tp.media https://*.travelpayouts.com "
-         "https://*.aviasales.com https://*.kiwitaxi.com https://*.airalo.com https://*.getrentacar.com https://*.tpo.li")
+         "https://*.aviasales.com https://*.aviasales.es https://*.aviasales.fr https://*.kiwitaxi.com https://*.airalo.com https://*.getrentacar.com https://*.tpo.li")
 
 def block(kind, lang, stem):
     h, p = TEXT[lang][kind]
