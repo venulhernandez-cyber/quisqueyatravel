@@ -26,6 +26,7 @@ jobs:
             --exclude '^https://eticket\.migracion\.gob\.do'
             --exclude '^https://(www\.)?getyourguide\.'
             --exclude '^https://(www\.)?viator\.com'
+            --exclude-path automation
             './**/*.html'
           fail: false
 
