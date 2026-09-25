@@ -22,8 +22,8 @@ Dirección: Av. Winston Churchill, Plaza Metropolitana, Santo Domingo, Repúblic
 
 4. Ofertas Especiales de Vuelo:
 - Madrid (MAD) <-> Santo Domingo (SDQ) desde $620 USD ida y vuelta.
-- Nueva York (JFK) <-> Santo Domingo (SDQ) desde $340 USD ida y vuelta.
-- Miami (MIA) <-> Punta Cana (PUJ) desde $280 USD ida y vuelta.`,
+- Nueva York (JFK) <-> Santo Domingo (SDQ) desde $353 USD ida y vuelta.
+- Miami (MIA) <-> Punta Cana (PUJ) desde $313 USD ida y vuelta.`,
     
     faqs: `¿Qué documentos necesito para viajar a la República Dominicana?
 La mayoría de los países solo requieren un pasaporte válido por la duración del viaje y completar el formulario electrónico de entrada/salida (E-Ticket). No se requiere visa de turismo para ciudadanos de la UE, EE. UU. o Latinoamérica.
