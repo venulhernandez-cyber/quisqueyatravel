@@ -58,3 +58,6 @@
 /guia-vuelos-bogota-punta-cana.html /guia-vuelos-bogota-punta-cana 301
 /landing-arma-tu-itinerario.html /landing-arma-tu-itinerario 301
 /index.html / 301
+# Links truncados que Google encontro rotos (GSC 404, sep 2026)
+/guia- / 301
+/guia-boca- /guia-boca-chica 301
