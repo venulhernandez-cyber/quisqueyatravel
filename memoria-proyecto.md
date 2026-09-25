@@ -184,6 +184,22 @@ Se investigó `deploy/omniroute/` (pendiente viejo) y se confirmó que SÍ estab
 
 ## Historial de Sesiones
 
+### Sesión — 22 de septiembre de 2026 (tarea programada `quisqueya-travel-video-diario`, turno Playa 10am)
+
+**Contexto:** corrida automática sin Venul presente. Turno determinado por hora del sistema (~5:49am ET al disparar) → PLAYAS. Se siguió la skill `pexels-quisqueya-travel` (fuente de verdad actualizada) en vez del texto viejo de la tarea programada, que sigue referenciando la carpeta huérfana `Documentos\Claude\Scheduled\quisqueya-travel-diario\`.
+
+**1. Revisión de duplicados:** `blotato_list_posts` (últimos 7 días) confirmó que Punta Cana como playa pura no se había usado en los últimos ~10 posts (sí se usó como hotel — Riu Palace Macao, 19 sep). Se eligió **Punta Cana (playa)** siguiendo la rotación.
+
+**2. Video:** la API de Pexels y GitHub raw (`video-pool.json`) no fueron alcanzables desde bash (sin salida de red en el sandbox — mismo problema documentado antes). Se usó Claude in Chrome: búsqueda en pexels.com con filtro de orientación vertical, video real ID **17868049** ("A bird's eye view of the ocean and a small island", 1080x1920, ya vertical — sin necesidad de recorte/barras negras). Descargado como blob en el navegador y re-hospedado vía `blotato_create_presigned_upload_url` → `https://database.blotato.io/.../7620de1c-1884-4247-bc10-5bf8b2e57b77.mp4` (nunca se usó el link crudo de `videos.pexels.com`).
+
+**3. Publicado exitosamente en ambas cuentas:**
+- Facebook (El Quisqueyano en nyc): https://facebook.com/reel/1088307060270831/ — firstComment con link a `guia-punta-cana.html?utm_source=facebook&utm_medium=social&utm_campaign=turno_playa&utm_content=punta-cana`.
+- Instagram (@venulh): https://www.instagram.com/reel/DdlddxsDWF6/ — firstComment con el mismo link (utm_source=instagram), copy con "Link en mi bio".
+
+**Nota para el futuro:** confirmado que la tarea programada de Cowork `quisqueya-travel-video-diario` (activa, corre 10am/18h) sigue siendo el pipeline real en producción — sin señales de duplicado con los triggers `Turno Playa`/`Turno Hoteles` mencionados en sesiones de agosto (esos parecían apuntar a un pipeline de GitHub Actions que no se ve activo en `blotato_list_posts`; todo el historial reciente de posts viene de Blotato). No se tocó nada de esa investigación esta corrida — solo se documenta la observación por si vale la pena reconciliar en una sesión manual.
+
+---
+
 ### Sesión — 3 de septiembre de 2026 (Cowork — herramientas de venta activadas: fix de conversión + contenido nuevo)
 
 **Contexto:** Venul pidió "pon a trabajar las herramientas de venta, necesito vender". Se priorizó el fix de conversión del sitio primero, luego contenido nuevo para redes.
