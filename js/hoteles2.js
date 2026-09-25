@@ -50,9 +50,9 @@ var HOTELES_BASE = {
     destino: 'Santo Domingo',
     hoteles: [
       { nombre: 'Hotel Hodelpa Caribe Colonial', precio: 'Desde $59/noche', puntuacion: '8.2 Muy bueno', imagen: 'https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=500&q=80', emoji: '🏛️', link: addr('Santo Domingo', 'santo_domingo') },
-      { nombre: 'Radisson Blu Hotel Santo Domingo', precio: 'Desde $80/noche', puntuacion: '8.5 Muy bueno', imagen: 'https://images.unsplash.com/photo-1551882547-ff40c4c79d4d?w=500&q=80', emoji: '🌆', link: addr('Santo Domingo', 'santo_domingo') },
+      { nombre: 'Radisson Hotel Santo Domingo', precio: 'Desde $88/noche', puntuacion: '7.8 Bueno', imagen: 'https://images.unsplash.com/photo-1551882547-ff40c4c79d4d?w=500&q=80', emoji: '🌆', link: addr('Santo Domingo', 'santo_domingo') },
       { nombre: 'InterContinental Real Santo Domingo', precio: 'Desde $136/noche', puntuacion: '8.7 Excelente', imagen: 'https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=500&q=80', emoji: '🏙️', link: addr('Santo Domingo', 'santo_domingo') },
-      { nombre: 'Hotel El Embajador, Autograph Collection', precio: 'Desde $126/noche', puntuacion: '8.4 Muy bueno', imagen: 'https://images.unsplash.com/photo-1551882547-ff40c4c79d4d?w=500&q=80', emoji: '🌆', link: addr('Santo Domingo', 'santo_domingo') }
+      { nombre: 'El Embajador, a Royal Hideaway Hotel', precio: 'Desde $126/noche', puntuacion: '8.4 Muy bueno', imagen: 'https://images.unsplash.com/photo-1551882547-ff40c4c79d4d?w=500&q=80', emoji: '🌆', link: addr('Santo Domingo', 'santo_domingo') }
     ]
   },
   'puerto-plata': {
@@ -61,34 +61,34 @@ var HOTELES_BASE = {
       { nombre: 'Cofresi Palm Beach & Spa Resort', precio: 'Desde $131/noche', puntuacion: '7.9 Bueno', imagen: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=500&q=80', emoji: '⛰️', link: addr('Puerto Plata', 'puerto_plata') },
       { nombre: 'Viva Wyndham V Heavens', precio: 'Desde $328/noche', puntuacion: '7.6 Bueno', imagen: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&q=80', emoji: '🌊', link: addr('Puerto Plata', 'puerto_plata') },
       { nombre: 'Lifestyle Tropical Beach Resort & Spa', precio: 'Desde $238/noche', puntuacion: '7.8 Bueno', imagen: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=500&q=80', emoji: '🏝️', link: addr('Puerto Plata', 'puerto_plata') },
-      { nombre: 'Be Live Collection Marien', precio: 'Desde $68/noche', puntuacion: '7.7 Bueno', imagen: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&q=80', emoji: '🌊', link: addr('Puerto Plata', 'puerto_plata') }
+      { nombre: 'Holiday Inn Puerto Plata-Cofresí', precio: 'Desde $96/noche', puntuacion: '7.0 Bueno', imagen: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&q=80', emoji: '🌊', link: addr('Puerto Plata', 'puerto_plata') }
     ]
   },
   'la-romana': {
     destino: 'La Romana',
     hoteles: [
       { nombre: 'Casa de Campo Resort & Villas', precio: 'Desde $282/noche', puntuacion: '9.1 Excepcional', imagen: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=500&q=80', emoji: '🎨', link: addr('La Romana', 'la_romana') },
-      { nombre: 'Sunscape Casa del Mar', precio: 'Desde $85/noche', puntuacion: '8.3 Muy bueno', imagen: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&q=80', emoji: '🌅', link: addr('La Romana', 'la_romana') },
-      { nombre: 'Viva Wyndham Dominicus Beach', precio: 'Desde $90/noche', puntuacion: '8.0 Muy bueno', imagen: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=500&q=80', emoji: '🏖️', link: addr('La Romana', 'la_romana') },
-      { nombre: 'Hilton La Romana All-Inclusive', precio: 'Desde $135/noche', puntuacion: '8.9 Excelente', imagen: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&q=80', emoji: '🌅', link: addr('La Romana', 'la_romana') }
+      { nombre: 'Sunscape Dominicus La Romana', precio: 'Desde $229/noche', puntuacion: '8.1 Muy bueno', imagen: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&q=80', emoji: '🌅', link: addr('La Romana', 'la_romana') },
+      { nombre: 'Hotel HM Alma de Bayahibe', precio: 'Desde $207/noche', puntuacion: '8.1 Muy bueno', imagen: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=500&q=80', emoji: '🏖️', link: addr('La Romana', 'la_romana') },
+      { nombre: 'Hilton Garden Inn La Romana', precio: 'Desde $122/noche', puntuacion: '8.0 Muy bueno', imagen: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&q=80', emoji: '🌅', link: addr('La Romana', 'la_romana') }
     ]
   },
   'samana': {
     destino: 'Samana',
     hoteles: [
-      { nombre: 'Grand Bahia Principe Cayacoa', precio: 'Desde $253/noche', puntuacion: '8.7 Excelente', imagen: 'https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700', emoji: '🐋', link: addr('Samana', 'samana') },
-      { nombre: 'Hotel Bahia Principe Grand Samana', precio: 'Desde $75/noche', puntuacion: '8.5 Muy bueno', imagen: 'https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700', emoji: '🌴', link: addr('Samana', 'samana') },
-      { nombre: 'Bahia Principe Grand El Portillo', precio: 'Desde $95/noche', puntuacion: '8.4 Muy bueno', imagen: 'https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700', emoji: '🌴', link: addr('Samana', 'samana') },
-      { nombre: 'Casa Marina Bay', precio: 'Desde $70/noche', puntuacion: '7.9 Bueno', imagen: 'https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700', emoji: '🐚', link: addr('Samana', 'samana') }
+      { nombre: 'Eurostars Grand Cayacoa', precio: 'Desde $253/noche', puntuacion: '8.7 Excelente', imagen: 'https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700', emoji: '🐋', link: addr('Samana', 'samana') },
+      { nombre: 'Viva V Samana by Wyndham', precio: 'Desde $235/noche', puntuacion: '7.8 Bueno', imagen: 'https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700', emoji: '🌴', link: addr('Samana', 'samana') },
+      { nombre: 'Hotel Playa Colibrí', precio: 'Desde $123/noche', puntuacion: '8.3 Muy bueno', imagen: 'https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700', emoji: '🌴', link: addr('Samana', 'samana') },
+      { nombre: 'Hostal Marina Samaná', precio: 'Desde $61/noche', puntuacion: '8.7 Excelente', imagen: 'https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700', emoji: '🐚', link: addr('Samana', 'samana') }
     ]
   },
   'santiago': {
     destino: 'Santiago de los Caballeros',
     hoteles: [
-      { nombre: 'Hodelpa Gran Almirante', precio: 'Desde $60/noche', puntuacion: '8.3 Muy bueno', imagen: 'https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=500&q=80', emoji: '🌆', link: addr('Santiago de los Caballeros', 'santiago') },
+      { nombre: 'Hodelpa Gran Almirante', precio: 'Desde $93/noche', puntuacion: '8.3 Muy bueno', imagen: 'https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=500&q=80', emoji: '🌆', link: addr('Santiago de los Caballeros', 'santiago') },
       { nombre: 'Hodelpa Centro Plaza', precio: 'Desde $79/noche', puntuacion: '7.8 Bueno', imagen: 'https://images.unsplash.com/photo-1551882547-ff40c4c79d4d?w=500&q=80', emoji: '🏙️', link: addr('Santiago de los Caballeros', 'santiago') },
-      { nombre: 'Aloft Santiago', precio: 'Desde $65/noche', puntuacion: '8.1 Muy bueno', imagen: 'https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=500&q=80', emoji: '✨', link: addr('Santiago de los Caballeros', 'santiago') },
-      { nombre: 'Hodelpa Camino Real', precio: 'Desde $58/noche', puntuacion: '7.9 Bueno', imagen: 'https://images.unsplash.com/photo-1551882547-ff40c4c79d4d?w=500&q=80', emoji: '🏨', link: addr('Santiago de los Caballeros', 'santiago') }
+      { nombre: 'Hodelpa Garden Court', precio: 'Desde $85/noche', puntuacion: '9.1 Excepcional', imagen: 'https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=500&q=80', emoji: '✨', link: addr('Santiago de los Caballeros', 'santiago') },
+      { nombre: 'Matum Hotel & Casino', precio: 'Desde $63/noche', puntuacion: '7.3 Bueno', imagen: 'https://images.unsplash.com/photo-1551882547-ff40c4c79d4d?w=500&q=80', emoji: '🏨', link: addr('Santiago de los Caballeros', 'santiago') }
     ]
   }
 };
