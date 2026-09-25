@@ -42,7 +42,7 @@ var HOTELES_BASE = {
     hoteles: [
       { nombre: 'Barcelo Bavaro Palace', precio: 'Desde $139/noche', puntuacion: '8.6 Excelente', imagen: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&q=80', emoji: '🌴', link: addr('Punta Cana', 'punta_cana') },
       { nombre: 'Hard Rock Hotel & Casino Punta Cana', precio: 'Desde $345/noche', puntuacion: '8.4 Muy bueno', imagen: 'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=500&q=80', emoji: '🎸', link: addr('Punta Cana', 'punta_cana') },
-      { nombre: 'Riu Palace Macao', precio: 'Desde $199/noche', puntuacion: '8.8 Excelente', imagen: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&q=80', emoji: '🏖️', link: addr('Punta Cana', 'punta_cana') },
+      { nombre: 'Riu Palace Macao (solo adultos)', precio: 'Desde $199/noche', puntuacion: '8.8 Excelente', imagen: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&q=80', emoji: '🏖️', link: addr('Punta Cana', 'punta_cana') },
       { nombre: 'Majestic Elegance Punta Cana', precio: 'Desde $520/noche', puntuacion: '8.7 Excelente', imagen: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&q=80', emoji: '🌺', link: addr('Punta Cana', 'punta_cana') }
     ]
   },
@@ -69,7 +69,7 @@ var HOTELES_BASE = {
     hoteles: [
       { nombre: 'Casa de Campo Resort & Villas', precio: 'Desde $282/noche', puntuacion: '9.1 Excepcional', imagen: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=500&q=80', emoji: '🎨', link: addr('La Romana', 'la_romana') },
       { nombre: 'Sunscape Dominicus La Romana', precio: 'Desde $229/noche', puntuacion: '8.1 Muy bueno', imagen: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&q=80', emoji: '🌅', link: addr('La Romana', 'la_romana') },
-      { nombre: 'Hotel HM Alma de Bayahibe', precio: 'Desde $207/noche', puntuacion: '8.1 Muy bueno', imagen: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=500&q=80', emoji: '🏖️', link: addr('La Romana', 'la_romana') },
+      { nombre: 'Hotel HM Alma de Bayahibe (solo adultos)', precio: 'Desde $207/noche', puntuacion: '8.1 Muy bueno', imagen: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=500&q=80', emoji: '🏖️', link: addr('La Romana', 'la_romana') },
       { nombre: 'Hilton Garden Inn La Romana', precio: 'Desde $122/noche', puntuacion: '8.0 Muy bueno', imagen: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&q=80', emoji: '🌅', link: addr('La Romana', 'la_romana') }
     ]
   },
@@ -77,7 +77,7 @@ var HOTELES_BASE = {
     destino: 'Samana',
     hoteles: [
       { nombre: 'Eurostars Grand Cayacoa', precio: 'Desde $253/noche', puntuacion: '8.7 Excelente', imagen: 'https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700', emoji: '🐋', link: addr('Samana', 'samana') },
-      { nombre: 'Viva V Samana by Wyndham', precio: 'Desde $235/noche', puntuacion: '7.8 Bueno', imagen: 'https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700', emoji: '🌴', link: addr('Samana', 'samana') },
+      { nombre: 'Viva V Samana by Wyndham (solo adultos)', precio: 'Desde $235/noche', puntuacion: '7.8 Bueno', imagen: 'https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700', emoji: '🌴', link: addr('Samana', 'samana') },
       { nombre: 'Hotel Playa Colibrí', precio: 'Desde $123/noche', puntuacion: '8.3 Muy bueno', imagen: 'https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700', emoji: '🌴', link: addr('Samana', 'samana') },
       { nombre: 'Hostal Marina Samaná', precio: 'Desde $61/noche', puntuacion: '8.7 Excelente', imagen: 'https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700', emoji: '🐚', link: addr('Samana', 'samana') }
     ]
@@ -193,5 +193,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var d = new Date();
   var el = document.getElementById('footer-update');
-  if (el) el.textContent = 'Hoteles actualizados: ' + d.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+  if (el) el.textContent = 'Precios de hoteles revisados: 25 de septiembre de 2026';
 });

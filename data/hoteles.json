@@ -2,37 +2,223 @@
   "punta-cana": {
     "destino": "Punta Cana",
     "hoteles": [
-      { "nombre": "Live Aqua Punta Cana - All Inclusive - Adults Only", "precio": "Desde $607/noche", "puntuacion": "8.9 Excelente", "imagen": "https://images.unsplash.com/photo-1549294413-26f195200c16?w=500&q=80", "emoji": "💎", "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPunta%2520Cana%252C%2520Republica%2520Dominicana" }
+      {
+        "nombre": "Barcelo Bavaro Palace",
+        "precio": "Desde $139/noche",
+        "puntuacion": "8.6 Excelente",
+        "imagen": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&q=80",
+        "emoji": "🌴",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPunta%2520Cana%252C%2520Republica%2520Dominicana"
+      },
+      {
+        "nombre": "Hard Rock Hotel & Casino Punta Cana",
+        "precio": "Desde $345/noche",
+        "puntuacion": "8.4 Muy bueno",
+        "imagen": "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=500&q=80",
+        "emoji": "🎸",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPunta%2520Cana%252C%2520Republica%2520Dominicana"
+      },
+      {
+        "nombre": "Riu Palace Macao (solo adultos)",
+        "precio": "Desde $199/noche",
+        "puntuacion": "8.8 Excelente",
+        "imagen": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&q=80",
+        "emoji": "🏖️",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPunta%2520Cana%252C%2520Republica%2520Dominicana"
+      },
+      {
+        "nombre": "Majestic Elegance Punta Cana",
+        "precio": "Desde $520/noche",
+        "puntuacion": "8.7 Excelente",
+        "imagen": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&q=80",
+        "emoji": "🌺",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPunta%2520Cana%252C%2520Republica%2520Dominicana"
+      }
     ]
   },
   "santo-domingo": {
     "destino": "Santo Domingo",
     "hoteles": [
-      { "nombre": "Catalonia Santo Domingo", "precio": "Desde $102/noche", "puntuacion": "8.7 Excelente", "imagen": "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=500&q=80", "emoji": "🏙️", "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSanto%2520Domingo%252C%2520Republica%2520Dominicana" }
+      {
+        "nombre": "Hotel Hodelpa Caribe Colonial",
+        "precio": "Desde $59/noche",
+        "puntuacion": "8.2 Muy bueno",
+        "imagen": "https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=500&q=80",
+        "emoji": "🏛️",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSanto%2520Domingo%252C%2520Republica%2520Dominicana"
+      },
+      {
+        "nombre": "Radisson Hotel Santo Domingo",
+        "precio": "Desde $88/noche",
+        "puntuacion": "7.8 Bueno",
+        "imagen": "https://images.unsplash.com/photo-1551882547-ff40c4c79d4d?w=500&q=80",
+        "emoji": "🌆",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSanto%2520Domingo%252C%2520Republica%2520Dominicana"
+      },
+      {
+        "nombre": "InterContinental Real Santo Domingo",
+        "precio": "Desde $136/noche",
+        "puntuacion": "8.7 Excelente",
+        "imagen": "https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=500&q=80",
+        "emoji": "🏙️",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSanto%2520Domingo%252C%2520Republica%2520Dominicana"
+      },
+      {
+        "nombre": "El Embajador, a Royal Hideaway Hotel",
+        "precio": "Desde $126/noche",
+        "puntuacion": "8.4 Muy bueno",
+        "imagen": "https://images.unsplash.com/photo-1551882547-ff40c4c79d4d?w=500&q=80",
+        "emoji": "🌆",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSanto%2520Domingo%252C%2520Republica%2520Dominicana"
+      }
     ]
   },
   "puerto-plata": {
     "destino": "Puerto Plata",
     "hoteles": [
-      { "nombre": "Casa Marina Sosua, Trademark by Wyndham All Inclusive", "precio": "Desde $126/noche", "puntuacion": "7.4 Bueno", "imagen": "https://images.unsplash.com/photo-1693933714044-131908e39427?w=500&q=80", "emoji": "🏝️", "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPuerto%2520Plata%252C%2520Republica%2520Dominicana" }
+      {
+        "nombre": "Cofresi Palm Beach & Spa Resort",
+        "precio": "Desde $131/noche",
+        "puntuacion": "7.9 Bueno",
+        "imagen": "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=500&q=80",
+        "emoji": "⛰️",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPuerto%2520Plata%252C%2520Republica%2520Dominicana"
+      },
+      {
+        "nombre": "Viva Wyndham V Heavens",
+        "precio": "Desde $328/noche",
+        "puntuacion": "7.6 Bueno",
+        "imagen": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&q=80",
+        "emoji": "🌊",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPuerto%2520Plata%252C%2520Republica%2520Dominicana"
+      },
+      {
+        "nombre": "Lifestyle Tropical Beach Resort & Spa",
+        "precio": "Desde $238/noche",
+        "puntuacion": "7.8 Bueno",
+        "imagen": "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=500&q=80",
+        "emoji": "🏝️",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPuerto%2520Plata%252C%2520Republica%2520Dominicana"
+      },
+      {
+        "nombre": "Holiday Inn Puerto Plata-Cofresí",
+        "precio": "Desde $96/noche",
+        "puntuacion": "7.0 Bueno",
+        "imagen": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&q=80",
+        "emoji": "🌊",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DPuerto%2520Plata%252C%2520Republica%2520Dominicana"
+      }
     ]
   },
   "la-romana": {
     "destino": "La Romana",
     "hoteles": [
-      { "nombre": "Sunscape Dominicus La Romana - All Inclusive", "precio": "Desde $369/noche", "puntuacion": "8.1 Muy bueno", "imagen": "https://images.unsplash.com/photo-1693934304978-22274e6a3276?w=500&q=80", "emoji": "🏖️", "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DLa%2520Romana%252C%2520Republica%2520Dominicana" }
+      {
+        "nombre": "Casa de Campo Resort & Villas",
+        "precio": "Desde $282/noche",
+        "puntuacion": "9.1 Excepcional",
+        "imagen": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=500&q=80",
+        "emoji": "🎨",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DLa%2520Romana%252C%2520Republica%2520Dominicana"
+      },
+      {
+        "nombre": "Sunscape Dominicus La Romana",
+        "precio": "Desde $229/noche",
+        "puntuacion": "8.1 Muy bueno",
+        "imagen": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&q=80",
+        "emoji": "🌅",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DLa%2520Romana%252C%2520Republica%2520Dominicana"
+      },
+      {
+        "nombre": "Hotel HM Alma de Bayahibe (solo adultos)",
+        "precio": "Desde $207/noche",
+        "puntuacion": "8.1 Muy bueno",
+        "imagen": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=500&q=80",
+        "emoji": "🏖️",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DLa%2520Romana%252C%2520Republica%2520Dominicana"
+      },
+      {
+        "nombre": "Hilton Garden Inn La Romana",
+        "precio": "Desde $122/noche",
+        "puntuacion": "8.0 Muy bueno",
+        "imagen": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&q=80",
+        "emoji": "🌅",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DLa%2520Romana%252C%2520Republica%2520Dominicana"
+      }
     ]
   },
   "samana": {
-    "destino": "Samaná",
+    "destino": "Samana",
     "hoteles": [
-      { "nombre": "Viva V Samana by Wyndham, A Trademark Adults All Inclusive", "precio": "Desde $339/noche", "puntuacion": "7.7 Bueno", "imagen": "https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700", "emoji": "🌴", "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSamana%252C%2520Republica%2520Dominicana" }
+      {
+        "nombre": "Eurostars Grand Cayacoa",
+        "precio": "Desde $253/noche",
+        "puntuacion": "8.7 Excelente",
+        "imagen": "https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700",
+        "emoji": "🐋",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSamana%252C%2520Republica%2520Dominicana"
+      },
+      {
+        "nombre": "Viva V Samana by Wyndham (solo adultos)",
+        "precio": "Desde $235/noche",
+        "puntuacion": "7.8 Bueno",
+        "imagen": "https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700",
+        "emoji": "🌴",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSamana%252C%2520Republica%2520Dominicana"
+      },
+      {
+        "nombre": "Hotel Playa Colibrí",
+        "precio": "Desde $123/noche",
+        "puntuacion": "8.3 Muy bueno",
+        "imagen": "https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700",
+        "emoji": "🌴",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSamana%252C%2520Republica%2520Dominicana"
+      },
+      {
+        "nombre": "Hostal Marina Samaná",
+        "precio": "Desde $61/noche",
+        "puntuacion": "8.7 Excelente",
+        "imagen": "https://images.pexels.com/photos/16210227/pexels-photo-16210227.jpeg?auto=compress&cs=tinysrgb&w=700",
+        "emoji": "🐚",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSamana%252C%2520Republica%2520Dominicana"
+      }
     ]
   },
   "santiago": {
     "destino": "Santiago de los Caballeros",
     "hoteles": [
-      { "nombre": "Hodelpa Garden Court", "precio": "Desde $99/noche", "puntuacion": "9.1 Excepcional", "imagen": "https://images.unsplash.com/photo-1561501900-3701fa6a0864?w=500&q=80", "emoji": "🏨", "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSantiago%2520de%2520los%2520Caballeros%252C%2520Republica%2520Dominicana" }
+      {
+        "nombre": "Hodelpa Gran Almirante",
+        "precio": "Desde $93/noche",
+        "puntuacion": "8.3 Muy bueno",
+        "imagen": "https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=500&q=80",
+        "emoji": "🌆",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSantiago%2520de%2520los%2520Caballeros%252C%2520Republica%2520Dominicana"
+      },
+      {
+        "nombre": "Hodelpa Centro Plaza",
+        "precio": "Desde $79/noche",
+        "puntuacion": "7.8 Bueno",
+        "imagen": "https://images.unsplash.com/photo-1551882547-ff40c4c79d4d?w=500&q=80",
+        "emoji": "🏙️",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSantiago%2520de%2520los%2520Caballeros%252C%2520Republica%2520Dominicana"
+      },
+      {
+        "nombre": "Hodelpa Garden Court",
+        "precio": "Desde $85/noche",
+        "puntuacion": "9.1 Excepcional",
+        "imagen": "https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=500&q=80",
+        "emoji": "✨",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSantiago%2520de%2520los%2520Caballeros%252C%2520Republica%2520Dominicana"
+      },
+      {
+        "nombre": "Matum Hotel & Casino",
+        "precio": "Desde $63/noche",
+        "puntuacion": "7.3 Bueno",
+        "imagen": "https://images.unsplash.com/photo-1551882547-ff40c4c79d4d?w=500&q=80",
+        "emoji": "🏨",
+        "link": "https://www.jdoqocy.com/click-101799556-17288992?url=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSantiago%2520de%2520los%2520Caballeros%252C%2520Republica%2520Dominicana"
+      }
     ]
   }
 }
