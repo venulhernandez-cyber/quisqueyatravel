@@ -278,29 +278,29 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     .hero-stat .num { font-family: 'Montserrat', 'Montserrat Fallback', sans-serif; font-weight: 900; font-size: 2rem; color: var(--naranja); }
     .hero-stat .lbl { font-size: 0.8rem; opacity: 0.7; margin-top: 2px; }
 
-    /* ── ESPECIAL DE VERANO ── */
+    /* ── ESPECIAL DE NAVIDAD ── */
     #especial {
-      background: linear-gradient(135deg, var(--naranja) 0%, #e08c4a 100%);
+      background: linear-gradient(135deg, var(--verde) 0%, #0f4526 100%);
       padding: 45px 20px; text-align: center; position: relative; overflow: hidden;
     }
     #especial::before {
-      content: '☀️'; font-size: 14rem; position: absolute;
+      content: '🎄'; font-size: 14rem; position: absolute;
       opacity: 0.12; top: -30px; left: -30px; pointer-events: none;
     }
     .especial-wrap { position: relative; max-width: 720px; margin: 0 auto; }
     .especial-badge {
-      display: inline-block; background: var(--oscuro); color: var(--blanco);
+      display: inline-block; background: #c0392b; color: var(--blanco);
       padding: 6px 16px; border-radius: 20px; font-size: 0.78rem; font-weight: 700;
       letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px;
     }
     .especial-wrap h2 {
-      font-family: 'Montserrat', 'Montserrat Fallback', sans-serif; font-weight: 900; color: var(--oscuro);
+      font-family: 'Montserrat', 'Montserrat Fallback', sans-serif; font-weight: 900; color: var(--blanco);
       font-size: clamp(1.5rem, 4vw, 2.2rem); line-height: 1.2; margin-bottom: 10px;
     }
-    .especial-wrap p { color: #2a2a3a; font-size: 1rem; max-width: 540px; margin: 0 auto 22px; line-height: 1.6; }
-    .especial-wrap .btn-primary { background: var(--oscuro); color: var(--blanco); box-shadow: 0 4px 20px rgba(0,0,0,0.25); }
-    .especial-wrap .btn-primary:hover { background: #2a2a3a; }
-    .especial-nota { display: block; margin-top: 14px; font-size: 0.78rem; color: #3a2a14; opacity: 0.8; }
+    .especial-wrap p { color: rgba(255,255,255,0.92); font-size: 1rem; max-width: 540px; margin: 0 auto 22px; line-height: 1.6; }
+    .especial-wrap .btn-primary { background: #c0392b; color: var(--blanco); box-shadow: 0 4px 20px rgba(0,0,0,0.25); }
+    .especial-wrap .btn-primary:hover { background: #a93226; }
+    .especial-nota { display: block; margin-top: 14px; font-size: 0.78rem; color: var(--blanco); opacity: 0.8; }
 
     /* ── OFERTAS DE LA SEMANA (Bento Grid) ── */
     #ofertas { background: var(--blanco); }
@@ -698,7 +698,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     </button>
     <div class="collapse navbar-collapse" id="navPrincipal">
       <ul class="navbar-nav me-auto mb-3 mb-lg-0 align-items-lg-center gap-lg-2">
-        <li class="nav-item"><a class="nav-link" href="#especial">🔥 Especial verano</a></li>
+        <li class="nav-item"><a class="nav-link" href="#especial">🎄 Especial Navidad</a></li>
         <li class="nav-item"><a class="nav-link" href="#ofertas">💸 Ofertas</a></li>
         <li class="nav-item"><a class="nav-link" href="#hoteles">Hoteles</a></li>
         <li class="nav-item"><a class="nav-link" href="#calculadora">🧮 Calculadora</a></li>
@@ -863,18 +863,18 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   </div>
 </section>
 
-<!-- ── ESPECIAL DE VERANO ── -->
+<!-- ── ESPECIAL DE NAVIDAD ── -->
 <section id="especial">
   <div class="especial-wrap">
-    <span class="especial-badge">🔥 Oferta de verano 2026</span>
-    <h2>¿Cuánto hace que no te comes un mangú frente al mar?</h2>
+    <span class="especial-badge">🎄 Oferta de Navidad 2026</span>
+    <h2>¿Este año sí pasas la Nochebuena en RD?</h2>
     <p>
-      Arma tu viaje a República Dominicana este verano y vuelve a sentir lo que es estar en casa.
-      Vuelos disponibles desde Estados Unidos, Europa, Latinoamérica y el Caribe. Los mejores hoteles de Punta
-      Cana, Santo Domingo, Puerto Plata, La Romana y Samaná con tarifa de temporada.
+      Diciembre es cuando más sube el pasaje y primero se llenan los vuelos. Asegura ya tu vuelo desde Nueva York
+      y tu hotel en Punta Cana, Santo Domingo, Puerto Plata, La Romana o Samaná, y pasa las fiestas con los tuyos:
+      el puerco en puya, el moro y la familia completa.
     </p>
-    <a href="#hoteles" class="btn-primary">🏖️ Ver hoteles del especial de verano</a>
-    <span class="especial-nota">Precios y disponibilidad sujetos a cambio · Vuelos desde EE.UU. a RD desde aprox. $373 ida y vuelta, según fecha y aerolínea.</span>
+    <a href="/vuelos-navidad-nyc-rd" class="btn-primary">✈️ Ver vuelos de Navidad NYC → RD</a>
+    <span class="especial-nota">Precios y disponibilidad sujetos a cambio · En diciembre los pasajes suben rápido: mientras antes reserves, mejor precio.</span>
   </div>
 </section>
 
@@ -1537,7 +1537,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   var __calcDestinoActual = null;
 
   // Estimado de vuelo redondo por persona según ciudad de origen — referencia, no tarifa en vivo.
-  // Base: 373 = mismo estimado publicado en la sección "Especial de verano" (NYC).
+  // Base: 373 = estimado de referencia NYC → RD (temporada regular, no diciembre).
   var __calcOrigenes = {
     'nyc':       { nombre: 'Nueva York', vuelo: 373 },
     'newark':    { nombre: 'Newark',     vuelo: 373 },
