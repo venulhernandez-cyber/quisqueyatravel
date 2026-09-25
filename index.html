@@ -87,10 +87,13 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"></noscript>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
   <style>
+    /* FIX CLS 2026-09-25: fuentes fallback con metricas ajustadas para que el swap de Google Fonts no mueva el hero */
+    @font-face { font-family: 'Montserrat Fallback'; src: local('Arial'), local('Liberation Sans'), local('Helvetica'); ascent-override: 85.79%; descent-override: 22.25%; line-gap-override: 0%; size-adjust: 112.83%; }
+    @font-face { font-family: 'Open Sans Fallback'; src: local('Arial'), local('Liberation Sans'), local('Helvetica'); ascent-override: 101.18%; descent-override: 27.73%; line-gap-override: 0%; size-adjust: 105.64%; }
     /* ── Reset & Base ── */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -106,13 +109,13 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       --texto:   #333344;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Open Sans', sans-serif; color: var(--texto); background: var(--blanco); }
+    body { font-family: 'Open Sans', 'Open Sans Fallback', sans-serif; color: var(--texto); background: var(--blanco); }
 
     /* ── NAV (Bootstrap navbar + marca) ── */
     .navbar { background: var(--oscuro); box-shadow: 0 2px 12px rgba(0,0,0,0.3); padding-top: 10px; padding-bottom: 10px; }
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .nav-logo .flag { font-size: 1.6rem; }
-    .nav-logo span { font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--blanco); font-size: 1.2rem; letter-spacing: -0.5px; }
+    .nav-logo span { font-family: 'Montserrat', 'Montserrat Fallback', sans-serif; font-weight: 900; color: var(--blanco); font-size: 1.2rem; letter-spacing: -0.5px; }
     .nav-logo span em { color: var(--naranja); font-style: normal; }
     .navbar .nav-link { color: #e6e6e6; font-weight: 600; font-size: 0.92rem; }
     .navbar .nav-link:hover, .navbar .nav-link:focus { color: var(--naranja); }
@@ -161,13 +164,13 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       font-weight: 700; letter-spacing: 1px; margin-bottom: 20px; text-transform: uppercase;
     }
     .hero h1 {
-      font-family: 'Montserrat', sans-serif; font-weight: 900;
+      font-family: 'Montserrat', 'Montserrat Fallback', sans-serif; font-weight: 900;
       font-size: clamp(2rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 20px;
     }
     .hero h1 span { color: var(--naranja); }
     .hero h1.hero-stagger { margin-bottom: 22px; }
     .hero h1.hero-stagger span.stagger-line {
-      display: block; font-family: 'Montserrat', sans-serif; font-weight: 900; line-height: 1.08;
+      display: block; font-family: 'Montserrat', 'Montserrat Fallback', sans-serif; font-weight: 900; line-height: 1.08;
     }
     .stagger-1 { font-size: clamp(1.1rem, 3vw, 1.7rem); opacity: 0.7; }
     .stagger-2 { font-size: clamp(1.4rem, 3.8vw, 2.3rem); opacity: 0.85; }
@@ -222,7 +225,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     .buscador-fecha-campo input[type="date"] {
       padding: 12px; border-radius: 10px; border: 2px solid #e0e0e0;
       font-weight: 700; font-size: 0.9rem; color: var(--oscuro); background: var(--blanco);
-      min-height: 48px; font-family: 'Open Sans', sans-serif;
+      min-height: 48px; font-family: 'Open Sans', 'Open Sans Fallback', sans-serif;
     }
     .buscador-fecha-campo input[type="date"]:focus { outline: none; border-color: var(--verde); }
     .hero-buscador select#hero-huespedes { flex: 1 1 160px; min-width: 150px; }
@@ -272,7 +275,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       flex-wrap: wrap;
     }
     .hero-stat { text-align: center; }
-    .hero-stat .num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 2rem; color: var(--naranja); }
+    .hero-stat .num { font-family: 'Montserrat', 'Montserrat Fallback', sans-serif; font-weight: 900; font-size: 2rem; color: var(--naranja); }
     .hero-stat .lbl { font-size: 0.8rem; opacity: 0.7; margin-top: 2px; }
 
     /* ── ESPECIAL DE VERANO ── */
@@ -291,7 +294,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px;
     }
     .especial-wrap h2 {
-      font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--oscuro);
+      font-family: 'Montserrat', 'Montserrat Fallback', sans-serif; font-weight: 900; color: var(--oscuro);
       font-size: clamp(1.5rem, 4vw, 2.2rem); line-height: 1.2; margin-bottom: 10px;
     }
     .especial-wrap p { color: #2a2a3a; font-size: 1rem; max-width: 540px; margin: 0 auto 22px; line-height: 1.6; }
@@ -332,7 +335,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;
     }
     .section-header h2 {
-      font-family: 'Montserrat', sans-serif; font-weight: 900;
+      font-family: 'Montserrat', 'Montserrat Fallback', sans-serif; font-weight: 900;
       font-size: clamp(1.6rem, 4vw, 2.4rem); color: var(--oscuro); margin-bottom: 12px;
     }
     .section-header p { color: #666; font-size: 1rem; max-width: 520px; margin: 0 auto; line-height: 1.7; }
@@ -392,7 +395,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 700;
     }
     .destino-body { padding: 22px; }
-    .destino-body h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 8px; }
+    .destino-body h3 { font-family: 'Montserrat', 'Montserrat Fallback', sans-serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 8px; }
     .destino-body p { color: #666; font-size: 0.9rem; line-height: 1.6; margin-bottom: 15px; }
     .destino-meta { display: flex; gap: 15px; font-size: 0.8rem; color: #595959; margin-bottom: 16px; }
     .destino-meta span { display: flex; align-items: center; gap: 4px; }
@@ -433,13 +436,13 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       padding: 4px 10px; border-radius: 6px; font-size: 0.72rem; font-weight: 700;
     }
     .hotel-body { padding: 18px; }
-    .hotel-body h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 8px; color: var(--oscuro); line-height: 1.4; }
+    .hotel-body h3 { font-family: 'Montserrat', 'Montserrat Fallback', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 8px; color: var(--oscuro); line-height: 1.4; }
     .hotel-rating { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
     .stars { color: #f4a261; font-size: 0.9rem; }
     .rating-num { font-weight: 700; color: var(--verde); font-size: 0.9rem; }
     .hotel-precio { margin-bottom: 14px; }
     .precio-desde { font-size: 0.75rem; color: #595959; }
-    .precio-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.4rem; color: var(--verde); }
+    .precio-num { font-family: 'Montserrat', 'Montserrat Fallback', sans-serif; font-weight: 900; font-size: 1.4rem; color: var(--verde); }
     .precio-noche { font-size: 0.75rem; color: #595959; }
     .btn-hotel {
       display: flex; align-items: center; justify-content: center; text-align: center; background: var(--naranja); color: var(--oscuro);
@@ -485,7 +488,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     }
     .servicio-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
     .servicio-icon { font-size: 2.2rem; margin-bottom: 10px; }
-    .servicio-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--oscuro); margin-bottom: 4px; }
+    .servicio-card h3 { font-family: 'Montserrat', 'Montserrat Fallback', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--oscuro); margin-bottom: 4px; }
     .servicio-card span { color: var(--verde); font-size: 0.8rem; font-weight: 700; }
     .servicio-card.destacado {
       position: relative; border: 2px solid var(--verde); background: linear-gradient(160deg, #ffffff, #e8f5e9);
@@ -514,7 +517,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     .porque-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 25px; }
     .porque-card { background: var(--gris); border-radius: 14px; padding: 28px 22px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
     .porque-icon { font-size: 2.5rem; margin-bottom: 14px; }
-    .porque-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 8px; font-size: 1rem; }
+    .porque-card h3 { font-family: 'Montserrat', 'Montserrat Fallback', sans-serif; font-weight: 700; margin-bottom: 8px; font-size: 1rem; }
     .porque-card p { color: #666; font-size: 0.88rem; line-height: 1.6; }
 
     /* ── RESEÑAS / PRUEBA SOCIAL ── */
@@ -533,7 +536,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     #sobre .section-header h2 { color: var(--blanco); }
     #sobre .section-header p { color: #aaa; }
     .sobre-avatar { font-size: 5rem; margin-bottom: 20px; }
-    .sobre-nombre { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.5rem; color: var(--naranja); margin-bottom: 8px; }
+    .sobre-nombre { font-family: 'Montserrat', 'Montserrat Fallback', sans-serif; font-weight: 900; font-size: 1.5rem; color: var(--naranja); margin-bottom: 8px; }
     .sobre-bio { color: #bbb; max-width: 600px; margin: 0 auto 30px; line-height: 1.8; font-size: 0.95rem; }
     .sobre-social { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
     .social-btn {
@@ -612,7 +615,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     }
     .calc-resultado.visible { opacity: 1; max-height: 600px; }
     .calc-total-lbl { font-size: 0.85rem; color: #666; margin-bottom: 4px; }
-    .calc-total-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 2.3rem; color: var(--verde); }
+    .calc-total-num { font-family: 'Montserrat', 'Montserrat Fallback', sans-serif; font-weight: 900; font-size: 2.3rem; color: var(--verde); }
     .calc-desglose { list-style: none; margin: 16px 0; font-size: 0.9rem; color: #444; }
     .calc-desglose li { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid #f0f0f0; }
     .calc-nota { font-size: 0.78rem; color: #888; margin-top: 10px; line-height: 1.5; }
@@ -644,7 +647,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     }
     .galeria-cap {
       position: absolute; left: 14px; bottom: 12px; z-index: 1;
-      color: var(--blanco); font-family: 'Montserrat', sans-serif; font-weight: 800;
+      color: var(--blanco); font-family: 'Montserrat', 'Montserrat Fallback', sans-serif; font-weight: 800;
       font-size: 0.95rem; text-shadow: 0 2px 8px rgba(0,0,0,0.5);
     }
     .galeria-item.g-big .galeria-cap { font-size: 1.25rem; }
@@ -667,7 +670,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     #newsletter { background: linear-gradient(135deg, var(--verde) 0%, var(--verde2) 100%); padding: 60px 20px; }
     .newsletter-box { max-width: 640px; margin: 0 auto; text-align: center; color: var(--blanco); }
     .newsletter-icon { font-size: 2.8rem; margin-bottom: 14px; }
-    .newsletter-box h2 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(1.5rem, 4vw, 2.1rem); margin-bottom: 12px; }
+    .newsletter-box h2 { font-family: 'Montserrat', 'Montserrat Fallback', sans-serif; font-weight: 900; font-size: clamp(1.5rem, 4vw, 2.1rem); margin-bottom: 12px; }
     .newsletter-box p { opacity: 0.92; font-size: 1rem; line-height: 1.7; margin-bottom: 26px; }
     .btn-newsletter {
       display: inline-flex; align-items: center; justify-content: center;
@@ -1065,7 +1068,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:18px;text-align:center;color:var(--blanco);">
       <div style="font-size:2.2rem;line-height:1;">🎉</div>
       <div style="max-width:640px;">
-        <div style="font-weight:900;font-family:'Montserrat',sans-serif;font-size:1.15rem;letter-spacing:-0.3px;">
+        <div style="font-weight:900;font-family:'Montserrat', 'Montserrat Fallback', sans-serif;font-size:1.15rem;letter-spacing:-0.3px;">
           Oferta Escapada de Booking.com — mínimo 15% de descuento
         </div>
         <p style="margin:6px 0 0;font-size:0.95rem;opacity:0.95;">
