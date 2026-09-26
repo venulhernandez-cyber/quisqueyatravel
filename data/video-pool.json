@@ -1,96 +1,109 @@
 {
-  "_readme": "Pool curado de videos reales de Pexels para las publicaciones automaticas de playa/hoteles. Las sesiones programadas (Blotato o Plan B) eligen el primer item de cada lista con used_at mas antiguo (o null), publican, y actualizan used_at a la fecha de hoy. Asi ya no dependen de Chrome/dispositivo para buscar video en vivo. Para variar el contenido, se puede agregar mas entradas a mano (buscar en pexels.com/search/videos, copiar el link con la mejor resolucion HD/1920 disponible).",
+  "_readme": "Pool curado de videos reales de Pexels para las publicaciones automaticas de playa/hoteles. Las sesiones programadas (Blotato o Plan B) eligen el primer item de cada lista con used_at mas antiguo (o null), publican, y actualizan used_at a la fecha de hoy. Asi ya no dependen de Chrome/dispositivo para buscar video en vivo. Para variar el contenido, se puede agregar mas entradas a mano (buscar en pexels.com/search/videos, copiar el link con la mejor resolucion HD/1920 disponible). REGLA (26-sep-2026): SOLO videos VERTICALES 9:16 (1080x1920). Los horizontales 1920x1080 hundian el alcance en Reels de Instagram (skip rate 78-100%). Al agregar entradas nuevas, buscar en Pexels con orientation=portrait. El credito 'Video via Pexels' va en el primer comentario, no en el caption.",
   "destinos": [
     {
       "slug": "punta-cana",
       "nombre": "Punta Cana",
       "guia": "guia-punta-cana.html",
-      "video": "https://videos.pexels.com/video-files/14834660/14834660-uhd_2560_1440_60fps.mp4",
-      "used_at": null
+      "video": "https://videos.pexels.com/video-files/36097649/15308557_1080_1920_24fps.mp4",
+      "used_at": null,
+      "orientacion": "vertical"
     },
     {
       "slug": "santo-domingo",
       "nombre": "Santo Domingo",
       "guia": "guia-santo-domingo.html",
-      "video": "https://videos.pexels.com/video-files/17404367/17404367-hd_1920_1080_24fps.mp4",
-      "used_at": null
+      "video": "https://videos.pexels.com/video-files/39213806/16686117_1080_1920_30fps.mp4",
+      "used_at": null,
+      "orientacion": "vertical"
     },
     {
       "slug": "puerto-plata",
       "nombre": "Puerto Plata",
       "guia": "guia-puerto-plata.html",
-      "video": "https://videos.pexels.com/video-files/28856647/12496701_1920_1080_30fps.mp4",
-      "used_at": null
+      "video": "https://videos.pexels.com/video-files/36906679/15634334_1080_1920_60fps.mp4",
+      "used_at": null,
+      "orientacion": "vertical"
     },
     {
       "slug": "samana",
       "nombre": "Samaná",
       "guia": "guia-samana.html",
-      "video": "https://videos.pexels.com/video-files/13722194/13722194-hd_1920_1080_24fps.mp4",
-      "used_at": null
+      "video": "https://videos.pexels.com/video-files/32539305/13876835_1080_1920_30fps.mp4",
+      "used_at": null,
+      "orientacion": "vertical"
     },
     {
       "slug": "la-romana",
       "nombre": "La Romana",
       "guia": "guia-la-romana.html",
-      "video": "https://videos.pexels.com/video-files/28924698/12518543_1920_1080_24fps.mp4",
-      "used_at": null
+      "video": "https://videos.pexels.com/video-files/28743485/12461831_1080_1920_30fps.mp4",
+      "used_at": null,
+      "orientacion": "vertical"
     },
     {
       "slug": "las-terrenas",
       "nombre": "Las Terrenas",
       "guia": "guia-las-terrenas.html",
-      "video": "https://videos.pexels.com/video-files/13831209/13831209-hd_1920_1080_60fps.mp4",
-      "used_at": "2026-09-19"
+      "video": "https://videos.pexels.com/video-files/32524945/13870213_1080_1920_30fps.mp4",
+      "used_at": null,
+      "orientacion": "vertical"
     },
     {
       "slug": "jarabacoa",
       "nombre": "Jarabacoa",
       "guia": "guia-jarabacoa.html",
-      "video": "https://videos.pexels.com/video-files/5735619/5735619-hd_1920_1080_30fps.mp4",
-      "used_at": null
+      "video": "https://videos.pexels.com/video-files/36974926/15664478_1080_1920_24fps.mp4",
+      "used_at": "2026-09-26",
+      "orientacion": "vertical"
     },
     {
       "slug": "constanza",
       "nombre": "Constanza",
       "guia": "guia-constanza.html",
-      "video": "https://videos.pexels.com/video-files/9758665/9758665-hd_1920_1080_30fps.mp4",
-      "used_at": "2026-09-04"
+      "video": "https://videos.pexels.com/video-files/34755515/14738387_1080_1920_60fps.mp4",
+      "used_at": null,
+      "orientacion": "vertical"
     },
     {
       "slug": "boca-chica",
       "nombre": "Boca Chica",
       "guia": "guia-boca-chica.html",
-      "video": "https://videos.pexels.com/video-files/14834785/14834785-hd_1920_1080_60fps.mp4",
-      "used_at": "2026-09-02"
+      "video": "https://videos.pexels.com/video-files/29192866/12605261_1080_1920_30fps.mp4",
+      "used_at": null,
+      "orientacion": "vertical"
     },
     {
       "slug": "barahona",
       "nombre": "Barahona",
       "guia": "guia-barahona.html",
-      "video": "https://videos.pexels.com/video-files/13721003/13721003-hd_1920_1080_24fps.mp4",
-      "used_at": null
+      "video": "https://videos.pexels.com/video-files/37644156/15956564_1080_1920_60fps.mp4",
+      "used_at": null,
+      "orientacion": "vertical"
     },
     {
       "slug": "isla-saona",
       "nombre": "Isla Saona",
       "guia": "guia-isla-saona.html",
-      "video": "https://videos.pexels.com/video-files/6003442/6003442-hd_1920_1080_25fps.mp4",
-      "used_at": null
+      "video": "https://videos.pexels.com/video-files/18093931/18093931-hd_1080_1920_60fps.mp4",
+      "used_at": null,
+      "orientacion": "vertical"
     },
     {
       "slug": "bayahibe",
       "nombre": "Bayahíbe",
       "guia": "guia-bayahibe.html",
-      "video": "https://videos.pexels.com/video-files/12021206/12021206-hd_1920_1080_30fps.mp4",
-      "used_at": null
+      "video": "https://videos.pexels.com/video-files/39037197/16610827_1080_1920_30fps.mp4",
+      "used_at": null,
+      "orientacion": "vertical"
     },
     {
       "slug": "santiago",
       "nombre": "Santiago de los Caballeros",
       "guia": "guia-santiago.html",
-      "video": "https://videos.pexels.com/video-files/34369089/14559836_1920_1080_30fps.mp4",
-      "used_at": null
+      "video": "https://videos.pexels.com/video-files/39461032/16807575_1080_1920_60fps.mp4",
+      "used_at": null,
+      "orientacion": "vertical"
     }
   ],
   "hoteles": [
@@ -99,8 +112,9 @@
       "nombre": "Live Aqua Punta Cana - All Inclusive - Adults Only",
       "destino_slug": "punta-cana",
       "guia": "guia-punta-cana.html",
-      "video": "https://videos.pexels.com/video-files/3576305/3576305-hd_1920_1080_25fps.mp4",
-      "used_at": null
+      "video": "https://videos.pexels.com/video-files/34732347/14723246_1080_1920_30fps.mp4",
+      "used_at": null,
+      "orientacion": "vertical"
     },
     {
       "slug": "catalonia-santo-domingo",
@@ -108,7 +122,8 @@
       "destino_slug": "santo-domingo",
       "guia": "guia-santo-domingo.html",
       "video": "https://videos.pexels.com/video-files/34708748/14711715_1080_1920_60fps.mp4",
-      "used_at": null
+      "used_at": null,
+      "orientacion": "vertical"
     },
     {
       "slug": "casa-marina-sosua",
@@ -116,23 +131,26 @@
       "destino_slug": "puerto-plata",
       "guia": "guia-puerto-plata.html",
       "video": "https://videos.pexels.com/video-files/29461250/12681713_1080_1920_30fps.mp4",
-      "used_at": null
+      "used_at": null,
+      "orientacion": "vertical"
     },
     {
       "slug": "sunscape-dominicus-la-romana",
       "nombre": "Sunscape Dominicus La Romana - All Inclusive",
       "destino_slug": "la-romana",
       "guia": "guia-la-romana.html",
-      "video": "https://videos.pexels.com/video-files/3576315/3576315-hd_1920_1080_25fps.mp4",
-      "used_at": null
+      "video": "https://videos.pexels.com/video-files/36720422/15562811_1080_1920_30fps.mp4",
+      "used_at": null,
+      "orientacion": "vertical"
     },
     {
       "slug": "viva-v-samana",
       "nombre": "Viva V Samana by Wyndham, A Trademark Adults All Inclusive",
       "destino_slug": "samana",
       "guia": "guia-samana.html",
-      "video": "https://videos.pexels.com/video-files/3576352/3576352-hd_1920_1080_25fps.mp4",
-      "used_at": null
+      "video": "https://videos.pexels.com/video-files/31030569/13263260_1080_1920_50fps.mp4",
+      "used_at": null,
+      "orientacion": "vertical"
     },
     {
       "slug": "hodelpa-garden-court",
@@ -140,7 +158,8 @@
       "destino_slug": "santiago",
       "guia": "guia-santiago.html",
       "video": "https://videos.pexels.com/video-files/7236519/7236519-hd_1080_2048_25fps.mp4",
-      "used_at": null
+      "used_at": null,
+      "orientacion": "vertical"
     }
   ]
 }
