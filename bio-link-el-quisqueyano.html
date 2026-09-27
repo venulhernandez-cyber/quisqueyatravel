@@ -208,33 +208,25 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     <div class="avatar" role="img" aria-label="Bandera de República Dominicana">🇩🇴</div>
     <span class="badge">El Quisqueyano</span>
     <h1 class="nombre">Venul <em>Hernández</em></h1>
-    <p class="tagline">Cultura, comunidad y motivación dominicana. Conductor, creador de contenido y orgulloso de mi isla. 🌴</p>
+    <p class="tagline">Noticias y cultura dominicana en NYC. Washington Heights de corazón y orgulloso de mi isla. 🌴</p>
   </div>
 
   <nav class="links">
 
-    <a class="link-card" href="https://www.facebook.com/profile.php?id=2061443547418301" target="_blank" rel="noopener">
-      <div class="link-icon ic-fb" aria-hidden="true">📘</div>
+    <a class="link-card featured" href="https://quisqueyatravel.org/vuelos-navidad-nyc-rd" target="_blank" rel="noopener">
+      <span class="pill" aria-hidden="true">Navidad</span>
+      <div class="link-icon ic-travel" aria-hidden="true">🎄</div>
       <div class="link-text">
-        <span class="link-title">Sígueme en Facebook</span>
-        <span class="link-sub">El Quisqueyano en nyc — comunidad y motivación</span>
+        <span class="link-title">Vuelos de Navidad</span>
+        <span class="link-sub">NYC → RD: cuándo comprar sin pagar de más</span>
       </div>
     </a>
 
-    <a class="link-card" href="https://instagram.com/venulh" target="_blank" rel="noopener">
-      <div class="link-icon ic-ig" aria-hidden="true">📸</div>
-      <div class="link-text">
-        <span class="link-title">Sígueme en Instagram</span>
-        <span class="link-sub">@venulh — el día a día de El Quisqueyano</span>
-      </div>
-    </a>
-
-    <a class="link-card featured" href="https://quisqueyatravel.org" target="_blank" rel="noopener">
-      <span class="pill" aria-hidden="true">Nuevo</span>
+    <a class="link-card qt-link" href="https://quisqueyatravel.org" target="_blank" rel="noopener">
       <div class="link-icon ic-travel" aria-hidden="true">✈️</div>
       <div class="link-text">
-        <span class="link-title">Quisqueya Travel</span>
-        <span class="link-sub">🎄 Especial de Navidad a RD — vuelos y hoteles</span>
+        <span class="link-title">Guías de viaje a RD</span>
+        <span class="link-sub">Quisqueya Travel — playas, hoteles y precios reales</span>
       </div>
     </a>
 
@@ -243,6 +235,22 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       <div class="link-text">
         <span class="link-title">Escríbeme por WhatsApp</span>
         <span class="link-sub">Preguntas sobre tu viaje o colaboraciones</span>
+      </div>
+    </a>
+
+    <a class="link-card" data-red="facebook" href="https://www.facebook.com/profile.php?id=2061443547418301" target="_blank" rel="noopener">
+      <div class="link-icon ic-fb" aria-hidden="true">📘</div>
+      <div class="link-text">
+        <span class="link-title">Sígueme en Facebook</span>
+        <span class="link-sub">El Quisqueyano en nyc — noticias y cultura dominicana</span>
+      </div>
+    </a>
+
+    <a class="link-card" data-red="instagram" href="https://instagram.com/venulh" target="_blank" rel="noopener">
+      <div class="link-icon ic-ig" aria-hidden="true">📸</div>
+      <div class="link-text">
+        <span class="link-title">Sígueme en Instagram</span>
+        <span class="link-sub">@venulh — el día a día de El Quisqueyano</span>
       </div>
     </a>
 
@@ -258,25 +266,29 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
 
   <div class="pie">
     <div class="flags">🇩🇴 · 🇺🇸 · 🗽</div>
-    <p>El Quisqueyano — Cultura, comunidad y motivación dominicana.</p>
+    <p>El Quisqueyano — Noticias y cultura dominicana en NYC.</p>
   </div>
 
 </div>
 
 <script>
-  // Pasa la fuente (?src=facebook_bio | instagram_bio) al link de Quisqueya Travel
+  // Pasa la fuente (?src=facebook_bio | instagram_bio) a los links de Quisqueya Travel
   // como UTM, para medir en Analytics qué red social manda mas trafico real.
   (function () {
     try {
       var src = new URLSearchParams(window.location.search).get('src');
       if (!src) return;
-      var link = document.querySelector('a.link-card.featured[href*="quisqueyatravel.org"]');
-      if (!link) return;
-      var url = new URL(link.getAttribute('href'), window.location.href);
-      url.searchParams.set('utm_source', src);
-      url.searchParams.set('utm_medium', 'social');
-      url.searchParams.set('utm_campaign', 'link_hub');
-      link.setAttribute('href', url.toString());
+      // Si viene de una red, no le muestres el boton para "seguir" esa misma red
+      var red = src.split('_')[0];
+      var same = document.querySelector('a.link-card[data-red="' + red + '"]');
+      if (same) same.style.display = 'none';
+      document.querySelectorAll('a.link-card[href*="quisqueyatravel.org"]').forEach(function (link) {
+        var url = new URL(link.getAttribute('href'), window.location.href);
+        url.searchParams.set('utm_source', src);
+        url.searchParams.set('utm_medium', 'social');
+        url.searchParams.set('utm_campaign', 'link_hub');
+        link.setAttribute('href', url.toString());
+      });
     } catch (e) { /* silencioso: nunca romper el bio-link por esto */ }
   })();
 </script>
