@@ -124,7 +124,10 @@ export async function onRequest(context) {
   // Website ID de "Quisqueya Travel" en cloud.umami.is.
   const contentType = newResponse.headers.get('Content-Type') || '';
   if (contentType.includes('text/html')) {
-    return new HTMLRewriter().on('head', new UmamiHeadInjector()).transform(newResponse);
+    return new HTMLRewriter()
+      .on('meta[http-equiv="Content-Security-Policy"]', new MetaCspUmamiPatcher())
+      .on('head', new UmamiHeadInjector())
+      .transform(newResponse);
   }
 
   return newResponse;
@@ -136,5 +139,27 @@ class UmamiHeadInjector {
       '<script defer src="https://cloud.umami.is/script.js" data-website-id="8adc5c26-2aa5-41fe-851f-ea5deee2d3c6"></script>',
       { html: true }
     );
+  }
+}
+
+// --- Fix Umami (28 sep 2026) ---
+// Casi todas las páginas .html traen su propia CSP en un <meta http-equiv>,
+// y el header CSP de arriba no llega al navegador (Cloudflare lo descarta).
+// Esa CSP del meta no incluía cloud.umami.is, así que bloqueaba el script.
+// Aquí se agrega cloud.umami.is a script-src y connect-src del meta, en
+// todas las páginas a la vez, sin editar los 89 archivos .html.
+class MetaCspUmamiPatcher {
+  element(element) {
+    const csp = element.getAttribute('content');
+    if (!csp || csp.includes('cloud.umami.is')) return;
+    const patched = csp
+      .split(';')
+      .map((d) => {
+        const t = d.trim();
+        return /^(script-src|connect-src)\s/.test(t) ? t + ' https://cloud.umami.is' : t;
+      })
+      .filter(Boolean)
+      .join('; ');
+    element.setAttribute('content', patched);
   }
 }
