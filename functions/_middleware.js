@@ -115,7 +115,7 @@ export async function onRequest(context) {
 
   newResponse.headers.set(
     'Content-Security-Policy',
-    "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://emrldtp.com https://cloud.umami.is; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://*.google-analytics.com https://www.googletagmanager.com https://emrldtp.com https://cloud.umami.is; frame-ancestors 'none'; base-uri 'self'; object-src 'none'"
+    "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://emrldtp.com https://cloud.umami.is; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://*.google-analytics.com https://www.googletagmanager.com https://emrldtp.com https://cloud.umami.is https://gateway.umami.is; frame-ancestors 'none'; base-uri 'self'; object-src 'none'"
   );
 
   // --- Analítica Umami (11 sep 2026) ---
@@ -148,15 +148,18 @@ class UmamiHeadInjector {
 // Esa CSP del meta no incluía cloud.umami.is, así que bloqueaba el script.
 // Aquí se agrega cloud.umami.is a script-src y connect-src del meta, en
 // todas las páginas a la vez, sin editar los 89 archivos .html.
+// gateway.umami.is es a donde Umami Cloud manda las visitas (connect-src).
 class MetaCspUmamiPatcher {
   element(element) {
     const csp = element.getAttribute('content');
-    if (!csp || csp.includes('cloud.umami.is')) return;
+    if (!csp || csp.includes('gateway.umami.is')) return;
     const patched = csp
       .split(';')
       .map((d) => {
         const t = d.trim();
-        return /^(script-src|connect-src)\s/.test(t) ? t + ' https://cloud.umami.is' : t;
+        if (/^script-src\s/.test(t)) return t + ' https://cloud.umami.is';
+        if (/^connect-src\s/.test(t)) return t + ' https://cloud.umami.is https://gateway.umami.is';
+        return t;
       })
       .filter(Boolean)
       .join('; ');
