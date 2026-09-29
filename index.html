@@ -1085,6 +1085,127 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
 </section>
 
 <!-- ── HOTELES ── -->
+<!-- QUIZ DESTINO 2026-09-29 -->
+<section id="quiz-destino" class="qd-wrap">
+  <div class="container">
+    <div class="qd-card">
+      <span class="qd-label">🧭 Quiz de 30 segundos</span>
+      <h2 class="qd-title">¿Qué rincón de RD va contigo?</h2>
+      <p class="qd-sub">Contesta 3 preguntas y te decimos a dónde ir, con guía y hoteles listos.</p>
+
+      <div class="qd-step" data-q="estilo">
+        <p class="qd-q">1. ¿Qué te pide el cuerpo?</p>
+        <div class="qd-opts">
+          <button type="button" data-v="playa">🏖️ Playa y descanso</button>
+          <button type="button" data-v="montana">⛰️ Montaña y aventura</button>
+          <button type="button" data-v="cultura">🏛️ Ciudad, historia y comida</button>
+          <button type="button" data-v="fiesta">🎶 Fiesta y ambiente</button>
+        </div>
+      </div>
+
+      <div class="qd-step" data-q="grupo">
+        <p class="qd-q">2. ¿Con quién vas?</p>
+        <div class="qd-opts">
+          <button type="button" data-v="pareja">💑 En pareja</button>
+          <button type="button" data-v="familia">👨‍👩‍👧 En familia</button>
+          <button type="button" data-v="amigos">🍻 Con los panas</button>
+          <button type="button" data-v="solo">🎒 Solo/a</button>
+        </div>
+      </div>
+
+      <div class="qd-step" data-q="presupuesto">
+        <p class="qd-q">3. ¿Cuál es el presupuesto?</p>
+        <div class="qd-opts">
+          <button type="button" data-v="bajo">💵 Económico</button>
+          <button type="button" data-v="medio">💳 Intermedio</button>
+          <button type="button" data-v="alto">💎 Sin mirar el precio</button>
+        </div>
+      </div>
+
+      <div class="qd-res" id="qd-res" aria-live="polite">
+        <div class="qd-res-lbl">Tu destino ideal es</div>
+        <div class="qd-res-name" id="qd-res-name"></div>
+        <p class="qd-res-txt" id="qd-res-txt"></p>
+        <a class="qd-btn" id="qd-res-guia" href="#">📖 Ver la guía completa →</a>
+        <a class="qd-btn qd-btn-alt" href="#hoteles">🏨 Ver hoteles con precio real →</a>
+        <p class="qd-alt" id="qd-alt"></p>
+        <button type="button" class="qd-reset" id="qd-reset">↺ Hacer el quiz otra vez</button>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .qd-wrap{padding:48px 0;background:var(--gris)}
+  .qd-card{max-width:760px;margin:0 auto;background:var(--blanco);border-radius:18px;padding:28px 22px;box-shadow:0 8px 28px rgba(0,0,0,.08);text-align:center}
+  .qd-label{display:inline-block;background:var(--naranja);color:var(--oscuro);font-weight:700;font-size:.8rem;padding:5px 12px;border-radius:30px}
+  .qd-title{font-family:'Montserrat','Montserrat Fallback',sans-serif;font-weight:900;color:var(--oscuro);font-size:1.6rem;margin:12px 0 6px}
+  .qd-sub{color:var(--texto);margin:0 0 18px}
+  .qd-step{margin-top:18px}
+  .qd-q{font-weight:700;color:var(--oscuro);margin-bottom:10px}
+  .qd-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+  .qd-opts button{border:2px solid #dfe5e1;background:var(--blanco);color:var(--texto);border-radius:12px;padding:12px 10px;font-weight:600;cursor:pointer;transition:all .15s}
+  .qd-opts button:hover{border-color:var(--verde2)}
+  .qd-opts button.on{background:var(--verde);border-color:var(--verde);color:var(--blanco)}
+  .qd-res{display:none;margin-top:24px;padding:22px 16px;border-radius:14px;background:linear-gradient(135deg,var(--verde) 0%,var(--verde2) 100%);color:var(--blanco)}
+  .qd-res.show{display:block}
+  .qd-res-lbl{font-size:.85rem;opacity:.9}
+  .qd-res-name{font-family:'Montserrat','Montserrat Fallback',sans-serif;font-weight:900;font-size:1.9rem;margin:4px 0 8px}
+  .qd-res-txt{margin:0 auto 14px;max-width:560px}
+  .qd-btn{display:block;max-width:360px;margin:8px auto 0;background:var(--naranja);color:var(--oscuro);font-weight:700;padding:12px;border-radius:10px;text-decoration:none}
+  .qd-btn-alt{background:var(--blanco);color:var(--verde)}
+  .qd-alt{font-size:.9rem;margin:14px 0 6px;opacity:.95}
+  .qd-alt a{color:var(--blanco);font-weight:700}
+  .qd-reset{background:none;border:0;color:var(--blanco);text-decoration:underline;cursor:pointer;font-size:.85rem}
+</style>
+<script>
+(function(){
+  var D={
+    'punta-cana':{n:'Punta Cana',t:'Arena blanca, todo incluido y cero estrés. El clásico que nunca falla.',s:{playa:3,fiesta:2,pareja:2,familia:3,amigos:2,medio:2,alto:3}},
+    'samana':{n:'Samaná',t:'Naturaleza pura: ballenas, cascadas y playas que parecen de postal.',s:{playa:2,montana:2,pareja:3,solo:1,medio:2,alto:1}},
+    'las-terrenas':{n:'Las Terrenas',t:'Playa con vibra bohemia, buena comida y ambiente de noche tranquilo.',s:{playa:3,fiesta:1,pareja:3,amigos:2,solo:2,medio:3}},
+    'puerto-plata':{n:'Puerto Plata',t:'Teleférico, Cabarete, Sosúa y playas para todos los bolsillos.',s:{playa:2,fiesta:2,cultura:1,familia:2,amigos:3,bajo:2,medio:2}},
+    'santo-domingo':{n:'Santo Domingo',t:'La Zona Colonial, el Malecón y la mejor comida criolla. Historia viva.',s:{cultura:3,fiesta:2,solo:3,amigos:2,pareja:1,bajo:3,medio:1}},
+    'santiago':{n:'Santiago',t:'Corazón del Cibao: monumento, carnaval, tabaco y un buen sancocho.',s:{cultura:3,fiesta:1,familia:1,solo:2,bajo:3}},
+    'jarabacoa':{n:'Jarabacoa',t:'Ríos, rafting, Pico Duarte y ese fresquito de montaña.',s:{montana:3,amigos:3,solo:2,familia:1,bajo:2,medio:1}},
+    'constanza':{n:'Constanza',t:'El valle más frío del Caribe. Cabañas, fresas y paz total.',s:{montana:3,pareja:2,familia:2,bajo:2,medio:1}},
+    'barahona':{n:'Barahona',t:'Donde el río se junta con el mar. El sur salvaje que pocos conocen.',s:{playa:1,montana:2,amigos:1,solo:3,bajo:3}},
+    'bayahibe':{n:'Bayahibe',t:'Pueblito costero, aguas cristalinas y puerta a Isla Saona.',s:{playa:3,pareja:2,familia:2,medio:2}},
+    'la-romana':{n:'La Romana',t:'Casa de Campo, Altos de Chavón y golf. Elegancia caribeña.',s:{playa:1,cultura:1,pareja:2,familia:1,alto:3}},
+    'boca-chica':{n:'Boca Chica',t:'Playa a 30 minutos de Santo Domingo, frituras y ambiente de domingo.',s:{playa:2,fiesta:3,amigos:3,familia:1,bajo:3}}
+  };
+  var box=document.getElementById('quiz-destino'); if(!box) return;
+  var R={};
+  box.querySelectorAll('.qd-step').forEach(function(st){
+    st.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        st.querySelectorAll('button').forEach(function(x){x.classList.remove('on')});
+        b.classList.add('on'); R[st.dataset.q]=b.dataset.v;
+        if(R.estilo&&R.grupo&&R.presupuesto) mostrar();
+      });
+    });
+  });
+  function mostrar(){
+    var rank=Object.keys(D).map(function(k){
+      var s=D[k].s,p=(s[R.estilo]||0)*3+(s[R.grupo]||0)*2+(s[R.presupuesto]||0);
+      return {k:k,p:p};
+    }).sort(function(a,b){return b.p-a.p});
+    var w=D[rank[0].k],a1=rank[1].k,a2=rank[2].k;
+    document.getElementById('qd-res-name').textContent=w.n;
+    document.getElementById('qd-res-txt').textContent=w.t;
+    document.getElementById('qd-res-guia').href='/guia-'+rank[0].k;
+    document.getElementById('qd-alt').innerHTML='También te pegan: <a href="/guia-'+a1+'">'+D[a1].n+'</a> y <a href="/guia-'+a2+'">'+D[a2].n+'</a>';
+    var res=document.getElementById('qd-res'); res.classList.add('show');
+    res.scrollIntoView({behavior:'smooth',block:'center'});
+    if(window.gtag) gtag('event','quiz_destino',{destino:rank[0].k});
+  }
+  document.getElementById('qd-reset').addEventListener('click',function(){
+    R={}; box.querySelectorAll('.qd-opts button').forEach(function(x){x.classList.remove('on')});
+    document.getElementById('qd-res').classList.remove('show');
+    box.scrollIntoView({behavior:'smooth'});
+  });
+})();
+</script>
+<!-- /QUIZ DESTINO -->
 <section id="hoteles">
   <div class="container">
     <div class="section-header">
