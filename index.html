@@ -684,11 +684,16 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
     .newsletter-nota { display: block; margin-top: 14px; font-size: 0.8rem; opacity: 0.8; }
   </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3518606689675045" crossorigin="anonymous"></script>
+  <style>
+    /* FIX NAV 2026-09-29: el menu no cabia en 992-1400px y causaba scroll horizontal */
+    @media (min-width:1200px){.navbar-collapse{min-width:0}.navbar .navbar-nav{flex-wrap:wrap}.navbar .nav-link{white-space:nowrap}}
+    @media (min-width:1200px) and (max-width:1499.98px){.navbar .nav-link{font-size:.82rem;padding-left:.35rem!important;padding-right:.35rem!important}.navbar .navbar-nav{gap:0!important}}
+  </style>
 </head>
 <body>
 
 <!-- ── NAV (Bootstrap navbar) ── -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+<nav class="navbar navbar-expand-xl navbar-dark sticky-top">
   <div class="container-fluid px-3 px-lg-4">
     <a href="index.html" class="navbar-brand nav-logo py-0">
       <span class="flag">🇩🇴</span>
@@ -698,7 +703,7 @@ src="https://www.facebook.com/tr?id=2054264274867364&ev=PageView&noscript=1"
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navPrincipal">
-      <ul class="navbar-nav me-auto mb-3 mb-lg-0 align-items-lg-center gap-lg-2">
+      <ul class="navbar-nav me-auto mb-3 mb-xl-0 align-items-xl-center gap-xl-2">
         <li class="nav-item"><a class="nav-link" href="#especial">🎄 Especial Navidad</a></li>
         <li class="nav-item"><a class="nav-link" href="#ofertas">💸 Ofertas</a></li>
         <li class="nav-item"><a class="nav-link" href="#hoteles">Hoteles</a></li>
