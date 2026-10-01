@@ -1,0 +1,60 @@
+<!-- Plantilla de la sección de reseñas del home. Se sacó de index.html el 1 oct 2026: oculta con display:none y con textos de relleno,
+     los auditores de GEO (geo-optimizer) la marcan como texto escondido para las IA.
+     Para usarla: pegarla antes de <!-- ── SOBRE ── --> en index.html SOLO cuando haya 3 comentarios reales,
+     quitarle style="display:none" y cambiar los textos [TEXTO...] y [Nombre]. El CSS de #resenas sigue en index.html. -->
+<!--
+  ── RESEÑAS / PRUEBA SOCIAL ──
+  Preparada a pedido de Venul (7 jul 2026) — pendiente detectado el 6 jul comparando vs. la competencia
+  (quisqueyatravel.com.do sí muestra reseñas de Google en su home, Quisqueya Travel no tenía ninguna).
+
+  OCULTA con display:none hasta tener contenido REAL. No inventar comentarios: rompe la política de
+  afiliados y no es honesto con la audiencia. Cuando Venul tenga 3 comentarios reales de Facebook/Instagram
+  (con el nombre de pila de quien comentó, autorización si hace falta, y el texto exacto):
+    1. Quitar style="display:none" de la etiqueta <section> de abajo
+    2. Reemplazar cada "[TEXTO DEL COMENTARIO REAL]" y "[Nombre]" por el contenido real
+    3. Commitear a main y avisar a Cloudflare que despliegue
+-->
+<section id="resenas" style="display:none">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">💬 Lo que dice la gente</span>
+      <h2>Comentarios reales de la comunidad</h2>
+      <p>Esto es lo que dicen dominicanos de la diáspora y viajeros que ya usaron nuestras guías.</p>
+    </div>
+    <div class="resenas-grid">
+      <div class="resena-card">
+        <div class="resena-quote">&ldquo;</div>
+        <p class="resena-texto">[TEXTO DEL COMENTARIO REAL 1 — copiar tal cual de Facebook/Instagram]</p>
+        <div class="resena-autor">
+          <div class="resena-avatar">?</div>
+          <div>
+            <div class="resena-nombre">[Nombre]</div>
+            <div class="resena-fuente">Comentario en Facebook</div>
+          </div>
+        </div>
+      </div>
+      <div class="resena-card">
+        <div class="resena-quote">&ldquo;</div>
+        <p class="resena-texto">[TEXTO DEL COMENTARIO REAL 2 — copiar tal cual de Facebook/Instagram]</p>
+        <div class="resena-autor">
+          <div class="resena-avatar">?</div>
+          <div>
+            <div class="resena-nombre">[Nombre]</div>
+            <div class="resena-fuente">Comentario en Facebook</div>
+          </div>
+        </div>
+      </div>
+      <div class="resena-card">
+        <div class="resena-quote">&ldquo;</div>
+        <p class="resena-texto">[TEXTO DEL COMENTARIO REAL 3 — copiar tal cual de Facebook/Instagram]</p>
+        <div class="resena-autor">
+          <div class="resena-avatar">?</div>
+          <div>
+            <div class="resena-nombre">[Nombre]</div>
+            <div class="resena-fuente">Comentario en Facebook</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
